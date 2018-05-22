@@ -1,4 +1,75 @@
-console.log("Hey Brad!");
+schedule = [{name: 'Safeway Open', date: new Date(Date.parse('10-5-2017')), tournament_id: '464'},
+            {name: 'CIMB Classic', date: new Date(Date.parse('10-12-2017')), tournament_id: '494'},
+            {name: 'THE CJ CUP', date: new Date(Date.parse('10-19-2017')), tournament_id: '521'},
+            {name: 'Sanderson Farms Championship', date: new Date(Date.parse('10-26-2017')), tournament_id: '054'},
+            {name: 'WGC-HSBC Champions', date: new Date(Date.parse('10-26-2017')), tournament_id: '489'},
+            {name: 'Shriners Hospitals for Child', date: new Date(Date.parse('11-2-2017')), tournament_id: '47'},
+            {name: 'OHL Classic at Mayakoba', date: new Date(Date.parse('11-9-2017')), tournament_id: '457'},
+            {name: 'The RSM Classic', date: new Date(Date.parse('11-16-2017')), tournament_id: '493'},
+            {name: 'World Challenge', date: new Date(Date.parse('11-30-2017')), tournament_id: '478'},
+            {name: 'QBE Shootout', date: new Date(Date.parse('12-8-2017')), tournament_id: '58'},
+            {name: 'Sentry T of C', date: new Date(Date.parse('1-4-2018')), tournament_id: '16'},
+            {name: 'Sony Open in Hawaii', date: new Date(Date.parse('1-11-2018')), tournament_id: '6'},
+            {name: 'CareerBuilder', date: new Date(Date.parse('1-18-2018')), tournament_id: '2'},
+            {name: 'Farmers Insurance Open', date: new Date(Date.parse('1-25-2018')), tournament_id: '004'},
+            {name: 'Phoenix Open', date: new Date(Date.parse('2-1-2018')), tournament_id: '003'},
+            {name: 'AT&T Pebble Beach', date: new Date(Date.parse('2-8-2018')), tournament_id: '5'},
+            {name: 'Genesis Open', date: new Date(Date.parse('2-15-2018')), tournament_id: '7'},
+            {name: 'The Honda Classic', date: new Date(Date.parse('2-22-2018')), tournament_id: '10'},
+            {name: 'Puerto Rico', date: new Date(Date.parse('3-1-2018')), tournament_id: '483'},
+            {name: 'WGC-Mexico Championship', date: new Date(Date.parse('3-1-2018')), tournament_id: '473'},
+            {name: 'Valspar Champ', date: new Date(Date.parse('3-8-2018')), tournament_id: '475'},
+            {name: 'Arnold Palmer Invtl', date: new Date(Date.parse('3-15-2018')), tournament_id: '9'},
+            {name: 'Puntacana', date: new Date(Date.parse('3-22-2018')), tournament_id: '522'},
+            {name: 'WGC-Match Play', date: new Date(Date.parse('3-21-2018')), tournament_id: '470'},
+            {name: 'Shell Houston Open', date: new Date(Date.parse('3-29-2018')), tournament_id: '20'},
+            {name: 'Masters Tournament', date: new Date(Date.parse('4-5-2018')), tournament_id: '14'},
+            {name: 'RBC Heritage', date: new Date(Date.parse('4-12-2018')), tournament_id: '12'},
+            {name: 'Valero Texas Open', date: new Date(Date.parse('4-19-2018')), tournament_id: '41'},
+            {name: 'Zurich Classic', date: new Date(Date.parse('4-26-2018')), tournament_id: '18'},
+            {name: 'Wells Fargo Championship', date: new Date(Date.parse('5-3-2018')), tournament_id: '480'},
+            {name: 'THE PLAYERS Championship', date: new Date(Date.parse('5-10-2018')), tournament_id: '11'},
+            {name: 'AT&T Byron Nelson', date: new Date(Date.parse('5-17-2018')), tournament_id: '019'},
+            {name: 'DEAN & DELUCA', date: new Date(Date.parse('5-24-2018')), tournament_id: '021'},
+            {name: 'the Memorial Tournament', date: new Date(Date.parse('5-31-2018')), tournament_id: '023'},
+            {name: 'FedEx St. Jude Classic', date: new Date(Date.parse('6-7-2018')), tournament_id: '025'},
+            {name: 'U.S. Open', date: new Date(Date.parse('6-14-2018')), tournament_id: '026'},
+            {name: 'Travelers Championship', date: new Date(Date.parse('6-21-2018')), tournament_id: '034'},
+            {name: 'The National', date: new Date(Date.parse('6-28-2018')), tournament_id: '471'},
+            {name: 'The Greenbrier Classic', date: new Date(Date.parse('7-5-2018')), tournament_id: '490'},
+            {name: 'John Deere Classic', date: new Date(Date.parse('7-12-2018')), tournament_id: '030'},
+            {name: 'Barbasol Champ', date: new Date(Date.parse('7-19-2018')), tournament_id: '518'},
+            {name: 'The Open', date: new Date(Date.parse('7-19-2018')), tournament_id: '100'},
+            {name: 'RBC Canadian Open', date: new Date(Date.parse('7-26-2018')), tournament_id: '032'},
+            {name: 'Barracuda Championship', date: new Date(Date.parse('8-2-2018')), tournament_id: '472'},
+            {name: 'WGC-Bridgestone Invitational', date: new Date(Date.parse('8-2-2018')), tournament_id: '476'},
+            {name: 'PGA Championship', date: new Date(Date.parse('8-9-2018')), tournament_id: '033'},
+            {name: 'Wyndham Championship', date: new Date(Date.parse('8-16-2018')), tournament_id: '013'},
+            {name: 'NORTHERN TRUST', date: new Date(Date.parse('8-23-2018')), tournament_id: '027'},
+            {name: 'Dell Tech Champ', date: new Date(Date.parse('8-31-2018')), tournament_id: '505'},
+            {name: 'BMW Championship', date: new Date(Date.parse('9-6-2018')), tournament_id: '028'},
+            {name: 'TOUR Championship', date: new Date(Date.parse('9-20-2018')), tournament_id: '060'},
+            {name: 'Ryder Cup', date: new Date(Date.parse('9-28-2018')), tournament_id: '468'}
+];
+
+var today = new Date();
+tourneysBeforeToday = schedule.filter(event => event.date <= today);;
+tourneysAfterToday = schedule.filter(event => event.date >= today);;
+
+
+relevantTourney = {};
+if (today.getDay() >= 4)
+{
+  relevantTourney = tourneysAfterToday[0];
+ 
+}
+else
+{
+  relevantTourney = tourneysBeforeToday.slice(-1)[0];
+  
+}
+
+
 teams = {
   "Trump`s Blue Steele (Griff #1)": ["Daniel Berger","Patrick Cantlay","Tommy Fleetwood","Seamus Power","Jamie Lovemark","Emiliano Grillo","Bud Cauley","Brendan Steele"],
   "Team Hole in None (Mike Templin)": ["Jason Day","Cameron Percy","Thomas Bjorn","Bud Cauley","Andrew Landry","Graham DeLaet","Tony Finau","Brendan Steele"],
@@ -84,7 +155,7 @@ currentData = {};
 
 function checkForData() {
 
-  $.getJSON("https://statdata.pgatour.com/r/019/2018/leaderboard-v2.json", function( data ) {
+  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2018/leaderboard-v2.json", function( data ) {
 
 
     if (! _.isEqual(data, currentData))
