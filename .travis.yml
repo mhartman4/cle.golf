@@ -4,4 +4,6 @@ deploy:
   secret_access_key:
     secure: EhtobStJ9AsLn+f6pFw3+yh76F7+BjSjT1QpQBR/dJIAe4SFbZXEjLToTRlps6o+cwR7CB//H4YcTv1YDJwYxTpea9N3mQt5+5vnZSRn4Q1I0UTxGHOHMpsytcZv/v1fAEf2tfYV2L5FJUrj/RUw5ev+SXY7oRWHnAJqQ41/oZ7WVJUl0JfMII14z9sQjev+IV1ALdX80XXBDXmERcM8aOTELoJVO0wgfPWFQBXIK6FZMu7ytxIkHsaM/ueKYDKXoBbFhXCgnc1ePrtaKWM4l9MODEwGBDConIDxI7Ow7L8saKaJ7MyvUXzDT7locy3JAV4TaaSabPn3mmiPyHyHkgPDbvacVXoruxwCv1BOMpiZBNvz5PBorM55PrVT0Diak2AByKh1pDMbL+NtrxZ6KzqR97+q9azbzP6L90WPz81fZRZmQjP3N9LC9erLGj703WVnTTtSSfu5iAnuloljt9v3Q1zYC4Ow9upb91qW+MPorGAbVYaYPq8pMwbd/ogqP8XlHdBynyp8sOc2/so7NcAZaq2QjOyDqj5NZ969xbjrwVqgRZCtkHfJVX5Iwnm6Gv9yi4yGHY8vNU5pu52/vzdqFHl2UGJzzStLtfX0+/QWkC6C0ymrad5WAVhazyndI6vGw/Y7jVNm5ISHvfSJ+jrSp3ZxEWdsjAuWOadmotw=
   bucket: cle.golf
-  
+  skip_cleanup: true
+  acl: public_read 
+  region: "us-east-1"
