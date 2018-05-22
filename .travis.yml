@@ -1,9 +1,25 @@
+language: python
+python:
+  - "3.5"
+cache: pip
+install:
+  # Install any dependencies required for building your site here.
+  # `awscli` is required for invalidation of CloudFront distributions.
+  - pip install awscli
+script:
+  # Build your site (e.g., HTML, CSS, JS) here.
+  - make build
 deploy:
+  # Control deployment by setting a value for `on`. Setting the `branch`
+  # option to `master` means Travis will only attempt a deployment on
+  # builds of your repo's master branch (e.g., after you merge a PR).
+  on:
+    branch: master
   provider: s3
-  access_key_id: AKIAIR4VXJ5FTHPDX47Q
-  secret_access_key:
-    secure: EhtobStJ9AsLn+f6pFw3+yh76F7+BjSjT1QpQBR/dJIAe4SFbZXEjLToTRlps6o+cwR7CB//H4YcTv1YDJwYxTpea9N3mQt5+5vnZSRn4Q1I0UTxGHOHMpsytcZv/v1fAEf2tfYV2L5FJUrj/RUw5ev+SXY7oRWHnAJqQ41/oZ7WVJUl0JfMII14z9sQjev+IV1ALdX80XXBDXmERcM8aOTELoJVO0wgfPWFQBXIK6FZMu7ytxIkHsaM/ueKYDKXoBbFhXCgnc1ePrtaKWM4l9MODEwGBDConIDxI7Ow7L8saKaJ7MyvUXzDT7locy3JAV4TaaSabPn3mmiPyHyHkgPDbvacVXoruxwCv1BOMpiZBNvz5PBorM55PrVT0Diak2AByKh1pDMbL+NtrxZ6KzqR97+q9azbzP6L90WPz81fZRZmQjP3N9LC9erLGj703WVnTTtSSfu5iAnuloljt9v3Q1zYC4Ow9upb91qW+MPorGAbVYaYPq8pMwbd/ogqP8XlHdBynyp8sOc2/so7NcAZaq2QjOyDqj5NZ969xbjrwVqgRZCtkHfJVX5Iwnm6Gv9yi4yGHY8vNU5pu52/vzdqFHl2UGJzzStLtfX0+/QWkC6C0ymrad5WAVhazyndI6vGw/Y7jVNm5ISHvfSJ+jrSp3ZxEWdsjAuWOadmotw=
+  # You can refer to environment variables from Travis repo settings!
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  # Name of the S3 bucket to which your site should be uploaded.
   bucket: cle.golf
+  # Prevent Travis from deleting your built site so it can be uploaded.
   skip_cleanup: true
-  acl: public_read 
-  region: "us-east-1"
