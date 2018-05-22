@@ -1,25 +1,15 @@
-language: python
-python:
-  - "3.5"
-cache: pip
-install:
-  # Install any dependencies required for building your site here.
-  # `awscli` is required for invalidation of CloudFront distributions.
-  - pip install awscli
-script:
-  # Build your site (e.g., HTML, CSS, JS) here.
-  - make build
+language: ruby
+
+before_script:
+  - chmod +x ./script/cibuild # or do this locally and commit
+
+script: bundle exec jekyll build
+
 deploy:
-  # Control deployment by setting a value for `on`. Setting the `branch`
-  # option to `master` means Travis will only attempt a deployment on
-  # builds of your repo's master branch (e.g., after you merge a PR).
-  on:
-    branch: master
   provider: s3
-  # You can refer to environment variables from Travis repo settings!
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
-  # Name of the S3 bucket to which your site should be uploaded.
   bucket: cle.golf
-  # Prevent Travis from deleting your built site so it can be uploaded.
   skip_cleanup: true
+  acl: public_read 
+  region: "us-east-1"
