@@ -1,2 +1,3 @@
-lib = File.expand_path("../lib", __FILE__)
-puts "Hello!!!"
+require 'rspec/core/rake_task'
+task :default => :spec
+RSpec::Core::RakeTask.new
