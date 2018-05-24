@@ -53,9 +53,8 @@ schedule = [{name: 'Safeway Open', date: new Date(Date.parse('10-5-2017')), tour
 ];
 
 var today = new Date();
-tourneysBeforeToday = schedule.filter(event => event.date <= today);;
-tourneysAfterToday = schedule.filter(event => event.date >= today);;
-
+tourneysBeforeToday = schedule.filter(event => event.date.setHours(0,0,0,0) <= today.setHours(0,0,0,0));;
+tourneysAfterToday = schedule.filter(event => event.date.setHours(0,0,0,0) >= today.setHours(0,0,0,0));;
 
 relevantTourney = {};
 if (today.getDay() >= 4)
@@ -65,10 +64,8 @@ if (today.getDay() >= 4)
 }
 else
 {
-  relevantTourney = tourneysBeforeToday.slice(-1)[0];
-  
+  relevantTourney = tourneysBeforeToday.slice(-1)[0];  
 }
-
 
 teams = {
   "Trump`s Blue Steele (Griff #1)": ["Daniel Berger","Patrick Cantlay","Tommy Fleetwood","Seamus Power","Jamie Lovemark","Emiliano Grillo","Bud Cauley","Brendan Steele"],
