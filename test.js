@@ -276,7 +276,7 @@ function checkForData() {
     }
     $(".error-message").hide();
   })
-	alert("Is this thing on???");
+	
 }
 
 
