@@ -276,6 +276,7 @@ function checkForData() {
     }
     $(".error-message").hide();
   })
+	alert("Is this thing on???");
 }
 
 
@@ -384,5 +385,3 @@ function correctedName(name) {
   else{return name;}
 
 }
-
-alert("Is this thing on??");
