@@ -58,7 +58,7 @@ tourneysBeforeToday = schedule.filter(event => event.date.setHours(0,0,0,0) <= t
 tourneysAfterToday = schedule.filter(event => event.date.setHours(0,0,0,0) >= today.setHours(0,0,0,0));;
 
 relevantTourney = {};
-if (today.getDay() >= 4)
+if (today.getDay() <= 4)
 {
   relevantTourney = tourneysAfterToday[0];
  
