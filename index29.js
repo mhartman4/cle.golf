@@ -1,4 +1,3 @@
-
 schedule = [{name: 'Safeway Open', date: new Date(Date.parse('10-5-2017')), tournament_id: '464'},
             {name: 'CIMB Classic', date: new Date(Date.parse('10-12-2017')), tournament_id: '494'},
             {name: 'THE CJ CUP', date: new Date(Date.parse('10-19-2017')), tournament_id: '521'},
@@ -58,15 +57,10 @@ tourneysBeforeToday = schedule.filter(event => event.date.setHours(0,0,0,0) <= t
 tourneysAfterToday = schedule.filter(event => event.date.setHours(0,0,0,0) >= today.setHours(0,0,0,0));;
 
 relevantTourney = {};
-if (today.getDay() <= 4)
-{
-  relevantTourney = tourneysAfterToday[0];
- 
-}
-else
-{
+
   relevantTourney = tourneysBeforeToday.slice(-1)[0];  
-}
+
+debugger;
 
 teams = {
   "Trump`s Blue Steele (Griff #1)": ["Daniel Berger","Patrick Cantlay","Tommy Fleetwood","Seamus Power","Jamie Lovemark","Emiliano Grillo","Bud Cauley","Brendan Steele"],
