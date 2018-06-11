@@ -60,8 +60,6 @@ relevantTourney = {};
 
   relevantTourney = tourneysBeforeToday.slice(-1)[0];  
 
-debugger;
-
 teams = {
   "Trump`s Blue Steele (Griff #1)": ["Daniel Berger","Patrick Cantlay","Tommy Fleetwood","Seamus Power","Jamie Lovemark","Emiliano Grillo","Bud Cauley","Brendan Steele"],
   "Team Hole in None (Mike Templin)": ["Jason Day","Cameron Percy","Thomas Bjorn","Bud Cauley","Andrew Landry","Graham DeLaet","Tony Finau","Brendan Steele"],
@@ -379,3 +377,4 @@ function correctedName(name) {
   else{return name;}
 
 }
+
