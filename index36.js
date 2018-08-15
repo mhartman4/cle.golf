@@ -161,8 +161,6 @@ var processedTeams = Object.keys(teams).map(function(team) {
 
 // On ready do the magic!
 $(function() {
-  window.redSoxRecord = "";
-  window.redSoxRecord = getRedSoxRecord();
   checkForData();
   window.setInterval(function(){
     checkForData();
