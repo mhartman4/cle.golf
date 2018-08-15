@@ -25,7 +25,6 @@ $(function() {
   filltheTable();
 });
 
-
 function filltheTable() {
   $.each(overall.standings, function(i, team) {
       if (team.balance.value() > 0)
