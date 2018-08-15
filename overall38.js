@@ -24,14 +24,10 @@ overall.standings = overall.standings.map(function(team){
 
 
 $(function() {
-
+  jQuery.ajaxSetup({async:false});
   filltheTable();
 
-  jQuery.ajaxSetup({async:false});
-  $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
-        record = data.trim();
-        $( "span:contains('Spiro')" ).html("Indecision AKA " + record + " (Spiro)");
-   });
+
 
 });
 
@@ -48,7 +44,13 @@ function filltheTable() {
           cssClass = "default"
       }
 
+      if (team.team == "Indecision (Spiro)")
+      {
 
+		  $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
+		        team.team = "Indecision AKA " + data.trim() + " (Spiro)";
+		   });
+      }
       htmlString = "<div class='panel panel-default'>"
                 + "<a class='click-track' data-toggle='collapse' href='#collapse" + i+1 + "'>"
                 + "<div class='panel-heading'>"
