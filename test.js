@@ -6,7 +6,6 @@ function getRedSoxRecord() {
     blob = blob.substring(0, blob.search(","));
     blob = blob.replace("<strong>Record:</strong>", "").trim()
     return blob;
-
   });
 }
 

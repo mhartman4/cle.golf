@@ -82,7 +82,6 @@ teams = {
   "Tink Floyd (Dan Tinklenberg #1)": ["Kevin Kisner","Pat Perez","Gary Woodland","Charlie Wi","Martin Flores","Cameron Tringale","Andrew Putnam","Bud Cauley"],
   "Heavy Trunk Classes (Griff #2)": ["Jon Rahm","Patrick Reed","Patrick Cantlay","Byeong Hun An","Ross Fisher","Sam Ryder","Emiliano Grillo","Bud Cauley"],
   "Light Projector (Dan Vincent)": ["Jason Day","Peter Uihlein","Aaron Wise","Xander Schauffele","Ryan Blaum","Beau Hossler","Ollie Schniederjans","Nick Taylor"],
-  "Indecision (Spiro)": ["Dustin Johnson","Russell Henley","Patrick Cantlay","Patton Kizzire","Peter Uihlein","Sam Ryder","Stephan Jaeger","Andrew Landry"],
   "Wine Country Tour (Meredith G.)": ["Rickie Fowler","Rafa Cabrera Bello","Francesco Molinari","Thomas Pieters","Alexander Noren","Cameron Smith","Stephan Jaeger","Bud Cauley"],
   "Kings County (Koby)": ["Marc Leishman","Xander Schauffele","Patrick Cantlay","Seamus Power","Sung Kang","Kevin Tway","Richy Werenski","Grayson Murray"],
   "Power Fade (Jim Rosneck)": ["Rory McIlroy","Rickie Fowler","Patrick Cantlay","Peter Uihlein","Aaron Wise","Sam Ryder","Talor Gooch","Bud Cauley"],
@@ -105,6 +104,58 @@ teams = {
   "We`re All Related (Adam Barnes)": ["Adam Scott","Adam Hadwin","Adam Long","Adam Schenk","Blake Adams","Ricky Barnes","Kiradech Aphibarnrat","Henrik Stenson"]
 };
 
+//Spiro replacement
+
+
+
+
+
+function getRedSoxRecord() {
+  
+  today = new Date().toISOString().slice(0,10);
+  lastUpdated = "";
+  record = "";
+
+  $.get("https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated", function(data) {
+  lastUpdated = data.trim();
+  });
+
+  if (today == lastUpdated)
+  {
+    $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
+      record = data.trim();
+    });
+    console.log("No need to update! The record is " + record);
+  }
+  else
+  {
+    console.log("Need to update!");
+
+    $.getJSON('http://anyorigin.com/go?url=https%3A//www.baseball-reference.com/teams/BOS/2018.shtml&callback=?', function(data){
+    
+      blob = data.contents.substring(data.contents.search("<strong>Record:</strong>"), data.contents.search("<strong>Record:</strong>")+50);
+      blob = blob.substring(0, blob.search(","));
+      blob = blob.replace("<strong>Record:</strong>", "").trim()
+      debugger;
+      $.post("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf/" + blob);
+      $.post("https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated/" + today);
+    });
+
+  }
+
+  return record;
+}
+
+
+
+
+//https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf
+//https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated
+
+
+
+redSoxRecord = getRedSoxRecord();
+teams["Indecision AKA " + redSoxRecord + " (Spiro)"] = ["Dustin Johnson","Russell Henley","Patrick Cantlay","Patton Kizzire","Peter Uihlein","Sam Ryder","Stephan Jaeger","Andrew Landry"];
 
 
 var processedTeams = Object.keys(teams).map(function(team) {
@@ -269,6 +320,8 @@ function checkForData() {
     }
     $(".error-message").hide();
   })
+
+  
 }
 
 
