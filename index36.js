@@ -139,6 +139,7 @@ function getRedSoxRecord() {
     });
 
   }
+  $( "span:contains('Spiro')" ).html("Indecision AKA " + record + " (Spiro)")
   return record;
 }
 
@@ -310,8 +311,7 @@ function checkForData() {
     }
     $(".error-message").hide();
 
-    
-    $( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)")
+    $( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)");
   })
 
   
