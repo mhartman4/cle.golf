@@ -117,6 +117,7 @@ function getRedSoxRecord() {
   lastUpdated = data.trim();
   });
 
+  
   if (today == lastUpdated)
   {
     $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
@@ -133,7 +134,7 @@ function getRedSoxRecord() {
       blob = data.contents.substring(data.contents.search("<strong>Record:</strong>"), data.contents.search("<strong>Record:</strong>")+50);
       blob = blob.substring(0, blob.search(","));
       blob = blob.replace("<strong>Record:</strong>", "").trim()
-      debugger;
+      
       $.post("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf/" + blob);
       $.post("https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated/" + today);
     });
