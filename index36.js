@@ -101,14 +101,11 @@ teams = {
   "The F*%ked Kuma (UK)": ["Hideki Matsuyama","Rickie Fowler","Sangmoon Bae","Cheng Tsung Pan","Tiger Woods","Zecheng Dou","Andrew Yun","Xinjun Zhang"],
   "J Mike Hates Golf": ["Rickie Fowler","Jon Rahm","Sangmoon Bae","Michael Kim","Andrew Loupe","Michael Bradley","Jonathan Byrd","Smylie Kaufman"],
   "Team Wally (Chris Bergstrom)": ["Justin Thomas","Charley Hoffman","Tommy Fleetwood","Tyrrell Hatton","Bernd Wiesberger","Ross Fisher","Trevor Immelman","Tiger Woods"],
-  "We`re All Related (Adam Barnes)": ["Adam Scott","Adam Hadwin","Adam Long","Adam Schenk","Blake Adams","Ricky Barnes","Kiradech Aphibarnrat","Henrik Stenson"]
+  "We`re All Related (Adam Barnes)": ["Adam Scott","Adam Hadwin","Adam Long","Adam Schenk","Blake Adams","Ricky Barnes","Kiradech Aphibarnrat","Henrik Stenson"],
+  "Indecision (Spiro)": ["Dustin Johnson","Russell Henley","Patrick Cantlay","Patton Kizzire","Peter Uihlein","Sam Ryder","Stephan Jaeger","Andrew Landry"]
 };
 
 //Spiro replacement
-
-
-
-
 
 function getRedSoxRecord() {
   
@@ -142,20 +139,12 @@ function getRedSoxRecord() {
     });
 
   }
-
   return record;
 }
 
 
 
 
-//https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf
-//https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated
-
-
-
-redSoxRecord = getRedSoxRecord();
-teams["Indecision AKA " + redSoxRecord + " (Spiro)"] = ["Dustin Johnson","Russell Henley","Patrick Cantlay","Patton Kizzire","Peter Uihlein","Sam Ryder","Stephan Jaeger","Andrew Landry"];
 
 
 var processedTeams = Object.keys(teams).map(function(team) {
@@ -169,13 +158,14 @@ var processedTeams = Object.keys(teams).map(function(team) {
 
 // On ready do the magic!
 $(function() {
+  window.redSoxRecord = "";
+  window.redSoxRecord = getRedSoxRecord();
   checkForData();
   window.setInterval(function(){
     checkForData();
   }, 10000);
 
 });
-
 
 
 function SortByTeamTotal(a, b){
@@ -319,6 +309,9 @@ function checkForData() {
       console.log("Data hasn't changed!");
     }
     $(".error-message").hide();
+
+    
+    $( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)")
   })
 
   
