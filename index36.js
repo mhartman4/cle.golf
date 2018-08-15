@@ -1,3 +1,5 @@
+jQuery.ajaxSetup({async:false});
+
 schedule = [{name: 'Safeway Open', date: new Date(Date.parse('10-5-2017')), tournament_id: '464'},
             {name: 'CIMB Classic', date: new Date(Date.parse('10-12-2017')), tournament_id: '494'},
             {name: 'THE CJ CUP', date: new Date(Date.parse('10-19-2017')), tournament_id: '521'},
@@ -119,8 +121,9 @@ function getRedSoxRecord() {
     {
       $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
         record = data.trim();
+        console.log("No need to update! The record is " + record);
       });
-      console.log("No need to update! The record is " + record);
+      
     }
     else
     {
@@ -137,9 +140,9 @@ function getRedSoxRecord() {
       });
 
     }
-    $( "span:contains('Spiro')" ).html("Indecision AKA " + record + " (Spiro)")
+    
+    })
     return record;
-    });
 }
 
 
@@ -303,6 +306,9 @@ function checkForData() {
       $(".click-track").click(function(){
           ga('send', 'event', 'Teams', 'Click', $(this).find(".team-name").text());
       });
+
+      window.redSoxRecord = getRedSoxRecord();
+      $( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)");
     }
     else
     {
@@ -310,7 +316,7 @@ function checkForData() {
     }
     $(".error-message").hide();
 
-    $( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)");
+    
   })
 
   
