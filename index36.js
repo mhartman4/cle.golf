@@ -114,34 +114,32 @@ function getRedSoxRecord() {
   record = "";
 
   $.get("https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated", function(data) {
-  lastUpdated = data.trim();
-  });
+    lastUpdated = data.trim();
+    if (today == lastUpdated)
+    {
+      $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
+        record = data.trim();
+      });
+      console.log("No need to update! The record is " + record);
+    }
+    else
+    {
+      console.log("Need to update!");
 
+      $.getJSON('http://anyorigin.com/go?url=https%3A//www.baseball-reference.com/teams/BOS/2018.shtml&callback=?', function(data){
+      
+        blob = data.contents.substring(data.contents.search("<strong>Record:</strong>"), data.contents.search("<strong>Record:</strong>")+50);
+        blob = blob.substring(0, blob.search(","));
+        blob = blob.replace("<strong>Record:</strong>", "").trim()
+        $.post("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf/" + blob);
+        $.post("https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated/" + today);
+        record = blob;
+      });
 
-  if (today == lastUpdated)
-  {
-    $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
-      record = data.trim();
+    }
+    $( "span:contains('Spiro')" ).html("Indecision AKA " + record + " (Spiro)")
+    return record;
     });
-    console.log("No need to update! The record is " + record);
-  }
-  else
-  {
-    console.log("Need to update!");
-
-    $.getJSON('http://anyorigin.com/go?url=https%3A//www.baseball-reference.com/teams/BOS/2018.shtml&callback=?', function(data){
-    
-      blob = data.contents.substring(data.contents.search("<strong>Record:</strong>"), data.contents.search("<strong>Record:</strong>")+50);
-      blob = blob.substring(0, blob.search(","));
-      blob = blob.replace("<strong>Record:</strong>", "").trim()
-      $.post("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf/" + blob);
-      $.post("https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated/" + today);
-      record = blob;
-    });
-
-  }
-  $( "span:contains('Spiro')" ).html("Indecision AKA " + record + " (Spiro)")
-  return record;
 }
 
 
