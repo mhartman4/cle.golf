@@ -24,7 +24,15 @@ overall.standings = overall.standings.map(function(team){
 
 
 $(function() {
+
   filltheTable();
+
+  jQuery.ajaxSetup({async:false});
+  $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
+        record = data.trim();
+        $( "span:contains('Spiro')" ).html("Indecision AKA " + record + " (Spiro)");
+   });
+
 });
 
 function filltheTable() {
@@ -39,6 +47,7 @@ function filltheTable() {
       {
           cssClass = "default"
       }
+
 
       htmlString = "<div class='panel panel-default'>"
                 + "<a class='click-track' data-toggle='collapse' href='#collapse" + i+1 + "'>"
