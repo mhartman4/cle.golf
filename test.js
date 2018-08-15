@@ -1,10 +1,15 @@
 
 function getRedSoxRecord() {
-  $.getJSON('http://anyorigin.com/go?url=https%3A//www.baseball-reference.com/teams/BOS/2018.shtml&callback=?', function(data){
-    console.log(data.contents);
+  $.getJSON('baseballref.html', function(data){
+    return data.contents;
   });
 }
 
-getRedSoxRecord();
+window.rawHtml = getRedSoxRecord();
+/*
+text = "<p>
+  <strong>Record:</strong>
+  86-35,
+";
 
-
+*/
