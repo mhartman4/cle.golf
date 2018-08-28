@@ -212,7 +212,9 @@ function checkForData() {
               proj_money: numeral(player.rankings.projected_money_event),
               today: player.today,
               thru: player.thru,
-              total: player.total
+              total: player.total,
+              cupRank: player.rankings.cup_rank,
+              cupPoints: player.rankings.cup_points
             }
           );
       });
@@ -283,8 +285,16 @@ function checkForData() {
                     + "</tr></thead>";
 
           $.each(team.players, function(index, player) {
+            if (team.teamName.indexOf("Trent ") > -1 )
+            {
+              playerName = player.name + " (" + player.cupPoints + " FedEx pts)";
+            }
+            else
+            {
+              playerName = player.name;
+            }
             htmlString += "<tr width='100%'>"
-                        + "<td>" + player.name + "</td>"
+                        + "<td>" + playerName + "</td>"
                         + "<td>" + player.proj_money.format('$0,0') + "</td>"
                         + "<td>" + player.position + "</td>"
                         + "<td>" + player.total + "</td>"
