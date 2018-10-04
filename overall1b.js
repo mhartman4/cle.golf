@@ -86,5 +86,5 @@ function filltheTable() {
       });
 
       //$(".tournament-name").html("<h1>Overall Standings (as of: " + overall.asOf + ")</h1>");
-      $(".tournament-name").html("<h1>No overall standings yet. Sorry Trent</h1>");
+      $(".tournament-name").html("<h1>No overall standings yet. Sorry Trent</h1><img src='https://i.imgur.com/z91fjCg.png'>");
     };
