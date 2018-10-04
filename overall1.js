@@ -44,6 +44,8 @@ function filltheTable() {
           cssClass = "default"
       }
 
+
+      /*
       if (team.team == "Indecision (Spiro)")
       {
 
@@ -51,6 +53,7 @@ function filltheTable() {
 		        team.team = "Indecision AKA " + data.trim() + " (Spiro)";
 		   });
       }
+      */
       htmlString = "<div class='panel panel-default'>"
                 + "<a class='click-track' data-toggle='collapse' href='#collapse" + i+1 + "'>"
                 + "<div class='panel-heading'>"

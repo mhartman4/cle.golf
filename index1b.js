@@ -72,7 +72,7 @@ teams = {
   "Three Putt (Pauly)": ["Rickie Fowler","Tony Finau","Jamie Lovemark","Sungjae Im","Cameron Champ","Anders Albertson","Sam Burns","Kramer Hickok"],
   "Tink Floyd (Dan Tinklenberg": ["Kevin Kisner","Gary Woodland","Patrick Cantlay","Andrew Landry","Camilo Villegas","Seamus Power","Scott Langley","Geoff Ogilvy"],
   "Smails` Paralegals (Tink #2)": ["Tony Finau","Tommy Fleetwood","Patrick Cantlay","Tyrrell Hatton","Sungjae Im","Sam Burns","Dylan Frittelli","Ben Silverman"],
-  "The Goochies (Will Harrison + Koby)": ["Tony Finau","Patton Kizzire","Chesson Hadley","Andrew Landry","Austin Cook","Andrew Putnam","Wyndham Clark","Talor Gooch"],
+  "Kings/Essex County (Will Harrison + Koby)": ["Tony Finau","Patton Kizzire","Chesson Hadley","Andrew Landry","Austin Cook","Andrew Putnam","Wyndham Clark","Talor Gooch"],
   "Easy Ed (Ed Kordel)": ["Alex Prugh","Cameron Davis","Hunter Mahan","JT Poston","Peter Uihlein","Ryan Armour","Joaquin Niemann","Justin Thomas"],
   "Optimistic Eight (Joe G)": ["Tiger Woods","Si Woo Kim","Byeong Hun An","Thomas Pieters","Sungjae Im","Denny McCarthy","Kyoung-Hoon Lee","Jim Knous"],
   "Power Fade (Rosneck)": ["Justin Thomas","Aaron Wise","Beau Hossler","Peter Uihlein","Sungjae Im","Hunter Mahan","Sam Burns","Dylan Frittelli"],
@@ -95,8 +95,8 @@ teams = {
   "Splashing the Pot (Griff #2)": ["Patrick Cantlay","Aaron Wise","Joaquin Niemann","J.J. Spaun","Tyrrell Hatton","Beau Hossler","Kevin Tway","Abraham Ancer"],
   "Clark Bars (Mike Clark)": ["Hideki Matsuyama","Byeong Hun An","Aaron Wise","Beau Hossler","Peter Uihlein","Sangmoon Bae","Cameron Champ","Sam Burns"],
   "WPGA (Colleen)": ["Justin Thomas","Patrick Cantlay","Ollie Schniederjans","Abraham Ancer","Matthew Fitzpatrick","Haotong Li","Ben Silverman","Stephan Jaeger"],
-  "The 1 Irons (Sevic)": ["Brandt Snedeker","Zach Johnson","Patrick Cantlay","Matthew Fitzpatrick","Peter Uihlein","Andrew Putnam","Cameron Davis","Sam Burns"],
-  "Carolina Fairways (BJ)": ["Rory McIlroy","Tiger Woods","Harold Varner III","Anthony Kim","Talor Gooch","Matt Every","Geoff Ogilvy","Marty Dou"],
+  "The 1 Irons (Sevic)": ["Brandt Snedeker","Zach Johnson","Patrick Cantlay","Matthew Fitzpatrick","Peter Uihlein","Andrew Putnam","Shawn Stefani","Sam Burns"],
+  "Carolina Fairways (BJ)": ["Rory McIlroy","Tiger Woods","Harold Varner III","Michael Kim","Talor Gooch","Matt Every","Geoff Ogilvy","Marty Dou"],
   "No Loyalty (Dombrowski)": ["Tony Finau","Brandt Snedeker","Luke List","Beau Hossler","Sangmoon Bae","Bronson Burgoon","Sungjae Im","Hunter Mahan"],
   "Asian Tiger Returns feat. the soy sauce Kuma (UK)": ["Tiger Woods","Hideki Matsuyama","Cheng Tsung Pan","Sangmoon Bae","K.J. Choi","Kyoung-Hoon Lee","Hiroshi Iwata","Marty Dou"],
   "Numbers Don`t Lie (Nichols)": ["Francesco Molinari","Tommy Fleetwood","Alexander Noren","Tyrrell Hatton","Kiradech Aphibarnrat","Abraham Ancer","Sungjae Im","Sam Burns"],
@@ -184,7 +184,7 @@ currentData = {};
 
 function checkForData() {
 
-  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2018/leaderboard-v2.json", function( data ) {
+  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2019/leaderboard-v2.json", function( data ) {
 
 
     if (! _.isEqual(data, currentData))
