@@ -184,7 +184,7 @@ currentData = {};
 
 function checkForData() {
 
-  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2018/leaderboard-v2.json", function( data ) {
+  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2019/leaderboard-v2.json", function( data ) {
 
 
     if (! _.isEqual(data, currentData))
