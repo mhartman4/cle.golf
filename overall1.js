@@ -78,9 +78,10 @@ function filltheTable() {
 
       htmlString+= "</table></ul></div></div>";
 
-      $(".panel-group").append(htmlString);
+      //$(".panel-group").append(htmlString);
 
       });
 
-      $(".tournament-name").html("<h1>Overall Standings (as of: " + overall.asOf + ")</h1>");
+      //$(".tournament-name").html("<h1>Overall Standings (as of: " + overall.asOf + ")</h1>");
+      $(".tournament-name").html("<h1>No overall standings yet. Sorry Trent</h1>");
     };

@@ -98,7 +98,7 @@ teams = {
   "The 1 Irons (Sevic)": ["Brandt Snedeker","Zach Johnson","Patrick Cantlay","Matthew Fitzpatrick","Peter Uihlein","Andrew Putnam","Cameron Davis","Sam Burns"],
   "Carolina Fairways (BJ)": ["Rory McIlroy","Tiger Woods","Harold Varner III","Anthony Kim","Talor Gooch","Matt Every","Geoff Ogilvy","Marty Dou"],
   "No Loyalty (Dombrowski)": ["Tony Finau","Brandt Snedeker","Luke List","Beau Hossler","Sangmoon Bae","Bronson Burgoon","Sungjae Im","Hunter Mahan"],
-  "Asian Tiger Returns featuring the soy sauce Kuma ": ["Tiger Woods","Hideki Matsuyama","Cheng Tsung Pan","Sangmoon Bae","K.J. Choi","Kyoung-Hoon Lee","Hiroshi Iwata","Marty Dou"],
+  "Asian Tiger Returns feat. the soy sauce Kuma (UK)": ["Tiger Woods","Hideki Matsuyama","Cheng Tsung Pan","Sangmoon Bae","K.J. Choi","Kyoung-Hoon Lee","Hiroshi Iwata","Marty Dou"],
   "Numbers Don`t Lie (Nichols)": ["Francesco Molinari","Tommy Fleetwood","Alexander Noren","Tyrrell Hatton","Kiradech Aphibarnrat","Abraham Ancer","Sungjae Im","Sam Burns"],
   "Nance #1": ["Tiger Woods","Henrik Stenson","Ian Poulter","Wesley Bryan","Jerry Kelly","Brendon Todd","Greg Owen","Matt Every"],
   "Nance #2": ["Sergio Garcia","Jimmy Walker","Patrick Cantlay","Jim Furyk","Danny Lee","Robert Streb","Tim Wilkinson","Tyler Aldridge"]
@@ -203,19 +203,19 @@ function checkForData() {
       $.each( data.leaderboard.players, function( i, player ){
         players.push(
             {
-              name: toTitleCase(correctedName(player.player_bio.first_name + ' ' + player.player_bio.last_name)),
+              name: toTitleCase(player.player_bio.first_name + ' ' + player.player_bio.last_name),
               positionNum: parseInt(player.current_position.replace(/\D/g,'')),
               position: player.current_position,
               proj_money: numeral(player.rankings.projected_money_event),
               today: player.today,
               thru: player.thru,
-              total: player.total,
-              cupRank: player.rankings.cup_rank,
-              cupPoints: player.rankings.cup_points
+              total: player.total
             }
           );
       });
 
+
+      players.forEach(function(p){ console.log(p.name)});
 
       //FOR THE MASTERS DO SOME MANUAL MATH
       //calculatePayouts(players);
@@ -282,16 +282,9 @@ function checkForData() {
                     + "</tr></thead>";
 
           $.each(team.players, function(index, player) {
-            if (team.teamName.indexOf("Trent ") > -1 )
-            {
-              playerName = player.name + " (" + player.cupPoints + " FedEx pts)";
-            }
-            else
-            {
-              playerName = player.name;
-            }
+
             htmlString += "<tr width='100%'>"
-                        + "<td>" + playerName + "</td>"
+                        + "<td>" + player.name + "</td>"
                         + "<td>" + player.proj_money.format('$0,0') + "</td>"
                         + "<td>" + player.position + "</td>"
                         + "<td>" + player.total + "</td>"
