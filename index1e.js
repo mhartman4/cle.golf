@@ -88,7 +88,7 @@ teams = {
   "Pony Loyalty Express": ["Bryson DeChambeau","Aaron Wise","Kelly Kraft","Beau Hossler","Andrew Putnam","Peter Uihlein","Sungjae Im","Cameron Davis"],
   "877 CASH NOW (Hartman)": ["Cheng Tsung Pan","Abraham Ancer","Scott Brown","Chesson Hadley","Patrick Reed","Nick Taylor","Ollie Schniederjans","Richy Werenski"],
   "Light Projector (DV)": ["Jason Day","Tommy Fleetwood","Abraham Ancer","Richy Werenski","Tom Hoge","Sungjae Im","Cameron Davis","Cameron Champ"],
-  "Team Rosé (Meredith)": ["Justin Rose","Francesco Molinari","Chesson Hadley","Chase Wright","Seamus Power","Dylan Frittelli","Dominic Bozzelli","Corey Conners"],
+  "Decanted Rosé (Meredith)": ["Justin Rose","Francesco Molinari","Chesson Hadley","Chase Wright","Seamus Power","Dylan Frittelli","Dominic Bozzelli","Corey Conners"],
   "Thunder from Down Under (Alex Moore)": ["Bryson DeChambeau","Tommy Fleetwood","Chesson Hadley","Ollie Schniederjans","Ben Martin","Matt Jones","Cameron Davis","Stephan Jaeger"],
   "Second to Joaquin (Rafa)": ["Tiger Woods","Joaquin Niemann","Sungjae Im","Denny McCarthy","Andrew Landry","Aaron Wise","Abraham Ancer","Anders Albertson"],
   "Sonoma`s Stompers (Griff #1)": ["Xander Schauffele","Tommy Fleetwood","Emiliano Grillo","Patrick Cantlay","Curtis Luck","Tyler Duncan","Brandon Hagy","Kevin Stadler"],
@@ -100,8 +100,8 @@ teams = {
   "No Loyalty (Dombrowski)": ["Tony Finau","Brandt Snedeker","Luke List","Beau Hossler","Sangmoon Bae","Bronson Burgoon","Sungjae Im","Hunter Mahan"],
   "Asian Tiger Returns feat. the soy sauce Kuma (UK)": ["Tiger Woods","Hideki Matsuyama","Cheng Tsung Pan","Sangmoon Bae","K.J. Choi","Kyoung-Hoon Lee","Hiroshi Iwata","Marty Dou"],
   "Numbers Don`t Lie (Nichols)": ["Francesco Molinari","Tommy Fleetwood","Alexander Noren","Tyrrell Hatton","Kiradech Aphibarnrat","Abraham Ancer","Sungjae Im","Sam Burns"],
-  "Nance #1": ["Tiger Woods","Henrik Stenson","Ian Poulter","Wesley Bryan","Jerry Kelly","Brendon Todd","Greg Owen","Matt Every"],
-  "Nance #2": ["Sergio Garcia","Jimmy Walker","Patrick Cantlay","Jim Furyk","Danny Lee","Robert Streb","Tim Wilkinson","Tyler Aldridge"]
+  "Ebony and Ivory (Nance #1)": ["Tiger Woods","Henrik Stenson","Ian Poulter","Wesley Bryan","Jerry Kelly","Brendon Todd","Greg Owen","Matt Every"],
+  "Half and Half (Nance #2)": ["Sergio Garcia","Jimmy Walker","Patrick Cantlay","Jim Furyk","Danny Lee","Robert Streb","Tim Wilkinson","Tyler Aldridge"]
 };
 
 //Spiro replacement
