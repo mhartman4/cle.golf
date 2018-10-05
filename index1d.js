@@ -89,7 +89,7 @@ teams = {
   "877 CASH NOW (Hartman)": ["Cheng Tsung Pan","Abraham Ancer","Scott Brown","Chesson Hadley","Patrick Reed","Nick Taylor","Ollie Schniederjans","Richy Werenski"],
   "Light Projector (DV)": ["Jason Day","Tommy Fleetwood","Abraham Ancer","Richy Werenski","Tom Hoge","Sungjae Im","Cameron Davis","Cameron Champ"],
   "Team Rosé (Meredith)": ["Justin Rose","Francesco Molinari","Chesson Hadley","Chase Wright","Seamus Power","Dylan Frittelli","Dominic Bozzelli","Corey Conners"],
-  "Thunder from Down Under (Alex Moore)": ["Bryson DeChambeau","Tommy Fleetwood","Chesson Hadley","Ollie Schniederjans","Ben Martin","Matt Jones","Cameron Davis","Ben Silverman"],
+  "Thunder from Down Under (Alex Moore)": ["Bryson DeChambeau","Tommy Fleetwood","Chesson Hadley","Ollie Schniederjans","Ben Martin","Matt Jones","Cameron Davis","Stephan Jaeger"],
   "Second to Joaquin (Rafa)": ["Tiger Woods","Joaquin Niemann","Sungjae Im","Denny McCarthy","Andrew Landry","Aaron Wise","Abraham Ancer","Anders Albertson"],
   "Sonoma`s Stompers (Griff #1)": ["Xander Schauffele","Tommy Fleetwood","Emiliano Grillo","Patrick Cantlay","Curtis Luck","Tyler Duncan","Brandon Hagy","Kevin Stadler"],
   "Splashing the Pot (Griff #2)": ["Patrick Cantlay","Aaron Wise","Joaquin Niemann","J.J. Spaun","Tyrrell Hatton","Beau Hossler","Kevin Tway","Abraham Ancer"],
