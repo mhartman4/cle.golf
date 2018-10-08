@@ -73,7 +73,7 @@ teams = {
   "Tink Floyd (Dan Tinklenberg": ["Kevin Kisner","Gary Woodland","Patrick Cantlay","Andrew Landry","Camilo Villegas","Seamus Power","Scott Langley","Geoff Ogilvy"],
   "Smails` Paralegals (Tink #2)": ["Tony Finau","Tommy Fleetwood","Patrick Cantlay","Tyrrell Hatton","Sungjae Im","Sam Burns","Dylan Frittelli","Ben Silverman"],
   "Kings/Essex County (Will Harrison + Koby)": ["Tony Finau","Patton Kizzire","Chesson Hadley","Andrew Landry","Austin Cook","Andrew Putnam","Wyndham Clark","Talor Gooch"],
-  "Easy Ed (Ed Kordel)": ["Alex Prugh","Sam Ryder","Hunter Mahan","JT Poston","Peter Uihlein","Ryan Armour","Joaquin Niemann","Justin Thomas"],
+  "Easy Ed (Ed Kordel)": ["Alex Prugh","Sam Ryder","Hunter Mahan","J.T. Poston","Peter Uihlein","Ryan Armour","Joaquin Niemann","Justin Thomas"],
   "Optimistic Eight (Joe G)": ["Tiger Woods","Si Woo Kim","Byeong Hun An","Thomas Pieters","Sungjae Im","Denny McCarthy","Kyoung-Hoon Lee","Jim Knous"],
   "Power Fade (Rosneck)": ["Justin Thomas","Aaron Wise","Beau Hossler","Peter Uihlein","Sungjae Im","Hunter Mahan","Sam Burns","Dylan Frittelli"],
   "Team Loyalty Spiders (Big Dan)": ["Brooks Koepka","Webb Simpson","Aaron Wise","Tyler Duncan","Ben Silverman","Matt Every","Brendon de Jonge","Talor Gooch"],
