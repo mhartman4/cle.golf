@@ -217,6 +217,8 @@ function checkForData() {
           );
       });
       
+      // IF WE HAVE A 2nd TOURNEY PUT IT HERE
+      /*
       $.getJSON("https://statdata.pgatour.com/r/054/2019/leaderboard-v2.json", function( dataSanderson ) {
 
         $.each( dataSanderson.leaderboard.players, function( i, player ){
@@ -235,10 +237,13 @@ function checkForData() {
             }
           );
       });
-
-
-
+      
       });
+      */
+
+
+
+      
 
       //players.forEach(function(p){ console.log(p.name)});
 
@@ -325,8 +330,8 @@ function checkForData() {
           $(".panel-group").append(htmlString);
       });
 
-      //$(".tournament-name").append("<h1>" + data.leaderboard.tournament_name + "</h1>");
-      $(".tournament-name").append("<h1>2019 TRENT REDDEN OPEN</h1>");
+      $(".tournament-name").append("<h1>" + data.leaderboard.tournament_name + "</h1>");
+      //$(".tournament-name").append("<h1>2019 TRENT REDDEN OPEN</h1>");
       
 
       $(".click-track").click(function(){
