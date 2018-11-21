@@ -169,7 +169,6 @@ for(var i = 0; i < dayTables.length; i++) {
 	    // Get the name of the matchup
 	    row["Game"] = $(tableRow).find('.game').text().trim();
 
-
 	    // Get the game time
 	    var time = $(tableRow).find(".time").text().trim();
 	    var day = dayTables[i]["day"];
@@ -250,6 +249,10 @@ games.forEach(function(game){
 
 
 games.forEach(function(game) {
+	
+    // Check for a comma after vs, instead of  a period vs.
+	game["Game"] = game["Game"].replace(" vs, ", " vs. ");
+	
 	game["Networks"].forEach(function(network){
 		if (
 		   // Check for invalid dates
