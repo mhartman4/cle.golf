@@ -1,0 +1,197 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<style type="text/css">
+			
+			button
+			{
+			  width: 100px;
+			  height: 20px;
+			  font-size: 14px;  
+			}
+
+			.header {
+			  font-size: 20px;  
+			}
+
+			.counter {
+			  font-size: 20px;
+			  font-family: "Arial";
+			}
+		</style>
+	</head>
+
+	<body>
+		
+
+
+		  <div class="header" align="center">
+		    <span>
+		      <button class="prev">
+		        Previous
+		      </button>
+		    </span>
+
+		    <span class="counter">
+		    </span>
+
+		    <span>
+		      <button class="next">
+		        Next
+		      </button>
+		    </span>
+		  </div>
+
+
+
+		  <iframe class="theatre" src="" width="100%" height="1000">
+		  </iframe>
+
+
+
+
+
+		  <script>
+		  	urls = [encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018101928"],"periods":["2"],"chanceSecondsRemaining":"350-348"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018103002"],"periods":["4"],"chanceSecondsRemaining":"388-386"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018110507"],"periods":["2"],"chanceSecondsRemaining":"215-213"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111602"],"periods":["2"],"chanceSecondsRemaining":"320-318"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111702"],"periods":["3"],"chanceSecondsRemaining":"622-620"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111930"],"periods":["1"],"chanceSecondsRemaining":"227-225"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111930"],"periods":["2"],"chanceSecondsRemaining":"278-276"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112102"],"periods":["1"],"chanceSecondsRemaining":"661-659"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112102"],"periods":["3"],"chanceSecondsRemaining":"431-429"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112301"],"periods":["1"],"chanceSecondsRemaining":"291-289"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112301"],"periods":["1"],"chanceSecondsRemaining":"378-376"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112301"],"periods":["2"],"chanceSecondsRemaining":"140-138"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112406"],"periods":["4"],"chanceSecondsRemaining":"344-342"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112603"],"periods":["3"],"chanceSecondsRemaining":"448-446"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112603"],"periods":["3"],"chanceSecondsRemaining":"473-471"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112603"],"periods":["4"],"chanceSecondsRemaining":"569-567"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018113002"],"periods":["2"],"chanceSecondsRemaining":"255-253"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018113002"],"periods":["3"],"chanceSecondsRemaining":"517-515"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120116"],"periods":["3"],"chanceSecondsRemaining":"621-619"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120116"],"periods":["4"],"chanceSecondsRemaining":"268-266"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120602"],"periods":["1"],"chanceSecondsRemaining":"183-181"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120602"],"periods":["2"],"chanceSecondsRemaining":"472-470"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120602"],"periods":["4"],"chanceSecondsRemaining":"316-314"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120804"],"periods":["1"],"chanceSecondsRemaining":"225-223"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121508"],"periods":["2"],"chanceSecondsRemaining":"247-245"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121508"],"periods":["2"],"chanceSecondsRemaining":"71-69"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018100722"],"periods":["1"],"chanceSecondsRemaining":"366-364"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018100722"],"periods":["2"],"chanceSecondsRemaining":"272-270"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018100722"],"periods":["3"],"chanceSecondsRemaining":"349-347"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018100722"],"periods":["3"],"chanceSecondsRemaining":"511-509"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018100722"],"periods":["3"],"chanceSecondsRemaining":"570-568"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018101222"],"periods":["1"],"chanceSecondsRemaining":"594-592"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018101822"],"periods":["1"],"chanceSecondsRemaining":"606-604"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018101822"],"periods":["4"],"chanceSecondsRemaining":"409-407"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102022"],"periods":["1"],"chanceSecondsRemaining":"431-429"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102022"],"periods":["3"],"chanceSecondsRemaining":"340-338"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102022"],"periods":["3"],"chanceSecondsRemaining":"511-509"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102222"],"periods":["1"],"chanceSecondsRemaining":"552-550"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102222"],"periods":["1"],"chanceSecondsRemaining":"719-717"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102222"],"periods":["2"],"chanceSecondsRemaining":"359-357"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102222"],"periods":["5"],"chanceSecondsRemaining":"153-151"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102519"],"periods":["2"],"chanceSecondsRemaining":"133-131"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102519"],"periods":["2"],"chanceSecondsRemaining":"197-195"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102519"],"periods":["3"],"chanceSecondsRemaining":"102-100"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102519"],"periods":["3"],"chanceSecondsRemaining":"177-175"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102519"],"periods":["4"],"chanceSecondsRemaining":"422-420"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102519"],"periods":["4"],"chanceSecondsRemaining":"475-473"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102714"],"periods":["1"],"chanceSecondsRemaining":"336-334"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102714"],"periods":["2"],"chanceSecondsRemaining":"324-322"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102714"],"periods":["2"],"chanceSecondsRemaining":"430-428"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102714"],"periods":["3"],"chanceSecondsRemaining":"721-719"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102714"],"periods":["4"],"chanceSecondsRemaining":"298-296"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102911"],"periods":["2"],"chanceSecondsRemaining":"267-265"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102911"],"periods":["3"],"chanceSecondsRemaining":"483-481"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102911"],"periods":["3"],"chanceSecondsRemaining":"701-699"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018102911"],"periods":["4"],"chanceSecondsRemaining":"68-66"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018103010"],"periods":["1"],"chanceSecondsRemaining":"720-718"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018110122"],"periods":["3"],"chanceSecondsRemaining":"535-533"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018110322"],"periods":["2"],"chanceSecondsRemaining":"269-267"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018110622"],"periods":["1"],"chanceSecondsRemaining":"562-560"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018110622"],"periods":["3"],"chanceSecondsRemaining":"413-411"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018110822"],"periods":["1"],"chanceSecondsRemaining":"268-266"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018110822"],"periods":["1"],"chanceSecondsRemaining":"373-371"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018110822"],"periods":["3"],"chanceSecondsRemaining":"708-706"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111122"],"periods":["4"],"chanceSecondsRemaining":"338-336"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111122"],"periods":["4"],"chanceSecondsRemaining":"503-501"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111413"],"periods":["2"],"chanceSecondsRemaining":"237-235"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111616"],"periods":["1"],"chanceSecondsRemaining":"445-443"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111616"],"periods":["4"],"chanceSecondsRemaining":"631-629"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111827"],"periods":["2"],"chanceSecondsRemaining":"407-405"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018111827"],"periods":["4"],"chanceSecondsRemaining":"368-366"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112018"],"periods":["1"],"chanceSecondsRemaining":"677-675"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112018"],"periods":["4"],"chanceSecondsRemaining":"377-375"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112115"],"periods":["1"],"chanceSecondsRemaining":"524-522"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112115"],"periods":["2"],"chanceSecondsRemaining":"408-406"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112115"],"periods":["3"],"chanceSecondsRemaining":"619-617"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112309"],"periods":["1"],"chanceSecondsRemaining":"663-661"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112309"],"periods":["2"],"chanceSecondsRemaining":"38-36"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112309"],"periods":["3"],"chanceSecondsRemaining":"620-618"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112522"],"periods":["1"],"chanceSecondsRemaining":"129-127"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112522"],"periods":["4"],"chanceSecondsRemaining":"122-120"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112822"],"periods":["1"],"chanceSecondsRemaining":"457-455"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112822"],"periods":["2"],"chanceSecondsRemaining":"246-244"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018112822"],"periods":["3"],"chanceSecondsRemaining":"425-423"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018113022"],"periods":["1"],"chanceSecondsRemaining":"585-583"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018113022"],"periods":["3"],"chanceSecondsRemaining":"151-149"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018113022"],"periods":["4"],"chanceSecondsRemaining":"6-4"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120224"],"periods":["1"],"chanceSecondsRemaining":"308-306"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120224"],"periods":["4"],"chanceSecondsRemaining":"168-166"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120406"],"periods":["2"],"chanceSecondsRemaining":"235-233"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120406"],"periods":["3"],"chanceSecondsRemaining":"679-677"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120622"],"periods":["1"],"chanceSecondsRemaining":"541-539"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120622"],"periods":["2"],"chanceSecondsRemaining":"337-335"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120622"],"periods":["2"],"chanceSecondsRemaining":"4-2"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120822"],"periods":["1"],"chanceSecondsRemaining":"691-689"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018120822"],"periods":["3"],"chanceSecondsRemaining":"467-465"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121110"],"periods":["1"],"chanceSecondsRemaining":"231-229"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121110"],"periods":["1"],"chanceSecondsRemaining":"289-287"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121110"],"periods":["4"],"chanceSecondsRemaining":"223-221"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121229"],"periods":["2"],"chanceSecondsRemaining":"351-349"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121229"],"periods":["3"],"chanceSecondsRemaining":"707-705"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121422"],"periods":["2"],"chanceSecondsRemaining":"310-308"}'),
+				encodeURI('https://insight.secondspectrum.com/video/chances?res=high&filters={"games":["2018121422"],"periods":["4"],"chanceSecondsRemaining":"184-182"}')];
+
+
+			i = 0;
+			changeClip(i);
+
+			function changeClip(index) {
+
+				relevantClip = urls[index];
+			  $(".counter").text((index+1) + " of " + urls.length)
+				$(".theatre").attr("src", relevantClip);
+			  
+			}
+
+			$(".next").click(function(){
+
+				i++;
+			  changeClip(i);
+			});
+
+			$(".prev").click(function(){
+
+				i--;
+			  changeClip(i);
+			});
+
+			document.addEventListener('keyup', function(event) {
+			  if (event.keyCode == 40) {
+			     i++;
+			     changeClip(i);
+			  }
+			  if (event.keyCode == 38) {
+			     i--;
+			     changeClip(i);
+			  }
+			  
+			});
+		  </script>
+
+	</body>
+</html>
