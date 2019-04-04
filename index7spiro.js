@@ -303,7 +303,7 @@ function checkForData() {
                     + "</span>"
                     + "<span class='pull-right label label-default'>" + team.teamTotal.format('$0,0') + "</span>"
                     + "</h4></div></a>"
-                    + "<div id='collapse" + i+1 + "' class='panel-collapse collapse'><table class='table-bordered table-condensed'>"
+                    + "<div id='collapse" + i+1 + "' class='panel-collapse collapse " + team.teamName.replace(/ .*/,'') + "'><table class='table-bordered table-condensed'>"
                     + "<thead><tr>"
                     + "<th>Golfer</th>"
                     + "<th>Proj. $</th>"
@@ -340,6 +340,8 @@ function checkForData() {
 
       //window.redSoxRecord = getRedSoxRecord();
       //$( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)");
+
+      $(".Indecision").html("<img src='https://i.imgur.com/aX5ObI5.jpg' width='250'>");
     }
     else
     {
