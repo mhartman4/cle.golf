@@ -341,7 +341,7 @@ function checkForData() {
       //window.redSoxRecord = getRedSoxRecord();
       //$( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)");
 
-      $(".Indecision").html("<img src='https://i.imgur.com/aX5ObI5.jpg' width='250'>");
+      //$(".Indecision").html("<img src='https://i.imgur.com/aX5ObI5.jpg' width='250'>");
     }
     else
     {
