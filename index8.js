@@ -201,8 +201,7 @@ function checkForData() {
       // put the players' data into a local array of objects
 
       $.each( data.leaderboard.players, function( i, player ){
-        //console.log(player.player_bio.first_name + ' ' + player.player_bio.last_name);
-        console.log(player);
+        //console.log(player);
         players.push(
             {
               name: player.player_bio.first_name + ' ' + player.player_bio.last_name,
@@ -216,6 +215,8 @@ function checkForData() {
             }
           );
       });
+
+
       
       // IF WE HAVE A 2nd TOURNEY PUT IT HERE
       /*
