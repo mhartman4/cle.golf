@@ -348,12 +348,20 @@ function checkForData() {
       //$(".tournament-name").append("<h1>2019 TRENT REDDEN OPEN</h1>");
       
 
+
       $(".click-track").click(function(){
           ga('send', 'event', 'Teams', 'Click', $(this).find(".team-name").text());
       });
 
       //window.redSoxRecord = getRedSoxRecord();
       //$( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)");
+      $(".Pony").html("<img src='https://media.giphy.com/media/WUb5Evd7s4vO0bePDQ/giphy.gif'>");
+      $(".Snow").html("<img src='https://media.giphy.com/media/WUb5Evd7s4vO0bePDQ/giphy.gif'>");
+      $(".Loyalty").html("<img width='400' src='https://i.imgur.com/IOB6ySC.png'>");
+      $(".877").html("<img src='https://uploads.tapatalk-cdn.com/20190330/824f9c0282ecd962fe63287a27c93685.gif'>");
+      $(".White").html("<img src='https://i.imgur.com/nC5KVqU.jpg'>");
+      $(".Debt").html("<img src='https://i.imgur.com/iDuiPcH.jpg'>");
+      
 
       //$(".Indecision").html("<img src='https://i.imgur.com/aX5ObI5.jpg' width='250'>");
     }
