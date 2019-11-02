@@ -110,7 +110,7 @@ teams = {
 "Emotional Rescue (Pandya)": [{name: "Rory McIlroy", id: "28237"},{name: "Billy Horschel", id: "29420"},{name: "Viktor Hovland", id: "46717"},{name: "Tom Hoge", id: "35532"},{name: "Xinjun Zhang", id: "32254"},{name: "Tom Lewis", id: "35104"},{name: "Kristoffer Ventura", id: "35658"},{name: "Maverick McNealy", id: "46442"}],
 "Nance & A Splash Of Spiro": [{name: "Rickie Fowler", id: "32102"},{name: "Collin Morikawa", id: "50525"},{name: "Matthew Wolff", id: "56278"},{name: "Jason Kokrak", id: "30944"},{name: "Joaquin Niemann", id: "45486"},{name: "Robby Shelton", id: "46441"},{name: "Scottie Scheffler", id: "46046"},{name: "Bo Hoag", id: "33490"}],
 "Indecision (Spiro)": [{name: "Dustin Johnson", id: "30925"},{name: "Tommy Fleetwood", id: "30911"},{name: "Joaquin Niemann", id: "45486"},{name: "Wyndham Clark", id: "51766"},{name: "Robby Shelton", id: "46441"},{name: "Kristoffer Ventura", id: "35658"},{name: "Doug Ghim", id: "52375"},{name: "Maverick McNealy", id: "46442"}],
-"Belmont Kuma (Windler #1)": [{name: "Tony Finau", id: "29725"},{name: "Joaquin Niemann", id: "45486"},{name: "Sungjae Im", id: "39971"},{name: "Viktor Hovland", id: "46717"},{name: "Matthew Fitzpatrick", id: "40098"},{name: "Danny Willett", id: "32139"},{name: "Scottie Scheffler", id: "46046"},{name: "Doug Ghim", id: "52375"}],
+"Belmont Koguma (Windler #1)": [{name: "Tony Finau", id: "29725"},{name: "Joaquin Niemann", id: "45486"},{name: "Sungjae Im", id: "39971"},{name: "Viktor Hovland", id: "46717"},{name: "Matthew Fitzpatrick", id: "40098"},{name: "Danny Willett", id: "32139"},{name: "Scottie Scheffler", id: "46046"},{name: "Doug Ghim", id: "52375"}],
 "Peyton Was Better (Windler #2)": [{name: "Keith Mitchell", id: "39546"},{name: "Collin Morikawa", id: "50525"},{name: "Lucas Glover", id: "25900"},{name: "Sungjae Im", id: "39971"},{name: "Viktor Hovland", id: "46717"},{name: "Scottie Scheffler", id: "46046"},{name: "Corey Conners", id: "39997"},{name: "Joaquin Niemann", id: "45486"}],
 "White Rascal (Cobra)": [{name: "Hideki Matsuyama", id: "32839"},{name: "Bubba Watson", id: "25804"},{name: "Collin Morikawa", id: "50525"},{name: "Viktor Hovland", id: "46717"},{name: "Brendon Todd", id: "30927"},{name: "Tyler McCumber", id: "40042"},{name: "Nelson Ledesma", id: "35230"},{name: "Vincent Whaley", id: "51894"}],
 "5 iron huh? Well, you`re fired (Shane Kupperman)": [{name: "Patrick Cantlay", id: "35450"},{name: "Sungjae Im", id: "39971"},{name: "Jason Kokrak", id: "30944"},{name: "Joaquin Niemann", id: "45486"},{name: "Anirban Lahiri", id: "31420"},{name: "Beau Hossler", id: "35461"},{name: "Erik van Rooyen", id: "40006"},{name: "Sam Burns", id: "47504"}],
@@ -355,8 +355,8 @@ function checkForData() {
 
       //window.redSoxRecord = getRedSoxRecord();
       //$( "span:contains('Spiro')" ).html("Indecision AKA " + window.redSoxRecord + " (Spiro)");
-      $(".Pony").html("<img src='https://media.giphy.com/media/WUb5Evd7s4vO0bePDQ/giphy.gif'>");
-      $(".Snow").html("<img src='https://media.giphy.com/media/WUb5Evd7s4vO0bePDQ/giphy.gif'>");
+      //$(".Pony").html("<img src='https://media.giphy.com/media/WUb5Evd7s4vO0bePDQ/giphy.gif'>");
+      //$(".Snow").html("<img src='https://media.giphy.com/media/WUb5Evd7s4vO0bePDQ/giphy.gif'>");
       $(".Loyalty").html("<img width='400' src='https://i.imgur.com/IOB6ySC.png'>");
       $(".877").html("<img src='https://uploads.tapatalk-cdn.com/20190330/824f9c0282ecd962fe63287a27c93685.gif'>");
       $(".White").html("<img src='https://i.imgur.com/nC5KVqU.jpg'>");
