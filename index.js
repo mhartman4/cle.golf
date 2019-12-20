@@ -1,3 +1,5 @@
+window.location.replace("http://cle.golf/football/standings");
+
 jQuery.ajaxSetup({async:false});
 
 schedule = [
