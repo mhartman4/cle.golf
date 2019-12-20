@@ -1,0 +1,43 @@
+.panel-heading {
+  background-color: #f1f1f1;
+  font-size: 8px;
+}
+
+.panel-title {
+  font-size: 12px;
+}
+
+.list-group-item {
+  font-size: 10px;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  background-color: #D3D3D3;
+}
+
+h1 {
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.table-bordered, tr, td {
+  font-size: 10px;
+
+}
+.table-condensed {
+    margin: 0 auto;
+}
+
+.panel-collapse {
+  padding: 5px;
+}
+
+.right-pick {
+  background-color: #5eba7d;
+}
+
+.wrong-pick {
+  background-color: #dc3545;
+}
