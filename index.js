@@ -1,4 +1,4 @@
-window.location.replace("http://cle.golf/football/standings");
+//window.location.replace("http://cle.golf/football/standings");
 
 jQuery.ajaxSetup({async:false});
 
@@ -200,7 +200,7 @@ currentData = {};
 
 function checkForData() {
 
-  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2020/leaderboard-v2.json", function( data ) {
+  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2020/leaderboard-v2.json" + "?userTrackingId=exp=1578177569~acl=*~hmac=a9e0199214287a633029f2fb1b59180c61609605f069acf1d8de0ebf4c72befe", function( data ) {
 
 
     if (! _.isEqual(data, currentData))
