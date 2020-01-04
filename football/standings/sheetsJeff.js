@@ -43,6 +43,8 @@ $.getJSON('https://spreadsheets.google.com/feeds/cells/16P8V5fwMlCk6rqAlRGuMpoVC
 
 	function filltheTable() {
 	  $.each(teams, function(i, team) {
+
+
 	 
 	      htmlString = "<div class='panel panel-default'>"
 	                + "<a class='click-track' data-toggle='collapse' href='#collapse" + i+1 + "'>"
@@ -62,8 +64,14 @@ $.getJSON('https://spreadsheets.google.com/feeds/cells/16P8V5fwMlCk6rqAlRGuMpoVC
 	                + "<th>Pts Earned</th>"
 	                + "</tr></thead>";
 
-	      
-	      $.each(team.picks, function(index, pick) {
+	      if (team.team === "Miles of Mistakes (Schaefer)")
+	  	  {
+	  		console.log("Jeff!");
+	  		htmlString += "<img src='https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/Michael_Jordan_crying.jpg/220px-Michael_Jordan_crying.jpg'>"
+	  	  }
+	  	  else
+	  	  {
+	  	  	$.each(team.picks, function(index, pick) {
 	      	if (pick.earned._value > 0)
 	      	{
 	      		cssClass = "'right-pick'";
@@ -83,12 +91,16 @@ $.getJSON('https://spreadsheets.google.com/feeds/cells/16P8V5fwMlCk6rqAlRGuMpoVC
 	                    + "<td>" + pick.confidence.format('0') + "</td>"
 	                    + "<td>" + pick.earned.format('0') + "</td>"
 	                    + "</tr>"
-	      });
+	      	});
+	  	  }
+	      
 	      
 
 	      htmlString+= "</table></ul></div></div>";
 
-	      $(".panel-group").append(htmlString);
+
+
+	      $(".panel-group").append(htmlString);	
 
 	      });
 
