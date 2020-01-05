@@ -199,8 +199,9 @@ currentData = {};
 
 
 function checkForData() {
+  //https://lbdata.pgatour.com/2020/r/016/leaderboard.json
 
-  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2020/leaderboard-v2.json" + "?userTrackingId=exp=1578177569~acl=*~hmac=a9e0199214287a633029f2fb1b59180c61609605f069acf1d8de0ebf4c72befe", function( data ) {
+  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2020/leaderboard-v2.json" + "?userTrackingId=exp=1578200867~acl=*~hmac=b88da7503e44b2f2acbcd1782a530b0c1feb4608915929c3a121478c94fd0f38", function( data ) {
 
 
     if (! _.isEqual(data, currentData))
