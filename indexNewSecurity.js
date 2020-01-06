@@ -1,6 +1,6 @@
 //window.location.replace("http://cle.golf/football/standings");
 
-jQuery.ajaxSetup({async:false});
+jQuery.ajaxSetup({async:true});
 
 schedule = [
   {name: 'A Military Tribute at The Greenbrier', date: new Date(Date.parse('9-12-2019')), tournament_id: '490'},
@@ -121,46 +121,6 @@ teams = {
 "The Forever Freddie`s": [{name: "Joaquin Niemann", id: "45486"},{name: "Sungjae Im", id: "39971"},{name: "Wyndham Clark", id: "51766"},{name: "Robby Shelton", id: "46441"},{name: "Scottie Scheffler", id: "46046"},{name: "Tommy Fleetwood", id: "30911"},{name: "Viktor Hovland", id: "46717"},{name: "Brandt Snedeker", id: "27649"}],
   };
 
-//Spiro replacement
-
-function getRedSoxRecord() {
-  
-  today = new Date().toISOString().slice(0,10);
-  lastUpdated = "";
-  record = "";
-
-  $.get("https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated", function(data) {
-    lastUpdated = data.trim();
-    if (today == lastUpdated)
-    {
-      $.get("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf", function(data) {
-        record = data.trim();
-        console.log("No need to update! The record is " + record);
-      });
-      
-    }
-    else
-    {
-      console.log("Need to update!");
-
-      $.getJSON('http://anyorigin.com/go?url=https%3A//www.baseball-reference.com/teams/BOS/2018.shtml&callback=?', function(data){
-      
-        blob = data.contents.substring(data.contents.search("<strong>Record:</strong>"), data.contents.search("<strong>Record:</strong>")+50);
-        blob = blob.substring(0, blob.search(","));
-        blob = blob.replace("<strong>Record:</strong>", "").trim()
-        $.post("https://api.keyvalue.xyz/78a47776/redSoxRecordCleGolf/" + blob);
-        $.post("https://api.keyvalue.xyz/94d2fdac/redSoxRecordCleGolfLastUpdated/" + today);
-        record = blob;
-      });
-
-    }
-    
-    })
-    return record;
-}
-
-
-
 
 
 
@@ -175,9 +135,11 @@ var processedTeams = Object.keys(teams).map(function(team) {
 
 // On ready do the magic!
 $(function() {
-  checkForData();
+  setSecurityBlurb();
+  
   window.setInterval(function(){
     checkForData();
+    //getSecurityBlurb()
   }, 200000);
   //change back to 30000
 
@@ -198,10 +160,20 @@ currentData = {};
 
 
 
-function checkForData() {
-  
 
-  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2020/leaderboard-v2.json" + "?userTrackingId=exp=1578237092~acl=*~hmac=80811ec0e9121bcf08fd87e64d04179a73fffab275439ac845dc3a427b38a861", function( data ) {
+function setSecurityBlurb() {
+  $.get("https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/pgasecurityblurb", function(data) {
+    window.securityBlurb = data;
+    checkForData();
+  });
+
+}
+
+
+
+function checkForData() {
+
+  $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2020/leaderboard-v2.json" + window.securityBlurb, function( data ) {
 
 
     if (! _.isEqual(data, currentData))
