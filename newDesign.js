@@ -344,7 +344,7 @@ function checkForData() {
           if (team.players.length > 0) {
             pictureString = "<img class='player-photo' src='https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,g_face:center,h_125,q_auto,t_headshots_leaderboard_l,w_125/headshots_"
                           + team.players[0].player_id
-                          + ".png' width='30' height='30'>";
+                          + ".png' width='45' height='45'>";
           }
 
           firstPlace = "";
@@ -362,8 +362,8 @@ function checkForData() {
                     
 
                     + "<table border='0' width='100%'><tr>"
-                    + "<td class='standings-place-number' width='15'>" + (i+1) + "</td>"
-                    + "<td width='50'>" + pictureString + "</td>"
+                    + "<td class='standings-place-number' width='30'>" + (i+1) + "</td>"
+                    + "<td width='75'>" + pictureString + "</td>"
                     + "<td class='team-name'>" + team.teamName + "<br>" + "<span class='owner'>" + team.owner + "</span>"
                     + "<td class='team-earnings'>" + team.teamTotal.format('$0,0') + "</td>"
                     + "</tr></table>"
