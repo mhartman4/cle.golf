@@ -219,7 +219,7 @@ currentData = {};
 
 
 function setSecurityBlurb() {
-  $.get("https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/pgasecurityblurb", function(data) {
+  $.get("https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/pgasecurityblurb?timestamp=" + Date.now() , function(data) {
     window.securityBlurb = data;
     checkForData();
   });

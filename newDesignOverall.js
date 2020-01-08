@@ -79,6 +79,7 @@ teamNamesAndOwners = {
 
 $(function() {
   jQuery.ajaxSetup({async:false});
+  console.log("Load the javascript file here;")
   filltheTable();
 
 
