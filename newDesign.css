@@ -1,0 +1,102 @@
+.panel-heading {
+  /*background-color: #f1f1f1;*/
+  background-color: white;
+  font-size: 16px;
+  text-align: left;
+  padding: 10px 5px;
+}
+
+
+.panel-title {
+  font-size: 12px;
+}
+
+.list-group-item {
+  font-size: 10px;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  background-color: #D3D3D3;
+}
+
+h1 {
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.table-bordered, tr, td {
+  font-size: 10px;
+
+}
+.table-condensed {
+    margin: 0 auto;
+}
+
+.panel-collapse {
+  padding: 5px;
+}
+
+body {
+  margin: 0px 5px;
+  font-family: 'Fjalla One', sans-serif;
+  background-color: #f1f1f1;
+}
+
+
+
+.top-menu {
+  margin-top: 3px;
+}
+
+
+
+.standings-place-number {
+  color: black;
+  margin: 0px 5px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.player-photo {
+  margin: 0px 8px;
+}
+
+.team-name {
+  font-size: 13px;
+  margin: 0px 8px;
+  color: #46404A;
+}
+
+.team-earnings {
+  color: #46404A;
+  font-size: 11px;
+  margin-top: 7px;
+  margin-right: 7px;
+  float: right;
+
+}
+
+.first-place {
+  
+}
+
+.roster-header {
+  background-color: #fff8dc;
+  font-family: "Fjalla One"
+}
+
+
+.table-condensed {
+  margin-bottom: 5px;
+  font-family: "Roboto"
+}
+
+.owner {
+  color: lightslategrey;
+  font-size: 10px;
+  font-family: "Roboto";
+  margin-top: 10px;
+
+}
