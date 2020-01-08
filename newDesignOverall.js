@@ -107,7 +107,7 @@ function filltheTable() {
                     + "<td class='standings-place-number' width='50'>" + (i+1) + "</td>"
                     + "<td width='65' class=''><span class='label label-" + cssClass + "'>" + team.balance.format('$0,0') + "</td>"
                     + "<td class='team-name'>" + teamNamesAndOwners[team.team].teamName + "<br>" + "<span class='owner'>" + teamNamesAndOwners[team.team].owner + "</span>"
-                    + "<td align='right'><span class='label label-default'>" + team.earnings.format('$0,0') + "</span></td>"
+                    + "<td align='right'><span class='team-earnings'>" + team.earnings.format('$0,0') + "</span></td>"
                     + "</tr></table>"
                     + "</div></a>"
                     + "<div id='collapse" + i+1 + "' class='panel-collapse collapse " + team.team.replace(/ .*/,'') + "'>"
