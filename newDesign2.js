@@ -197,7 +197,7 @@ $(function() {
   window.setInterval(function(){
     checkForData();
     //getSecurityBlurb()
-  }, 200000);
+  }, 30000);
   //change back to 30000
 
 });

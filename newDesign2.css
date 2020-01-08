@@ -75,14 +75,14 @@ body {
 }
 
 .team-name {
-  font-size: 13px;
+  font-size: 16px;
   margin: 0px 8px;
   color: #46404A;
 }
 
 .team-earnings {
   color: #46404A;
-  font-size: 11px;
+  font-size: 12px;
   
   padding: 0px 15px;
   text-align: right; 
@@ -108,7 +108,7 @@ body {
 
 .owner {
   color: lightslategrey;
-  font-size: 10px;
+  font-size: 12px;
   font-family: "Roboto";
   margin-top: 10px;
 
