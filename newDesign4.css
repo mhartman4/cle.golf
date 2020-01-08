@@ -66,8 +66,9 @@ body {
 .standings-place-number {
   color: black;
   margin: 0px 5px;
+  padding-left: 5px;
   font-size: 12px;
-  text-align: center;
+  text-align: left;
 }
 
 .player-photo {
@@ -156,7 +157,8 @@ body {
   font-size: 12px;
   /*background-color: #eee;*/
   color: #46404A;
-  font-family: "Roboto"
+  font-family: "Roboto";
+  padding: .2em .2em .2em;
 }
 
 .label-default {
@@ -164,7 +166,7 @@ body {
 }
 
 .label-success {
-  /*background-color: #7bbb5e;*/
+  background-color: #7bbb5e;
   color: white;
 }
 
