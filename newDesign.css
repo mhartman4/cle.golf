@@ -121,7 +121,7 @@ body {
 .picker-option{
   margin: 20px;
   color: grey;
-  font-family: "Roboto";
+  font-family: "Arial";
 }
 
 .selected {
@@ -161,4 +161,13 @@ body {
 
 .label-default {
     background-color: #eee;
+}
+
+.label-success {
+  /*background-color: #7bbb5e;*/
+  color: white;
+}
+
+.label-danger {
+  color: white; 
 }
