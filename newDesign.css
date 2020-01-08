@@ -4,6 +4,7 @@
   font-size: 16px;
   text-align: left;
   padding: 10px 5px;
+  border-bottom: 1px solid #eee !important;
 }
 
 
@@ -21,9 +22,19 @@ a:focus, a:hover {
 }
 
 h1 {
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 12px;
+  text-align: center;
+  font-family: "Roboto";
+  text-transform: uppercase;  
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 .table-bordered, tr, td {
@@ -31,7 +42,7 @@ h1 {
 
 }
 .table-condensed {
-    margin: 0 auto;
+    margin: 5 auto;
 }
 
 .panel-collapse {
@@ -83,8 +94,10 @@ body {
 }
 
 .roster-header {
-  background-color: #fff8dc;
-  font-family: "Fjalla One"
+  /*background-color: #fff8dc;*/
+  font-family: "Fjalla One";
+  border-bottom: 1px solid black;
+  text-transform: uppercase;
 }
 
 
@@ -108,7 +121,7 @@ body {
 .picker-option{
   margin: 20px;
   color: grey;
-
+  font-family: "Roboto";
 }
 
 .selected {
@@ -119,5 +132,33 @@ body {
 
 .tournament-name {
   color: #46404A;
-  margin-top: 25px;
+  margin-top: 40px;
+}
+
+.number-circle {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+
+    font: 20px "Roboto", sans-serif;
+}
+
+
+
+
+.label {
+  font-size: 12px;
+  /*background-color: #eee;*/
+  color: #46404A;
+  font-family: "Roboto"
+}
+
+.label-default {
+    background-color: #eee;
 }
