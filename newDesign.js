@@ -391,7 +391,7 @@ function checkForData() {
                         + "<td>" + player.total + "</td>"
                         + "<td>" + player.today + "</td>"
                         + "<td>" + player.thru + "</td>"
-                        + "</tr>"
+                        + "</tr>";
 
           });
                     //+
