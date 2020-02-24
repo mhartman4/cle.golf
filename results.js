@@ -224,6 +224,7 @@ function setSecurityBlurb() {
 function checkForData() {
 
   $.getJSON("https://statdata.pgatour.com/r/" + relevantTourney.tournament_id + "/2020/leaderboard-v2.json" + window.securityBlurb, function( data ) {
+  //$.getJSON("https://statdata.pgatour.com/r/" + "483" + "/2020/leaderboard-v2.json" + window.securityBlurb, function( data ) {
     
     htmlString = "<table width='500' border='1'>";
 
