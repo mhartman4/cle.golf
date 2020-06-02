@@ -4,9 +4,6 @@
 ## Travis CI
 [![Build Status](https://travis-ci.org/mhartman4/cle.golf.svg?branch=master)](https://travis-ci.org/mhartman4/cle.golf)
 
-The deployment model here is Github -> Travis CI -> S3 static web site.
-
-
 ### Dev
 
 ## Get started
@@ -14,7 +11,7 @@ The deployment model here is Github -> Travis CI -> S3 static web site.
 Install the dependencies...
 
 ```bash
-cd golf-league-svelte-app
+cd cle.golf
 npm install
 ```
 
@@ -24,14 +21,10 @@ npm install
 npm run dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+Navigate to [localhost:5000](http://localhost:5000). You should see the app running.
 
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
+### Deploying
 
-## Building the app
+The deployment model here is Github -> Travis CI -> S3 static web site. When you make any changes while developing, the relevant JS and CSS files are be updated automatically so no need to do anything else...just push those changes to the Github repo and it will kick off Travis CI to make changes to the S3 bucket.
 
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
+Note: The only difference between `dev` and `prod` is which HTML file is served. In dev, we use `public/index.html` but in prod we use `index.html`. This is dumb and only because of the way S3 static sites work. These two files should always be identical and should rarely need to be modified anyways.
