@@ -1,12 +1,9 @@
 # Golf League Svelte App
 
-### Deployment Status
 ## Travis CI
 [![Build Status](https://travis-ci.org/mhartman4/cle.golf.svg?branch=master)](https://travis-ci.org/mhartman4/cle.golf)
 
-### Dev
-
-## Get started
+## Developing
 
 Install the dependencies...
 
@@ -21,9 +18,9 @@ npm install
 npm run dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see the app running.
+Go to [localhost:5000](http://localhost:5000). You should see the app running.
 
-### Deploying
+## Deploying
 
 The deployment model here is Github -> Travis CI -> S3 static web site. When you make any changes while developing, the relevant JS and CSS files are be updated automatically so no need to do anything else...just push those changes to the Github repo and it will kick off Travis CI to make changes to the S3 bucket.
 
