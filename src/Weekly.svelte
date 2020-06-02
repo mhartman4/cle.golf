@@ -7,7 +7,7 @@
 	onMount(async () => {
 		const tourneyId = await getRelevantTournament()
 		const pgaStanding = await getPgaStandings(tourneyId)
-		const rawTeams = await getTeamRosters()		
+		const rawTeams = await getTeamRosters()
 		processTeams(rawTeams, pgaStanding)
 	})
 	const processTeams = (rawTeams, pgaStanding) => {
@@ -52,6 +52,7 @@
 	const getRelevantTournament = async () => {
 		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
 		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule`)
+		
 		const data = await response.json()
 		const today = new Date()
 		const tourneysBeforeToday = data.feed.entry.filter(event => new Date(Date.parse(event.gsx$date.$t)) <= today.setHours(0,0,0,0))
