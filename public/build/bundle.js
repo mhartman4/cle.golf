@@ -1,5 +1,3 @@
-
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 var app = (function () {
     'use strict';
 
@@ -1594,8 +1592,8 @@ var app = (function () {
     			span.textContent = " Loading current tournament";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$3, 90, 1, 3612);
-    			add_location(span, file$3, 90, 113, 3724);
+    			add_location(img, file$3, 90, 1, 3755);
+    			add_location(span, file$3, 90, 113, 3867);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1629,7 +1627,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-1lgxfo5");
-    			add_location(h1, file$3, 88, 1, 3559);
+    			add_location(h1, file$3, 88, 1, 3702);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -1667,8 +1665,8 @@ var app = (function () {
     			span.textContent = " Loading teams and standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$3, 99, 2, 3907);
-    			add_location(span, file$3, 99, 114, 4019);
+    			add_location(img, file$3, 99, 2, 4050);
+    			add_location(span, file$3, 99, 114, 4162);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1872,7 +1870,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$3, 93, 0, 3777);
+    			add_location(div, file$3, 93, 0, 3920);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2004,7 +2002,7 @@ var app = (function () {
     	// Hit the google sheet for the schedule
     	const getRelevantTournament = async () => {
     		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
-    		const response = await fetch(`http://cle.golf/public/json/schedule.json`);
+    		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule`);
 
     		const data = await response.json();
     		const today = new Date();
@@ -2020,6 +2018,7 @@ var app = (function () {
 
     		const securityBlurb = await response.text();
 
+    		// const securityBlurb = "?userTrackingId=exp=1591128571~acl=*~hmac=88b9b7ce66e9304ae6541e633ec7cb91a9bfbea655a2836c7161af2d8dbd467e"
     		// This is where we hit the PGA
     		return makePgaCall(securityBlurb, tourneyId);
     	};
@@ -2034,7 +2033,7 @@ var app = (function () {
     	// This one gets our team rosters from the Google Sheet
     	const getTeamRosters = async () => {
     		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`)
-    		const response = await fetch(`http://cle.golf/public/json/rosters.json`);
+    		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/rosters`);
 
     		const data = await response.json();
     		return await data.feed.entry.filter(e => e.gsx$roster.$t);
