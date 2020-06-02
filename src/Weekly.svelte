@@ -51,7 +51,7 @@
 	// Hit the google sheet for the schedule
 	const getRelevantTournament = async () => {
 		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
-		const response = await fetch(`/json/schedule.json`)
+		const response = await fetch(`http://cle.golf/public/json/schedule.json`)
 		const data = await response.json()
 		const today = new Date()
 		const tourneysBeforeToday = data.feed.entry.filter(event => new Date(Date.parse(event.gsx$date.$t)) <= today.setHours(0,0,0,0))
@@ -78,7 +78,8 @@
 	
 	// This one gets our team rosters from the Google Sheet
 	const getTeamRosters = async () => {
-		const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`)
+		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`)
+		const response = await fetch(`http://cle.golf/public/json/rosters.json`)
 		const data = await response.json()
 		return await data.feed.entry.filter(e => e.gsx$roster.$t)
 	}
