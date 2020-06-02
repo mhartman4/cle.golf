@@ -1,3 +1,5 @@
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 var app = (function () {
     'use strict';
 
@@ -1579,7 +1581,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (88:0) {:else}
+    // (89:0) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -1592,8 +1594,8 @@ var app = (function () {
     			span.textContent = " Loading current tournament";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$3, 88, 1, 3455);
-    			add_location(span, file$3, 88, 113, 3567);
+    			add_location(img, file$3, 89, 1, 3512);
+    			add_location(span, file$3, 89, 113, 3624);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1610,14 +1612,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(88:0) {:else}",
+    		source: "(89:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (86:0) {#if tourneyName}
+    // (87:0) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -1627,7 +1629,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-1lgxfo5");
-    			add_location(h1, file$3, 86, 1, 3402);
+    			add_location(h1, file$3, 87, 1, 3459);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -1645,14 +1647,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(86:0) {#if tourneyName}",
+    		source: "(87:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (97:1) {:else}
+    // (98:1) {:else}
     function create_else_block(ctx) {
     	let img;
     	let img_src_value;
@@ -1665,8 +1667,8 @@ var app = (function () {
     			span.textContent = " Loading teams and standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$3, 97, 2, 3750);
-    			add_location(span, file$3, 97, 114, 3862);
+    			add_location(img, file$3, 98, 2, 3807);
+    			add_location(span, file$3, 98, 114, 3919);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1685,14 +1687,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(97:1) {:else}",
+    		source: "(98:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (93:1) {#if teams}
+    // (94:1) {#if teams}
     function create_if_block$2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -1781,14 +1783,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(93:1) {#if teams}",
+    		source: "(94:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:2) {#each teams as team, i}
+    // (95:2) {#each teams as team, i}
     function create_each_block$2(ctx) {
     	let current;
 
@@ -1831,7 +1833,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(94:2) {#each teams as team, i}",
+    		source: "(95:2) {#each teams as team, i}",
     		ctx
     	});
 
@@ -1870,7 +1872,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$3, 91, 0, 3620);
+    			add_location(div, file$3, 92, 0, 3677);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2001,7 +2003,9 @@ var app = (function () {
 
     	// Hit the google sheet for the schedule
     	const getRelevantTournament = async () => {
-    		const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`);
+    		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
+    		const response = await fetch(`/json/schedule.json`);
+
     		const data = await response.json();
     		const today = new Date();
     		const tourneysBeforeToday = data.feed.entry.filter(event => new Date(Date.parse(event.gsx$date.$t)) <= today.setHours(0, 0, 0, 0));
