@@ -28,7 +28,8 @@ schedule = [
   {name: 'World Golf Championships-Mexico Championship', date: new Date(Date.parse('2-20-2020')), tournament_id: '473'},
   {name: 'The Honda Classic', date: new Date(Date.parse('2-27-2020')), tournament_id: '010'},
   {name: 'Charles Schwab Challenge', date: new Date(Date.parse('6-11-2020')), tournament_id: '021'},
-  {name: 'RBC Heritage', date: new Date(Date.parse('6-18-2020')), tournament_id: '012'}
+  {name: 'RBC Heritage', date: new Date(Date.parse('6-18-2020')), tournament_id: '012'},
+  {name: 'TRAVELERS CHAMPIONSHIP', date: new Date(Date.parse('6-25-2020')), tournament_id: '034'}
 ];
 
 var today = new Date();
