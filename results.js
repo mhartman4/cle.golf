@@ -29,7 +29,8 @@ schedule = [
   {name: 'The Honda Classic', date: new Date(Date.parse('2-27-2020')), tournament_id: '010'},
   {name: 'Charles Schwab Challenge', date: new Date(Date.parse('6-11-2020')), tournament_id: '021'},
   {name: 'RBC Heritage', date: new Date(Date.parse('6-18-2020')), tournament_id: '012'},
-  {name: 'TRAVELERS CHAMPIONSHIP', date: new Date(Date.parse('6-25-2020')), tournament_id: '034'}
+  {name: 'TRAVELERS CHAMPIONSHIP', date: new Date(Date.parse('6-25-2020')), tournament_id: '034'},
+  {name: 'Rocket Mortgage Classic', date: new Date(Date.parse('7-2-2020')), tournament_id: '524'},
 ];
 
 var today = new Date();
