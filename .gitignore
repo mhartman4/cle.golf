@@ -3,3 +3,4 @@ Gemfile.lock
 .travis.yml
 football/.DS_Store
 .DS_Store
+node_modules/*
