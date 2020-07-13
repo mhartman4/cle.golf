@@ -31,6 +31,16 @@ schedule = [
   {name: 'RBC Heritage', date: new Date(Date.parse('6-18-2020')), tournament_id: '012'},
   {name: 'TRAVELERS CHAMPIONSHIP', date: new Date(Date.parse('6-25-2020')), tournament_id: '034'},
   {name: 'Rocket Mortgage Classic', date: new Date(Date.parse('7-2-2020')), tournament_id: '524'},
+  {name: "Workday Charity Open", date: new Date(Date.parse('2020-07-09')), tournament_id: '533'}, 
+  {name: "the Memorial Tournament presented by Nationwide", date: new Date(Date.parse('2020-07-16')), tournament_id: '023'}, 
+  {name: "3M Open", date: new Date(Date.parse('2020-07-23')), tournament_id: '525'}, 
+  {name: "World Golf Championships-FedEx St. Jude Invitational", date: new Date(Date.parse('2020-07-30')), tournament_id: '476'}, 
+  {name: "Barracuda Championship", date: new Date(Date.parse('2020-07-30')), tournament_id: '472'}, 
+  {name: "PGA Championship", date: new Date(Date.parse('2020-08-06')), tournament_id: '033'}, 
+  {name: "Wyndham Championship", date: new Date(Date.parse('2020-08-13')), tournament_id: '013'}, 
+  {name: "THE NORTHERN TRUST", date: new Date(Date.parse('2020-08-20')), tournament_id: '027'}, 
+  {name: "BMW Championship", date: new Date(Date.parse('2020-08-27')), tournament_id: '028'}, 
+  {name: "TOUR Championship", date: new Date(Date.parse('2020-09-04')), tournament_id: '060'}
 ];
 
 var today = new Date();

@@ -8,8 +8,8 @@
 	})
 	
 	const getOverallStandings = async () => {
-		const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)
-		//const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/overall`)
+		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)
+		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/overall?timestamp=` + Date.now())
 		const data = await response.json()
 		const teams = data.feed.entry.filter(row => row.gsx$teamname.$t != "")
 		teams.forEach((team) => {

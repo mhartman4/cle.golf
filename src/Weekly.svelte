@@ -51,7 +51,7 @@
 	// Hit the google sheet for the schedule
 	const getRelevantTournament = async () => {
 		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
-		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule`)
+		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule?timestamp=` + Date.now())
 		
 		const data = await response.json()
 		const today = new Date()
@@ -72,7 +72,7 @@
 	
 	const makePgaCall = async (securityBlurb, tourneyId) => {
 		  console.log(securityBlurb)
-			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2020/leaderboard-v2.json" + securityBlurb);
+			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2020/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
 			const jsonResp = await pgaResp.json()
 			return jsonResp.leaderboard.players
 	}
