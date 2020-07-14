@@ -885,19 +885,27 @@ var app = (function () {
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = numeral(/*player*/ ctx[1].projMoney).format("$0,0") + "";
+
+    	let t2_value = (/*player*/ ctx[1].position
+    	? numeral(/*player*/ ctx[1].projMoney).format("$0,0")
+    	: "") + "";
+
     	let t2;
     	let t3;
     	let td2;
 
     	let t4_value = (/*player*/ ctx[1].position
     	? /*player*/ ctx[1].position
-    	: "") + "";
+    	: "CUT") + "";
 
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = (/*player*/ ctx[1].total ? /*player*/ ctx[1].total : "") + "";
+
+    	let t6_value = (/*player*/ ctx[1].position
+    	? /*player*/ ctx[1].total ? /*player*/ ctx[1].total : "E"
+    	: "") + "";
+
     	let t6;
     	let t7;
     	let td4;
@@ -908,6 +916,7 @@ var app = (function () {
     	let t10_value = (/*player*/ ctx[1].thru ? /*player*/ ctx[1].thru : "") + "";
     	let t10;
     	let t11;
+    	let tr_class_value;
 
     	const block = {
     		c: function create() {
@@ -930,19 +939,19 @@ var app = (function () {
     			td5 = element("td");
     			t10 = text(t10_value);
     			t11 = space();
-    			attr_dev(td0, "class", "svelte-guy1rs");
-    			add_location(td0, file$1, 21, 6, 594);
-    			attr_dev(td1, "class", "svelte-guy1rs");
-    			add_location(td1, file$1, 22, 21, 638);
-    			attr_dev(td2, "class", "svelte-guy1rs");
-    			add_location(td2, file$1, 23, 21, 711);
-    			attr_dev(td3, "class", "svelte-guy1rs");
-    			add_location(td3, file$1, 24, 21, 782);
-    			attr_dev(td4, "class", "svelte-guy1rs");
-    			add_location(td4, file$1, 25, 21, 847);
-    			attr_dev(td5, "class", "svelte-guy1rs");
-    			add_location(td5, file$1, 26, 21, 912);
-    			attr_dev(tr, "class", "player-row svelte-guy1rs");
+    			attr_dev(td0, "class", "svelte-2xoyi");
+    			add_location(td0, file$1, 21, 6, 625);
+    			attr_dev(td1, "class", "svelte-2xoyi");
+    			add_location(td1, file$1, 22, 21, 669);
+    			attr_dev(td2, "class", "svelte-2xoyi");
+    			add_location(td2, file$1, 23, 21, 765);
+    			attr_dev(td3, "class", "svelte-2xoyi");
+    			add_location(td3, file$1, 24, 21, 839);
+    			attr_dev(td4, "class", "svelte-2xoyi");
+    			add_location(td4, file$1, 25, 21, 930);
+    			attr_dev(td5, "class", "svelte-2xoyi");
+    			add_location(td5, file$1, 26, 21, 995);
+    			attr_dev(tr, "class", tr_class_value = "player-row" + (/*player*/ ctx[1].position ? "" : " cut") + " svelte-2xoyi");
     			add_location(tr, file$1, 20, 5, 564);
     		},
     		m: function mount(target, anchor) {
@@ -968,15 +977,25 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*roster*/ 1 && t0_value !== (t0_value = /*player*/ ctx[1].name + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*roster*/ 1 && t2_value !== (t2_value = numeral(/*player*/ ctx[1].projMoney).format("$0,0") + "")) set_data_dev(t2, t2_value);
+
+    			if (dirty & /*roster*/ 1 && t2_value !== (t2_value = (/*player*/ ctx[1].position
+    			? numeral(/*player*/ ctx[1].projMoney).format("$0,0")
+    			: "") + "")) set_data_dev(t2, t2_value);
 
     			if (dirty & /*roster*/ 1 && t4_value !== (t4_value = (/*player*/ ctx[1].position
     			? /*player*/ ctx[1].position
-    			: "") + "")) set_data_dev(t4, t4_value);
+    			: "CUT") + "")) set_data_dev(t4, t4_value);
 
-    			if (dirty & /*roster*/ 1 && t6_value !== (t6_value = (/*player*/ ctx[1].total ? /*player*/ ctx[1].total : "") + "")) set_data_dev(t6, t6_value);
+    			if (dirty & /*roster*/ 1 && t6_value !== (t6_value = (/*player*/ ctx[1].position
+    			? /*player*/ ctx[1].total ? /*player*/ ctx[1].total : "E"
+    			: "") + "")) set_data_dev(t6, t6_value);
+
     			if (dirty & /*roster*/ 1 && t8_value !== (t8_value = (/*player*/ ctx[1].today ? /*player*/ ctx[1].today : "") + "")) set_data_dev(t8, t8_value);
     			if (dirty & /*roster*/ 1 && t10_value !== (t10_value = (/*player*/ ctx[1].thru ? /*player*/ ctx[1].thru : "") + "")) set_data_dev(t10, t10_value);
+
+    			if (dirty & /*roster*/ 1 && tr_class_value !== (tr_class_value = "player-row" + (/*player*/ ctx[1].position ? "" : " cut") + " svelte-2xoyi")) {
+    				attr_dev(tr, "class", tr_class_value);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(tr);
@@ -1097,24 +1116,24 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(th0, "class", "roster-header svelte-guy1rs");
+    			attr_dev(th0, "class", "roster-header svelte-2xoyi");
     			add_location(th0, file$1, 9, 4, 172);
-    			attr_dev(th1, "class", "roster-header svelte-guy1rs");
+    			attr_dev(th1, "class", "roster-header svelte-2xoyi");
     			add_location(th1, file$1, 10, 16, 226);
-    			attr_dev(th2, "class", "roster-header svelte-guy1rs");
+    			attr_dev(th2, "class", "roster-header svelte-2xoyi");
     			add_location(th2, file$1, 11, 16, 281);
-    			attr_dev(th3, "class", "roster-header svelte-guy1rs");
+    			attr_dev(th3, "class", "roster-header svelte-2xoyi");
     			add_location(th3, file$1, 12, 16, 332);
-    			attr_dev(th4, "class", "roster-header svelte-guy1rs");
+    			attr_dev(th4, "class", "roster-header svelte-2xoyi");
     			add_location(th4, file$1, 13, 16, 385);
-    			attr_dev(th5, "class", "roster-header svelte-guy1rs");
+    			attr_dev(th5, "class", "roster-header svelte-2xoyi");
     			add_location(th5, file$1, 14, 16, 438);
     			add_location(tr, file$1, 8, 3, 163);
     			add_location(thead, file$1, 7, 2, 152);
     			add_location(tbody, file$1, 17, 2, 496);
-    			attr_dev(table, "class", "roster-table svelte-guy1rs");
+    			attr_dev(table, "class", "roster-table svelte-2xoyi");
     			add_location(table, file$1, 6, 1, 121);
-    			attr_dev(div, "class", "roster svelte-guy1rs");
+    			attr_dev(div, "class", "roster svelte-2xoyi");
     			add_location(div, file$1, 5, 0, 82);
     		},
     		l: function claim(nodes) {
@@ -1579,7 +1598,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (91:0) {:else}
+    // (111:0) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -1592,8 +1611,8 @@ var app = (function () {
     			span.textContent = " Loading current tournament";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$3, 91, 1, 3809);
-    			add_location(span, file$3, 91, 113, 3921);
+    			add_location(img, file$3, 111, 1, 4285);
+    			add_location(span, file$3, 111, 113, 4397);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1610,14 +1629,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(91:0) {:else}",
+    		source: "(111:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (89:0) {#if tourneyName}
+    // (109:0) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -1627,7 +1646,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-1lgxfo5");
-    			add_location(h1, file$3, 89, 1, 3756);
+    			add_location(h1, file$3, 109, 1, 4232);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -1645,14 +1664,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(89:0) {#if tourneyName}",
+    		source: "(109:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:1) {:else}
+    // (120:1) {:else}
     function create_else_block(ctx) {
     	let img;
     	let img_src_value;
@@ -1665,8 +1684,8 @@ var app = (function () {
     			span.textContent = " Loading teams and standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$3, 100, 2, 4104);
-    			add_location(span, file$3, 100, 114, 4216);
+    			add_location(img, file$3, 120, 2, 4580);
+    			add_location(span, file$3, 120, 114, 4692);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1685,14 +1704,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(100:1) {:else}",
+    		source: "(120:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (96:1) {#if teams}
+    // (116:1) {#if teams}
     function create_if_block$2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -1781,14 +1800,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(96:1) {#if teams}",
+    		source: "(116:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (97:2) {#each teams as team, i}
+    // (117:2) {#each teams as team, i}
     function create_each_block$2(ctx) {
     	let current;
 
@@ -1831,7 +1850,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(97:2) {#each teams as team, i}",
+    		source: "(117:2) {#each teams as team, i}",
     		ctx
     	});
 
@@ -1870,7 +1889,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$3, 94, 0, 3974);
+    			add_location(div, file$3, 114, 0, 4450);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1988,10 +2007,23 @@ var app = (function () {
 
     		sortedTeams.forEach(team => {
     			const sortedRoster = team.roster.sort((a, b) => {
-    				return a.projMoney > b.projMoney
-    				? -1
-    				: a.projMoney < b.projMoney ? 1 : 0;
-    			});
+    				// if (isNaN(a.positionNum)){
+    				//        return 1;
+    				//    } else if (isNaN(b.positionNum)) {
+    				//        return -1;
+    				//    }
+    				if (isNaN(a.positionNum) && isNaN(b.positionNum)) {
+    					return a.total - b.total;
+    				} else {
+    					if (isNaN(a.positionNum)) {
+    						return 1;
+    					} else if (isNaN(b.positionNum)) {
+    						return -1;
+    					} else {
+    						return b.projMoney - a.projMoney;
+    					}
+    				}
+    			}); // return a.projMoney > b.projMoney ? -1 : a.projMoney < b.projMoney ? 1 : 0	
 
     			team.roster = sortedRoster;
     		});

@@ -18,11 +18,11 @@
 		<tbody>
 			{#each roster as player}
 				{#if player.isPlaying}
-					<tr class="player-row">
+					<tr class="player-row{player.position ? '' : ' cut'}">
 						<td>{player.name}</td>
-	                    <td>{numeral(player.projMoney).format("$0,0")}</td>
-	                    <td>{player.position ? player.position : ""}</td>
-	                    <td>{player.total ? player.total : ""}</td>
+	                    <td>{player.position ? numeral(player.projMoney).format("$0,0") : ""}</td>
+	                    <td>{player.position ? player.position : "CUT"}</td>
+	                    <td>{player.position ? (player.total ? player.total : "E") : ""}</td>
 	                    <td>{player.today ? player.today : ""}</td>
 	                    <td>{player.thru ? player.thru : ""}</td>
 					</tr>
@@ -56,5 +56,8 @@
 	}
 	td {
 		padding: 5px;
+	}
+	.cut {
+		background-color: #ea9999;
 	}
 </style>

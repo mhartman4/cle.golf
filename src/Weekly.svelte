@@ -41,7 +41,27 @@
 		})
 		sortedTeams.forEach( (team) =>{
 			const sortedRoster = team.roster.sort((a,b) => {
-				return a.projMoney > b.projMoney ? -1 : a.projMoney < b.projMoney ? 1 : 0
+				// if (isNaN(a.positionNum)){
+			 //        return 1;
+			 //    } else if (isNaN(b.positionNum)) {
+			 //        return -1;
+			 //    }
+			    if (isNaN(a.positionNum) && isNaN(b.positionNum) ) {
+			    	return a.total - b.total;
+			    }
+			    else {
+			    	if (isNaN(a.positionNum)) {
+			    		return 1
+			    	}
+			    	else if (isNaN(b.positionNum)) {
+			    		return -1
+			    	}
+			    	else {
+			    		return b.projMoney - a.projMoney
+			    	}
+			    }
+				// return a.projMoney > b.projMoney ? -1 : a.projMoney < b.projMoney ? 1 : 0	
+				
 			})
 			team.roster = sortedRoster
 		})
