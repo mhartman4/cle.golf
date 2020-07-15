@@ -1,7 +1,7 @@
 # 🏌 Golf League Svelte App 🏌
 
 ## Travis CI Status
-[![Build Status](https://travis-ci.org/mhartman4/cle.golf.svg?branch=master)](https://travis-ci.org/mhartman4/cle.golf)
+[![Build Status](https://travis-ci.com/mhartman4/cle.golf.svg?branch=master)](https://travis-ci.com/github/mhartman4/cle.golf)
 
 ## Developing
 
