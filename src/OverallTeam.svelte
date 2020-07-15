@@ -9,6 +9,14 @@
 
     function toggleRoster() {
     	rosterVisible = !rosterVisible
+    	if (rosterVisible) {
+		  	ga('send', {
+		  		hitType: 'event',
+		  		eventCategory: 'Overall',
+		  		eventAction: 'Click Team',
+		  		eventLabel: teamName
+			});
+    	}
     }
 
 </script>

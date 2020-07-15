@@ -21,18 +21,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <style>
 	.picker {
   		margin-top:  10px;

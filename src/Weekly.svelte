@@ -1,7 +1,8 @@
 <script>
   	import { onMount } from "svelte"
 	import Team from "./Team.svelte"
-	let teams, tourneyName
+	import Leaderboard from "./Leaderboard.svelte"
+	let teams, tourneyName, leaderboard
 	
 	// onMount do all of our async functions
 	onMount(async () => {
@@ -85,7 +86,6 @@
 			// Hit KVDB to get our security blurb so we can call the PGA method
 			const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/pgasecurityblurb?timestamp="` + Date.now());
 			const securityBlurb = await response.text()
-			// const securityBlurb = "?userTrackingId=exp=1591128571~acl=*~hmac=88b9b7ce66e9304ae6541e633ec7cb91a9bfbea655a2836c7161af2d8dbd467e"
 			// This is where we hit the PGA
 			return makePgaCall(securityBlurb, tourneyId);
 	}
@@ -94,6 +94,7 @@
 		  console.log(securityBlurb)
 			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2020/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
 			const jsonResp = await pgaResp.json()
+			leaderboard = await jsonResp.leaderboard.players
 			return jsonResp.leaderboard.players
 	}
 	
@@ -111,6 +112,11 @@
 {:else}
 	<img class="sheets-icon" src="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png"><span>&nbsp;Loading current tournament</span>
 {/if}
+
+<!-- {#if leaderboard}
+	<Leaderboard leaderboard={leaderboard}></Leaderboard>	
+{/if} -->
+
 
 <div class="teams">
 	{#if teams}
