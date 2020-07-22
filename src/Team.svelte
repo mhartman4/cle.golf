@@ -1,8 +1,9 @@
 <script>
 	import Roster from "./Roster.svelte"
-	export let team, placeNumber
+	export let team, placeNumber, isFavorite
 	let id = team.id.$t.replace("https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full/", "")
 	let teamName = team.gsx$team.$t
+	let teamNameNoOwner = team.gsx$teamname.$t
 	let owner = team.gsx$owner.$t
 	let pictureUrl = "https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,g_face:center,h_45,q_auto,t_headshots_leaderboard_l,w_45/headshots_" + team.roster[0].id + ".png"
     let rosterVisible = false
@@ -24,17 +25,17 @@
 </script>
 
 
-<div class="team" on:click={toggleRoster}>
-	<div class="header">
+<div class="team{isFavorite ? " favorite" : ""}">
+	<div class="header" on:click={toggleRoster}>
 		<table border="0" width="100%">
 			<tbody>
 				<tr>
-					<td class="standings-place-number" width="30">{placeNumber}</td>
-					<td width="75">
+					<td class="standings-place-number" width="15">{placeNumber}</td>
+					<td width="55">
 						<img class="player-photo" src="{pictureUrl}" width="45" height="45">
 					</td>
 					<td class="team-name">
-						{teamName}
+						{teamNameNoOwner}
 						<div class="owner">{owner}</div>
 					</td>
 					<td class="team-earnings">
@@ -45,18 +46,13 @@
 		</table>
 	</div>
 	{#if rosterVisible}
-		<Roster roster={team.roster}></Roster>
+		<Roster roster={team.roster} teamName={teamName}></Roster>
 	{/if}
 </div>
 
 
 <style>
-	.team {
-    	margin: 5px 0px;
-    	border-radius: 4px;
-    	border: 1px solid #ddd;
-    	background-color: white;	
-  	}
+	
   	.header {
   		padding: 5px 2px;
   	}
@@ -86,5 +82,10 @@
 	    font-size: 16px;
 	    padding: 0px 0px;
 	    text-align: right;
+	}
+	.favorite {
+		border: 1px #e67c73 solid;
+		border-radius: 2px;
+		overflow: scroll;
 	}
 </style>

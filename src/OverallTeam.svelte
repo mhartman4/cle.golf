@@ -1,6 +1,6 @@
 <script>
 	import OverallRoster from "./OverallRoster.svelte"
-	export let team, placeNumber
+	export let team, placeNumber, isFavorite
 	let teamName = team.gsx$teamname.$t
 	let owner = team.gsx$owner.$t
 	let teamTotalEarnings = team.gsx$teamtotalearnings.$t
@@ -21,30 +21,31 @@
 
 </script>
 
-
-<div class="team" on:click={toggleRoster}>
-	<div class="header">
-		<table border="0" width="100%">
-			<tbody>
-				<tr>
-					<td class="standings-place-number" width="25">{placeNumber}</td>
-					<td width="45" align="left">
-						<span class="team-total-payout { teamTotalPayout < 0 ? 'negative' : ''}">{numeral(teamTotalPayout).format("$0")}</span>
-					</td>
-					<td class="team-name">
-						{teamName}
-						<div class="owner">{owner}</div>
-					</td>
-					<td class="team-earnings">
-						{numeral(teamTotalEarnings).format('$0,0')}<br>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+<div class="team{isFavorite ? " favorite" : ""}">
+	<div class="team" on:click={toggleRoster}>
+		<div class="header">
+			<table border="0" width="100%">
+				<tbody>
+					<tr>
+						<td class="standings-place-number" width="25">{placeNumber}</td>
+						<td width="45" align="left">
+							<span class="team-total-payout { teamTotalPayout < 0 ? 'negative' : ''}">{numeral(teamTotalPayout).format("$0")}</span>
+						</td>
+						<td class="team-name">
+							{teamName}
+							<div class="owner">{owner}</div>
+						</td>
+						<td class="team-earnings">
+							{numeral(teamTotalEarnings).format('$0,0')}<br>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		{#if rosterVisible}
+			<OverallRoster roster={team.roster}></OverallRoster>
+		{/if}
 	</div>
-	{#if rosterVisible}
-		<OverallRoster roster={team.roster}></OverallRoster>
-	{/if}
 </div>
 
 
@@ -52,7 +53,7 @@
 	.team {
     	margin: 5px 0px;
     	border-radius: 4px;
-    	border: 1px solid #ddd;
+    	/*border: 1px solid #ddd;*/
     	background-color: white;	
   	}
   	.header {
@@ -97,5 +98,9 @@
 	}
 	.negative {
 		background-color: #d9534f;
+	}
+	.favorite {
+		border: 1px #e67c73 solid;
+		border-radius: 2px;
 	}
 </style>

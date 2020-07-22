@@ -5,11 +5,10 @@
 	<table align="center">
 		<tr>
 		{#each leaderboard as player, i}
-			{#if i < 3}
+			{#if i < 10}
 				<td align="center">
-					<img width="60" src="https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,g_face:center,h_45,q_auto,t_headshots_leaderboard_l,w_45/headshots_{player.player_id}.png">&nbsp;
-					<br>
-					<div class="badge">{i+1}<br>{player.player_bio.last_name}</div>
+					<img width="60" src="https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,g_face:center,h_45,q_auto,t_headshots_leaderboard_l,w_45/headshots_{player.player_id}.png">
+					<div class="badge">{player.current_position}<br>{player.player_bio.last_name}</div>
 				</td>
 			{/if}
 		{/each}

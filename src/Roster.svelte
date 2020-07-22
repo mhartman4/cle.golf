@@ -1,6 +1,6 @@
 <script>
 	import { slide } from 'svelte/transition'
-	export let roster
+	export let roster, teamName
 </script>
 
 <div class="roster" transition:slide>
@@ -17,16 +17,16 @@
 		</thead>
 		<tbody>
 			{#each roster as player}
-				{#if player.isPlaying}
-					<tr class="player-row{player.position ? '' : ' cut'}">
+				<!-- {#if player.isPlaying} -->
+					<tr class="player-row{player.isPlaying ? '' : ' inactive'}{player.position ? '' : ' cut'}">
 						<td>{player.name}</td>
 	                    <td>{player.position ? numeral(player.projMoney).format("$0,0") : ""}</td>
-	                    <td>{player.position ? player.position : "CUT"}</td>
+	                    <td>{player.isPlaying ? (player.position ? player.position : "CUT") : "--"}</td>
 	                    <td>{player.position ? (player.total ? player.total : "E") : ""}</td>
 	                    <td>{player.today ? player.today : ""}</td>
 	                    <td>{player.thru ? player.thru : ""}</td>
 					</tr>
-				{/if}
+				<!-- {/if} -->
 			{/each}
 		</tbody>
 	</table>
@@ -59,5 +59,11 @@
 	}
 	.cut {
 		background-color: #ea9999;
+	}
+	.inactive {
+		background-color: #dedede;
+	}
+	.favorite-button {
+		margin: 5px;
 	}
 </style>

@@ -2,15 +2,28 @@
   	import { onMount } from "svelte"
 	import Team from "./Team.svelte"
 	import Leaderboard from "./Leaderboard.svelte"
-	let teams, tourneyName, leaderboard
+	let teams, tourneyName, leaderboard, favoriteTeam
 	
 	// onMount do all of our async functions
 	onMount(async () => {
+		if (document.cookie.split('; ').find(row => row.startsWith('favoriteTeam'))) {
+			favoriteTeam = document.cookie.split('; ').find(row => row.startsWith('favoriteTeam')).split('=')[1];	
+		}
+		else {
+			favoriteTeam = ""
+		}
+		
+		console.log(favoriteTeam)
 		const tourneyId = await getRelevantTournament()
 		const pgaStanding = await getPgaStandings(tourneyId)
 		const rawTeams = await getTeamRosters()
 		processTeams(rawTeams, pgaStanding)
 	})
+	function setFavorite(message) {
+    	document.cookie = "favoriteTeam=" + message
+    	favoriteTeam = message
+    	console.log(message)
+    }
 	const processTeams = (rawTeams, pgaStanding) => {
 		rawTeams.forEach((team) => {
 				team.processed = true
@@ -29,7 +42,7 @@
 							player.today = pgaPlayer.today,
 							player.thru = pgaPlayer.thru,
 							player.total = pgaPlayer.total,
-							player.playerId = pgaPlayer.player_id
+							player.playerId = pgaPlayer.player_id,
 							team.totalMoney += pgaPlayer.rankings.projected_money_event
 						}
 						team.roster.push(player)
@@ -37,35 +50,35 @@
 				}
 				
 		})
+		rawTeams.forEach((team) => {
+			team.roster.forEach((player) => {
+				if (player.isPlaying === undefined) {
+					player.isPlaying = false
+					// If not playing put at bottom of list
+					player.sort = -2
+				}
+				else {
+					if (isNaN(player.positionNum)) {
+						// Next up is cut players
+						player.sort = -1
+					}
+					else {
+						// Then sort by projected money
+						player.sort = parseInt(player.projMoney)
+					}
+				}
+				// console.log(player)
+			})
+		})
 		const sortedTeams = rawTeams.sort((a,b) => {
 			return a.totalMoney > b.totalMoney ? -1 : a.totalMoney < b.totalMoney ? 1 : 0
 		})
-		sortedTeams.forEach( (team) =>{
-			const sortedRoster = team.roster.sort((a,b) => {
-				// if (isNaN(a.positionNum)){
-			 //        return 1;
-			 //    } else if (isNaN(b.positionNum)) {
-			 //        return -1;
-			 //    }
-			    if (isNaN(a.positionNum) && isNaN(b.positionNum) ) {
-			    	return a.total - b.total;
-			    }
-			    else {
-			    	if (isNaN(a.positionNum)) {
-			    		return 1
-			    	}
-			    	else if (isNaN(b.positionNum)) {
-			    		return -1
-			    	}
-			    	else {
-			    		return b.projMoney - a.projMoney
-			    	}
-			    }
-				// return a.projMoney > b.projMoney ? -1 : a.projMoney < b.projMoney ? 1 : 0	
-				
-			})
+		
+		sortedTeams.forEach( (team) => {
+			const sortedRoster = team.roster.sort((a, b) => (a.sort < b.sort) ? 1 : -1)
 			team.roster = sortedRoster
 		})
+
 		teams = sortedTeams
 	}
 	
@@ -86,6 +99,7 @@
 			// Hit KVDB to get our security blurb so we can call the PGA method
 			const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/pgasecurityblurb?timestamp="` + Date.now());
 			const securityBlurb = await response.text()
+			console.log(securityBlurb)
 			// This is where we hit the PGA
 			return makePgaCall(securityBlurb, tourneyId);
 	}
@@ -121,7 +135,22 @@
 <div class="teams">
 	{#if teams}
 		{#each teams as team, i}
-			<Team team={team} placeNumber={i+1}></Team>
+			<table class="team" width="100%" border="0">
+				<tr>
+					<td class="favorite-cell" width="40">
+						<span class="favorite-button" on:click={setFavorite(team.gsx$team.$t)}>
+						{#if favoriteTeam === team.gsx$team.$t}
+							<span style="font-size: 10px;">❤️</span>
+						{:else}
+							<span style="font-size: 13px;color: #969494;">♡</span>
+						{/if}
+						</span>	
+					</td>
+					<td>
+						<Team team={team} placeNumber={i+1} isFavorite={favoriteTeam === team.gsx$team.$t}></Team>	
+					</td>
+				</tr>
+			</table>
 	  	{/each}
 	{:else}
 		<img class="sheets-icon" src="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png"><span>&nbsp;Loading teams and standings</span>
@@ -141,4 +170,14 @@
 	    margin-bottom: 20px;
 		border-radius: 4px;
 	}
+	.team {
+    	margin: 5px 0px;
+    	border-radius: 4px;
+    	border: 1px solid #ddd;
+    	background-color: white;
+  	}
+  	.favorite-cell {
+  		vertical-align: top;
+  		padding-top: 22px;
+  	}
 </style>
