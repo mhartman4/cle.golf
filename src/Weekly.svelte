@@ -22,7 +22,12 @@
 	function setFavorite(message) {
     	document.cookie = "favoriteTeam=" + message
     	favoriteTeam = message
-    	console.log(message)
+    	ga('send', {
+		  		hitType: 'event',
+		  		eventCategory: 'Weekly',
+		  		eventAction: 'Favorite',
+		  		eventLabel: teamName
+			});
     }
 	const processTeams = (rawTeams, pgaStanding) => {
 		rawTeams.forEach((team) => {
@@ -43,6 +48,7 @@
 							player.thru = pgaPlayer.thru,
 							player.total = pgaPlayer.total,
 							player.playerId = pgaPlayer.player_id,
+							player.pgaStatus = pgaPlayer.status,
 							team.totalMoney += pgaPlayer.rankings.projected_money_event
 						}
 						team.roster.push(player)

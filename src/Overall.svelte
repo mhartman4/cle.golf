@@ -15,7 +15,12 @@
 	function setFavorite(message) {
     	document.cookie = "favoriteTeam=" + message
     	favoriteTeam = message
-    	console.log(message)
+    	ga('send', {
+		  		hitType: 'event',
+		  		eventCategory: 'Weekly',
+		  		eventAction: 'Favorite',
+		  		eventLabel: teamName
+			});
     }
 	const getOverallStandings = async () => {
 		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)

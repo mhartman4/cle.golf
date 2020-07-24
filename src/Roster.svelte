@@ -21,7 +21,7 @@
 					<tr class="player-row{player.isPlaying ? '' : ' inactive'}{player.position ? '' : ' cut'}">
 						<td>{player.name}</td>
 	                    <td>{player.position ? numeral(player.projMoney).format("$0,0") : ""}</td>
-	                    <td>{player.isPlaying ? (player.position ? player.position : "CUT") : "--"}</td>
+	                    <td>{player.isPlaying ? (player.position ? player.position : (player.pgaStatus === "wd" ? "WD" : "CUT")) : "--"}</td>
 	                    <td>{player.position ? (player.total ? player.total : "E") : ""}</td>
 	                    <td>{player.today ? player.today : ""}</td>
 	                    <td>{player.thru ? player.thru : ""}</td>
