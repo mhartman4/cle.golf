@@ -143,7 +143,7 @@
 		{#each teams as team, i}
 			<table class="team" width="100%" border="0">
 				<tr>
-					<td class="favorite-cell" width="40">
+					<td class="favorite-cell" width="30">
 						<span class="favorite-button" on:click={setFavorite(team.gsx$team.$t)}>
 						{#if favoriteTeam === team.gsx$team.$t}
 							<span style="font-size: 10px;">❤️</span>

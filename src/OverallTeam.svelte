@@ -62,6 +62,7 @@
 	.standings-place-number {
 	    color: black;
 	    padding-left: 5px;
+	    padding-top: 6px;
 	    font-size: 12px;
 	    text-align: left;
 	}

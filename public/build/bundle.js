@@ -1375,29 +1375,29 @@ var app = (function () {
     			br = element("br");
     			t8 = space();
     			if (if_block) if_block.c();
-    			attr_dev(td0, "class", "standings-place-number svelte-1uqyjkc");
+    			attr_dev(td0, "class", "standings-place-number svelte-1h06keg");
     			attr_dev(td0, "width", "15");
     			add_location(td0, file$2, 32, 5, 941);
-    			attr_dev(img, "class", "player-photo svelte-1uqyjkc");
+    			attr_dev(img, "class", "player-photo svelte-1h06keg");
     			if (img.src !== (img_src_value = /*pictureUrl*/ ctx[7])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "width", "45");
     			attr_dev(img, "height", "45");
     			add_location(img, file$2, 34, 6, 1033);
     			attr_dev(td1, "width", "55");
     			add_location(td1, file$2, 33, 5, 1011);
-    			attr_dev(div0, "class", div0_class_value = "owner " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc");
+    			attr_dev(div0, "class", div0_class_value = "owner " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1h06keg");
     			add_location(div0, file$2, 38, 6, 1203);
-    			attr_dev(td2, "class", td2_class_value = "team-name " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc");
+    			attr_dev(td2, "class", td2_class_value = "team-name " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1h06keg");
     			add_location(td2, file$2, 36, 5, 1118);
     			add_location(br, file$2, 41, 47, 1390);
-    			attr_dev(td3, "class", td3_class_value = "team-earnings " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc");
+    			attr_dev(td3, "class", td3_class_value = "team-earnings " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1h06keg");
     			add_location(td3, file$2, 40, 5, 1284);
     			add_location(tr, file$2, 31, 4, 931);
     			add_location(tbody, file$2, 30, 3, 919);
     			attr_dev(table, "border", "0");
     			attr_dev(table, "width", "100%");
     			add_location(table, file$2, 29, 2, 884);
-    			attr_dev(div1, "class", "header svelte-1uqyjkc");
+    			attr_dev(div1, "class", "header svelte-1h06keg");
     			add_location(div1, file$2, 28, 1, 837);
     			attr_dev(div2, "class", "team");
     			add_location(div2, file$2, 27, 0, 817);
@@ -1435,17 +1435,17 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			if (!current || dirty & /*placeNumber*/ 2) set_data_dev(t0, /*placeNumber*/ ctx[1]);
 
-    			if (!current || dirty & /*isFavorite*/ 4 && div0_class_value !== (div0_class_value = "owner " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && div0_class_value !== (div0_class_value = "owner " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1h06keg")) {
     				attr_dev(div0, "class", div0_class_value);
     			}
 
-    			if (!current || dirty & /*isFavorite*/ 4 && td2_class_value !== (td2_class_value = "team-name " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && td2_class_value !== (td2_class_value = "team-name " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1h06keg")) {
     				attr_dev(td2, "class", td2_class_value);
     			}
 
     			if ((!current || dirty & /*team*/ 1) && t7_value !== (t7_value = numeral(/*team*/ ctx[0].totalMoney).format("$0,0") + "")) set_data_dev(t7, t7_value);
 
-    			if (!current || dirty & /*isFavorite*/ 4 && td3_class_value !== (td3_class_value = "team-earnings " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && td3_class_value !== (td3_class_value = "team-earnings " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1h06keg")) {
     				attr_dev(td3, "class", td3_class_value);
     			}
 
@@ -2210,7 +2210,7 @@ var app = (function () {
     			attr_dev(span, "class", "favorite-button");
     			add_location(span, file$4, 146, 6, 5226);
     			attr_dev(td0, "class", "favorite-cell svelte-1c5y5sb");
-    			attr_dev(td0, "width", "40");
+    			attr_dev(td0, "width", "30");
     			add_location(td0, file$4, 145, 5, 5182);
     			add_location(td1, file$4, 154, 5, 5511);
     			add_location(tr, file$4, 144, 4, 5172);
@@ -2937,31 +2937,31 @@ var app = (function () {
     			br = element("br");
     			t9 = space();
     			if (if_block) if_block.c();
-    			attr_dev(td0, "class", "standings-place-number svelte-9z0elh");
+    			attr_dev(td0, "class", "standings-place-number svelte-iodfys");
     			attr_dev(td0, "width", "20");
     			add_location(td0, file$6, 29, 6, 710);
-    			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7] < 0 ? "negative" : "") + " svelte-9z0elh");
+    			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7] < 0 ? "negative" : "") + " svelte-iodfys");
     			add_location(span, file$6, 31, 7, 817);
     			attr_dev(td1, "width", "40");
     			attr_dev(td1, "align", "left");
     			add_location(td1, file$6, 30, 6, 781);
-    			attr_dev(div0, "class", div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh");
+    			attr_dev(div0, "class", div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys");
     			add_location(div0, file$6, 35, 7, 1034);
-    			attr_dev(td2, "class", td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh");
+    			attr_dev(td2, "class", td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys");
     			add_location(td2, file$6, 33, 6, 955);
     			add_location(br, file$6, 38, 50, 1224);
-    			attr_dev(td3, "class", td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh");
+    			attr_dev(td3, "class", td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys");
     			add_location(td3, file$6, 37, 6, 1116);
     			add_location(tr, file$6, 28, 5, 699);
     			add_location(tbody, file$6, 27, 4, 686);
     			attr_dev(table, "border", "0");
     			attr_dev(table, "width", "100%");
     			add_location(table, file$6, 26, 3, 650);
-    			attr_dev(div1, "class", "header svelte-9z0elh");
+    			attr_dev(div1, "class", "header svelte-iodfys");
     			add_location(div1, file$6, 25, 2, 626);
-    			attr_dev(div2, "class", "team svelte-9z0elh");
+    			attr_dev(div2, "class", "team svelte-iodfys");
     			add_location(div2, file$6, 24, 1, 581);
-    			attr_dev(div3, "class", "team svelte-9z0elh");
+    			attr_dev(div3, "class", "team svelte-iodfys");
     			add_location(div3, file$6, 23, 0, 561);
     		},
     		l: function claim(nodes) {
@@ -2999,15 +2999,15 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			if (!current || dirty & /*placeNumber*/ 2) set_data_dev(t0, /*placeNumber*/ ctx[1]);
 
-    			if (!current || dirty & /*isFavorite*/ 4 && div0_class_value !== (div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && div0_class_value !== (div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys")) {
     				attr_dev(div0, "class", div0_class_value);
     			}
 
-    			if (!current || dirty & /*isFavorite*/ 4 && td2_class_value !== (td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && td2_class_value !== (td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys")) {
     				attr_dev(td2, "class", td2_class_value);
     			}
 
-    			if (!current || dirty & /*isFavorite*/ 4 && td3_class_value !== (td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && td3_class_value !== (td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys")) {
     				attr_dev(td3, "class", td3_class_value);
     			}
 

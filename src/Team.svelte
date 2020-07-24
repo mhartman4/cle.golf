@@ -59,12 +59,13 @@
 	.standings-place-number {
 	    color: black;
 	    margin: 0px 5px;
-	    padding-left: 5px;
+	    /*padding-left: 5px;*/
 	    font-size: 12px;
 	    text-align: left;
 	}
 	.player-photo {
-    	margin: 0px 8px;
+    	margin-right: 8px;
+    	margin-left: 4px;
  	}
 	.team-name {
 	    font-size: 16px;
@@ -84,9 +85,6 @@
 	    text-align: right;
 	}
 	.favorite {
-		/*border: 1px #e67c73 solid;*/
-		/*border-radius: 2px;*/
-		/*overflow: scroll;*/
 		color: #de0000;
 	}
 </style>
