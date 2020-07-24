@@ -901,7 +901,7 @@ var app = (function () {
     	? /*player*/ ctx[2].position
     		? /*player*/ ctx[2].position
     		: /*player*/ ctx[2].pgaStatus === "wd" ? "WD" : "CUT"
-    	: "--") + "";
+    	: "") + "";
 
     	let t4;
     	let t5;
@@ -914,7 +914,13 @@ var app = (function () {
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = (/*player*/ ctx[2].today ? /*player*/ ctx[2].today : "") + "";
+
+    	let t8_value = (/*player*/ ctx[2].today != undefined
+    	? /*player*/ ctx[2].today == 0
+    		? "E"
+    		: /*player*/ ctx[2].today
+    	: "") + "";
+
     	let t8;
     	let t9;
     	let td5;
@@ -944,19 +950,19 @@ var app = (function () {
     			td5 = element("td");
     			t10 = text(t10_value);
     			t11 = space();
-    			attr_dev(td0, "class", "svelte-zjy9v5");
+    			attr_dev(td0, "class", "svelte-fsu2qu");
     			add_location(td0, file$1, 21, 6, 681);
-    			attr_dev(td1, "class", "svelte-zjy9v5");
+    			attr_dev(td1, "class", "svelte-fsu2qu");
     			add_location(td1, file$1, 22, 21, 725);
-    			attr_dev(td2, "class", "svelte-zjy9v5");
+    			attr_dev(td2, "class", "svelte-fsu2qu");
     			add_location(td2, file$1, 23, 21, 821);
-    			attr_dev(td3, "class", "svelte-zjy9v5");
-    			add_location(td3, file$1, 24, 21, 960);
-    			attr_dev(td4, "class", "svelte-zjy9v5");
-    			add_location(td4, file$1, 25, 21, 1051);
-    			attr_dev(td5, "class", "svelte-zjy9v5");
-    			add_location(td5, file$1, 26, 21, 1116);
-    			attr_dev(tr, "class", tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].position ? "" : " cut") + " svelte-zjy9v5");
+    			attr_dev(td3, "class", "svelte-fsu2qu");
+    			add_location(td3, file$1, 24, 21, 958);
+    			attr_dev(td4, "class", "svelte-fsu2qu");
+    			add_location(td4, file$1, 25, 21, 1049);
+    			attr_dev(td5, "class", "svelte-fsu2qu");
+    			add_location(td5, file$1, 26, 21, 1155);
+    			attr_dev(tr, "class", tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].position ? "" : " cut") + " svelte-fsu2qu");
     			add_location(tr, file$1, 20, 5, 583);
     		},
     		m: function mount(target, anchor) {
@@ -991,16 +997,21 @@ var app = (function () {
     			? /*player*/ ctx[2].position
     				? /*player*/ ctx[2].position
     				: /*player*/ ctx[2].pgaStatus === "wd" ? "WD" : "CUT"
-    			: "--") + "")) set_data_dev(t4, t4_value);
+    			: "") + "")) set_data_dev(t4, t4_value);
 
     			if (dirty & /*roster*/ 1 && t6_value !== (t6_value = (/*player*/ ctx[2].position
     			? /*player*/ ctx[2].total ? /*player*/ ctx[2].total : "E"
     			: "") + "")) set_data_dev(t6, t6_value);
 
-    			if (dirty & /*roster*/ 1 && t8_value !== (t8_value = (/*player*/ ctx[2].today ? /*player*/ ctx[2].today : "") + "")) set_data_dev(t8, t8_value);
+    			if (dirty & /*roster*/ 1 && t8_value !== (t8_value = (/*player*/ ctx[2].today != undefined
+    			? /*player*/ ctx[2].today == 0
+    				? "E"
+    				: /*player*/ ctx[2].today
+    			: "") + "")) set_data_dev(t8, t8_value);
+
     			if (dirty & /*roster*/ 1 && t10_value !== (t10_value = (/*player*/ ctx[2].thru ? /*player*/ ctx[2].thru : "") + "")) set_data_dev(t10, t10_value);
 
-    			if (dirty & /*roster*/ 1 && tr_class_value !== (tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].position ? "" : " cut") + " svelte-zjy9v5")) {
+    			if (dirty & /*roster*/ 1 && tr_class_value !== (tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].position ? "" : " cut") + " svelte-fsu2qu")) {
     				attr_dev(tr, "class", tr_class_value);
     			}
     		},
@@ -1079,24 +1090,24 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(th0, "class", "roster-header svelte-zjy9v5");
+    			attr_dev(th0, "class", "roster-header svelte-fsu2qu");
     			add_location(th0, file$1, 9, 4, 182);
-    			attr_dev(th1, "class", "roster-header svelte-zjy9v5");
+    			attr_dev(th1, "class", "roster-header svelte-fsu2qu");
     			add_location(th1, file$1, 10, 16, 236);
-    			attr_dev(th2, "class", "roster-header svelte-zjy9v5");
+    			attr_dev(th2, "class", "roster-header svelte-fsu2qu");
     			add_location(th2, file$1, 11, 16, 291);
-    			attr_dev(th3, "class", "roster-header svelte-zjy9v5");
+    			attr_dev(th3, "class", "roster-header svelte-fsu2qu");
     			add_location(th3, file$1, 12, 16, 342);
-    			attr_dev(th4, "class", "roster-header svelte-zjy9v5");
+    			attr_dev(th4, "class", "roster-header svelte-fsu2qu");
     			add_location(th4, file$1, 13, 16, 395);
-    			attr_dev(th5, "class", "roster-header svelte-zjy9v5");
+    			attr_dev(th5, "class", "roster-header svelte-fsu2qu");
     			add_location(th5, file$1, 14, 16, 448);
     			add_location(tr, file$1, 8, 3, 173);
     			add_location(thead, file$1, 7, 2, 162);
     			add_location(tbody, file$1, 17, 2, 506);
-    			attr_dev(table, "class", "roster-table svelte-zjy9v5");
+    			attr_dev(table, "class", "roster-table svelte-fsu2qu");
     			add_location(table, file$1, 6, 1, 131);
-    			attr_dev(div, "class", "roster svelte-zjy9v5");
+    			attr_dev(div, "class", "roster svelte-fsu2qu");
     			add_location(div, file$1, 5, 0, 92);
     		},
     		l: function claim(nodes) {
@@ -1128,7 +1139,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*roster, numeral*/ 1) {
+    			if (dirty & /*roster, undefined, numeral*/ 1) {
     				each_value = /*roster*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
