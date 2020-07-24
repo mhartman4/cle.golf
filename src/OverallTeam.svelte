@@ -21,7 +21,7 @@
 
 </script>
 
-<div class="team{isFavorite ? " favorite" : ""}">
+<div class="team">
 	<div class="team" on:click={toggleRoster}>
 		<div class="header">
 			<table border="0" width="100%">
@@ -31,11 +31,11 @@
 						<td width="45" align="left">
 							<span class="team-total-payout { teamTotalPayout < 0 ? 'negative' : ''}">{numeral(teamTotalPayout).format("$0")}</span>
 						</td>
-						<td class="team-name">
+						<td class="team-name{isFavorite ? " favorite" : ""}">
 							{teamName}
-							<div class="owner">{owner}</div>
+							<div class="owner{isFavorite ? " favorite" : ""}">{owner}</div>
 						</td>
-						<td class="team-earnings">
+						<td class="team-earnings{isFavorite ? " favorite" : ""}">
 							{numeral(teamTotalEarnings).format('$0,0')}<br>
 						</td>
 					</tr>
@@ -100,7 +100,6 @@
 		background-color: #d9534f;
 	}
 	.favorite {
-		border: 1px #e67c73 solid;
-		border-radius: 2px;
+		color: #de0000;
 	}
 </style>

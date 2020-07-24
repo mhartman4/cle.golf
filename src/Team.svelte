@@ -25,7 +25,7 @@
 </script>
 
 
-<div class="team{isFavorite ? " favorite" : ""}">
+<div class="team">
 	<div class="header" on:click={toggleRoster}>
 		<table border="0" width="100%">
 			<tbody>
@@ -34,11 +34,11 @@
 					<td width="55">
 						<img class="player-photo" src="{pictureUrl}" width="45" height="45">
 					</td>
-					<td class="team-name">
+					<td class="team-name {isFavorite ? " favorite" : ""}">
 						{teamNameNoOwner}
-						<div class="owner">{owner}</div>
+						<div class="owner {isFavorite ? " favorite" : ""}">{owner}</div>
 					</td>
-					<td class="team-earnings">
+					<td class="team-earnings {isFavorite ? " favorite" : ""}">
 						{numeral(team.totalMoney).format('$0,0')}<br>
 					</td>
 				</tr>
@@ -84,8 +84,9 @@
 	    text-align: right;
 	}
 	.favorite {
-		border: 1px #e67c73 solid;
-		border-radius: 2px;
-		overflow: scroll;
+		/*border: 1px #e67c73 solid;*/
+		/*border-radius: 2px;*/
+		/*overflow: scroll;*/
+		color: #de0000;
 	}
 </style>

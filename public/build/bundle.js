@@ -1326,13 +1326,16 @@ var app = (function () {
     	let t3;
     	let t4;
     	let div0;
+    	let t5;
+    	let div0_class_value;
+    	let td2_class_value;
     	let t6;
     	let td3;
     	let t7_value = numeral(/*team*/ ctx[0].totalMoney).format("$0,0") + "";
     	let t7;
     	let br;
+    	let td3_class_value;
     	let t8;
-    	let div2_class_value;
     	let current;
     	let dispose;
     	let if_block = /*rosterVisible*/ ctx[3] && create_if_block(ctx);
@@ -1354,38 +1357,38 @@ var app = (function () {
     			t3 = text(/*teamNameNoOwner*/ ctx[5]);
     			t4 = space();
     			div0 = element("div");
-    			div0.textContent = `${/*owner*/ ctx[6]}`;
+    			t5 = text(/*owner*/ ctx[6]);
     			t6 = space();
     			td3 = element("td");
     			t7 = text(t7_value);
     			br = element("br");
     			t8 = space();
     			if (if_block) if_block.c();
-    			attr_dev(td0, "class", "standings-place-number svelte-14srz4k");
+    			attr_dev(td0, "class", "standings-place-number svelte-1uqyjkc");
     			attr_dev(td0, "width", "15");
-    			add_location(td0, file$2, 32, 5, 972);
-    			attr_dev(img, "class", "player-photo svelte-14srz4k");
+    			add_location(td0, file$2, 32, 5, 941);
+    			attr_dev(img, "class", "player-photo svelte-1uqyjkc");
     			if (img.src !== (img_src_value = /*pictureUrl*/ ctx[7])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "width", "45");
     			attr_dev(img, "height", "45");
-    			add_location(img, file$2, 34, 6, 1064);
+    			add_location(img, file$2, 34, 6, 1033);
     			attr_dev(td1, "width", "55");
-    			add_location(td1, file$2, 33, 5, 1042);
-    			attr_dev(div0, "class", "owner svelte-14srz4k");
-    			add_location(div0, file$2, 38, 6, 1202);
-    			attr_dev(td2, "class", "team-name svelte-14srz4k");
-    			add_location(td2, file$2, 36, 5, 1149);
-    			add_location(br, file$2, 41, 47, 1325);
-    			attr_dev(td3, "class", "team-earnings svelte-14srz4k");
-    			add_location(td3, file$2, 40, 5, 1251);
-    			add_location(tr, file$2, 31, 4, 962);
-    			add_location(tbody, file$2, 30, 3, 950);
+    			add_location(td1, file$2, 33, 5, 1011);
+    			attr_dev(div0, "class", div0_class_value = "owner " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc");
+    			add_location(div0, file$2, 38, 6, 1203);
+    			attr_dev(td2, "class", td2_class_value = "team-name " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc");
+    			add_location(td2, file$2, 36, 5, 1118);
+    			add_location(br, file$2, 41, 47, 1390);
+    			attr_dev(td3, "class", td3_class_value = "team-earnings " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc");
+    			add_location(td3, file$2, 40, 5, 1284);
+    			add_location(tr, file$2, 31, 4, 931);
+    			add_location(tbody, file$2, 30, 3, 919);
     			attr_dev(table, "border", "0");
     			attr_dev(table, "width", "100%");
-    			add_location(table, file$2, 29, 2, 915);
-    			attr_dev(div1, "class", "header svelte-14srz4k");
-    			add_location(div1, file$2, 28, 1, 868);
-    			attr_dev(div2, "class", div2_class_value = "team" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-14srz4k");
+    			add_location(table, file$2, 29, 2, 884);
+    			attr_dev(div1, "class", "header svelte-1uqyjkc");
+    			add_location(div1, file$2, 28, 1, 837);
+    			attr_dev(div2, "class", "team");
     			add_location(div2, file$2, 27, 0, 817);
     		},
     		l: function claim(nodes) {
@@ -1407,6 +1410,7 @@ var app = (function () {
     			append_dev(td2, t3);
     			append_dev(td2, t4);
     			append_dev(td2, div0);
+    			append_dev(div0, t5);
     			append_dev(tr, t6);
     			append_dev(tr, td3);
     			append_dev(td3, t7);
@@ -1419,7 +1423,20 @@ var app = (function () {
     		},
     		p: function update(ctx, [dirty]) {
     			if (!current || dirty & /*placeNumber*/ 2) set_data_dev(t0, /*placeNumber*/ ctx[1]);
+
+    			if (!current || dirty & /*isFavorite*/ 4 && div0_class_value !== (div0_class_value = "owner " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc")) {
+    				attr_dev(div0, "class", div0_class_value);
+    			}
+
+    			if (!current || dirty & /*isFavorite*/ 4 && td2_class_value !== (td2_class_value = "team-name " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc")) {
+    				attr_dev(td2, "class", td2_class_value);
+    			}
+
     			if ((!current || dirty & /*team*/ 1) && t7_value !== (t7_value = numeral(/*team*/ ctx[0].totalMoney).format("$0,0") + "")) set_data_dev(t7, t7_value);
+
+    			if (!current || dirty & /*isFavorite*/ 4 && td3_class_value !== (td3_class_value = "team-earnings " + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-1uqyjkc")) {
+    				attr_dev(td3, "class", td3_class_value);
+    			}
 
     			if (/*rosterVisible*/ ctx[3]) {
     				if (if_block) {
@@ -1442,10 +1459,6 @@ var app = (function () {
     				});
 
     				check_outros();
-    			}
-
-    			if (!current || dirty & /*isFavorite*/ 4 && div2_class_value !== (div2_class_value = "team" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-14srz4k")) {
-    				attr_dev(div2, "class", div2_class_value);
     			}
     		},
     		i: function intro(local) {
@@ -2873,13 +2886,16 @@ var app = (function () {
     	let t4;
     	let t5;
     	let div0;
+    	let t6;
+    	let div0_class_value;
+    	let td2_class_value;
     	let t7;
     	let td3;
     	let t8_value = numeral(/*teamTotalEarnings*/ ctx[6]).format("$0,0") + "";
     	let t8;
     	let br;
+    	let td3_class_value;
     	let t9;
-    	let div3_class_value;
     	let current;
     	let dispose;
     	let if_block = /*rosterVisible*/ ctx[3] && create_if_block$3(ctx);
@@ -2903,38 +2919,38 @@ var app = (function () {
     			t4 = text(/*teamName*/ ctx[4]);
     			t5 = space();
     			div0 = element("div");
-    			div0.textContent = `${/*owner*/ ctx[5]}`;
+    			t6 = text(/*owner*/ ctx[5]);
     			t7 = space();
     			td3 = element("td");
     			t8 = text(t8_value);
     			br = element("br");
     			t9 = space();
     			if (if_block) if_block.c();
-    			attr_dev(td0, "class", "standings-place-number svelte-jbouap");
+    			attr_dev(td0, "class", "standings-place-number svelte-i138fw");
     			attr_dev(td0, "width", "25");
-    			add_location(td0, file$6, 29, 6, 741);
-    			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7] < 0 ? "negative" : "") + " svelte-jbouap");
-    			add_location(span, file$6, 31, 7, 848);
+    			add_location(td0, file$6, 29, 6, 710);
+    			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7] < 0 ? "negative" : "") + " svelte-i138fw");
+    			add_location(span, file$6, 31, 7, 817);
     			attr_dev(td1, "width", "45");
     			attr_dev(td1, "align", "left");
-    			add_location(td1, file$6, 30, 6, 812);
-    			attr_dev(div0, "class", "owner svelte-jbouap");
+    			add_location(td1, file$6, 30, 6, 781);
+    			attr_dev(div0, "class", div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw");
     			add_location(div0, file$6, 35, 7, 1034);
-    			attr_dev(td2, "class", "team-name svelte-jbouap");
-    			add_location(td2, file$6, 33, 6, 986);
-    			add_location(br, file$6, 38, 50, 1162);
-    			attr_dev(td3, "class", "team-earnings svelte-jbouap");
-    			add_location(td3, file$6, 37, 6, 1085);
-    			add_location(tr, file$6, 28, 5, 730);
-    			add_location(tbody, file$6, 27, 4, 717);
+    			attr_dev(td2, "class", td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw");
+    			add_location(td2, file$6, 33, 6, 955);
+    			add_location(br, file$6, 38, 50, 1224);
+    			attr_dev(td3, "class", td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw");
+    			add_location(td3, file$6, 37, 6, 1116);
+    			add_location(tr, file$6, 28, 5, 699);
+    			add_location(tbody, file$6, 27, 4, 686);
     			attr_dev(table, "border", "0");
     			attr_dev(table, "width", "100%");
-    			add_location(table, file$6, 26, 3, 681);
-    			attr_dev(div1, "class", "header svelte-jbouap");
-    			add_location(div1, file$6, 25, 2, 657);
-    			attr_dev(div2, "class", "team svelte-jbouap");
-    			add_location(div2, file$6, 24, 1, 612);
-    			attr_dev(div3, "class", div3_class_value = "team" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-jbouap");
+    			add_location(table, file$6, 26, 3, 650);
+    			attr_dev(div1, "class", "header svelte-i138fw");
+    			add_location(div1, file$6, 25, 2, 626);
+    			attr_dev(div2, "class", "team svelte-i138fw");
+    			add_location(div2, file$6, 24, 1, 581);
+    			attr_dev(div3, "class", "team svelte-i138fw");
     			add_location(div3, file$6, 23, 0, 561);
     		},
     		l: function claim(nodes) {
@@ -2958,6 +2974,7 @@ var app = (function () {
     			append_dev(td2, t4);
     			append_dev(td2, t5);
     			append_dev(td2, div0);
+    			append_dev(div0, t6);
     			append_dev(tr, t7);
     			append_dev(tr, td3);
     			append_dev(td3, t8);
@@ -2970,6 +2987,18 @@ var app = (function () {
     		},
     		p: function update(ctx, [dirty]) {
     			if (!current || dirty & /*placeNumber*/ 2) set_data_dev(t0, /*placeNumber*/ ctx[1]);
+
+    			if (!current || dirty & /*isFavorite*/ 4 && div0_class_value !== (div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw")) {
+    				attr_dev(div0, "class", div0_class_value);
+    			}
+
+    			if (!current || dirty & /*isFavorite*/ 4 && td2_class_value !== (td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw")) {
+    				attr_dev(td2, "class", td2_class_value);
+    			}
+
+    			if (!current || dirty & /*isFavorite*/ 4 && td3_class_value !== (td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw")) {
+    				attr_dev(td3, "class", td3_class_value);
+    			}
 
     			if (/*rosterVisible*/ ctx[3]) {
     				if (if_block) {
@@ -2992,10 +3021,6 @@ var app = (function () {
     				});
 
     				check_outros();
-    			}
-
-    			if (!current || dirty & /*isFavorite*/ 4 && div3_class_value !== (div3_class_value = "team" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-jbouap")) {
-    				attr_dev(div3, "class", div3_class_value);
     			}
     		},
     		i: function intro(local) {
