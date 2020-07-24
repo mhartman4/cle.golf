@@ -2937,31 +2937,31 @@ var app = (function () {
     			br = element("br");
     			t9 = space();
     			if (if_block) if_block.c();
-    			attr_dev(td0, "class", "standings-place-number svelte-i138fw");
-    			attr_dev(td0, "width", "25");
+    			attr_dev(td0, "class", "standings-place-number svelte-9z0elh");
+    			attr_dev(td0, "width", "20");
     			add_location(td0, file$6, 29, 6, 710);
-    			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7] < 0 ? "negative" : "") + " svelte-i138fw");
+    			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7] < 0 ? "negative" : "") + " svelte-9z0elh");
     			add_location(span, file$6, 31, 7, 817);
-    			attr_dev(td1, "width", "45");
+    			attr_dev(td1, "width", "40");
     			attr_dev(td1, "align", "left");
     			add_location(td1, file$6, 30, 6, 781);
-    			attr_dev(div0, "class", div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw");
+    			attr_dev(div0, "class", div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh");
     			add_location(div0, file$6, 35, 7, 1034);
-    			attr_dev(td2, "class", td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw");
+    			attr_dev(td2, "class", td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh");
     			add_location(td2, file$6, 33, 6, 955);
     			add_location(br, file$6, 38, 50, 1224);
-    			attr_dev(td3, "class", td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw");
+    			attr_dev(td3, "class", td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh");
     			add_location(td3, file$6, 37, 6, 1116);
     			add_location(tr, file$6, 28, 5, 699);
     			add_location(tbody, file$6, 27, 4, 686);
     			attr_dev(table, "border", "0");
     			attr_dev(table, "width", "100%");
     			add_location(table, file$6, 26, 3, 650);
-    			attr_dev(div1, "class", "header svelte-i138fw");
+    			attr_dev(div1, "class", "header svelte-9z0elh");
     			add_location(div1, file$6, 25, 2, 626);
-    			attr_dev(div2, "class", "team svelte-i138fw");
+    			attr_dev(div2, "class", "team svelte-9z0elh");
     			add_location(div2, file$6, 24, 1, 581);
-    			attr_dev(div3, "class", "team svelte-i138fw");
+    			attr_dev(div3, "class", "team svelte-9z0elh");
     			add_location(div3, file$6, 23, 0, 561);
     		},
     		l: function claim(nodes) {
@@ -2999,15 +2999,15 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			if (!current || dirty & /*placeNumber*/ 2) set_data_dev(t0, /*placeNumber*/ ctx[1]);
 
-    			if (!current || dirty & /*isFavorite*/ 4 && div0_class_value !== (div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && div0_class_value !== (div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh")) {
     				attr_dev(div0, "class", div0_class_value);
     			}
 
-    			if (!current || dirty & /*isFavorite*/ 4 && td2_class_value !== (td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && td2_class_value !== (td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh")) {
     				attr_dev(td2, "class", td2_class_value);
     			}
 
-    			if (!current || dirty & /*isFavorite*/ 4 && td3_class_value !== (td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-i138fw")) {
+    			if (!current || dirty & /*isFavorite*/ 4 && td3_class_value !== (td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-9z0elh")) {
     				attr_dev(td3, "class", td3_class_value);
     			}
 
@@ -3441,7 +3441,7 @@ var app = (function () {
     			attr_dev(span, "class", "favorite-button");
     			add_location(span, file$7, 51, 6, 1721);
     			attr_dev(td0, "class", "favorite-cell svelte-ed6l2r");
-    			attr_dev(td0, "width", "40");
+    			attr_dev(td0, "width", "30");
     			add_location(td0, file$7, 50, 5, 1677);
     			add_location(td1, file$7, 59, 5, 2006);
     			add_location(tr, file$7, 49, 4, 1667);

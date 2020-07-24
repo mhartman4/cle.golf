@@ -27,8 +27,8 @@
 			<table border="0" width="100%">
 				<tbody>
 					<tr>
-						<td class="standings-place-number" width="25">{placeNumber}</td>
-						<td width="45" align="left">
+						<td class="standings-place-number" width="20">{placeNumber}</td>
+						<td width="40" align="left">
 							<span class="team-total-payout { teamTotalPayout < 0 ? 'negative' : ''}">{numeral(teamTotalPayout).format("$0")}</span>
 						</td>
 						<td class="team-name{isFavorite ? " favorite" : ""}">
@@ -81,7 +81,7 @@
 	}
 	.team-earnings {
 	    color: #46404A;
-	    font-size: 16px;
+	    font-size: 15px;
 	    padding: 0px 0px;
 	    text-align: right;
 	}
