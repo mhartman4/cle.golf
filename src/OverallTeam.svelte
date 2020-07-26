@@ -27,7 +27,7 @@
 			<table border="0" width="100%">
 				<tbody>
 					<tr>
-						<td class="standings-place-number" width="25">{placeNumber}</td>
+						<td class="standings-place-number" width="20">{placeNumber}</td>
 						<td width="40" align="left">
 							<span class="team-total-payout { teamTotalPayout < 0 ? 'negative' : ''}">{numeral(teamTotalPayout).format("$0")}</span>
 						</td>
