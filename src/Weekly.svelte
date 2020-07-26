@@ -6,6 +6,7 @@
 	
 	// onMount do all of our async functions
 	onMount(async () => {
+		
 		if (document.cookie.split('; ').find(row => row.startsWith('favoriteTeam'))) {
 			favoriteTeam = document.cookie.split('; ').find(row => row.startsWith('favoriteTeam')).split('=')[1];	
 		}
@@ -13,12 +14,19 @@
 			favoriteTeam = ""
 		}
 		
-		console.log(favoriteTeam)
-		const tourneyId = await getRelevantTournament()
-		const pgaStanding = await getPgaStandings(tourneyId)
+		const tourneyIds = await getRelevantTournament()
 		const rawTeams = await getTeamRosters()
-		processTeams(rawTeams, pgaStanding)
+		await processTeams(rawTeams, await getPgaStandings(tourneyIds[0]))
+		if (tourneyIds.length > 1) {
+			await processSecondTourney(tourneyIds[1])
+		}
+		await sortTeams()
+		
+		
+		
 	})
+
+
 	function setFavorite(message) {
     	document.cookie = "favoriteTeam=" + message
     	favoriteTeam = message
@@ -29,9 +37,47 @@
 		  		eventLabel: teamName
 			});
     }
+
+    const processSecondTourney = async (tourneyId) => {
+    	const standings = await getPgaStandings(tourneyId)
+    	await teams.forEach((team) => {
+    		team.roster.forEach((player) => {
+    			const pgaPlayerMatches = standings.filter(p => p.player_id === player.id)
+    			if (pgaPlayerMatches.length > 0) {
+
+						player.isPlaying = true
+						const pgaPlayer = pgaPlayerMatches[0]
+						player.name = pgaPlayer.player_bio.first_name + ' ' + pgaPlayer.player_bio.last_name,
+						player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g,'')),
+						player.position = pgaPlayer.current_position,
+						player.projMoney = pgaPlayer.rankings.projected_money_event,
+						player.today = pgaPlayer.today,
+						player.thru = pgaPlayer.thru,
+						player.total = pgaPlayer.total,
+						player.playerId = pgaPlayer.player_id,
+						player.pgaStatus = pgaPlayer.status,
+						team.totalMoney += pgaPlayer.rankings.projected_money_event,
+						player.sort = isNaN(player.positionNum) ? -1 : parseInt(player.projMoney)
+					}
+    		})
+    	})    	
+    }
+
+    const sortTeams  = () => {
+    	const sortedTeams = teams.sort((a,b) => {
+			return a.totalMoney > b.totalMoney ? -1 : a.totalMoney < b.totalMoney ? 1 : 0
+		})
+
+		sortedTeams.forEach( (team) => {
+			const sortedRoster = team.roster.sort((a, b) => (a.sort < b.sort) ? 1 : -1)
+			team.roster = sortedRoster
+		})
+
+		teams = sortedTeams
+    }
 	const processTeams = (rawTeams, pgaStanding) => {
 		rawTeams.forEach((team) => {
-				team.processed = true
+			  team.processed = true
 			  team.roster = []
 			  team.totalMoney = 0.0
 			  if (team.gsx$roster.$t != undefined) {
@@ -73,45 +119,45 @@
 						player.sort = parseInt(player.projMoney)
 					}
 				}
-				// console.log(player)
 			})
 		})
-		const sortedTeams = rawTeams.sort((a,b) => {
-			return a.totalMoney > b.totalMoney ? -1 : a.totalMoney < b.totalMoney ? 1 : 0
-		})
-		
-		sortedTeams.forEach( (team) => {
-			const sortedRoster = team.roster.sort((a, b) => (a.sort < b.sort) ? 1 : -1)
-			team.roster = sortedRoster
-		})
 
-		teams = sortedTeams
+		teams = rawTeams
+		
 	}
 	
 	// Hit the google sheet for the schedule
 	const getRelevantTournament = async () => {
-		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
+		//const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
 		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule?timestamp=` + Date.now())
 		
 		const data = await response.json()
 		const today = new Date()
 		const tourneysBeforeToday = data.feed.entry.filter(event => new Date(Date.parse(event.gsx$date.$t)) <= today.setHours(0,0,0,0))
-		const tourneyId = tourneysBeforeToday.slice(-1)[0].gsx$tournamentid.$t
-		tourneyName = tourneysBeforeToday.slice(-1)[0].gsx$name.$t
-		return tourneyId;
+		
+		const tourneyIds = []
+		const tourneyNames = []
+		// grab the last tournament but check if any others have the same date
+		tourneysBeforeToday.forEach((t) => {
+			if (tourneysBeforeToday.slice(-1)[0].gsx$date.$t === t.gsx$date.$t) {
+				tourneyIds.push(t.gsx$tournamentid.$t)
+				tourneyNames.push(t.gsx$name.$t)
+			}
+		})
+
+		tourneyName = tourneyNames.join(" / ")
+		return tourneyIds;
 	}
 	
-	const getPgaStandings = async (tourneyId) => {
+	const getPgaStandings = async (tourneyIds) => {
 			// Hit KVDB to get our security blurb so we can call the PGA method
 			const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/pgasecurityblurb?timestamp="` + Date.now());
 			const securityBlurb = await response.text()
-			console.log(securityBlurb)
 			// This is where we hit the PGA
-			return makePgaCall(securityBlurb, tourneyId);
+			return makePgaCall(securityBlurb, tourneyIds);
 	}
 	
 	const makePgaCall = async (securityBlurb, tourneyId) => {
-		  console.log(securityBlurb)
 			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2020/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
 			const jsonResp = await pgaResp.json()
 			leaderboard = await jsonResp.leaderboard.players
