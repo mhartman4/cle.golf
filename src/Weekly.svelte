@@ -95,31 +95,16 @@
 							player.total = pgaPlayer.total,
 							player.playerId = pgaPlayer.player_id,
 							player.pgaStatus = pgaPlayer.status,
-							team.totalMoney += pgaPlayer.rankings.projected_money_event
+							team.totalMoney += pgaPlayer.rankings.projected_money_event,
+							player.sort = isNaN(player.positionNum) ? -1 : parseInt(player.projMoney)
+						}
+						else {
+							player.sort = -2
 						}
 						team.roster.push(player)
 					})
 				}
 				
-		})
-		rawTeams.forEach((team) => {
-			team.roster.forEach((player) => {
-				if (player.isPlaying === undefined) {
-					player.isPlaying = false
-					// If not playing put at bottom of list
-					player.sort = -2
-				}
-				else {
-					if (isNaN(player.positionNum)) {
-						// Next up is cut players
-						player.sort = -1
-					}
-					else {
-						// Then sort by projected money
-						player.sort = parseInt(player.projMoney)
-					}
-				}
-			})
 		})
 
 		teams = rawTeams

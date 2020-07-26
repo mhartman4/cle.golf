@@ -1889,7 +1889,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (178:0) {:else}
+    // (163:0) {:else}
     function create_else_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -1902,8 +1902,8 @@ var app = (function () {
     			span.textContent = " Loading current tournament";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$4, 178, 1, 6141);
-    			add_location(span, file$4, 178, 113, 6253);
+    			add_location(img, file$4, 163, 1, 5823);
+    			add_location(span, file$4, 163, 113, 5935);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1920,14 +1920,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(178:0) {:else}",
+    		source: "(163:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (176:0) {#if tourneyName}
+    // (161:0) {#if tourneyName}
     function create_if_block_2(ctx) {
     	let h1;
     	let t;
@@ -1937,7 +1937,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-1c5y5sb");
-    			add_location(h1, file$4, 176, 1, 6088);
+    			add_location(h1, file$4, 161, 1, 5770);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -1955,14 +1955,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(176:0) {#if tourneyName}",
+    		source: "(161:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (207:1) {:else}
+    // (192:1) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -1975,8 +1975,8 @@ var app = (function () {
     			span.textContent = " Loading teams and standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$4, 207, 2, 7007);
-    			add_location(span, file$4, 207, 114, 7119);
+    			add_location(img, file$4, 192, 2, 6689);
+    			add_location(span, file$4, 192, 114, 6801);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1995,14 +1995,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(207:1) {:else}",
+    		source: "(192:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (188:1) {#if teams}
+    // (173:1) {#if teams}
     function create_if_block$2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -2091,14 +2091,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(188:1) {#if teams}",
+    		source: "(173:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (196:6) {:else}
+    // (181:6) {:else}
     function create_else_block(ctx) {
     	let span;
 
@@ -2108,7 +2108,7 @@ var app = (function () {
     			span.textContent = "♡";
     			set_style(span, "font-size", "13px");
     			set_style(span, "color", "#969494");
-    			add_location(span, file$4, 196, 7, 6750);
+    			add_location(span, file$4, 181, 7, 6432);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -2122,14 +2122,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(196:6) {:else}",
+    		source: "(181:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (194:6) {#if favoriteTeam === team.gsx$team.$t}
+    // (179:6) {#if favoriteTeam === team.gsx$team.$t}
     function create_if_block_1(ctx) {
     	let span;
 
@@ -2138,7 +2138,7 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "❤️";
     			set_style(span, "font-size", "10px");
-    			add_location(span, file$4, 194, 7, 6688);
+    			add_location(span, file$4, 179, 7, 6370);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -2152,14 +2152,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(194:6) {#if favoriteTeam === team.gsx$team.$t}",
+    		source: "(179:6) {#if favoriteTeam === team.gsx$team.$t}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (189:2) {#each teams as team, i}
+    // (174:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -2200,16 +2200,16 @@ var app = (function () {
     			create_component(team.$$.fragment);
     			t1 = space();
     			attr_dev(span, "class", "favorite-button");
-    			add_location(span, file$4, 192, 6, 6563);
+    			add_location(span, file$4, 177, 6, 6245);
     			attr_dev(td0, "class", "favorite-cell svelte-1c5y5sb");
     			attr_dev(td0, "width", "30");
-    			add_location(td0, file$4, 191, 5, 6519);
-    			add_location(td1, file$4, 200, 5, 6848);
-    			add_location(tr, file$4, 190, 4, 6509);
+    			add_location(td0, file$4, 176, 5, 6201);
+    			add_location(td1, file$4, 185, 5, 6530);
+    			add_location(tr, file$4, 175, 4, 6191);
     			attr_dev(table, "class", "team svelte-1c5y5sb");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 189, 3, 6460);
+    			add_location(table, file$4, 174, 3, 6142);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, table, anchor);
@@ -2274,7 +2274,7 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(189:2) {#each teams as team, i}",
+    		source: "(174:2) {#each teams as team, i}",
     		ctx
     	});
 
@@ -2313,7 +2313,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 186, 0, 6397);
+    			add_location(div, file$4, 171, 0, 6079);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2471,31 +2471,17 @@ var app = (function () {
     					if (pgaPlayerMatches.length > 0) {
     						player.isPlaying = true;
     						const pgaPlayer = pgaPlayerMatches[0];
-    						(player.name = pgaPlayer.player_bio.first_name + " " + pgaPlayer.player_bio.last_name, player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g, "")), player.position = pgaPlayer.current_position, player.projMoney = pgaPlayer.rankings.projected_money_event, player.today = pgaPlayer.today, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.player_id, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.rankings.projected_money_event);
+
+    						(player.name = pgaPlayer.player_bio.first_name + " " + pgaPlayer.player_bio.last_name, player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g, "")), player.position = pgaPlayer.current_position, player.projMoney = pgaPlayer.rankings.projected_money_event, player.today = pgaPlayer.today, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.player_id, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.rankings.projected_money_event, player.sort = isNaN(player.positionNum)
+    						? -1
+    						: parseInt(player.projMoney));
+    					} else {
+    						player.sort = -2;
     					}
 
     					team.roster.push(player);
     				});
     			}
-    		});
-
-    		rawTeams.forEach(team => {
-    			team.roster.forEach(player => {
-    				if (player.isPlaying === undefined) {
-    					player.isPlaying = false;
-
-    					// If not playing put at bottom of list
-    					player.sort = -2;
-    				} else {
-    					if (isNaN(player.positionNum)) {
-    						// Next up is cut players
-    						player.sort = -1;
-    					} else {
-    						// Then sort by projected money
-    						player.sort = parseInt(player.projMoney);
-    					}
-    				}
-    			});
     		});
 
     		$$invalidate(0, teams = rawTeams);
