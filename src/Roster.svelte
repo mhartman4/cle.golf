@@ -18,7 +18,7 @@
 		<tbody>
 			{#each roster as player}
 				<!-- {#if player.isPlaying} -->
-					<tr class="player-row{player.isPlaying ? '' : ' inactive'}{player.secondTourney ? ' second-tourney' : ''}{player.position ? '' : ' cut'}">
+					<tr class="player-row{player.isPlaying ? '' : ' inactive'}{player.secondTourney ? ' second-tourney' : ''}{' ' + player.pgaStatus}">
 						<td>{player.name}</td>
 	                    <td>{player.position ? numeral(player.projMoney).format("$0,0") : ""}</td>
 	                    <td>{player.isPlaying ? (player.position ? player.position : (player.pgaStatus === "wd" ? "WD" : "CUT")) : ""}</td>
@@ -57,10 +57,16 @@
 	td {
 		padding: 5px;
 	}
+	.active {
+		background-color: white;
+	}
 	.second-tourney {
 		background-color: #fff2cc;
 	}
 	.cut {
+		background-color: #ea9999;
+	}
+	.wd {
 		background-color: #ea9999;
 	}
 	.inactive {
