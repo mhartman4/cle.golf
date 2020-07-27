@@ -2942,7 +2942,7 @@ var app = (function () {
     			add_location(td0, file$6, 29, 6, 710);
     			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7] < 0 ? "negative" : "") + " svelte-iodfys");
     			add_location(span, file$6, 31, 7, 817);
-    			attr_dev(td1, "width", "40");
+    			attr_dev(td1, "width", "50");
     			attr_dev(td1, "align", "left");
     			add_location(td1, file$6, 30, 6, 781);
     			attr_dev(div0, "class", div0_class_value = "owner" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys");
@@ -3441,7 +3441,7 @@ var app = (function () {
     			attr_dev(span, "class", "favorite-button");
     			add_location(span, file$7, 51, 6, 1721);
     			attr_dev(td0, "class", "favorite-cell svelte-ed6l2r");
-    			attr_dev(td0, "width", "30");
+    			attr_dev(td0, "width", "25");
     			add_location(td0, file$7, 50, 5, 1677);
     			add_location(td1, file$7, 59, 5, 2006);
     			add_location(tr, file$7, 49, 4, 1667);
