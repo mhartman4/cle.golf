@@ -15,7 +15,8 @@
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.0.0",
     "request": "^2.88.2",
-    "kvdb.io": "^1.0.5"
+    "kvdb.io": "^1.0.5",
+    "moment": "^2.27.0"
   },
   "dependencies": {
     "sirv-cli": "^0.4.4"

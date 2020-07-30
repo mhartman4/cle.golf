@@ -2,6 +2,7 @@
   	import { onMount } from "svelte"
 	import Team from "./Team.svelte"
 	import Leaderboard from "./Leaderboard.svelte"
+	import moment from "moment"
 	let teams, tourneyName, leaderboard, favoriteTeam
 	
 	// onMount do all of our async functions
@@ -47,21 +48,22 @@
     		team.roster.forEach((player) => {
     			const pgaPlayerMatches = standings.filter(p => p.player_id === player.id)
     			if (pgaPlayerMatches.length > 0) {
-    			console.log(player)
 						player.isPlaying = true
 						const pgaPlayer = pgaPlayerMatches[0]
-						player.name = pgaPlayer.player_bio.first_name + ' ' + pgaPlayer.player_bio.last_name,
-						player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g,'')),
-						player.position = pgaPlayer.current_position,
-						player.projMoney = pgaPlayer.rankings.projected_money_event,
-						player.today = pgaPlayer.today,
-						player.thru = pgaPlayer.thru,
-						player.total = pgaPlayer.total,
-						player.playerId = pgaPlayer.player_id,
-						player.pgaStatus = pgaPlayer.status,
-						team.totalMoney += pgaPlayer.rankings.projected_money_event,
-						player.sort = isNaN(player.positionNum) ? -1 : parseInt(player.projMoney),
+						player.name = pgaPlayer.player_bio.first_name + ' ' + pgaPlayer.player_bio.last_name
+						player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g,''))
+						player.position = pgaPlayer.current_position
+						player.projMoney = pgaPlayer.rankings.projected_money_event
+						player.today = pgaPlayer.today
+						player.thru = pgaPlayer.thru
+						player.total = pgaPlayer.total
+						player.playerId = pgaPlayer.player_id
+						player.pgaStatus = pgaPlayer.status
+						team.totalMoney += pgaPlayer.rankings.projected_money_event
+						player.sort = isNaN(player.positionNum) ? -1 : parseInt(player.projMoney)
 						player.secondTourney = true
+						player.firstRoundTeeTime = moment(pgaPlayer.rounds[0].tee_time).format("h:mm a")
+						
 					}
     		})
     	})
