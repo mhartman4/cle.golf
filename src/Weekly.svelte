@@ -47,6 +47,7 @@
     		team.roster.forEach((player) => {
     			const pgaPlayerMatches = standings.filter(p => p.player_id === player.id)
     			if (pgaPlayerMatches.length > 0) {
+    			console.log(player)
 						player.isPlaying = true
 						const pgaPlayer = pgaPlayerMatches[0]
 						player.name = pgaPlayer.player_bio.first_name + ' ' + pgaPlayer.player_bio.last_name,
