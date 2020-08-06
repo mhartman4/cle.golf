@@ -35,7 +35,7 @@ schedule = [
   {name: "the Memorial Tournament presented by Nationwide", date: new Date(Date.parse('2020-07-16')), tournament_id: '023'}, 
   {name: "3M Open", date: new Date(Date.parse('2020-07-23')), tournament_id: '525'}, 
   {name: "World Golf Championships-FedEx St. Jude Invitational", date: new Date(Date.parse('2020-07-30')), tournament_id: '476'}, 
-  {name: "Barracuda Championship", date: new Date(Date.parse('2020-07-30')), tournament_id: '472'}, 
+  // {name: "Barracuda Championship", date: new Date(Date.parse('2020-07-30')), tournament_id: '472'}, 
   {name: "PGA Championship", date: new Date(Date.parse('2020-08-06')), tournament_id: '033'}, 
   {name: "Wyndham Championship", date: new Date(Date.parse('2020-08-13')), tournament_id: '013'}, 
   {name: "THE NORTHERN TRUST", date: new Date(Date.parse('2020-08-20')), tournament_id: '027'}, 

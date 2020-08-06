@@ -1,6 +1,7 @@
 <script>
  	import Picker from "./Picker.svelte"
 	import Weekly from "./Weekly.svelte"
+	import WeeklyMajor from "./WeeklyMajor.svelte"
 	import Overall from "./Overall.svelte"
 	import { onMount } from "svelte"
   	let pages = ["Weekly","Overall"]
@@ -12,10 +13,10 @@
 	<Picker bind:activePage={currentPage} pages={pages} />
 	<br><br>
 	{#if currentPage === "Weekly"}
-		<!-- <h1>Weekly!</h1> -->
-		<Weekly></Weekly>
+		
+		<WeeklyMajor></WeeklyMajor>
+		<!-- <Weekly></Weekly> -->
 	{:else if currentPage === "Overall"}
-		<!-- <h1>Overall!</h1> -->
 		<Overall></Overall>
 	{/if}	
 </div>	
