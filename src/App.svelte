@@ -14,8 +14,8 @@
 	<br><br>
 	{#if currentPage === "Weekly"}
 		
-		<WeeklyMajor></WeeklyMajor>
-		<!-- <Weekly></Weekly> -->
+		<!-- <WeeklyMajor></WeeklyMajor> -->
+		<Weekly></Weekly>
 	{:else if currentPage === "Overall"}
 		<Overall></Overall>
 	{/if}	
