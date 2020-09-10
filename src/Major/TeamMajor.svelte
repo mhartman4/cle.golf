@@ -1,5 +1,4 @@
 <script>
-	import Roster from "./Roster.svelte"
 	import RosterMajor from "./RosterMajor.svelte"
 	export let team, placeNumber, isFavorite
 	let id = team.id.$t.replace("https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full/", "")

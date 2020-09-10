@@ -1,7 +1,8 @@
 <script>
  	import Picker from "./Picker.svelte"
 	import Weekly from "./Weekly.svelte"
-	import WeeklyMajor from "./WeeklyMajor.svelte"
+	import WeeklyMajor from "./Major/WeeklyMajor.svelte"
+	import WeeklyTourChampionship from "./TourChampionship/WeeklyTourChampionship.svelte"
 	import Overall from "./Overall.svelte"
 	import { onMount } from "svelte"
   	let pages = ["Weekly","Overall"]
@@ -16,6 +17,7 @@
 		
 		<!-- <WeeklyMajor></WeeklyMajor> -->
 		<Weekly></Weekly>
+		<!-- <WeeklyTourChampionship></WeeklyTourChampionship> -->
 	{:else if currentPage === "Overall"}
 		<Overall></Overall>
 	{/if}	

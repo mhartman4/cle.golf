@@ -1,7 +1,6 @@
 <script>
   	import { onMount } from "svelte"
-	import Team from "./Team.svelte"
-	import Leaderboard from "./Leaderboard.svelte"
+	import TeamTourChampionship from "./TeamTourChampionship.svelte"
 	import moment from "moment"
 	let teams, tourneyName, leaderboard, favoriteTeam
 	
@@ -54,13 +53,15 @@
 						player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g,''))
 						player.position = pgaPlayer.current_position
 						player.projMoney = pgaPlayer.rankings.projected_money_event
+						player.projCupPoints = pgaPlayer.rankings.projected_cup_points_event
 						player.today = pgaPlayer.today
 						player.thru = pgaPlayer.thru
 						player.total = pgaPlayer.total
+						player.total_strokes = pgaPlayer.total_strokes
 						player.playerId = pgaPlayer.player_id
 						player.pgaStatus = pgaPlayer.status
-						team.totalMoney += pgaPlayer.rankings.projected_money_event
-						player.sort = isNaN(player.positionNum) ? -1 : parseInt(player.projMoney)
+						team.totalMoney += pgaPlayer.rankings.projected_cup_points_event
+						player.sort = isNaN(player.positionNum) ? -1 : parseInt(player.projCupPoints)
 						player.secondTourney = true
 						player.firstRoundTeeTime = moment(pgaPlayer.rounds[0].tee_time).format("h:mm a")
 						
@@ -93,13 +94,13 @@
 							player.name = pgaPlayer.player_bio.first_name + ' ' + pgaPlayer.player_bio.last_name,
 							player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g,'')),
 							player.position = pgaPlayer.current_position,
-							player.projMoney = pgaPlayer.rankings.projected_money_event,
+							player.projMoney = pgaPlayer.rankings.projected_cup_points_event,
 							player.today = pgaPlayer.today,
 							player.thru = pgaPlayer.thru,
-							player.total = pgaPlayer.total,
+							player.total = pgaPlayer.total_strokes,
 							player.playerId = pgaPlayer.player_id,
 							player.pgaStatus = pgaPlayer.status,
-							team.totalMoney += pgaPlayer.rankings.projected_money_event,
+							team.totalMoney += pgaPlayer.rankings.projected_cup_points_event,
 							player.secondTourney = false
 						}
 						team.roster.push(player)
@@ -159,7 +160,7 @@
 	}
 	
 	const makePgaCall = async (securityBlurb, tourneyId) => {
-			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2021/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
+			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2020/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
 			const jsonResp = await pgaResp.json()
 			leaderboard = await jsonResp.leaderboard.players
 			return jsonResp.leaderboard.players
@@ -174,6 +175,10 @@
 	}
 </script>
 
+<div width="100%" style="background-color: lightgrey; padding: 5px;">
+	<h3>It's the tour championship! This week doesn't count, but here's what it would look like if it did....</h3>
+
+</div>
 {#if tourneyName}
 	<h1 class="tourney-name">{tourneyName}</h1>
 {:else}
@@ -190,17 +195,17 @@
 		{#each teams as team, i}
 			<table class="team" width="100%" border="0">
 				<tr>
-					<!-- <td class="favorite-cell" width="30"> -->
-						<!-- <span class="favorite-button" on:click={setFavorite(team.gsx$team.$t)}> -->
-						<!-- {#if favoriteTeam === team.gsx$team.$t}
+					<td class="favorite-cell" width="30">
+						<span class="favorite-button" on:click={setFavorite(team.gsx$team.$t)}>
+						{#if favoriteTeam === team.gsx$team.$t}
 							<span style="font-size: 10px;">❤️</span>
-						{:else} -->
-							<!-- <span style="font-size: 13px;color: #969494;">♡</span> -->
-						<!-- {/if} -->
-						<!-- </span>	 -->
-					<!-- </td> -->
+						{:else}
+							<span style="font-size: 13px;color: #969494;">♡</span>
+						{/if}
+						</span>	
+					</td>
 					<td>
-						<Team team={team} placeNumber={i+1} isFavorite={favoriteTeam === team.gsx$team.$t}></Team>	
+						<TeamTourChampionship team={team} placeNumber={i+1} isFavorite={favoriteTeam === team.gsx$team.$t}></TeamTourChampionship>	
 					</td>
 				</tr>
 			</table>

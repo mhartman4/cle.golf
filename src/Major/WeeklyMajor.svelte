@@ -1,8 +1,6 @@
 <script>
   	import { onMount } from "svelte"
-	import Team from "./Team.svelte"
 	import TeamMajor from "./TeamMajor.svelte"
-	import Leaderboard from "./Leaderboard.svelte"
 	import moment from "moment"
 	let teams, tourneyName, leaderboard, favoriteTeam
 	
