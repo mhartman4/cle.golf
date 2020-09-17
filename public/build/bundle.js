@@ -9658,7 +9658,7 @@ var app = (function () {
     	};
 
     	const makePgaCall = async (securityBlurb, tourneyId) => {
-    		const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2020/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
+    		const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2021/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
     		const jsonResp = await pgaResp.json();
     		leaderboard = await jsonResp.leaderboard.players;
     		return jsonResp.leaderboard.players;
@@ -12435,27 +12435,27 @@ var app = (function () {
     // (16:1) {#if currentPage === "Weekly"}
     function create_if_block$9(ctx) {
     	let current;
-    	const weekly = new Weekly({ $$inline: true });
+    	const weeklymajor = new WeeklyMajor({ $$inline: true });
 
     	const block = {
     		c: function create() {
-    			create_component(weekly.$$.fragment);
+    			create_component(weeklymajor.$$.fragment);
     		},
     		m: function mount(target, anchor) {
-    			mount_component(weekly, target, anchor);
+    			mount_component(weeklymajor, target, anchor);
     			current = true;
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(weekly.$$.fragment, local);
+    			transition_in(weeklymajor.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(weekly.$$.fragment, local);
+    			transition_out(weeklymajor.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(weekly, detaching);
+    			destroy_component(weeklymajor, detaching);
     		}
     	};
 

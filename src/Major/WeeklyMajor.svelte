@@ -159,7 +159,7 @@
 	}
 	
 	const makePgaCall = async (securityBlurb, tourneyId) => {
-			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2020/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
+			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tourneyId + "/2021/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
 			const jsonResp = await pgaResp.json()
 			leaderboard = await jsonResp.leaderboard.players
 			return jsonResp.leaderboard.players
