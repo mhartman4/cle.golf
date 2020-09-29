@@ -9,6 +9,7 @@ schedule = [
 
   { name: 'Safeway Open ', date: new Date(Date.parse('2020-09-10')), tournament_id: '464'},
   { name: 'U.S. Open', date: new Date(Date.parse('2020-09-17')), tournament_id: '026'},
+  { name: 'Corales Punta Canta Resort Club Championship', date: new Date(Date.parse('2020-09-24')), tournament_id: '522'},
   { name: 'Sanderson Farms Championship ', date: new Date(Date.parse('2020-10-01')), tournament_id: '054'},
   { name: 'Shriners Hospitals for Children Open ', date: new Date(Date.parse('2020-10-08')), tournament_id: '047'},
   { name: 'THE CJ CUP @ SHADOW CREEK', date: new Date(Date.parse('2020-10-15')), tournament_id: '521'},
