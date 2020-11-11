@@ -14,6 +14,7 @@ schedule = [
   { name: 'Shriners Hospitals for Children Open ', date: new Date(Date.parse('2020-10-08')), tournament_id: '047'},
   { name: 'THE CJ CUP @ SHADOW CREEK', date: new Date(Date.parse('2020-10-15')), tournament_id: '521'},
   { name: 'ZOZO CHAMPIONSHIP @ SHERWOOD ', date: new Date(Date.parse('2020-10-22')), tournament_id: '527'},
+  { name: 'Bermuda Championship', date: new Date(Date.parse('2020-10-29')), tournament_id: '528'},
   { name: 'Houston Open ', date: new Date(Date.parse('2020-11-05')), tournament_id: '020'},
   { name: 'Masters Tournament ', date: new Date(Date.parse('2020-11-12')), tournament_id: '014'},
   { name: 'The RSM Classic', date: new Date(Date.parse('2020-11-19')), tournament_id: '493'},
