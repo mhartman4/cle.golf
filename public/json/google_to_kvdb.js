@@ -19,3 +19,16 @@ request("https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5m
   const bucket = KVdb.bucket("vRrcDLPTr4WWpVTJxim1H");
   bucket.set('overall', body);
 });
+
+
+// DV Rosters
+request("https://spreadsheets.google.com/feeds/list/1DHwz1zRTstqmD1Ej8ypqgzkx8D46Uu_RjAqhS1zenR0/1/public/full?alt=json", function(error, response, body) {
+  const bucket = KVdb.bucket("vRrcDLPTr4WWpVTJxim1H");
+  bucket.set('dv_rosters', body);
+});
+
+// DV Overall Standings
+// request("https://spreadsheets.google.com/feeds/list/1DHwz1zRTstqmD1Ej8ypqgzkx8D46Uu_RjAqhS1zenR0/1/public/full?alt=json", function(error, response, body) {
+//   const bucket = KVdb.bucket("vRrcDLPTr4WWpVTJxim1H");
+//   bucket.set('dv_rosters', body);
+// });
