@@ -10,7 +10,7 @@
 	
 	let currentPage = "Weekly"
 
-	let is_dv = window.location.href.includes("dv")
+	let is_dv = window.location.href.includes("/dv")
 </script>
 
 <div id="main">
