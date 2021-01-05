@@ -9,18 +9,21 @@
 	
 	let currentPage = "Weekly"
 
-	let is_dv = window.location.href.includes("?league=dv")
+	let dvLeague = window.location.href.includes("?league=dv")
 </script>
 
-<div id="main">
+<div id="main" class={dvLeague ? "dv" : ""}>
+	{#if dvLeague}
+		<h3>DV'S GOLF LEAGUE</h1>
+	{/if}
 	<Picker bind:activePage={currentPage} pages={pages} />
 	<br><br>
 	
 	{#if currentPage === "Weekly"}
-		<Weekly dvLeague={is_dv} />
+		<Weekly dvLeague={dvLeague} />
 		<!-- <WeeklyMajor dvLeague={is_dv} /> -->
 	{:else if currentPage === "Overall"}
-		<Overall dvLeague={is_dv} />
+		<Overall dvLeague={dvLeague} />
 	{/if}	
 </div>	
 
@@ -29,4 +32,11 @@
 		max-width: 800px;
 		margin: 0 auto;
 	}	
+	.dv {
+		background-color: rgb(0 128 0 / 17%);
+	}
+	h3 {
+		padding: 4px;
+		font-size: 5px;
+	}
 </style>

@@ -178,7 +178,7 @@
 </script>
 
 {#if tourneyName}
-	<h1 class="tourney-name">{tourneyName}</h1>
+	<a href={dvLeague ? "/" : "/?league=dv" }><h1 class="tourney-name">{tourneyName}</h1></a>
 {:else}
 	<img class="sheets-icon" src="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png" alt="Loading"><span>&nbsp;Loading current tournament</span>
 {/if}
@@ -215,6 +215,12 @@
 
 
 <style>
+	a {
+		text-decoration: none;
+	}
+	a:visited {
+  		color: black;
+	}
 	.tourney-name {
 	  font-size: 18px;
 	  text-align: center;
