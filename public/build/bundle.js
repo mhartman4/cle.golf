@@ -12361,7 +12361,7 @@ var app = (function () {
     		c: function create() {
     			h3 = element("h3");
     			h3.textContent = "DV'S GOLF LEAGUE";
-    			attr_dev(h3, "class", "svelte-nf7z3c");
+    			attr_dev(h3, "class", "svelte-1rs3t6s");
     			add_location(h3, file$e, 17, 2, 503);
     		},
     		m: function mount(target, anchor) {
@@ -12522,7 +12522,7 @@ var app = (function () {
     			add_location(br0, file$e, 20, 1, 593);
     			add_location(br1, file$e, 20, 5, 597);
     			attr_dev(div, "id", "main");
-    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*dvLeague*/ ctx[2] ? "dv" : "") + " svelte-nf7z3c"));
+    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*dvLeague*/ ctx[2] ? "dv" : "") + " svelte-1rs3t6s"));
     			add_location(div, file$e, 15, 0, 440);
     		},
     		l: function claim(nodes) {

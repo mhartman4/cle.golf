@@ -39,5 +39,6 @@
 	h3 {
 		padding: 4px;
 		font-size: 25px;
+		font-family: "Comic Sans MS", "Comic Sans", cursive;
 	}
 </style>
