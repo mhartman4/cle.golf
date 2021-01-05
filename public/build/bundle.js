@@ -7563,12 +7563,12 @@ var app = (function () {
 
     function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[13] = list[i];
-    	child_ctx[15] = i;
+    	child_ctx[14] = list[i];
+    	child_ctx[16] = i;
     	return child_ctx;
     }
 
-    // (182:0) {:else}
+    // (183:0) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -7582,8 +7582,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 182, 1, 6744);
-    			add_location(span, file$4, 182, 127, 6870);
+    			add_location(img, file$4, 183, 1, 6819);
+    			add_location(span, file$4, 183, 127, 6945);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7600,14 +7600,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(182:0) {:else}",
+    		source: "(183:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (180:0) {#if tourneyName}
+    // (181:0) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let a;
     	let h1;
@@ -7619,11 +7619,15 @@ var app = (function () {
     			a = element("a");
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
-    			attr_dev(h1, "class", "tourney-name svelte-smgpfj");
-    			add_location(h1, file$4, 180, 43, 6687);
-    			attr_dev(a, "href", a_href_value = /*dvLeague*/ ctx[0] ? "/" : "/?league=dv");
-    			attr_dev(a, "class", "svelte-smgpfj");
-    			add_location(a, file$4, 180, 1, 6645);
+    			attr_dev(h1, "class", "tourney-name svelte-2581r4");
+    			add_location(h1, file$4, 181, 56, 6762);
+
+    			attr_dev(a, "href", a_href_value = /*dvLeague*/ ctx[0]
+    			? /*trueUrl*/ ctx[4]
+    			: /*trueUrl*/ ctx[4] + "?league=dv");
+
+    			attr_dev(a, "class", "svelte-2581r4");
+    			add_location(a, file$4, 181, 1, 6707);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7633,7 +7637,9 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			if (dirty & /*tourneyName*/ 4) set_data_dev(t, /*tourneyName*/ ctx[2]);
 
-    			if (dirty & /*dvLeague*/ 1 && a_href_value !== (a_href_value = /*dvLeague*/ ctx[0] ? "/" : "/?league=dv")) {
+    			if (dirty & /*dvLeague*/ 1 && a_href_value !== (a_href_value = /*dvLeague*/ ctx[0]
+    			? /*trueUrl*/ ctx[4]
+    			: /*trueUrl*/ ctx[4] + "?league=dv")) {
     				attr_dev(a, "href", a_href_value);
     			}
     		},
@@ -7646,14 +7652,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(180:0) {#if tourneyName}",
+    		source: "(181:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (211:1) {:else}
+    // (212:1) {:else}
     function create_else_block(ctx) {
     	let img;
     	let img_src_value;
@@ -7667,8 +7673,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 211, 2, 7687);
-    			add_location(span, file$4, 211, 128, 7813);
+    			add_location(img, file$4, 212, 2, 7762);
+    			add_location(span, file$4, 212, 128, 7888);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7687,14 +7693,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(211:1) {:else}",
+    		source: "(212:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (192:1) {#if teams}
+    // (193:1) {#if teams}
     function create_if_block$2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -7783,14 +7789,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(192:1) {#if teams}",
+    		source: "(193:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (193:2) {#each teams as team, i}
+    // (194:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -7800,9 +7806,9 @@ var app = (function () {
 
     	const team = new Team({
     			props: {
-    				team: /*team*/ ctx[13],
-    				placeNumber: /*i*/ ctx[15] + 1,
-    				isFavorite: /*favoriteTeam*/ ctx[3] === /*team*/ ctx[13].gsx$team.$t
+    				team: /*team*/ ctx[14],
+    				placeNumber: /*i*/ ctx[16] + 1,
+    				isFavorite: /*favoriteTeam*/ ctx[3] === /*team*/ ctx[14].gsx$team.$t
     			},
     			$$inline: true
     		});
@@ -7814,12 +7820,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 204, 5, 7528);
-    			add_location(tr, file$4, 194, 4, 7126);
-    			attr_dev(table, "class", "team svelte-smgpfj");
+    			add_location(td, file$4, 205, 5, 7603);
+    			add_location(tr, file$4, 195, 4, 7201);
+    			attr_dev(table, "class", "team svelte-2581r4");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 193, 3, 7077);
+    			add_location(table, file$4, 194, 3, 7152);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -7831,8 +7837,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const team_changes = {};
-    			if (dirty & /*teams*/ 2) team_changes.team = /*team*/ ctx[13];
-    			if (dirty & /*favoriteTeam, teams*/ 10) team_changes.isFavorite = /*favoriteTeam*/ ctx[3] === /*team*/ ctx[13].gsx$team.$t;
+    			if (dirty & /*teams*/ 2) team_changes.team = /*team*/ ctx[14];
+    			if (dirty & /*favoriteTeam, teams*/ 10) team_changes.isFavorite = /*favoriteTeam*/ ctx[3] === /*team*/ ctx[14].gsx$team.$t;
     			team.$set(team_changes);
     		},
     		i: function intro(local) {
@@ -7854,7 +7860,7 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(193:2) {#each teams as team, i}",
+    		source: "(194:2) {#each teams as team, i}",
     		ctx
     	});
 
@@ -7893,7 +7899,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 190, 0, 7014);
+    			add_location(div, file$4, 191, 0, 7089);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7973,6 +7979,7 @@ var app = (function () {
     function instance$4($$self, $$props, $$invalidate) {
     	let teams, tourneyName, leaderboard, favoriteTeam;
     	let { dvLeague = false } = $$props;
+    	let trueUrl = window.location.href.replace("?league=dv", "");
 
     	// onMount do all of our async functions
     	onMount(async () => {
@@ -8172,6 +8179,7 @@ var app = (function () {
     		leaderboard,
     		favoriteTeam,
     		dvLeague,
+    		trueUrl,
     		setFavorite,
     		processSecondTourney,
     		sortTeams,
@@ -8188,13 +8196,14 @@ var app = (function () {
     		if ("leaderboard" in $$props) leaderboard = $$props.leaderboard;
     		if ("favoriteTeam" in $$props) $$invalidate(3, favoriteTeam = $$props.favoriteTeam);
     		if ("dvLeague" in $$props) $$invalidate(0, dvLeague = $$props.dvLeague);
+    		if ("trueUrl" in $$props) $$invalidate(4, trueUrl = $$props.trueUrl);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [dvLeague, teams, tourneyName, favoriteTeam];
+    	return [dvLeague, teams, tourneyName, favoriteTeam, trueUrl];
     }
 
     class Weekly extends SvelteComponentDev {
@@ -12344,22 +12353,22 @@ var app = (function () {
     /* src/App.svelte generated by Svelte v3.21.0 */
     const file$e = "src/App.svelte";
 
-    // (16:1) {#if dvLeague}
+    // (17:1) {#if dvLeague}
     function create_if_block_2$2(ctx) {
-    	let h1;
+    	let h3;
 
     	const block = {
     		c: function create() {
-    			h1 = element("h1");
-    			h1.textContent = "DV'S GOLF LEAGUE";
-    			attr_dev(h1, "class", "svelte-qfis6h");
-    			add_location(h1, file$e, 16, 2, 502);
+    			h3 = element("h3");
+    			h3.textContent = "DV'S GOLF LEAGUE";
+    			attr_dev(h3, "class", "svelte-nf7z3c");
+    			add_location(h3, file$e, 17, 2, 503);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, h1, anchor);
+    			insert_dev(target, h3, anchor);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(h1);
+    			if (detaching) detach_dev(h3);
     		}
     	};
 
@@ -12367,14 +12376,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$2.name,
     		type: "if",
-    		source: "(16:1) {#if dvLeague}",
+    		source: "(17:1) {#if dvLeague}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (25:37) 
+    // (26:37) 
     function create_if_block_1$3(ctx) {
     	let current;
 
@@ -12410,14 +12419,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$3.name,
     		type: "if",
-    		source: "(25:37) ",
+    		source: "(26:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (22:1) {#if currentPage === "Weekly"}
+    // (23:1) {#if currentPage === "Weekly"}
     function create_if_block$9(ctx) {
     	let current;
 
@@ -12453,7 +12462,7 @@ var app = (function () {
     		block,
     		id: create_if_block$9.name,
     		type: "if",
-    		source: "(22:1) {#if currentPage === \\\"Weekly\\\"}",
+    		source: "(23:1) {#if currentPage === \\\"Weekly\\\"}",
     		ctx
     	});
 
@@ -12510,11 +12519,11 @@ var app = (function () {
     			br1 = element("br");
     			t2 = space();
     			if (if_block1) if_block1.c();
-    			add_location(br0, file$e, 19, 1, 592);
-    			add_location(br1, file$e, 19, 5, 596);
+    			add_location(br0, file$e, 20, 1, 593);
+    			add_location(br1, file$e, 20, 5, 597);
     			attr_dev(div, "id", "main");
-    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*dvLeague*/ ctx[2] ? "dv" : "") + " svelte-qfis6h"));
-    			add_location(div, file$e, 14, 0, 439);
+    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*dvLeague*/ ctx[2] ? "dv" : "") + " svelte-nf7z3c"));
+    			add_location(div, file$e, 15, 0, 440);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

@@ -5,6 +5,7 @@
 	import moment from "moment"
 	let teams, tourneyName, leaderboard, favoriteTeam
 	export let dvLeague = false
+	let trueUrl = window.location.href.replace("?league=dv", "")
 	
 	// onMount do all of our async functions
 	onMount(async () => {
@@ -178,7 +179,7 @@
 </script>
 
 {#if tourneyName}
-	<a href={dvLeague ? "/" : "/?league=dv" }><h1 class="tourney-name">{tourneyName}</h1></a>
+	<a href={dvLeague ? trueUrl : trueUrl + "?league=dv" }><h1 class="tourney-name">{tourneyName}</h1></a>
 {:else}
 	<img class="sheets-icon" src="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png" alt="Loading"><span>&nbsp;Loading current tournament</span>
 {/if}
@@ -215,8 +216,9 @@
 
 
 <style>
-	a {
+	a:link {
 		text-decoration: none;
+		color: black;
 	}
 	a:visited {
   		color: black;

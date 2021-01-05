@@ -10,11 +10,12 @@
 	let currentPage = "Weekly"
 
 	let dvLeague = window.location.href.includes("?league=dv")
+
 </script>
 
 <div id="main" class={dvLeague ? "dv" : ""}>
 	{#if dvLeague}
-		<h3>DV'S GOLF LEAGUE</h1>
+		<h3>DV'S GOLF LEAGUE</h3>
 	{/if}
 	<Picker bind:activePage={currentPage} pages={pages} />
 	<br><br>
@@ -37,6 +38,6 @@
 	}
 	h3 {
 		padding: 4px;
-		font-size: 5px;
+		font-size: 25px;
 	}
 </style>
