@@ -634,7 +634,7 @@ var app = (function () {
 
     			attr_dev(span, "class", span_class_value = "picker-option " + (/*activePage*/ ctx[0] === /*page*/ ctx[4]
     			? " selected"
-    			: "") + " " + (/*dvLeague*/ ctx[2] ? " comic" : "") + " svelte-uv14x4");
+    			: "") + " " + (/*dvLeague*/ ctx[2] ? " comic" : "") + " svelte-1i3wrp0");
 
     			attr_dev(span, "href", span_href_value = "#" + /*page*/ ctx[4]);
     			add_location(span, file, 16, 2, 356);
@@ -662,7 +662,7 @@ var app = (function () {
 
     			if (dirty & /*activePage, pages*/ 3 && span_class_value !== (span_class_value = "picker-option " + (/*activePage*/ ctx[0] === /*page*/ ctx[4]
     			? " selected"
-    			: "") + " " + (/*dvLeague*/ ctx[2] ? " comic" : "") + " svelte-uv14x4")) {
+    			: "") + " " + (/*dvLeague*/ ctx[2] ? " comic" : "") + " svelte-1i3wrp0")) {
     				attr_dev(span, "class", span_class_value);
     			}
 
@@ -705,7 +705,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div, "class", "picker svelte-uv14x4");
+    			attr_dev(div, "class", "picker svelte-1i3wrp0");
     			add_location(div, file, 14, 0, 310);
     		},
     		l: function claim(nodes) {
@@ -12369,7 +12369,7 @@ var app = (function () {
     		c: function create() {
     			h3 = element("h3");
     			h3.textContent = "DV'S GOLF LEAGUE";
-    			attr_dev(h3, "class", "svelte-kvkyes");
+    			attr_dev(h3, "class", "svelte-ouw46w");
     			add_location(h3, file$e, 17, 2, 503);
     		},
     		m: function mount(target, anchor) {
@@ -12530,7 +12530,7 @@ var app = (function () {
     			add_location(br0, file$e, 20, 1, 593);
     			add_location(br1, file$e, 20, 5, 597);
     			attr_dev(div, "id", "main");
-    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*dvLeague*/ ctx[2] ? "dv" : "") + " svelte-kvkyes"));
+    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*dvLeague*/ ctx[2] ? "dv" : "") + " svelte-ouw46w"));
     			add_location(div, file$e, 15, 0, 440);
     		},
     		l: function claim(nodes) {

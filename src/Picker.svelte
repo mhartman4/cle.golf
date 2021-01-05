@@ -43,6 +43,6 @@
 	}
 
 	.comic {
-		font-family: "Comic Sans MS", "Comic Sans", cursive;
+		font-family: "Comic Sans MS", "Comic Sans","Marker Felt";
 	}
 </style>

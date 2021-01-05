@@ -35,11 +35,11 @@
 	}	
 	.dv {
 		background-color: rgb(0 128 0 / 17%);
-		font-family: "Comic Sans MS", "Comic Sans", cursive;
+		font-family: "Comic Sans MS", "Comic Sans","Marker Felt";
 	}
 	h3 {
 		padding: 4px;
 		font-size: 25px;
-		font-family: "Comic Sans MS", "Comic Sans", cursive;
+		font-family: "Comic Sans MS", "Comic Sans","Marker Felt";
 	}
 </style>
