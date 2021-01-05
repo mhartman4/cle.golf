@@ -4,7 +4,6 @@
 	import WeeklyMajor from "./Major/WeeklyMajor.svelte"
 	import WeeklyTourChampionship from "./TourChampionship/WeeklyTourChampionship.svelte"
 	import Overall from "./Overall.svelte"
-	import DVWeekly from "./DV/DVWeekly.svelte"
 	import { onMount } from "svelte"
   	let pages = ["Weekly","Overall"]
 	
@@ -16,15 +15,12 @@
 <div id="main">
 	<Picker bind:activePage={currentPage} pages={pages} />
 	<br><br>
-	{#if is_dv}
-		<DVWeekly></DVWeekly>
-	{:else if currentPage === "Weekly"}
-		
-		<!-- <WeeklyMajor></WeeklyMajor> -->
-		<Weekly></Weekly>
-		<!-- <WeeklyTourChampionship></WeeklyTourChampionship> -->
+	
+	{#if currentPage === "Weekly"}
+		<Weekly dvLeague={is_dv} />
+		<!-- <WeeklyMajor dvLeague={is_dv} /> -->
 	{:else if currentPage === "Overall"}
-		<Overall></Overall>
+		<Overall dvLeague={is_dv} />
 	{/if}	
 </div>	
 
