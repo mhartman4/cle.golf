@@ -35,6 +35,7 @@
 	}	
 	.dv {
 		background-color: rgb(0 128 0 / 17%);
+		font-family: "Comic Sans MS", "Comic Sans", cursive;
 	}
 	h3 {
 		padding: 4px;

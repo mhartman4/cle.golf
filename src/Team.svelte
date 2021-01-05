@@ -7,7 +7,7 @@
 	let owner = team.gsx$owner.$t
 	let pictureUrl = "https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,g_face:center,h_45,q_auto,t_headshots_leaderboard_l,w_45/headshots_" + team.roster[0].id + ".png"
     let rosterVisible = false
-
+    let dvLeague = window.location.href.includes("?league=dv")
 
     function toggleRoster() {
     	rosterVisible = !rosterVisible
@@ -36,7 +36,7 @@
 					</td>
 					<td class="team-name {isFavorite ? " favorite" : ""}">
 						{teamNameNoOwner}
-						<div class="owner {isFavorite ? " favorite" : ""}">{owner}</div>
+						<div class="owner {dvLeague ? " invisible" : ""}">{owner}</div>
 					</td>
 					<td class="team-earnings {isFavorite ? " favorite" : ""}">
 						{numeral(team.totalMoney).format('$0,0')}<br>
@@ -86,5 +86,8 @@
 	}
 	.favorite {
 		color: #de0000;
+	}
+	.invisible {
+		display: none;
 	}
 </style>

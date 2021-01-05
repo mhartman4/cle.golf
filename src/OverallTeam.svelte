@@ -6,6 +6,7 @@
 	let teamTotalEarnings = team.gsx$teamtotalearnings.$t
 	let teamTotalPayout = team.gsx$teampayout.$t
     let rosterVisible = false
+    let dvLeague = window.location.href.includes("?league=dv")
 
     function toggleRoster() {
     	rosterVisible = !rosterVisible
@@ -33,7 +34,7 @@
 						</td>
 						<td class="team-name{isFavorite ? " favorite" : ""}">
 							{teamName}
-							<div class="owner{isFavorite ? " favorite" : ""}">{owner}</div>
+							<div class="owner {dvLeague ? " invisible" : ""}">{owner}</div>
 						</td>
 						<td class="team-earnings{isFavorite ? " favorite" : ""}">
 							{numeral(teamTotalEarnings).format('$0,0')}<br>
