@@ -5,13 +5,13 @@
 	{#each players as p}
 		<tr>
 			<td>{p.name}</td>
-			<td>{p.money}</td>
+			<td>{p.currentPosition}</td>
 		</tr>
 	{/each}
 </table>
 
 <style>
 	table {
-		border: 1px black;
+		border: 1px black solid;
 	}
 </style>
