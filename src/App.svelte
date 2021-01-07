@@ -10,6 +10,7 @@
 	let currentPage = "Weekly"
 
 	let dvLeague = window.location.href.includes("?league=dv")
+	let rawResults = window.location.href.includes("results=true")
 
 </script>
 
@@ -21,7 +22,7 @@
 	<br><br>
 	
 	{#if currentPage === "Weekly"}
-		<Weekly dvLeague={dvLeague} />
+		<Weekly dvLeague={dvLeague} rawResults={rawResults}/>
 		<!-- <WeeklyMajor dvLeague={is_dv} /> -->
 	{:else if currentPage === "Overall"}
 		<Overall dvLeague={dvLeague} />

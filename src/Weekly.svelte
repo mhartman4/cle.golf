@@ -4,7 +4,9 @@
 	import Leaderboard from "./Leaderboard.svelte"
 	import moment from "moment"
 	let teams, tourneyName, leaderboard, favoriteTeam
+	let resultsPlayers = []
 	export let dvLeague = false
+	export let rawResults = false
 	let trueUrl = window.location.href.replace("?league=dv", "")
 	
 	// onMount do all of our async functions
@@ -34,16 +36,7 @@
 		
 		
 	})
-	function setFavorite(message) {
-    	document.cookie = "favoriteTeam=" + message
-    	favoriteTeam = message
-    	ga('send', {
-		  		hitType: 'event',
-		  		eventCategory: 'Weekly',
-		  		eventAction: 'Favorite',
-		  		eventLabel: teamName
-			});
-    }
+
     const processSecondTourney = async (tourneyId, firstTourneyTeams) => {
     	const standings = await getPgaStandings(tourneyId)
     	await firstTourneyTeams.forEach((team) => {
@@ -82,8 +75,20 @@
 		return rawTeams
     }
 	const processTeams = (rawTeams, pgaStanding) => {
+
+		pgaStanding.forEach((p) => {
+			// console.log(p)
+
+			var player = {"name": p.player_bio.first_name + ' ' + p.player_bio.last_name, "money": p.rankings.projected_money_event};
+			
+			
+			if ( !resultsPlayers.includes(player)) {
+				resultsPlayers.push(player);	
+				resultsPlayers = resultsPlayers;
+			}
+		})
+		
 		rawTeams.forEach((team) => {
-			console.log(team)
 			  team.processed = true
 			  team.roster = []
 			  team.totalMoney = 0.0
@@ -133,8 +138,8 @@
 	
 	// Hit the google sheet for the schedule
 	const getRelevantTournament = async () => {
-		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
-		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule?timestamp=` + Date.now())
+		const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
+		// const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule?timestamp=` + Date.now())
 		
 		const data = await response.json()
 		const today = new Date()
@@ -180,6 +185,19 @@
 	}
 </script>
 
+
+{#if rawResults}
+	<table>
+		{#each resultsPlayers as p}
+			<tr>
+				<td>{p.name}</td>
+				<td>{p.money}</td>
+			</tr>
+		{/each}
+	</table>
+	
+{:else}
+
 {#if tourneyName}
 	<a href={dvLeague ? trueUrl : trueUrl + "?league=dv" }><h1 class="tourney-name">{tourneyName}</h1></a>
 {:else}
@@ -215,6 +233,8 @@
 		<img class="sheets-icon" src="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png" alt="Loading"><span>&nbsp;Loading teams and standings</span>
 	{/if}
 </div>
+
+{/if}
 
 
 <style>

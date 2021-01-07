@@ -3,10 +3,6 @@
 jQuery.ajaxSetup({async:true});
 
 schedule = [
-  
-
-
-
   { name: 'Safeway Open ', date: new Date(Date.parse('2020-09-10')), tournament_id: '464'},
   { name: 'U.S. Open', date: new Date(Date.parse('2020-09-17')), tournament_id: '026'},
   { name: 'Corales Punta Canta Resort Club Championship', date: new Date(Date.parse('2020-09-24')), tournament_id: '522'},
