@@ -15,10 +15,10 @@ request("https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5m
 });
 
 // Overall
-// request("https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json", function(error, response, body) {
-//   const bucket = KVdb.bucket("vRrcDLPTr4WWpVTJxim1H");
-//   bucket.set('overall', body);
-// });
+request("https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json", function(error, response, body) {
+  const bucket = KVdb.bucket("vRrcDLPTr4WWpVTJxim1H");
+  bucket.set('overall', body);
+});
 
 
 // DV Rosters

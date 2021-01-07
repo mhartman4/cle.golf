@@ -12204,8 +12204,8 @@ var app = (function () {
     			span.textContent = " Loading overall standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$d, 69, 2, 2286);
-    			add_location(span, file$d, 69, 114, 2398);
+    			add_location(img, file$d, 69, 2, 2319);
+    			add_location(span, file$d, 69, 114, 2431);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -12351,12 +12351,12 @@ var app = (function () {
     			td = element("td");
     			create_component(overallteam.$$.fragment);
     			t = space();
-    			add_location(td, file$d, 61, 5, 2111);
-    			add_location(tr, file$d, 51, 4, 1763);
+    			add_location(td, file$d, 61, 5, 2144);
+    			add_location(tr, file$d, 51, 4, 1796);
     			attr_dev(table, "class", "team svelte-ed6l2r");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$d, 50, 3, 1714);
+    			add_location(table, file$d, 50, 3, 1747);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -12419,7 +12419,7 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$d, 47, 0, 1647);
+    			add_location(div, file$d, 47, 0, 1680);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12512,7 +12512,7 @@ var app = (function () {
 
     		const response = await fetch(endpoint + `?timestamp=` + Date.now());
     		const data = await response.json();
-    		const teams = data.feed.entry.filter(row => row.gsx$teamname.$t != "");
+    		const teams = data.feed.entry.filter(row => row.gsx$teamname.$t != "" && row.gsx$teamname.$t != "#N/A");
 
     		teams.forEach(team => {
     			team.roster = [];

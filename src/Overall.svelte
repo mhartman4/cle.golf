@@ -28,7 +28,7 @@
 		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_overall' : 'overall') 
 		const response = await fetch(endpoint + `?timestamp=` + Date.now())
 		const data = await response.json()
-		const teams = data.feed.entry.filter(row => row.gsx$teamname.$t != "")
+		const teams = data.feed.entry.filter(row => row.gsx$teamname.$t != "" && row.gsx$teamname.$t != "#N/A")
 		teams.forEach((team) => {
 			team.roster = []
 			data.feed.entry.forEach((player) => {
