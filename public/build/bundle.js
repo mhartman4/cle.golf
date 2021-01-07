@@ -922,11 +922,13 @@ var app = (function () {
     	let t7;
     	let td4;
 
-    	let t8_value = (/*player*/ ctx[2].today != undefined
-    	? /*player*/ ctx[2].today == 0
-    		? "E"
-    		: /*player*/ ctx[2].today
-    	: "") + "";
+    	let t8_value = (/*player*/ ctx[2].today == null
+    	? /*player*/ ctx[2].firstRoundTeeTime
+    	: /*player*/ ctx[2].today != undefined
+    		? /*player*/ ctx[2].today == 0
+    			? "E"
+    			: /*player*/ ctx[2].today
+    		: "") + "";
 
     	let t8;
     	let t9;
@@ -968,7 +970,7 @@ var app = (function () {
     			attr_dev(td4, "class", "svelte-1fc6gvq");
     			add_location(td4, file$1, 25, 21, 1127);
     			attr_dev(td5, "class", "svelte-1fc6gvq");
-    			add_location(td5, file$1, 26, 21, 1233);
+    			add_location(td5, file$1, 26, 21, 1285);
     			attr_dev(tr, "class", tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].secondTourney ? " second-tourney" : "") + (" " + /*player*/ ctx[2].pgaStatus) + " svelte-1fc6gvq");
     			add_location(tr, file$1, 20, 5, 583);
     		},
@@ -1012,11 +1014,13 @@ var app = (function () {
     			? /*player*/ ctx[2].total ? /*player*/ ctx[2].total : "E"
     			: "") + "")) set_data_dev(t6, t6_value);
 
-    			if (dirty & /*roster*/ 1 && t8_value !== (t8_value = (/*player*/ ctx[2].today != undefined
-    			? /*player*/ ctx[2].today == 0
-    				? "E"
-    				: /*player*/ ctx[2].today
-    			: "") + "")) set_data_dev(t8, t8_value);
+    			if (dirty & /*roster*/ 1 && t8_value !== (t8_value = (/*player*/ ctx[2].today == null
+    			? /*player*/ ctx[2].firstRoundTeeTime
+    			: /*player*/ ctx[2].today != undefined
+    				? /*player*/ ctx[2].today == 0
+    					? "E"
+    					: /*player*/ ctx[2].today
+    				: "") + "")) set_data_dev(t8, t8_value);
 
     			if (dirty & /*roster*/ 1 && t10_value !== (t10_value = (/*player*/ ctx[2].thru ? /*player*/ ctx[2].thru : "") + "")) set_data_dev(t10, t10_value);
 
@@ -7519,7 +7523,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (203:0) {:else}
+    // (204:0) {:else}
     function create_else_block(ctx) {
     	let t;
     	let div;
@@ -7552,7 +7556,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 211, 0, 7581);
+    			add_location(div, file$4, 212, 0, 7670);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7619,14 +7623,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(203:0) {:else}",
+    		source: "(204:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (197:0) {#if rawResults}
+    // (198:0) {#if rawResults}
     function create_if_block$1(ctx) {
     	let t;
     	let current;
@@ -7687,14 +7691,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(197:0) {#if rawResults}",
+    		source: "(198:0) {#if rawResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (207:0) {:else}
+    // (208:0) {:else}
     function create_else_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -7708,8 +7712,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 207, 1, 7401);
-    			add_location(span, file$4, 207, 127, 7527);
+    			add_location(img, file$4, 208, 1, 7490);
+    			add_location(span, file$4, 208, 127, 7616);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7726,14 +7730,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(207:0) {:else}",
+    		source: "(208:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (205:0) {#if tourneyName}
+    // (206:0) {#if tourneyName}
     function create_if_block_3(ctx) {
     	let a;
     	let h1;
@@ -7746,14 +7750,14 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
     			attr_dev(h1, "class", "tourney-name svelte-2581r4");
-    			add_location(h1, file$4, 205, 56, 7344);
+    			add_location(h1, file$4, 206, 56, 7433);
 
     			attr_dev(a, "href", a_href_value = /*dvLeague*/ ctx[0]
     			? /*trueUrl*/ ctx[5]
     			: /*trueUrl*/ ctx[5] + "?league=dv");
 
     			attr_dev(a, "class", "svelte-2581r4");
-    			add_location(a, file$4, 205, 1, 7289);
+    			add_location(a, file$4, 206, 1, 7378);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7778,14 +7782,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(205:0) {#if tourneyName}",
+    		source: "(206:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (223:1) {:else}
+    // (224:1) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -7799,8 +7803,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 223, 2, 7862);
-    			add_location(span, file$4, 223, 128, 7988);
+    			add_location(img, file$4, 224, 2, 7951);
+    			add_location(span, file$4, 224, 128, 8077);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7819,14 +7823,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(223:1) {:else}",
+    		source: "(224:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (213:1) {#if teams}
+    // (214:1) {#if teams}
     function create_if_block_2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -7915,14 +7919,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(213:1) {#if teams}",
+    		source: "(214:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (214:2) {#each teams as team, i}
+    // (215:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -7946,12 +7950,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 216, 5, 7703);
-    			add_location(tr, file$4, 215, 4, 7693);
+    			add_location(td, file$4, 217, 5, 7792);
+    			add_location(tr, file$4, 216, 4, 7782);
     			attr_dev(table, "class", "team svelte-2581r4");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 214, 3, 7644);
+    			add_location(table, file$4, 215, 3, 7733);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -7986,14 +7990,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(214:2) {#each teams as team, i}",
+    		source: "(215:2) {#each teams as team, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (198:1) {#if tourneyName}
+    // (199:1) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -8002,7 +8006,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
-    			add_location(h1, file$4, 198, 2, 7187);
+    			add_location(h1, file$4, 199, 2, 7276);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8020,7 +8024,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(198:1) {#if tourneyName}",
+    		source: "(199:1) {#if tourneyName}",
     		ctx
     	});
 
@@ -8200,7 +8204,7 @@ var app = (function () {
     					if (pgaPlayerMatches.length > 0) {
     						player.isPlaying = true;
     						const pgaPlayer = pgaPlayerMatches[0];
-    						(player.name = pgaPlayer.player_bio.first_name + " " + pgaPlayer.player_bio.last_name, player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g, "")), player.position = pgaPlayer.current_position, player.projMoney = pgaPlayer.rankings.projected_money_event, player.today = pgaPlayer.today, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.player_id, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.rankings.projected_money_event, player.secondTourney = false);
+    						(player.name = pgaPlayer.player_bio.first_name + " " + pgaPlayer.player_bio.last_name, player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g, "")), player.position = pgaPlayer.current_position, player.projMoney = pgaPlayer.rankings.projected_money_event, player.today = pgaPlayer.today, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.player_id, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.rankings.projected_money_event, player.secondTourney = false, player.firstRoundTeeTime = moment(pgaPlayer.rounds[0].tee_time).format("h:mm a"));
     					}
 
     					team.roster.push(player);

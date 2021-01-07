@@ -116,7 +116,8 @@
 							player.playerId = pgaPlayer.player_id,
 							player.pgaStatus = pgaPlayer.status,
 							team.totalMoney += pgaPlayer.rankings.projected_money_event,
-							player.secondTourney = false
+							player.secondTourney = false,
+							player.firstRoundTeeTime = moment(pgaPlayer.rounds[0].tee_time).format("h:mm a")
 						}
 						team.roster.push(player)
 					})
