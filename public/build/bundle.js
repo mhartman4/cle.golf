@@ -959,19 +959,19 @@ var app = (function () {
     			td5 = element("td");
     			t10 = text(t10_value);
     			t11 = space();
-    			attr_dev(td0, "class", "svelte-1fc6gvq");
+    			attr_dev(td0, "class", "svelte-u06ue6");
     			add_location(td0, file$1, 21, 6, 721);
-    			attr_dev(td1, "class", "svelte-1fc6gvq");
+    			attr_dev(td1, "class", "svelte-u06ue6");
     			add_location(td1, file$1, 22, 21, 765);
-    			attr_dev(td2, "class", "svelte-1fc6gvq");
+    			attr_dev(td2, "class", "svelte-u06ue6");
     			add_location(td2, file$1, 23, 21, 861);
-    			attr_dev(td3, "class", "svelte-1fc6gvq");
+    			attr_dev(td3, "class", "svelte-u06ue6");
     			add_location(td3, file$1, 24, 21, 1036);
-    			attr_dev(td4, "class", "svelte-1fc6gvq");
+    			attr_dev(td4, "class", "svelte-u06ue6");
     			add_location(td4, file$1, 25, 21, 1127);
-    			attr_dev(td5, "class", "svelte-1fc6gvq");
+    			attr_dev(td5, "class", "svelte-u06ue6");
     			add_location(td5, file$1, 26, 21, 1285);
-    			attr_dev(tr, "class", tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].secondTourney ? " second-tourney" : "") + (" " + /*player*/ ctx[2].pgaStatus) + " svelte-1fc6gvq");
+    			attr_dev(tr, "class", tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].secondTourney ? " second-tourney" : "") + (" " + /*player*/ ctx[2].pgaStatus) + " svelte-u06ue6");
     			add_location(tr, file$1, 20, 5, 583);
     		},
     		m: function mount(target, anchor) {
@@ -1024,7 +1024,7 @@ var app = (function () {
 
     			if (dirty & /*roster*/ 1 && t10_value !== (t10_value = (/*player*/ ctx[2].thru ? /*player*/ ctx[2].thru : "") + "")) set_data_dev(t10, t10_value);
 
-    			if (dirty & /*roster*/ 1 && tr_class_value !== (tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].secondTourney ? " second-tourney" : "") + (" " + /*player*/ ctx[2].pgaStatus) + " svelte-1fc6gvq")) {
+    			if (dirty & /*roster*/ 1 && tr_class_value !== (tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].secondTourney ? " second-tourney" : "") + (" " + /*player*/ ctx[2].pgaStatus) + " svelte-u06ue6")) {
     				attr_dev(tr, "class", tr_class_value);
     			}
     		},
@@ -1103,24 +1103,24 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(th0, "class", "roster-header svelte-1fc6gvq");
+    			attr_dev(th0, "class", "roster-header svelte-u06ue6");
     			add_location(th0, file$1, 9, 4, 182);
-    			attr_dev(th1, "class", "roster-header svelte-1fc6gvq");
+    			attr_dev(th1, "class", "roster-header svelte-u06ue6");
     			add_location(th1, file$1, 10, 16, 236);
-    			attr_dev(th2, "class", "roster-header svelte-1fc6gvq");
+    			attr_dev(th2, "class", "roster-header svelte-u06ue6");
     			add_location(th2, file$1, 11, 16, 291);
-    			attr_dev(th3, "class", "roster-header svelte-1fc6gvq");
+    			attr_dev(th3, "class", "roster-header svelte-u06ue6");
     			add_location(th3, file$1, 12, 16, 342);
-    			attr_dev(th4, "class", "roster-header svelte-1fc6gvq");
+    			attr_dev(th4, "class", "roster-header svelte-u06ue6");
     			add_location(th4, file$1, 13, 16, 395);
-    			attr_dev(th5, "class", "roster-header svelte-1fc6gvq");
+    			attr_dev(th5, "class", "roster-header svelte-u06ue6");
     			add_location(th5, file$1, 14, 16, 448);
     			add_location(tr, file$1, 8, 3, 173);
     			add_location(thead, file$1, 7, 2, 162);
     			add_location(tbody, file$1, 17, 2, 506);
-    			attr_dev(table, "class", "roster-table svelte-1fc6gvq");
+    			attr_dev(table, "class", "roster-table svelte-u06ue6");
     			add_location(table, file$1, 6, 1, 131);
-    			attr_dev(div, "class", "roster svelte-1fc6gvq");
+    			attr_dev(div, "class", "roster svelte-u06ue6");
     			add_location(div, file$1, 5, 0, 92);
     		},
     		l: function claim(nodes) {

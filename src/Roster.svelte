@@ -40,10 +40,12 @@
 		margin: 0 auto;
 		border-spacing: 0;
 	    border-collapse: collapse;
+	    width: 100%;
 	}
 	.roster-header {
 		font-family: "Fjalla One";
-	    border-bottom: 1px solid black;
+	    background-color: black;
+	    color: white;
 	    text-transform: uppercase;
 	    font-size: 10px;
 	    text-decoration: none;
