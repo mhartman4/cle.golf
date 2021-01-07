@@ -1,8 +1,8 @@
 <script>
   	import { onMount } from "svelte"
 	import Team from "./Team.svelte"
-	import Leaderboard from "./Leaderboard.svelte"
 	import moment from "moment"
+	import ResultsTable from "./ResultsTable.svelte"
 	let teams, tourneyName, leaderboard, favoriteTeam
 	let resultsPlayers = []
 	export let dvLeague = false
@@ -198,14 +198,7 @@
 	{#if tourneyName}
 		<h1>{tourneyName}</h1>
 	{/if}
-	<table>
-		{#each resultsPlayers as p}
-			<tr>
-				<td>{p.name}</td>
-				<td>{p.money}</td>
-			</tr>
-		{/each}
-	</table>
+	<ResultsTable players={resultsPlayers}/>
 	
 {:else}
 
