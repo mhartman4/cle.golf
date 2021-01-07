@@ -251,7 +251,7 @@ function checkForData() {
     });
 
     htmlString += "</table>";
-    $(".results-table").append(htmlString);
+    $("body").append(htmlString);
 
 
   })

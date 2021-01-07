@@ -83,6 +83,7 @@
     }
 	const processTeams = (rawTeams, pgaStanding) => {
 		rawTeams.forEach((team) => {
+			console.log(team)
 			  team.processed = true
 			  team.roster = []
 			  team.totalMoney = 0.0
@@ -169,12 +170,13 @@
 	
 	// This one gets our team rosters from the Google Sheet
 	const getTeamRosters = async () => {
-		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`)
+		const endpoint = `https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`
 		
-		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_rosters' : 'rosters') 
+		// const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_rosters' : 'rosters') 
 		const response = await fetch(endpoint)		
 		const data = await response.json()
-		return await data.feed.entry.filter(e => e.gsx$roster.$t)
+		return await data.feed.entry.filter(e => e.gsx$roster.$t != "#N/A" && e.gsx$roster.$t != "")
+
 	}
 </script>
 
