@@ -6,9 +6,9 @@
 	let teams, tourneyName, leaderboard, favoriteTeam
 	let resultsPlayers = []
 	export let dvLeague = false
-	export let rawResults = false
-	let trueUrl = window.location.href.replace("?league=dv", "")
 	
+	let trueUrl = window.location.href.replace("?league=dv", "")
+	let rawResults = window.location.href.includes("results")
 	// onMount do all of our async functions
 	onMount(async () => {
 
@@ -37,8 +37,16 @@
 		
 	})
 
+
     const processSecondTourney = async (tourneyId, firstTourneyTeams) => {
     	const standings = await getPgaStandings(tourneyId)
+    	await standings.forEach((p) => {
+			var player = {"name": p.player_bio.first_name + ' ' + p.player_bio.last_name, "money": p.rankings.projected_money_event};
+			if ( !resultsPlayers.includes(player)) {
+				resultsPlayers.push(player);	
+				resultsPlayers = resultsPlayers;
+			}
+		})
     	await firstTourneyTeams.forEach((team) => {
     		team.roster.forEach((player) => {
     			const pgaPlayerMatches = standings.filter(p => p.player_id === player.id)
@@ -138,8 +146,8 @@
 	
 	// Hit the google sheet for the schedule
 	const getRelevantTournament = async () => {
-		const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
-		// const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule?timestamp=` + Date.now())
+		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
+		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule?timestamp=` + Date.now())
 		
 		const data = await response.json()
 		const today = new Date()
@@ -175,9 +183,9 @@
 	
 	// This one gets our team rosters from the Google Sheet
 	const getTeamRosters = async () => {
-		const endpoint = `https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`
+		// const endpoint = `https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`
 		
-		// const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_rosters' : 'rosters') 
+		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_rosters' : 'rosters') 
 		const response = await fetch(endpoint)		
 		const data = await response.json()
 		return await data.feed.entry.filter(e => e.gsx$roster.$t != "#N/A" && e.gsx$roster.$t != "")
@@ -187,6 +195,9 @@
 
 
 {#if rawResults}
+	{#if tourneyName}
+		<h1>{tourneyName}</h1>
+	{/if}
 	<table>
 		{#each resultsPlayers as p}
 			<tr>
@@ -204,25 +215,12 @@
 	<img class="sheets-icon" src="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png" alt="Loading"><span>&nbsp;Loading current tournament</span>
 {/if}
 
-<!-- {#if leaderboard}
-	<Leaderboard leaderboard={leaderboard}></Leaderboard>	
-{/if} -->
-
 
 <div class="teams">
 	{#if teams}
 		{#each teams as team, i}
 			<table class="team" width="100%" border="0">
 				<tr>
-					<!-- <td class="favorite-cell" width="30"> -->
-						<!-- <span class="favorite-button" on:click={setFavorite(team.gsx$team.$t)}> -->
-						<!-- {#if favoriteTeam === team.gsx$team.$t}
-							<span style="font-size: 10px;">❤️</span>
-						{:else} -->
-							<!-- <span style="font-size: 13px;color: #969494;">♡</span> -->
-						<!-- {/if} -->
-						<!-- </span>	 -->
-					<!-- </td> -->
 					<td>
 						<Team team={team} placeNumber={i+1} isFavorite={favoriteTeam === team.gsx$team.$t}></Team>	
 					</td>
