@@ -25,6 +25,7 @@
 		}
 		else {
 			teams = sortTeams(firstTourneyTeams)
+			console.log(teams)
 		}
 	})
 
