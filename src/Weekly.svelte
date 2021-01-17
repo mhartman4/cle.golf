@@ -186,21 +186,12 @@
 		const data = await response.json()
 		return await data.feed.entry.filter(e => e.gsx$roster.$t != "#N/A" && e.gsx$roster.$t != "")
 	}
-
-	const setPayoutsHash = (pgaStandings, purseAmount) => {
-
-		listOfPlayers.forEach((player) => {
-			console.log(player)
-		})
-
-	}
 </script>
 
 
 {#if rawResults}
 	{#if tourneyName}
 		<h1>{tourneyName}</h1>
-
 	{/if}
 	<ResultsTable players={resultsPlayers}/>
 	
