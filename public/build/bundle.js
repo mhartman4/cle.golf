@@ -7564,7 +7564,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 206, 0, 7623);
+    			add_location(div, file$4, 206, 0, 7652);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7716,8 +7716,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 203, 1, 7444);
-    			add_location(span, file$4, 203, 127, 7570);
+    			add_location(img, file$4, 203, 1, 7473);
+    			add_location(span, file$4, 203, 127, 7599);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7754,14 +7754,14 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
     			attr_dev(h1, "class", "tourney-name svelte-2581r4");
-    			add_location(h1, file$4, 201, 56, 7387);
+    			add_location(h1, file$4, 201, 56, 7416);
 
     			attr_dev(a, "href", a_href_value = /*dvLeague*/ ctx[0]
     			? /*trueUrl*/ ctx[5]
     			: /*trueUrl*/ ctx[5] + "?league=dv");
 
     			attr_dev(a, "class", "svelte-2581r4");
-    			add_location(a, file$4, 201, 1, 7332);
+    			add_location(a, file$4, 201, 1, 7361);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7807,8 +7807,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 218, 2, 7904);
-    			add_location(span, file$4, 218, 128, 8030);
+    			add_location(img, file$4, 218, 2, 7933);
+    			add_location(span, file$4, 218, 128, 8059);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7954,12 +7954,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 211, 5, 7745);
-    			add_location(tr, file$4, 210, 4, 7735);
+    			add_location(td, file$4, 211, 5, 7774);
+    			add_location(tr, file$4, 210, 4, 7764);
     			attr_dev(table, "class", "team svelte-2581r4");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 209, 3, 7686);
+    			add_location(table, file$4, 209, 3, 7715);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -8010,7 +8010,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
-    			add_location(h1, file$4, 194, 2, 7230);
+    			add_location(h1, file$4, 194, 2, 7259);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8270,7 +8270,7 @@ var app = (function () {
     	// Get our team rosters from the Google Sheet / KVDB
     	const getTeamRosters = async () => {
     		// const endpoint = `https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`
-    		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? "dv_rosters" : "rosters");
+    		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? "dv_rosters" : "rosters") + `?timestamp=` + Date.now();
 
     		const response = await fetch(endpoint);
     		const data = await response.json();
