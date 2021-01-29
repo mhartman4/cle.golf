@@ -1,4 +1,4 @@
-<script>
+	<script>
   	import { onMount } from "svelte"
 	import Team from "./Team.svelte"
 	import moment from "moment"
@@ -25,7 +25,6 @@
 		}
 		else {
 			teams = sortTeams(firstTourneyTeams)
-			console.log(teams)
 		}
 	})
 
@@ -40,7 +39,7 @@
 		const tourneysBeforeToday = data.feed.entry.filter(event => new Date(Date.parse(event.gsx$date.$t)) <= today.setHours(0,0,0,0))
 		
 		const tournaments = []
-
+		const payoutPercentages = [0.18,0.109,0.069,0.049,0.041,0.03625,0.03375,0.03125,0.02925,0.02725,0.02525,0.02325,0.02125,0.01925,0.01825,0.01725,0.01625,0.01525,0.01425,0.01325,0.01225,0.01125,0.01045,0.00965,0.00885,0.00805,0.00775,0.00745,0.00715,0.00685,0.00655,0.00625,0.00595,0.0057,0.00545,0.0052,0.00495,0.00475,0.00455,0.00435,0.00415,0.00395,0.00375,0.00355,0.00335,0.00315,0.00295,0.00279,0.00265,0.00257,0.00251,0.00245,0.00241,0.00237,0.00235,0.00233,0.00231,0.00229,0.00227,0.00225,0.00223,0.00221,0.00219,0.00217,0.00215]
 		// grab the last tournament but check if any others have the same date
 		tourneysBeforeToday.forEach((t) => {
 			if (tourneysBeforeToday.slice(-1)[0].gsx$date.$t === t.gsx$date.$t) {
@@ -49,7 +48,8 @@
 					{
 						"id": t.gsx$tournamentid.$t,
 						"name": t.gsx$name.$t,
-						"firstPlaceMoney": t.gsx$firstplacemoney.$t
+						"totalPurse": t.gsx$firstplacemoney.$t / 0.18,
+						"payouts": payoutPercentages.map((n) => n * (t.gsx$firstplacemoney.$t / 0.18))
 					}
 				)
 			}
@@ -161,8 +161,10 @@
 	
 	const makePgaCall = async (securityBlurb, tournament) => {
 			const pgaResp = await fetch("https://statdata.pgatour.com/r/" + tournament.id + "/2021/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
+			// const pgaResp = await fetch("https://statdata.pgatour.com/r/" + "016" + "/2021/leaderboard-v2.json" + securityBlurb + "&timestamp=" + Date.now());
 			var jsonResp = await pgaResp.json()
 			leaderboard = await jsonResp.leaderboard.players
+			var cutLine = await jsonResp.leaderboard.cut_line.paid_players_making_cut
 			
 			// If we don't have projected money we need to estimate it using FedEx cup points
 			if (await jsonResp.leaderboard.players[0].rankings.projected_money_event == "")
@@ -170,9 +172,18 @@
 				const firstPlaceCupPoints = parseInt(jsonResp.leaderboard.players[0].rankings.projected_cup_points_event)
 
 				jsonResp.leaderboard.players.forEach((player) => {
-					const cupPoints = parseFloat(player.rankings.projected_cup_points_event)
-					player.rankings.projected_money_event = isNaN(cupPoints) ? 0 : cupPoints * tournament.firstPlaceMoney / firstPlaceCupPoints
-
+					
+					if (cutLine != null) {
+						// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
+						var positionNum = parseInt(player.current_position.replace(/\D/g,''))
+						// if there's a payout (above 65) else 0
+						player.rankings.projected_money_event = tournament.payouts[positionNum-1] ?  tournament.payouts[positionNum-1] : 0
+					}
+					else {
+						// Use Fedex Points
+						const cupPoints = parseFloat(player.rankings.projected_cup_points_event)
+						player.rankings.projected_money_event = isNaN(cupPoints) ? 0 : cupPoints * tournament.firstPlaceMoney / firstPlaceCupPoints
+					}
 				})
 			}
 			return jsonResp.leaderboard.players
