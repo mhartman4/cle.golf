@@ -923,7 +923,9 @@ var app = (function () {
     	let td4;
 
     	let t8_value = (/*player*/ ctx[2].today == null
-    	? /*player*/ ctx[2].firstRoundTeeTime
+    	? /*player*/ ctx[2].pgaStatus == "active"
+    		? /*player*/ ctx[2].firstRoundTeeTime
+    		: ""
     	: /*player*/ ctx[2].today != undefined
     		? /*player*/ ctx[2].today == 0
     			? "E"
@@ -970,7 +972,7 @@ var app = (function () {
     			attr_dev(td4, "class", "svelte-u06ue6");
     			add_location(td4, file$1, 25, 21, 1127);
     			attr_dev(td5, "class", "svelte-u06ue6");
-    			add_location(td5, file$1, 26, 21, 1285);
+    			add_location(td5, file$1, 26, 21, 1323);
     			attr_dev(tr, "class", tr_class_value = "player-row" + (/*player*/ ctx[2].isPlaying ? "" : " inactive") + (/*player*/ ctx[2].secondTourney ? " second-tourney" : "") + (" " + /*player*/ ctx[2].pgaStatus) + " svelte-u06ue6");
     			add_location(tr, file$1, 20, 5, 583);
     		},
@@ -1015,7 +1017,9 @@ var app = (function () {
     			: "") + "")) set_data_dev(t6, t6_value);
 
     			if (dirty & /*roster*/ 1 && t8_value !== (t8_value = (/*player*/ ctx[2].today == null
-    			? /*player*/ ctx[2].firstRoundTeeTime
+    			? /*player*/ ctx[2].pgaStatus == "active"
+    				? /*player*/ ctx[2].firstRoundTeeTime
+    				: ""
     			: /*player*/ ctx[2].today != undefined
     				? /*player*/ ctx[2].today == 0
     					? "E"
@@ -7523,7 +7527,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (210:0) {:else}
+    // (241:0) {:else}
     function create_else_block(ctx) {
     	let t;
     	let div;
@@ -7556,7 +7560,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 217, 0, 8899);
+    			add_location(div, file$4, 248, 0, 12526);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7623,14 +7627,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(210:0) {:else}",
+    		source: "(241:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (204:0) {#if rawResults}
+    // (235:0) {#if rawResults}
     function create_if_block$1(ctx) {
     	let t;
     	let current;
@@ -7687,14 +7691,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(204:0) {#if rawResults}",
+    		source: "(235:0) {#if rawResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (214:0) {:else}
+    // (245:0) {:else}
     function create_else_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -7708,8 +7712,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 214, 1, 8720);
-    			add_location(span, file$4, 214, 127, 8846);
+    			add_location(img, file$4, 245, 1, 12347);
+    			add_location(span, file$4, 245, 127, 12473);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7726,14 +7730,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(214:0) {:else}",
+    		source: "(245:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (212:0) {#if tourneyName}
+    // (243:0) {#if tourneyName}
     function create_if_block_3(ctx) {
     	let a;
     	let h1;
@@ -7746,14 +7750,14 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
     			attr_dev(h1, "class", "tourney-name svelte-2581r4");
-    			add_location(h1, file$4, 212, 56, 8663);
+    			add_location(h1, file$4, 243, 56, 12290);
 
     			attr_dev(a, "href", a_href_value = /*dvLeague*/ ctx[0]
     			? /*trueUrl*/ ctx[5]
     			: /*trueUrl*/ ctx[5] + "?league=dv");
 
     			attr_dev(a, "class", "svelte-2581r4");
-    			add_location(a, file$4, 212, 1, 8608);
+    			add_location(a, file$4, 243, 1, 12235);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7778,14 +7782,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(212:0) {#if tourneyName}",
+    		source: "(243:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (229:1) {:else}
+    // (260:1) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -7799,8 +7803,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 229, 2, 9180);
-    			add_location(span, file$4, 229, 128, 9306);
+    			add_location(img, file$4, 260, 2, 12807);
+    			add_location(span, file$4, 260, 128, 12933);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7819,14 +7823,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(229:1) {:else}",
+    		source: "(260:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (219:1) {#if teams}
+    // (250:1) {#if teams}
     function create_if_block_2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -7915,14 +7919,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(219:1) {#if teams}",
+    		source: "(250:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (220:2) {#each teams as team, i}
+    // (251:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -7946,12 +7950,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 222, 5, 9021);
-    			add_location(tr, file$4, 221, 4, 9011);
+    			add_location(td, file$4, 253, 5, 12648);
+    			add_location(tr, file$4, 252, 4, 12638);
     			attr_dev(table, "class", "team svelte-2581r4");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 220, 3, 8962);
+    			add_location(table, file$4, 251, 3, 12589);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -7986,14 +7990,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(220:2) {#each teams as team, i}",
+    		source: "(251:2) {#each teams as team, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (205:1) {#if tourneyName}
+    // (236:1) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -8002,7 +8006,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
-    			add_location(h1, file$4, 205, 2, 8506);
+    			add_location(h1, file$4, 236, 2, 12133);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8020,7 +8024,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(205:1) {#if tourneyName}",
+    		source: "(236:1) {#if tourneyName}",
     		ctx
     	});
 
@@ -8119,6 +8123,7 @@ var app = (function () {
     		const tournaments = [];
 
     		const payoutPercentages = [
+    			null,
     			0.18,
     			0.109,
     			0.069,
@@ -8315,6 +8320,235 @@ var app = (function () {
     		leaderboard = await jsonResp.leaderboard.players;
     		var cutLine = await jsonResp.leaderboard.cut_line.paid_players_making_cut;
 
+    		var numberPlayersEachPlace = {
+    			"1": [0, 0],
+    			"2": [0, 0],
+    			"3": [0, 0],
+    			"4": [0, 0],
+    			"5": [0, 0],
+    			"6": [0, 0],
+    			"7": [0, 0],
+    			"8": [0, 0],
+    			"9": [0, 0],
+    			"10": [0, 0],
+    			"11": [0, 0],
+    			"12": [0, 0],
+    			"13": [0, 0],
+    			"14": [0, 0],
+    			"15": [0, 0],
+    			"16": [0, 0],
+    			"17": [0, 0],
+    			"18": [0, 0],
+    			"19": [0, 0],
+    			"20": [0, 0],
+    			"21": [0, 0],
+    			"22": [0, 0],
+    			"23": [0, 0],
+    			"24": [0, 0],
+    			"25": [0, 0],
+    			"26": [0, 0],
+    			"27": [0, 0],
+    			"28": [0, 0],
+    			"29": [0, 0],
+    			"30": [0, 0],
+    			"31": [0, 0],
+    			"32": [0, 0],
+    			"33": [0, 0],
+    			"34": [0, 0],
+    			"35": [0, 0],
+    			"36": [0, 0],
+    			"37": [0, 0],
+    			"38": [0, 0],
+    			"39": [0, 0],
+    			"40": [0, 0],
+    			"41": [0, 0],
+    			"42": [0, 0],
+    			"43": [0, 0],
+    			"44": [0, 0],
+    			"45": [0, 0],
+    			"46": [0, 0],
+    			"47": [0, 0],
+    			"48": [0, 0],
+    			"49": [0, 0],
+    			"50": [0, 0],
+    			"51": [0, 0],
+    			"52": [0, 0],
+    			"53": [0, 0],
+    			"54": [0, 0],
+    			"55": [0, 0],
+    			"56": [0, 0],
+    			"57": [0, 0],
+    			"58": [0, 0],
+    			"59": [0, 0],
+    			"60": [0, 0],
+    			"61": [0, 0],
+    			"62": [0, 0],
+    			"63": [0, 0],
+    			"64": [0, 0],
+    			"65": [0, 0],
+    			"66": [0, 0],
+    			"67": [0, 0],
+    			"68": [0, 0],
+    			"69": [0, 0],
+    			"70": [0, 0],
+    			"71": [0, 0],
+    			"72": [0, 0],
+    			"73": [0, 0],
+    			"74": [0, 0],
+    			"75": [0, 0],
+    			"76": [0, 0],
+    			"77": [0, 0],
+    			"78": [0, 0],
+    			"79": [0, 0],
+    			"80": [0, 0],
+    			"81": [0, 0],
+    			"82": [0, 0],
+    			"83": [0, 0],
+    			"84": [0, 0],
+    			"85": [0, 0],
+    			"86": [0, 0],
+    			"87": [0, 0],
+    			"88": [0, 0],
+    			"89": [0, 0],
+    			"90": [0, 0],
+    			"91": [0, 0],
+    			"92": [0, 0],
+    			"93": [0, 0],
+    			"94": [0, 0],
+    			"95": [0, 0],
+    			"96": [0, 0],
+    			"97": [0, 0],
+    			"98": [0, 0],
+    			"99": [0, 0],
+    			"100": [0, 0],
+    			"101": [0, 0],
+    			"102": [0, 0],
+    			"103": [0, 0],
+    			"104": [0, 0],
+    			"105": [0, 0],
+    			"106": [0, 0],
+    			"107": [0, 0],
+    			"108": [0, 0],
+    			"109": [0, 0],
+    			"110": [0, 0],
+    			"111": [0, 0],
+    			"112": [0, 0],
+    			"113": [0, 0],
+    			"114": [0, 0],
+    			"115": [0, 0],
+    			"116": [0, 0],
+    			"117": [0, 0],
+    			"118": [0, 0],
+    			"119": [0, 0],
+    			"120": [0, 0],
+    			"121": [0, 0],
+    			"122": [0, 0],
+    			"123": [0, 0],
+    			"124": [0, 0],
+    			"125": [0, 0],
+    			"126": [0, 0],
+    			"127": [0, 0],
+    			"128": [0, 0],
+    			"129": [0, 0],
+    			"130": [0, 0],
+    			"131": [0, 0],
+    			"132": [0, 0],
+    			"133": [0, 0],
+    			"134": [0, 0],
+    			"135": [0, 0],
+    			"136": [0, 0],
+    			"137": [0, 0],
+    			"138": [0, 0],
+    			"139": [0, 0],
+    			"140": [0, 0],
+    			"141": [0, 0],
+    			"142": [0, 0],
+    			"143": [0, 0],
+    			"144": [0, 0],
+    			"145": [0, 0],
+    			"146": [0, 0],
+    			"147": [0, 0],
+    			"148": [0, 0],
+    			"149": [0, 0],
+    			"150": [0, 0],
+    			"151": [0, 0],
+    			"152": [0, 0],
+    			"153": [0, 0],
+    			"154": [0, 0],
+    			"155": [0, 0],
+    			"156": [0, 0],
+    			"157": [0, 0],
+    			"158": [0, 0],
+    			"159": [0, 0],
+    			"160": [0, 0],
+    			"161": [0, 0],
+    			"162": [0, 0],
+    			"163": [0, 0],
+    			"164": [0, 0],
+    			"165": [0, 0],
+    			"166": [0, 0],
+    			"167": [0, 0],
+    			"168": [0, 0],
+    			"169": [0, 0],
+    			"170": [0, 0],
+    			"171": [0, 0],
+    			"172": [0, 0],
+    			"173": [0, 0],
+    			"174": [0, 0],
+    			"175": [0, 0],
+    			"176": [0, 0],
+    			"177": [0, 0],
+    			"178": [0, 0],
+    			"179": [0, 0],
+    			"180": [0, 0],
+    			"181": [0, 0],
+    			"182": [0, 0],
+    			"183": [0, 0],
+    			"184": [0, 0],
+    			"185": [0, 0],
+    			"186": [0, 0],
+    			"187": [0, 0],
+    			"188": [0, 0],
+    			"189": [0, 0],
+    			"190": [0, 0],
+    			"191": [0, 0],
+    			"192": [0, 0],
+    			"193": [0, 0],
+    			"194": [0, 0],
+    			"195": [0, 0],
+    			"196": [0, 0],
+    			"197": [0, 0],
+    			"198": [0, 0],
+    			"199": [0, 0],
+    			"200": [0, 0]
+    		};
+
+    		jsonResp.leaderboard.players.forEach(player => {
+    			var positionNum = parseInt(player.current_position.replace(/\D/g, ""));
+
+    			if (!isNaN(positionNum)) {
+    				numberPlayersEachPlace[positionNum + ""][0] += 1;
+    			}
+    		});
+
+    		tournament.payouts.forEach((p, i) => {
+    			if (i > 0) {
+    				var numPlayersTiedAtPosition = numberPlayersEachPlace[i + ""][0];
+    				var totalPayout = 0;
+
+    				if (numPlayersTiedAtPosition > 1) {
+    					// Add the money from the people who are tied...
+    					for (let step = i; step < i + numPlayersTiedAtPosition; step++) {
+    						totalPayout += tournament.payouts[step];
+    					}
+    				} else {
+    					totalPayout = tournament.payouts[i];
+    				}
+
+    				numberPlayersEachPlace[i + ""][1] = 1 * totalPayout / numPlayersTiedAtPosition;
+    			}
+    		});
+
     		// If we don't have projected money we need to estimate it using FedEx cup points
     		if (await jsonResp.leaderboard.players[0].rankings.projected_money_event == "") {
     			const firstPlaceCupPoints = parseInt(jsonResp.leaderboard.players[0].rankings.projected_cup_points_event);
@@ -8324,9 +8558,10 @@ var app = (function () {
     					// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
     					var positionNum = parseInt(player.current_position.replace(/\D/g, ""));
 
+    					// console.log(numGolfersToSplit)
     					// if there's a payout (above 65) else 0
-    					player.rankings.projected_money_event = tournament.payouts[positionNum - 1]
-    					? tournament.payouts[positionNum - 1]
+    					player.rankings.projected_money_event = numberPlayersEachPlace[positionNum]
+    					? numberPlayersEachPlace[positionNum][1]
     					: 0;
     				} else {
     					// Use Fedex Points
