@@ -185,7 +185,7 @@
 					if (numPlayersTiedAtPosition > 1) {
 						// Add the money from the people who are tied...
 						for (let step = i; step < (i + numPlayersTiedAtPosition); step++) {
-  							totalPayout += tournament.payouts[step]
+  							totalPayout += tournament.payouts[step] ? tournament.payouts[step] : 0
 						}
 					}
 					else {
@@ -196,8 +196,8 @@
 			})
 
 			// If we don't have projected money we need to estimate it using FedEx cup points
-			if (await jsonResp.leaderboard.players[0].rankings.projected_money_event == "")
-			{
+			// if (await jsonResp.leaderboard.players[0].rankings.projected_money_event)
+			// {
 				const firstPlaceCupPoints = parseInt(jsonResp.leaderboard.players[0].rankings.projected_cup_points_event)
 
 				jsonResp.leaderboard.players.forEach((player) => {
@@ -206,17 +206,11 @@
 						// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
 						var positionNum = parseInt(player.current_position.replace(/\D/g,''))
 						var numGolfersToSplit = numberPlayersEachPlace[positionNum + ""]
-						// console.log(numGolfersToSplit)
 						// if there's a payout (above 65) else 0
 						player.rankings.projected_money_event = numberPlayersEachPlace[positionNum] ? numberPlayersEachPlace[positionNum][1] : 0
 					}
-					else {
-						// Use Fedex Points
-						const cupPoints = parseFloat(player.rankings.projected_cup_points_event)
-						player.rankings.projected_money_event = isNaN(cupPoints) ? 0 : cupPoints * tournament.firstPlaceMoney / firstPlaceCupPoints
-					}
 				})
-			}
+			// }
 			return jsonResp.leaderboard.players
 	}
 	

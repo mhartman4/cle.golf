@@ -7527,7 +7527,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (241:0) {:else}
+    // (235:0) {:else}
     function create_else_block(ctx) {
     	let t;
     	let div;
@@ -7560,7 +7560,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 248, 0, 12526);
+    			add_location(div, file$4, 242, 0, 12266);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7627,14 +7627,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(241:0) {:else}",
+    		source: "(235:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (235:0) {#if rawResults}
+    // (229:0) {#if rawResults}
     function create_if_block$1(ctx) {
     	let t;
     	let current;
@@ -7691,14 +7691,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(235:0) {#if rawResults}",
+    		source: "(229:0) {#if rawResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (245:0) {:else}
+    // (239:0) {:else}
     function create_else_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -7712,8 +7712,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 245, 1, 12347);
-    			add_location(span, file$4, 245, 127, 12473);
+    			add_location(img, file$4, 239, 1, 12087);
+    			add_location(span, file$4, 239, 127, 12213);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7730,14 +7730,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(245:0) {:else}",
+    		source: "(239:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (243:0) {#if tourneyName}
+    // (237:0) {#if tourneyName}
     function create_if_block_3(ctx) {
     	let a;
     	let h1;
@@ -7750,14 +7750,14 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
     			attr_dev(h1, "class", "tourney-name svelte-2581r4");
-    			add_location(h1, file$4, 243, 56, 12290);
+    			add_location(h1, file$4, 237, 56, 12030);
 
     			attr_dev(a, "href", a_href_value = /*dvLeague*/ ctx[0]
     			? /*trueUrl*/ ctx[5]
     			: /*trueUrl*/ ctx[5] + "?league=dv");
 
     			attr_dev(a, "class", "svelte-2581r4");
-    			add_location(a, file$4, 243, 1, 12235);
+    			add_location(a, file$4, 237, 1, 11975);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7782,14 +7782,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(243:0) {#if tourneyName}",
+    		source: "(237:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (260:1) {:else}
+    // (254:1) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -7803,8 +7803,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 260, 2, 12807);
-    			add_location(span, file$4, 260, 128, 12933);
+    			add_location(img, file$4, 254, 2, 12547);
+    			add_location(span, file$4, 254, 128, 12673);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7823,14 +7823,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(260:1) {:else}",
+    		source: "(254:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (250:1) {#if teams}
+    // (244:1) {#if teams}
     function create_if_block_2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -7919,14 +7919,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(250:1) {#if teams}",
+    		source: "(244:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (251:2) {#each teams as team, i}
+    // (245:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -7950,12 +7950,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 253, 5, 12648);
-    			add_location(tr, file$4, 252, 4, 12638);
+    			add_location(td, file$4, 247, 5, 12388);
+    			add_location(tr, file$4, 246, 4, 12378);
     			attr_dev(table, "class", "team svelte-2581r4");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 251, 3, 12589);
+    			add_location(table, file$4, 245, 3, 12329);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -7990,14 +7990,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(251:2) {#each teams as team, i}",
+    		source: "(245:2) {#each teams as team, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (236:1) {#if tourneyName}
+    // (230:1) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -8006,7 +8006,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
-    			add_location(h1, file$4, 236, 2, 12133);
+    			add_location(h1, file$4, 230, 2, 11873);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8024,7 +8024,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(236:1) {#if tourneyName}",
+    		source: "(230:1) {#if tourneyName}",
     		ctx
     	});
 
@@ -8539,7 +8539,7 @@ var app = (function () {
     				if (numPlayersTiedAtPosition > 1) {
     					// Add the money from the people who are tied...
     					for (let step = i; step < i + numPlayersTiedAtPosition; step++) {
-    						totalPayout += tournament.payouts[step];
+    						totalPayout += tournament.payouts[step] ? tournament.payouts[step] : 0;
     					}
     				} else {
     					totalPayout = tournament.payouts[i];
@@ -8550,30 +8550,23 @@ var app = (function () {
     		});
 
     		// If we don't have projected money we need to estimate it using FedEx cup points
-    		if (await jsonResp.leaderboard.players[0].rankings.projected_money_event == "") {
-    			const firstPlaceCupPoints = parseInt(jsonResp.leaderboard.players[0].rankings.projected_cup_points_event);
+    		// if (await jsonResp.leaderboard.players[0].rankings.projected_money_event)
+    		// {
+    		const firstPlaceCupPoints = parseInt(jsonResp.leaderboard.players[0].rankings.projected_cup_points_event);
 
-    			jsonResp.leaderboard.players.forEach(player => {
-    				if (cutLine != null) {
-    					// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
-    					var positionNum = parseInt(player.current_position.replace(/\D/g, ""));
+    		jsonResp.leaderboard.players.forEach(player => {
+    			if (cutLine != null) {
+    				// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
+    				var positionNum = parseInt(player.current_position.replace(/\D/g, ""));
 
-    					// console.log(numGolfersToSplit)
-    					// if there's a payout (above 65) else 0
-    					player.rankings.projected_money_event = numberPlayersEachPlace[positionNum]
-    					? numberPlayersEachPlace[positionNum][1]
-    					: 0;
-    				} else {
-    					// Use Fedex Points
-    					const cupPoints = parseFloat(player.rankings.projected_cup_points_event);
+    				// if there's a payout (above 65) else 0
+    				player.rankings.projected_money_event = numberPlayersEachPlace[positionNum]
+    				? numberPlayersEachPlace[positionNum][1]
+    				: 0;
+    			}
+    		});
 
-    					player.rankings.projected_money_event = isNaN(cupPoints)
-    					? 0
-    					: cupPoints * tournament.firstPlaceMoney / firstPlaceCupPoints;
-    				}
-    			});
-    		}
-
+    		// }
     		return jsonResp.leaderboard.players;
     	};
 
