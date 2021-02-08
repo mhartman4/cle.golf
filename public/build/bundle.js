@@ -12122,18 +12122,22 @@ var app = (function () {
     			attr_dev(td0, "class", "standings-place-number svelte-iodfys");
     			attr_dev(td0, "width", "20");
     			add_location(td0, file$c, 30, 6, 773);
-    			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7] < 0 ? "negative" : "") + " svelte-iodfys");
+
+    			attr_dev(span, "class", span_class_value = "team-total-payout " + (/*teamTotalPayout*/ ctx[7].indexOf("-") > -1
+    			? "negative"
+    			: "") + " svelte-iodfys");
+
     			add_location(span, file$c, 32, 7, 880);
     			attr_dev(td1, "width", "50");
     			attr_dev(td1, "align", "left");
     			add_location(td1, file$c, 31, 6, 844);
     			attr_dev(div0, "class", div0_class_value = "owner " + (/*dvLeague*/ ctx[8] ? " invisible" : "") + " svelte-iodfys");
-    			add_location(div0, file$c, 36, 7, 1097);
+    			add_location(div0, file$c, 36, 7, 1111);
     			attr_dev(td2, "class", td2_class_value = "team-name" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys");
-    			add_location(td2, file$c, 34, 6, 1018);
-    			add_location(br, file$c, 39, 50, 1287);
+    			add_location(td2, file$c, 34, 6, 1032);
+    			add_location(br, file$c, 39, 50, 1301);
     			attr_dev(td3, "class", td3_class_value = "team-earnings" + (/*isFavorite*/ ctx[2] ? " favorite" : "") + " svelte-iodfys");
-    			add_location(td3, file$c, 38, 6, 1179);
+    			add_location(td3, file$c, 38, 6, 1193);
     			add_location(tr, file$c, 29, 5, 762);
     			add_location(tbody, file$c, 28, 4, 749);
     			attr_dev(table, "border", "0");

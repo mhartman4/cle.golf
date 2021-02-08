@@ -30,7 +30,7 @@
 					<tr>
 						<td class="standings-place-number" width="20">{placeNumber}</td>
 						<td width="50" align="left">
-							<span class="team-total-payout { teamTotalPayout < 0 ? 'negative' : ''}">{numeral(teamTotalPayout).format("$0")}</span>
+							<span class="team-total-payout { teamTotalPayout.indexOf("-") > -1 ? 'negative' : ''}">{numeral(teamTotalPayout).format("$0")}</span>
 						</td>
 						<td class="team-name{isFavorite ? " favorite" : ""}">
 							{teamName}
