@@ -112,30 +112,46 @@
 
     const processSecondTourney = async (tourneyId, firstTourneyTeams) => {
     	const standings = await getPgaStandings(tourneyId)
- 
     	await firstTourneyTeams.forEach((team) => {
     		team.roster.forEach((player) => {
     			const pgaPlayerMatches = standings.filter(p => p.player_id === player.id)
     			if (pgaPlayerMatches.length > 0) {
 						player.isPlaying = true
 						const pgaPlayer = pgaPlayerMatches[0]
-						player.name = pgaPlayer.player_bio.first_name + ' ' + pgaPlayer.player_bio.last_name
-						player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g,''))
-						player.position = pgaPlayer.current_position
-						player.projMoney = pgaPlayer.rankings.projected_money_event
-						player.today = pgaPlayer.today
-						player.thru = pgaPlayer.thru
-						player.total = pgaPlayer.total
-						player.playerId = pgaPlayer.player_id
-						player.pgaStatus = pgaPlayer.status
-						team.totalMoney += pgaPlayer.rankings.projected_money_event
-						player.sort = isNaN(player.positionNum) ? -1 : parseInt(player.projMoney)
-						player.secondTourney = true
+						player.name = pgaPlayer.player_bio.first_name + ' ' + pgaPlayer.player_bio.last_name,
+						player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g,'')),
+						player.position = pgaPlayer.current_position,
+						player.projMoney = pgaPlayer.rankings.projected_money_event,
+						player.today = pgaPlayer.today,
+						player.thru = pgaPlayer.thru,
+						player.total = pgaPlayer.total,
+						player.playerId = pgaPlayer.player_id,
+						player.pgaStatus = pgaPlayer.status,
+						team.totalMoney += pgaPlayer.rankings.projected_money_event,
+						player.secondTourney = true,
 						player.firstRoundTeeTime = moment(pgaPlayer.rounds[0].tee_time).format("h:mm a")
-						
 					}
     		})
     	})
+    	await firstTourneyTeams.forEach((team) => {
+			team.roster.forEach((player) => {
+				if (player.isPlaying === undefined) {
+					player.isPlaying = false
+					// If not playing put at bottom of list
+					player.sort = -2
+				}
+				else {
+					if (isNaN(player.positionNum)) {
+						// Next up is cut players
+						player.sort = -1
+					}
+					else {
+						// Then sort by projected money
+						player.sort = parseInt(player.projMoney)
+					}
+				}
+			})
+		})
     	return firstTourneyTeams    	
     }
 
@@ -170,7 +186,7 @@
 
 
 
-			jsonResp.leaderboard.players.forEach((player) => {
+			await jsonResp.leaderboard.players.forEach((player) => {
 				var positionNum = parseInt(player.current_position.replace(/\D/g,''))
 				if (!isNaN(positionNum)) {
 					numberPlayersEachPlace[positionNum + ""][0] += 1
@@ -178,7 +194,7 @@
 			})
 
 
-			tournament.payouts.forEach((p,i)=> {
+			await tournament.payouts.forEach((p,i)=> {
 				if (i > 0) {
 					var numPlayersTiedAtPosition = 	numberPlayersEachPlace[i + ""][0] 
 					var totalPayout = 0
@@ -195,22 +211,23 @@
 				}
 			})
 
-			// If we don't have projected money we need to estimate it using FedEx cup points
-			// if (await jsonResp.leaderboard.players[0].rankings.projected_money_event)
-			// {
-				const firstPlaceCupPoints = parseInt(jsonResp.leaderboard.players[0].rankings.projected_cup_points_event)
+			await jsonResp.leaderboard.players.forEach((player) => {
+				if (cutLine != null) {
+					// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
+					var positionNum = parseInt(player.current_position.replace(/\D/g,''))
+					var numGolfersToSplit = numberPlayersEachPlace[positionNum + ""]
+					// if there's a payout (above 65) else 0
+					player.rankings.projected_money_event = numberPlayersEachPlace[positionNum] ? numberPlayersEachPlace[positionNum][1] : 0
+				}
+				else {
+					// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
+					var positionNum = parseInt(player.current_position.replace(/\D/g,''))
+					var numGolfersToSplit = numberPlayersEachPlace[positionNum + ""]
+					// if there's a payout (above 65) else 0
+					player.rankings.projected_money_event = numberPlayersEachPlace[positionNum] ? numberPlayersEachPlace[positionNum][1] : 0
+				}
 
-				jsonResp.leaderboard.players.forEach((player) => {
-					
-					if (cutLine != null) {
-						// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
-						var positionNum = parseInt(player.current_position.replace(/\D/g,''))
-						var numGolfersToSplit = numberPlayersEachPlace[positionNum + ""]
-						// if there's a payout (above 65) else 0
-						player.rankings.projected_money_event = numberPlayersEachPlace[positionNum] ? numberPlayersEachPlace[positionNum][1] : 0
-					}
-				})
-			// }
+			})
 			return jsonResp.leaderboard.players
 	}
 	

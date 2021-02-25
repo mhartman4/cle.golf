@@ -7527,7 +7527,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (235:0) {:else}
+    // (252:0) {:else}
     function create_else_block(ctx) {
     	let t;
     	let div;
@@ -7560,7 +7560,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 242, 0, 12266);
+    			add_location(div, file$4, 259, 0, 12779);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7627,14 +7627,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(235:0) {:else}",
+    		source: "(252:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (229:0) {#if rawResults}
+    // (246:0) {#if rawResults}
     function create_if_block$1(ctx) {
     	let t;
     	let current;
@@ -7691,14 +7691,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(229:0) {#if rawResults}",
+    		source: "(246:0) {#if rawResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (239:0) {:else}
+    // (256:0) {:else}
     function create_else_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -7712,8 +7712,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 239, 1, 12087);
-    			add_location(span, file$4, 239, 127, 12213);
+    			add_location(img, file$4, 256, 1, 12600);
+    			add_location(span, file$4, 256, 127, 12726);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7730,14 +7730,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(239:0) {:else}",
+    		source: "(256:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (237:0) {#if tourneyName}
+    // (254:0) {#if tourneyName}
     function create_if_block_3(ctx) {
     	let a;
     	let h1;
@@ -7750,14 +7750,14 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
     			attr_dev(h1, "class", "tourney-name svelte-2581r4");
-    			add_location(h1, file$4, 237, 56, 12030);
+    			add_location(h1, file$4, 254, 56, 12543);
 
     			attr_dev(a, "href", a_href_value = /*dvLeague*/ ctx[0]
     			? /*trueUrl*/ ctx[5]
     			: /*trueUrl*/ ctx[5] + "?league=dv");
 
     			attr_dev(a, "class", "svelte-2581r4");
-    			add_location(a, file$4, 237, 1, 11975);
+    			add_location(a, file$4, 254, 1, 12488);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7782,14 +7782,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(237:0) {#if tourneyName}",
+    		source: "(254:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (254:1) {:else}
+    // (271:1) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -7803,8 +7803,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 254, 2, 12547);
-    			add_location(span, file$4, 254, 128, 12673);
+    			add_location(img, file$4, 271, 2, 13060);
+    			add_location(span, file$4, 271, 128, 13186);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7823,14 +7823,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(254:1) {:else}",
+    		source: "(271:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (244:1) {#if teams}
+    // (261:1) {#if teams}
     function create_if_block_2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -7919,14 +7919,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(244:1) {#if teams}",
+    		source: "(261:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (245:2) {#each teams as team, i}
+    // (262:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -7950,12 +7950,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 247, 5, 12388);
-    			add_location(tr, file$4, 246, 4, 12378);
+    			add_location(td, file$4, 264, 5, 12901);
+    			add_location(tr, file$4, 263, 4, 12891);
     			attr_dev(table, "class", "team svelte-2581r4");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 245, 3, 12329);
+    			add_location(table, file$4, 262, 3, 12842);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -7990,14 +7990,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(245:2) {#each teams as team, i}",
+    		source: "(262:2) {#each teams as team, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (230:1) {#if tourneyName}
+    // (247:1) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -8006,7 +8006,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
-    			add_location(h1, file$4, 230, 2, 11873);
+    			add_location(h1, file$4, 247, 2, 12386);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8024,7 +8024,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(230:1) {#if tourneyName}",
+    		source: "(247:1) {#if tourneyName}",
     		ctx
     	});
 
@@ -8261,23 +8261,26 @@ var app = (function () {
     				if (pgaPlayerMatches.length > 0) {
     					player.isPlaying = true;
     					const pgaPlayer = pgaPlayerMatches[0];
-    					player.name = pgaPlayer.player_bio.first_name + " " + pgaPlayer.player_bio.last_name;
-    					player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g, ""));
-    					player.position = pgaPlayer.current_position;
-    					player.projMoney = pgaPlayer.rankings.projected_money_event;
-    					player.today = pgaPlayer.today;
-    					player.thru = pgaPlayer.thru;
-    					player.total = pgaPlayer.total;
-    					player.playerId = pgaPlayer.player_id;
-    					player.pgaStatus = pgaPlayer.status;
-    					team.totalMoney += pgaPlayer.rankings.projected_money_event;
+    					(player.name = pgaPlayer.player_bio.first_name + " " + pgaPlayer.player_bio.last_name, player.positionNum = parseInt(pgaPlayer.current_position.replace(/\D/g, "")), player.position = pgaPlayer.current_position, player.projMoney = pgaPlayer.rankings.projected_money_event, player.today = pgaPlayer.today, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.player_id, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.rankings.projected_money_event, player.secondTourney = true, player.firstRoundTeeTime = moment(pgaPlayer.rounds[0].tee_time).format("h:mm a"));
+    				}
+    			});
+    		});
 
-    					player.sort = isNaN(player.positionNum)
-    					? -1
-    					: parseInt(player.projMoney);
+    		await firstTourneyTeams.forEach(team => {
+    			team.roster.forEach(player => {
+    				if (player.isPlaying === undefined) {
+    					player.isPlaying = false;
 
-    					player.secondTourney = true;
-    					player.firstRoundTeeTime = moment(pgaPlayer.rounds[0].tee_time).format("h:mm a");
+    					// If not playing put at bottom of list
+    					player.sort = -2;
+    				} else {
+    					if (isNaN(player.positionNum)) {
+    						// Next up is cut players
+    						player.sort = -1;
+    					} else {
+    						// Then sort by projected money
+    						player.sort = parseInt(player.projMoney);
+    					}
     				}
     			});
     		});
@@ -8523,7 +8526,7 @@ var app = (function () {
     			"200": [0, 0]
     		};
 
-    		jsonResp.leaderboard.players.forEach(player => {
+    		await jsonResp.leaderboard.players.forEach(player => {
     			var positionNum = parseInt(player.current_position.replace(/\D/g, ""));
 
     			if (!isNaN(positionNum)) {
@@ -8531,7 +8534,7 @@ var app = (function () {
     			}
     		});
 
-    		tournament.payouts.forEach((p, i) => {
+    		await tournament.payouts.forEach((p, i) => {
     			if (i > 0) {
     				var numPlayersTiedAtPosition = numberPlayersEachPlace[i + ""][0];
     				var totalPayout = 0;
@@ -8549,13 +8552,16 @@ var app = (function () {
     			}
     		});
 
-    		// If we don't have projected money we need to estimate it using FedEx cup points
-    		// if (await jsonResp.leaderboard.players[0].rankings.projected_money_event)
-    		// {
-    		const firstPlaceCupPoints = parseInt(jsonResp.leaderboard.players[0].rankings.projected_cup_points_event);
-
-    		jsonResp.leaderboard.players.forEach(player => {
+    		await jsonResp.leaderboard.players.forEach(player => {
     			if (cutLine != null) {
+    				// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
+    				var positionNum = parseInt(player.current_position.replace(/\D/g, ""));
+
+    				// if there's a payout (above 65) else 0
+    				player.rankings.projected_money_event = numberPlayersEachPlace[positionNum]
+    				? numberPlayersEachPlace[positionNum][1]
+    				: 0;
+    			} else {
     				// Do the math manually. Get the positionNum and then payouts[n-1] = payout 
     				var positionNum = parseInt(player.current_position.replace(/\D/g, ""));
 
@@ -8566,7 +8572,6 @@ var app = (function () {
     			}
     		});
 
-    		// }
     		return jsonResp.leaderboard.players;
     	};
 
