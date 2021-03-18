@@ -24,9 +24,9 @@
 			});
     }
 	const getOverallStandings = async () => {
-		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)
-		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_overall' : 'overall') 
-		const response = await fetch(endpoint + `?timestamp=` + Date.now())
+		const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)
+		// const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_overall' : 'overall') 
+		// const response = await fetch(endpoint + `?timestamp=` + Date.now())
 		const data = await response.json()
 		const teams = data.feed.entry.filter(row => row.gsx$teamname.$t != "" && row.gsx$teamname.$t != "#N/A")
 		teams.forEach((team) => {
