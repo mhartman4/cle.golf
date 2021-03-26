@@ -73,7 +73,7 @@
 							player.isPlaying = true
 							const pgaPlayer = pgaPlayerMatches[0]
 							player.name = pgaPlayer.playerNames.firstName + ' ' + pgaPlayer.playerNames.lastName,
-							player.positionNum = parseInt(player.positionCurrent.replace(/\D/g,'')),
+							player.positionNum = parseInt(pgaPlayer.positionCurrent.replace(/\D/g,'')),
 							player.position = pgaPlayer.positionCurrent,
 							player.projMoney = pgaPlayer.projected_money_event,
 							player.today = pgaPlayer.round,
@@ -121,7 +121,7 @@
 						player.isPlaying = true
 						const pgaPlayer = pgaPlayerMatches[0]
 						player.name = pgaPlayer.playerNames.firstName + ' ' + pgaPlayer.playerNames.lastName,
-						player.positionNum = parseInt(player.positionCurrent.replace(/\D/g,'')),,
+						player.positionNum = parseInt(player.positionCurrent.replace(/\D/g,'')),
 						player.position = pgaPlayer.positionCurrent,
 						player.projMoney = pgaPlayer.projected_money_event,
 						player.today = pgaPlayer.round,

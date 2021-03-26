@@ -7568,7 +7568,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 256, 0, 12532);
+    			add_location(div, file$4, 256, 0, 12563);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7720,8 +7720,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 253, 1, 12353);
-    			add_location(span, file$4, 253, 127, 12479);
+    			add_location(img, file$4, 253, 1, 12384);
+    			add_location(span, file$4, 253, 127, 12510);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7758,14 +7758,14 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
     			attr_dev(h1, "class", "tourney-name svelte-2581r4");
-    			add_location(h1, file$4, 251, 56, 12296);
+    			add_location(h1, file$4, 251, 56, 12327);
 
     			attr_dev(a, "href", a_href_value = /*dvLeague*/ ctx[0]
     			? /*trueUrl*/ ctx[5]
     			: /*trueUrl*/ ctx[5] + "?league=dv");
 
     			attr_dev(a, "class", "svelte-2581r4");
-    			add_location(a, file$4, 251, 1, 12241);
+    			add_location(a, file$4, 251, 1, 12272);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7811,8 +7811,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 268, 2, 12813);
-    			add_location(span, file$4, 268, 128, 12939);
+    			add_location(img, file$4, 268, 2, 12844);
+    			add_location(span, file$4, 268, 128, 12970);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7958,12 +7958,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 261, 5, 12654);
-    			add_location(tr, file$4, 260, 4, 12644);
+    			add_location(td, file$4, 261, 5, 12685);
+    			add_location(tr, file$4, 260, 4, 12675);
     			attr_dev(table, "class", "team svelte-2581r4");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 259, 3, 12595);
+    			add_location(table, file$4, 259, 3, 12626);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -8014,7 +8014,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[2]);
-    			add_location(h1, file$4, 244, 2, 12139);
+    			add_location(h1, file$4, 244, 2, 12170);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8229,7 +8229,7 @@ var app = (function () {
     					if (pgaPlayerMatches.length > 0) {
     						player.isPlaying = true;
     						const pgaPlayer = pgaPlayerMatches[0];
-    						(player.name = pgaPlayer.playerNames.firstName + " " + pgaPlayer.playerNames.lastName, player.positionNum = pgaPlayer.total, player.position = pgaPlayer.positionCurrent, player.projMoney = pgaPlayer.projected_money_event, player.today = pgaPlayer.round, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.playerId, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.projected_money_event, player.secondTourney = false, player.firstRoundTeeTime = moment(pgaPlayer.tee_time).format("h:mm a"));
+    						(player.name = pgaPlayer.playerNames.firstName + " " + pgaPlayer.playerNames.lastName, player.positionNum = parseInt(pgaPlayer.positionCurrent.replace(/\D/g, "")), player.position = pgaPlayer.positionCurrent, player.projMoney = pgaPlayer.projected_money_event, player.today = pgaPlayer.round, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.playerId, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.projected_money_event, player.secondTourney = false, player.firstRoundTeeTime = moment(pgaPlayer.tee_time).format("h:mm a"));
     					}
 
     					team.roster.push(player);
@@ -8270,7 +8270,7 @@ var app = (function () {
     				if (pgaPlayerMatches.length > 0) {
     					player.isPlaying = true;
     					const pgaPlayer = pgaPlayerMatches[0];
-    					(player.name = pgaPlayer.playerNames.firstName + " " + pgaPlayer.playerNames.lastName, player.positionNum = parseInt(player.total.replace(/\D/g, "").replace("+", "")), player.position = pgaPlayer.positionCurrent, player.projMoney = pgaPlayer.projected_money_event, player.today = pgaPlayer.round, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.playerId, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.projected_money_event, player.secondTourney = true, player.firstRoundTeeTime = moment(pgaPlayer.tee_time).format("h:mm a"));
+    					(player.name = pgaPlayer.playerNames.firstName + " " + pgaPlayer.playerNames.lastName, player.positionNum = parseInt(player.positionCurrent.replace(/\D/g, "")), player.position = pgaPlayer.positionCurrent, player.projMoney = pgaPlayer.projected_money_event, player.today = pgaPlayer.round, player.thru = pgaPlayer.thru, player.total = pgaPlayer.total, player.playerId = pgaPlayer.playerId, player.pgaStatus = pgaPlayer.status, team.totalMoney += pgaPlayer.projected_money_event, player.secondTourney = true, player.firstRoundTeeTime = moment(pgaPlayer.tee_time).format("h:mm a"));
     				}
     			});
     		});
