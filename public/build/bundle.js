@@ -12409,8 +12409,8 @@ var app = (function () {
     			span.textContent = " Loading overall standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$d, 69, 2, 2322);
-    			add_location(span, file$d, 69, 114, 2434);
+    			add_location(img, file$d, 69, 2, 2319);
+    			add_location(span, file$d, 69, 114, 2431);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -12556,12 +12556,12 @@ var app = (function () {
     			td = element("td");
     			create_component(overallteam.$$.fragment);
     			t = space();
-    			add_location(td, file$d, 61, 5, 2147);
-    			add_location(tr, file$d, 51, 4, 1799);
+    			add_location(td, file$d, 61, 5, 2144);
+    			add_location(tr, file$d, 51, 4, 1796);
     			attr_dev(table, "class", "team svelte-ed6l2r");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$d, 50, 3, 1750);
+    			add_location(table, file$d, 50, 3, 1747);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -12624,7 +12624,7 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$d, 47, 0, 1683);
+    			add_location(div, file$d, 47, 0, 1680);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12712,12 +12712,11 @@ var app = (function () {
     	}
 
     	const getOverallStandings = async () => {
-    		const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`);
+    		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)
+    		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? "dv_overall" : "overall");
 
-    		// const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_overall' : 'overall') 
-    		// const response = await fetch(endpoint + `?timestamp=` + Date.now())
+    		const response = await fetch(endpoint + `?timestamp=` + Date.now());
     		const data = await response.json();
-
     		const teams = data.feed.entry.filter(row => row.gsx$teamname.$t != "" && row.gsx$teamname.$t != "#N/A");
 
     		teams.forEach(team => {
