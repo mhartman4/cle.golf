@@ -16,8 +16,14 @@
 		const tournaments = await getRelevantTournament()
 		const rawTeams = await getTeamRosters()
 
-		const firstTourneyTeams = processFirstTourney(rawTeams, await getPgaStandings(tournaments[0]))
-
+		// if (tournaments[0].id == "018") {
+		// 	processTeamTournament(tournaments[0])
+		// }
+		// else {
+			// 
+		// }
+		const firstTourneyTeams = processFirstTourney(rawTeams, await getPgaStandings(tournaments[0]))	
+		
 		// If there's more than 1 tournament then we need to process the 2nd one also
 		if (tournaments.length > 1) {
 			const secondTourneyTeams = await processSecondTourney(tournaments[1], firstTourneyTeams)
@@ -121,7 +127,7 @@
 						player.isPlaying = true
 						const pgaPlayer = pgaPlayerMatches[0]
 						player.name = pgaPlayer.playerNames.firstName + ' ' + pgaPlayer.playerNames.lastName,
-						player.positionNum = parseInt(player.positionCurrent.replace(/\D/g,'')),
+						player.positionNum = parseInt(pgaPlayer.positionCurrent.replace(/\D/g,'')),
 						player.position = pgaPlayer.positionCurrent,
 						player.projMoney = pgaPlayer.projected_money_event,
 						player.today = pgaPlayer.round,
@@ -236,6 +242,13 @@
 		const response = await fetch(endpoint)		
 		const data = await response.json()
 		return await data.feed.entry.filter(e => e.gsx$roster.$t != "#N/A" && e.gsx$roster.$t != "")
+	}
+
+	const processTeamTournament = async (tournament) => {
+		// Hit KVDB to get our security blurb so we can call the PGA method
+		const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/pgasecurityblurb?timestamp="` + Date.now());
+		const securityBlurb = await response.text()
+		
 	}
 </script>
 
