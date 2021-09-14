@@ -15,13 +15,14 @@
 	
 		const tournaments = await getRelevantTournament()
 		const rawTeams = await getTeamRosters()
-
+		
 		// if (tournaments[0].id == "018") {
 		// 	processTeamTournament(tournaments[0])
 		// }
 		// else {
 			// 
 		// }
+		
 		const firstTourneyTeams = processFirstTourney(rawTeams, await getPgaStandings(tournaments[0]))	
 		
 		// If there's more than 1 tournament then we need to process the 2nd one also
@@ -37,25 +38,26 @@
 
 	// Hit the google sheet for the schedule
 	const getRelevantTournament = async () => {
-		const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/1/public/full?alt=json`)
-		// const response = await fetch(`https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule?timestamp=` + Date.now())
-		
-		const data = await response.json()
-		const today = new Date()
-		const tourneysBeforeToday = data.feed.entry.filter(event => new Date(Date.parse(event.gsx$date.$t)) <= today.setHours(0,0,0,0))
-		
-		const tournaments = []
-		const payoutPercentages = [null, 0.18,0.109,0.069,0.049,0.041,0.03625,0.03375,0.03125,0.02925,0.02725,0.02525,0.02325,0.02125,0.01925,0.01825,0.01725,0.01625,0.01525,0.01425,0.01325,0.01225,0.01125,0.01045,0.00965,0.00885,0.00805,0.00775,0.00745,0.00715,0.00685,0.00655,0.00625,0.00595,0.0057,0.00545,0.0052,0.00495,0.00475,0.00455,0.00435,0.00415,0.00395,0.00375,0.00355,0.00335,0.00315,0.00295,0.00279,0.00265,0.00257,0.00251,0.00245,0.00241,0.00237,0.00235,0.00233,0.00231,0.00229,0.00227,0.00225,0.00223,0.00221,0.00219,0.00217,0.00215]
-		// grab the last tournament but check if any others have the same date
-		tourneysBeforeToday.forEach((t) => {
-			if (tourneysBeforeToday.slice(-1)[0].gsx$date.$t === t.gsx$date.$t) {
 				
+		const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=61191989`
+		const response = await fetch(endpoint)
+		const text = await response.text()
+		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
+  		const today = new Date()
+  		const tourneysBeforeToday = data.rows.filter(event => new Date(Date.parse(event.c[1].f)) < today.setHours(0,0,0,0))
+  		
+  		const tournaments = []
+  		const payoutPercentages = [null, 0.18,0.109,0.069,0.049,0.041,0.03625,0.03375,0.03125,0.02925,0.02725,0.02525,0.02325,0.02125,0.01925,0.01825,0.01725,0.01625,0.01525,0.01425,0.01325,0.01225,0.01125,0.01045,0.00965,0.00885,0.00805,0.00775,0.00745,0.00715,0.00685,0.00655,0.00625,0.00595,0.0057,0.00545,0.0052,0.00495,0.00475,0.00455,0.00435,0.00415,0.00395,0.00375,0.00355,0.00335,0.00315,0.00295,0.00279,0.00265,0.00257,0.00251,0.00245,0.00241,0.00237,0.00235,0.00233,0.00231,0.00229,0.00227,0.00225,0.00223,0.00221,0.00219,0.00217,0.00215]
+  		// grab the last tournament but check if any others have the same date
+  		tourneysBeforeToday.forEach((t) => {
+			if (tourneysBeforeToday.slice(-1)[0].c[1].f === t.c[1].f) {
+		
 				tournaments.push(
 					{
-						"id": t.gsx$tournamentid.$t,
-						"name": t.gsx$name.$t,
-						"totalPurse": t.gsx$firstplacemoney.$t / 0.18,
-						"payouts": payoutPercentages.map((n) => n * (t.gsx$firstplacemoney.$t / 0.18))
+						"id": t.c[2].v,
+						"name": t.c[0].v,
+						"totalPurse": t.c[3].v / 0.18,
+						"payouts": payoutPercentages.map((n) => n * (t.c[3].v / 0.18))
 					}
 				)
 			}
@@ -68,32 +70,28 @@
 	const processFirstTourney = (rawTeams, pgaStanding) => {
 		
 		rawTeams.forEach((team) => {
-			  team.processed = true
-			  team.roster = []
-			  team.totalMoney = 0.0
-			  if (team.gsx$roster.$t != undefined) {
-					JSON.parse(team.gsx$roster.$t).forEach((player) => {
-						const pgaPlayerMatches = pgaStanding.filter(p => p.playerId === player.id)
-						
-						if (pgaPlayerMatches.length > 0) {
-							player.isPlaying = true
-							const pgaPlayer = pgaPlayerMatches[0]
-							player.name = pgaPlayer.playerNames.firstName + ' ' + pgaPlayer.playerNames.lastName,
-							player.positionNum = parseInt(pgaPlayer.positionCurrent.replace(/\D/g,'')),
-							player.position = pgaPlayer.positionCurrent,
-							player.projMoney = pgaPlayer.projected_money_event,
-							player.today = pgaPlayer.round,
-							player.thru = pgaPlayer.thru,
-							player.total = pgaPlayer.total,
-							player.playerId = pgaPlayer.playerId,
-							player.pgaStatus = pgaPlayer.status,
-							team.totalMoney += pgaPlayer.projected_money_event,
-							player.secondTourney = false,
-							player.firstRoundTeeTime = moment(pgaPlayer.tee_time).format("h:mm a")
-						}
-						team.roster.push(player)
-					})
-				}
+				team.processed = true
+				team.totalMoney = 0.0
+				team.roster.forEach((player) => {
+					const pgaPlayerMatches = pgaStanding.filter(p => p.playerId === player.id)
+					
+					if (pgaPlayerMatches.length > 0) {
+						player.isPlaying = true
+						const pgaPlayer = pgaPlayerMatches[0]
+						player.name = pgaPlayer.playerNames.firstName + ' ' + pgaPlayer.playerNames.lastName,
+						player.positionNum = parseInt(pgaPlayer.positionCurrent.replace(/\D/g,'')),
+						player.position = pgaPlayer.positionCurrent,
+						player.projMoney = pgaPlayer.projected_money_event,
+						player.today = pgaPlayer.round,
+						player.thru = pgaPlayer.thru,
+						player.total = pgaPlayer.total,
+						player.playerId = pgaPlayer.playerId,
+						player.pgaStatus = pgaPlayer.status,
+						team.totalMoney += pgaPlayer.projected_money_event,
+						player.secondTourney = false,
+						player.firstRoundTeeTime = moment(pgaPlayer.tee_time).format("h:mm a")
+					}
+				})
 		})
 		rawTeams.forEach((team) => {
 			team.roster.forEach((player) => {
@@ -114,7 +112,6 @@
 				}
 			})
 		})
-		console.log(rawTeams)
 		return rawTeams
 	}
 
@@ -201,7 +198,7 @@
 				if (!isNaN(positionNum) && positionNum > 0) {
 					numberPlayersEachPlace[positionNum + ""][0] += 1
 				}
-				console.log(numberPlayersEachPlace)
+				// console.log(numberPlayersEachPlace)
 			})
 
 
@@ -230,18 +227,20 @@
 					player.projected_money_event = numberPlayersEachPlace[positionNum] ? numberPlayersEachPlace[positionNum][1] : 0
 
 			})
-			await console.log(numberPlayersEachPlace)
+			// await console.log(numberPlayersEachPlace)
 			return jsonResp.rows
 	}
 	
 	// Get our team rosters from the Google Sheet / KVDB
 	const getTeamRosters = async () => {
-		// const endpoint = `https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full?alt=json`
-		
-		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_rosters' : 'rosters') + `?timestamp=` + Date.now() 
-		const response = await fetch(endpoint)		
-		const data = await response.json()
-		return await data.feed.entry.filter(e => e.gsx$roster.$t != "#N/A" && e.gsx$roster.$t != "")
+		const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=1955876358`
+
+		const response = await fetch(endpoint)
+		const text = await response.text()
+		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
+		const teams = data.rows.filter(e => e.c[7] != null)
+
+		return teams.map(t => JSON.parse(t.c[7].v))
 	}
 
 	const processTeamTournament = async (tournament) => {
@@ -273,7 +272,7 @@
 			<table class="team" width="100%" border="0">
 				<tr>
 					<td>
-						<Team team={team} placeNumber={i+1} isFavorite={favoriteTeam === team.gsx$team.$t}></Team>	
+						<Team team={team} placeNumber={i+1} isFavorite={false}></Team>	
 					</td>
 				</tr>
 			</table>

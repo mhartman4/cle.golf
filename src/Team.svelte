@@ -1,10 +1,10 @@
 <script>
 	import Roster from "./Roster.svelte"
 	export let team, placeNumber, isFavorite
-	let id = team.id.$t.replace("https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/2/public/full/", "")
-	let teamName = team.gsx$team.$t
-	let teamNameNoOwner = team.gsx$teamname.$t
-	let owner = team.gsx$owner.$t
+	
+	let teamName = team.name
+	let teamNameNoOwner = team.teamName
+	let owner = team.owner
 	let pictureUrl = "https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,g_face:center,h_45,q_auto,t_headshots_leaderboard_l,w_45/headshots_" + team.roster[0].id + ".png"
     let rosterVisible = false
     let dvLeague = window.location.href.includes("?league=dv")
