@@ -25,21 +25,27 @@
     }
 	const getOverallStandings = async () => {
 		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)
-		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/` + (dvLeague ? 'dv_overall' : 'overall') 
-		const response = await fetch(endpoint + `?timestamp=` + Date.now())
-		const data = await response.json()
-		const teams = data.feed.entry.filter(row => row.gsx$teamname.$t != "" && row.gsx$teamname.$t != "#N/A")
-		teams.forEach((team) => {
-			team.roster = []
-			data.feed.entry.forEach((player) => {
-				if (player.gsx$team.$t == team.gsx$team.$t)
-				{
-					team.roster.push(player)
-				}
-			})	
+		const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=1042369643`
+
+		const response = await fetch(endpoint)
+		const text = await response.text()
+		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
+		
+		const filtered = data.rows.filter(e => e.c[6] != null)
+		// console.log(filtered)
+		const teams = []
+
+		filtered.forEach(t => {
+			teams.push({
+				"name": t.c[5].v,
+				"owner": t.c[4].v,
+				"earnings": t.c[6].v,
+				"balance": t.c[7].v,
+				"roster": JSON.parse(t.c[8].v)
+			})
 		})
 		const sortedTeams = teams.sort((a,b) => {
-			return numeral(a.gsx$teamtotalearnings.$t).value() > numeral(b.gsx$teamtotalearnings.$t).value() ? -1 : numeral(a.gsx$teamtotalearnings.$t).value() < numeral(b.gsx$teamtotalearnings.$t).value() ? 1 : 0
+			return b.earnings - a.earnings
 		})
 		return sortedTeams
 	}
@@ -60,7 +66,7 @@
 						</span>	
 					</td> -->
 					<td>
-						<OverallTeam team={team} placeNumber={i+1} isFavorite={favoriteTeam === team.gsx$team.$t}></OverallTeam>	
+						<OverallTeam team={team} placeNumber={i+1} isFavorite={false}></OverallTeam>	
 					</td>
 				</tr>
 			</table>

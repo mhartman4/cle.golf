@@ -1,10 +1,6 @@
 <script>
 	import OverallRoster from "./OverallRoster.svelte"
 	export let team, placeNumber, isFavorite
-	let teamName = team.gsx$teamname.$t
-	let owner = team.gsx$owner.$t
-	let teamTotalEarnings = team.gsx$teamtotalearnings.$t
-	let teamTotalPayout = team.gsx$teampayout.$t
     let rosterVisible = false
     let dvLeague = window.location.href.includes("?league=dv")
 
@@ -15,7 +11,7 @@
 		  		hitType: 'event',
 		  		eventCategory: 'Overall',
 		  		eventAction: 'Click Team',
-		  		eventLabel: teamName
+		  		eventLabel: team.name
 			});
     	}
     }
@@ -30,14 +26,14 @@
 					<tr>
 						<td class="standings-place-number" width="20">{placeNumber}</td>
 						<td width="50" align="left">
-							<span class="team-total-payout { teamTotalPayout.indexOf("-") > -1 ? 'negative' : ''}">{numeral(teamTotalPayout).format("$0")}</span>
+							<span class="team-total-payout { team.balance < 0 ? 'negative' : ''}">{numeral(team.balance).format("$0")}</span>
 						</td>
 						<td class="team-name{isFavorite ? " favorite" : ""}">
-							{teamName}
-							<div class="owner {dvLeague ? " invisible" : ""}">{owner}</div>
+							{team.name}
+							<div class="owner {dvLeague ? " invisible" : ""}">{team.owner}</div>
 						</td>
 						<td class="team-earnings{isFavorite ? " favorite" : ""}">
-							{numeral(teamTotalEarnings).format('$0,0')}<br>
+							{numeral(team.earnings).format('$0,0')}<br>
 						</td>
 					</tr>
 				</tbody>

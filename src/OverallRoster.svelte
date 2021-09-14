@@ -40,8 +40,8 @@
 		<tbody>
 			{#each roster as player}
 				<tr class="player-row">
-					<td>{player.gsx$player.$t}</td>
-					<td>{numeral(player.gsx$earnings.$t).format('$0,0')}</td>
+					<td>{player.name}</td>
+					<td>{numeral(player.earnings).format('$0,0')}</td>
 				</tr>
 			{/each}
 		</tbody>
