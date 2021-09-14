@@ -230,12 +230,30 @@
 	const getTeamRosters = async () => {
 		const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=1955876358`
 
-		const response = await fetch(endpoint)
+		const endpointDV = `https://docs.google.com/spreadsheets/d/1DHwz1zRTstqmD1Ej8ypqgzkx8D46Uu_RjAqhS1zenR0/gviz/tq?tqx=out:json&tq&gid=1756186959`
+
+		const response = await fetch(dvLeague ? endpointDV: endpoint)
 		const text = await response.text()
 		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
-		const teams = data.rows.filter(e => e.c[7] != null)
-
-		return teams.map(t => JSON.parse(t.c[7].v))
+		
+		if (dvLeague) {
+			const filtered = data.rows.filter(e => e.c[14] != null)
+			const teams = []
+			filtered.forEach(t => {
+				teams.push({
+					"name": t.c[0].v,
+					"owner": t.c[0].v,
+					"teamName": t.c[0].v,
+					"roster": JSON.parse(t.c[14].v)
+				})
+			})
+			return teams
+		}
+		else {
+			const teams = data.rows.filter(e => e.c[7] != null)
+			return teams.map(t => JSON.parse(t.c[7].v))	
+		}
+		
 	}
 
 	const processTeamTournament = async (tournament) => {

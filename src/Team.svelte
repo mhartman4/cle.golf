@@ -2,9 +2,9 @@
 	import Roster from "./Roster.svelte"
 	export let team, placeNumber, isFavorite
 	
-	let teamName = team.name
-	let teamNameNoOwner = team.teamName
-	let owner = team.owner
+	// let teamName = team.name
+	// let teamNameNoOwner = team.teamName
+	// let owner = team.owner
 	let pictureUrl = "https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,g_face:center,h_45,q_auto,t_headshots_leaderboard_l,w_45/headshots_" + team.roster[0].id + ".png"
     let rosterVisible = false
     let dvLeague = window.location.href.includes("?league=dv")
@@ -16,7 +16,7 @@
 		  		hitType: 'event',
 		  		eventCategory: 'Weekly',
 		  		eventAction: 'Click Team',
-		  		eventLabel: teamName
+		  		eventLabel: team.name
 			});
     	}
   
@@ -35,8 +35,8 @@
 						<img class="player-photo" src="{pictureUrl}" width="45" height="45">
 					</td>
 					<td class="team-name {isFavorite ? " favorite" : ""}">
-						{teamNameNoOwner}
-						<div class="owner {dvLeague ? " invisible" : ""}">{owner}</div>
+						{team.teamName}
+						<div class="owner {dvLeague ? " invisible" : ""}">{team.owner}</div>
 					</td>
 					<td class="team-earnings {isFavorite ? " favorite" : ""}">
 						{numeral(team.totalMoney).format('$0,0')}<br>
@@ -46,7 +46,7 @@
 		</table>
 	</div>
 	{#if rosterVisible}
-		<Roster roster={team.roster} teamName={teamName}></Roster>
+		<Roster roster={team.roster} teamName={team.teamName}></Roster>
 	{/if}
 </div>
 
