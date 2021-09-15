@@ -12378,7 +12378,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (75:1) {:else}
+    // (77:1) {:else}
     function create_else_block$3(ctx) {
     	let img;
     	let img_src_value;
@@ -12391,8 +12391,8 @@ var app = (function () {
     			span.textContent = " Loading overall standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$d, 75, 2, 2200);
-    			add_location(span, file$d, 75, 114, 2312);
+    			add_location(img, file$d, 77, 2, 2370);
+    			add_location(span, file$d, 77, 114, 2482);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -12411,14 +12411,14 @@ var app = (function () {
     		block,
     		id: create_else_block$3.name,
     		type: "else",
-    		source: "(75:1) {:else}",
+    		source: "(77:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (55:1) {#if overall}
+    // (57:1) {#if overall}
     function create_if_block$7(ctx) {
     	let each_1_anchor;
     	let current;
@@ -12507,14 +12507,14 @@ var app = (function () {
     		block,
     		id: create_if_block$7.name,
     		type: "if",
-    		source: "(55:1) {#if overall}",
+    		source: "(57:1) {#if overall}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:2) {#each overall as team, i}
+    // (58:2) {#each overall as team, i}
     function create_each_block$9(ctx) {
     	let table;
     	let tr;
@@ -12538,12 +12538,12 @@ var app = (function () {
     			td = element("td");
     			create_component(overallteam.$$.fragment);
     			t = space();
-    			add_location(td, file$d, 67, 5, 2053);
-    			add_location(tr, file$d, 57, 4, 1705);
+    			add_location(td, file$d, 69, 5, 2223);
+    			add_location(tr, file$d, 59, 4, 1875);
     			attr_dev(table, "class", "team svelte-ed6l2r");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$d, 56, 3, 1656);
+    			add_location(table, file$d, 58, 3, 1826);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -12577,7 +12577,7 @@ var app = (function () {
     		block,
     		id: create_each_block$9.name,
     		type: "each",
-    		source: "(56:2) {#each overall as team, i}",
+    		source: "(58:2) {#each overall as team, i}",
     		ctx
     	});
 
@@ -12605,7 +12605,7 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$d, 53, 0, 1589);
+    			add_location(div, file$d, 55, 0, 1759);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12696,7 +12696,8 @@ var app = (function () {
     		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)
     		const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=1042369643`;
 
-    		const response = await fetch(endpoint);
+    		const endpointDV = `https://docs.google.com/spreadsheets/d/1DHwz1zRTstqmD1Ej8ypqgzkx8D46Uu_RjAqhS1zenR0/gviz/tq?tqx=out:json&tq&gid=1071817734`;
+    		const response = await fetch(dvLeague ? endpointDV : endpoint);
     		const text = await response.text();
     		const data = await JSON.parse(text.substring(47).slice(0, -2)).table;
     		const filtered = data.rows.filter(e => e.c[6] != null);
