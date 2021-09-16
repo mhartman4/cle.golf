@@ -1,8 +1,9 @@
-	<script>
+<script>
   	import { onMount } from "svelte"
 	import Team from "./Team.svelte"
 	import moment from "moment"
 	import ResultsTable from "./ResultsTable.svelte"
+	import mapSheetRangeToObject from "./App.svelte"
 	let teams, tourneyName, leaderboard, favoriteTeam
 	let resultsPlayers = []
 	export let dvLeague = false
@@ -74,7 +75,6 @@
 				team.totalMoney = 0.0
 				team.roster.forEach((player) => {
 					const pgaPlayerMatches = pgaStanding.filter(p => p.playerId === player.id)
-					
 					if (pgaPlayerMatches.length > 0) {
 						player.isPlaying = true
 						const pgaPlayer = pgaPlayerMatches[0]
@@ -228,32 +228,49 @@
 	
 	// Get our team rosters from the Google Sheet / KVDB
 	const getTeamRosters = async () => {
-		const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=1955876358`
+		const endpoint = `https://docs.google.com/spreadsheets/d/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/gviz/tq?tqx=out:json&tq&gid=629583302`
 
-		const endpointDV = `https://docs.google.com/spreadsheets/d/1DHwz1zRTstqmD1Ej8ypqgzkx8D46Uu_RjAqhS1zenR0/gviz/tq?tqx=out:json&tq&gid=1756186959`
-
-		const response = await fetch(dvLeague ? endpointDV: endpoint)
+		const response = await fetch(endpoint)
 		const text = await response.text()
 		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
 		
-		if (dvLeague) {
-			const filtered = data.rows.filter(e => e.c[14] != null)
-			const teams = []
-			filtered.forEach(t => {
-				teams.push({
-					"name": t.c[0].v,
-					"owner": t.c[0].v,
-					"teamName": t.c[0].v,
-					"roster": JSON.parse(t.c[14].v)
-				})
-			})
-			return teams
-		}
-		else {
-			const teams = data.rows.filter(e => e.c[7] != null)
-			return teams.map(t => JSON.parse(t.c[7].v))	
-		}
+		const cols = data.cols.map((col) => col.label)
 		
+		// Grab all the players
+		const players = []
+		data.rows.forEach((row) => {
+			const obj = {}
+			cols.forEach((col, i) => {
+				obj[col] = row.c[i] == null ? null : row.c[i].v
+			})
+			if (obj["Team"] != null) {
+				players.push(obj)	
+			}
+		})
+		
+		// Get unique team names
+		let teamNames = [...new Set(players.map((p) => p.Team))]
+		// Assign rosters to teams
+		let teams = []
+		teamNames.forEach((team) => {
+			let obj = {
+				"teamName": team.replace(")", "").split(" (")[0],
+				"owner": team.replace(")", "").split(" (")[1],
+				"roster": []
+			}
+			players.forEach((player) => {
+				if (player.Team == team) {
+					obj.roster.push({
+						"id": player.PGAID + "",
+						"name": player.Golfers
+					})
+				}
+			})
+			teams.push(obj)
+		})
+
+
+		return teams		
 	}
 
 	const processTeamTournament = async (tournament) => {
@@ -274,7 +291,7 @@
 {:else}
 
 {#if tourneyName}
-	<a href={dvLeague ? trueUrl : trueUrl + "?league=dv" }><h1 class="tourney-name">{tourneyName}</h1></a>
+	<h1 class="tourney-name">{tourneyName}</h1>
 {:else}
 	<img class="sheets-icon" src="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png" alt="Loading"><span>&nbsp;Loading current tournament</span>
 {/if}

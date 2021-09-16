@@ -2,7 +2,7 @@
 	import { onMount } from "svelte"
 	import OverallTeam from "./OverallTeam.svelte"
 	let overall, favoriteTeam
-	export let dvLeague = false
+	// export let dvLeague = false
 	
 	onMount(async () => {
 		overall = await getOverallStandings()
@@ -24,31 +24,60 @@
 			});
     }
 	const getOverallStandings = async () => {
-		// const response = await fetch(`https://spreadsheets.google.com/feeds/list/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/3/public/full?alt=json`)
-		const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=1042369643`
+		// First we hit the Overall Standings sheet
+		const endpointOverall = `https://docs.google.com/spreadsheets/d/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/gviz/tq?tqx=out:json&tq&gid=1520535624`
 
-		const endpointDV = `https://docs.google.com/spreadsheets/d/1DHwz1zRTstqmD1Ej8ypqgzkx8D46Uu_RjAqhS1zenR0/gviz/tq?tqx=out:json&tq&gid=1071817734`
-
-		const response = await fetch(dvLeague ? endpointDV: endpoint)
+		const response = await fetch(endpointOverall)
 		const text = await response.text()
-		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
+		const raw = await JSON.parse(text.substring(47).slice(0, -2)).table
+		const overallData = raw.rows.filter(r => r.c[3] != null)
 		
-		const filtered = data.rows.filter(e => e.c[6] != null)
-		// console.log(filtered)
-		const teams = []
+		// Then we hit the Golfer Earnings sheet
+		const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/gviz/tq?tqx=out:json&tq&gid=1425386487`
 
-		filtered.forEach(t => {
-			teams.push({
-				"name": t.c[5].v,
-				"owner": t.c[4].v,
-				"earnings": t.c[6].v,
-				"balance": t.c[7].v,
-				"roster": JSON.parse(t.c[8].v)
+		const response2 = await fetch(endpointGolferEarnings)
+		const text2 = await response2.text()
+		const data = await JSON.parse(text2.substring(47).slice(0, -2)).table
+		
+		const cols = data.cols.map((col) => col.label)
+		// Grab all the golfers
+		const golfers = []
+		data.rows.forEach((row) => {
+			const obj = {}
+			cols.forEach((col, i) => {
+				obj[col] = row.c[i] == null ? null : row.c[i].v
 			})
+			if (obj["Team"] != null) {
+				golfers.push(obj)	
+			}
 		})
+		
+		let teams = []
+		// Now go through the teams and assign a roster
+		overallData.forEach(t => {
+			let teamObj = {
+				"nameAndOwner": t.c[1].v,
+				"name": t.c[1].v.replace(")", "").split(" (")[0],
+				"owner": t.c[1].v.replace(")", "").split(" (")[1],
+				"balance": t.c[3].v,
+				"earnings": t.c[2].v,
+				"roster": []
+			}
+			golfers.forEach(golfer => {
+				if (golfer.Team == teamObj["nameAndOwner"]) {
+					teamObj.roster.push({
+						"name": golfer.Name,
+						"earnings": golfer.Earnings
+					})
+				} 
+			})
+			teams.push(teamObj)
+		})
+
 		const sortedTeams = teams.sort((a,b) => {
 			return b.earnings - a.earnings
 		})
+		console.log(sortedTeams)
 		return sortedTeams
 	}
 </script>
@@ -58,15 +87,6 @@
 		{#each overall as team, i}
 			<table class="team" width="100%" border="0">
 				<tr>
-					<!-- <td class="favorite-cell" width="25">
-						<span class="favorite-button" on:click={setFavorite(team.gsx$team.$t)}>
-						{#if favoriteTeam === team.gsx$team.$t}
-							<span style="font-size: 10px;">❤️</span>
-						{:else}
-							<span style="font-size: 13px;color: #969494;">♡</span>
-						{/if}
-						</span>	
-					</td> -->
 					<td>
 						<OverallTeam team={team} placeNumber={i+1} isFavorite={false}></OverallTeam>	
 					</td>
