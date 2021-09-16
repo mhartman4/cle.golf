@@ -40,11 +40,13 @@
 	// Hit the google sheet for the schedule
 	const getRelevantTournament = async () => {
 				
-		const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=61191989`
+		// const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=61191989`
+		 const endpoint = `https://docs.google.com/spreadsheets/d/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/gviz/tq?tqx=out:json&tq&gid=61191989`
 		const response = await fetch(endpoint)
 		const text = await response.text()
 		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
   		const today = new Date()
+  		console.log(today)
   		const tourneysBeforeToday = data.rows.filter(event => new Date(Date.parse(event.c[1].f)) < today.setHours(0,0,0,0))
   		
   		const tournaments = []
@@ -182,7 +184,7 @@
 	
 	const makePgaCall = async (securityBlurb, tournament) => {
 			
-			const pgaResp = await fetch("https://lbdata.pgatour.com/2021/r/" + tournament.id + "/leaderboard.json" + securityBlurb + "&timestamp=" + Date.now());
+			const pgaResp = await fetch("https://lbdata.pgatour.com/2022/r/" + tournament.id + "/leaderboard.json" + securityBlurb + "&timestamp=" + Date.now());
 			var jsonResp = await pgaResp.json()
 			leaderboard = await jsonResp.rows
 			// var cutLine = await jsonResp.leaderboard.cut_line.paid_players_making_cut
