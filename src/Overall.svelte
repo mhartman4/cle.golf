@@ -2,6 +2,7 @@
 	import { onMount } from "svelte"
 	import OverallTeam from "./OverallTeam.svelte"
 	let overall, favoriteTeam
+	let nate = window.location.search.indexOf("nate") != -1
 	// export let dvLeague = false
 	
 	onMount(async () => {
@@ -24,8 +25,16 @@
 			});
     }
 	const getOverallStandings = async () => {
+		let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI"
+		let gid_overall = "1520535624"
+		let gid_earnings = "1425386487"
+		
+		if (nate) {
+			spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
+		}
+
 		// First we hit the Overall Standings sheet
-		const endpointOverall = `https://docs.google.com/spreadsheets/d/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/gviz/tq?tqx=out:json&tq&gid=1520535624`
+		const endpointOverall = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_overall
 
 		const response = await fetch(endpointOverall)
 		const text = await response.text()
@@ -33,7 +42,7 @@
 		const overallData = raw.rows.filter(r => r.c[3] != null)
 		
 		// Then we hit the Golfer Earnings sheet
-		const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/gviz/tq?tqx=out:json&tq&gid=1425386487`
+		const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_earnings
 
 		const response2 = await fetch(endpointGolferEarnings)
 		const text2 = await response2.text()

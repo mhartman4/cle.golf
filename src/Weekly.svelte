@@ -3,11 +3,9 @@
 	import Team from "./Team.svelte"
 	import moment from "moment"
 	import ResultsTable from "./ResultsTable.svelte"
-	import mapSheetRangeToObject from "./App.svelte"
 	let teams, tourneyName, leaderboard, favoriteTeam
 	let resultsPlayers = []
-	export let dvLeague = false
-
+	export let nate = window.location.search.indexOf("nate") != -1
 	let trueUrl = window.location.href.replace("?league=dv", "")
 	let rawResults = window.location.href.includes("results")
 	// onMount do all of our async functions
@@ -46,7 +44,7 @@
 		const text = await response.text()
 		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
   		const today = new Date()
-  		console.log(today)
+  		
   		const tourneysBeforeToday = data.rows.filter(event => new Date(Date.parse(event.c[1].f)) < today.setHours(0,0,0,0))
   		
   		const tournaments = []
@@ -230,8 +228,16 @@
 	
 	// Get our team rosters from the Google Sheet / KVDB
 	const getTeamRosters = async () => {
-		const endpoint = `https://docs.google.com/spreadsheets/d/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/gviz/tq?tqx=out:json&tq&gid=629583302`
-
+		
+		
+		let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI"
+		let gid = "629583302"
+		
+		if (nate) {
+			spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
+		}
+		
+		let endpoint = `https://docs.google.com/spreadsheets/d/`+ spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid
 		const response = await fetch(endpoint)
 		const text = await response.text()
 		const data = await JSON.parse(text.substring(47).slice(0, -2)).table

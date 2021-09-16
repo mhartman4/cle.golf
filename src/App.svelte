@@ -21,10 +21,10 @@
 	<br><br>
 	
 	{#if currentPage === "Weekly"}
-		<Weekly dvLeague={dvLeague} />
+		<Weekly />
 		<!-- <WeeklyMajor dvLeague={is_dv} /> -->
 	{:else if currentPage === "Overall"}
-		<Overall dvLeague={dvLeague} />
+		<Overall />
 	{/if}	
 </div>	
 
