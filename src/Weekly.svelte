@@ -8,30 +8,36 @@
 	export let nate = window.location.search.indexOf("nate") != -1
 	let trueUrl = window.location.href.replace("?league=dv", "")
 	let rawResults = window.location.href.includes("results")
+	let error
 	// onMount do all of our async functions
 	onMount(async () => {
 
-	
-		const tournaments = await getRelevantTournament()
-		const rawTeams = await getTeamRosters()
-		
-		// if (tournaments[0].id == "018") {
-		// 	processTeamTournament(tournaments[0])
-		// }
-		// else {
-			// 
-		// }
-		
-		const firstTourneyTeams = processFirstTourney(rawTeams, await getPgaStandings(tournaments[0]))	
-		
-		// If there's more than 1 tournament then we need to process the 2nd one also
-		if (tournaments.length > 1) {
-			const secondTourneyTeams = await processSecondTourney(tournaments[1], firstTourneyTeams)
-			teams = await sortTeams(secondTourneyTeams)
+		try {
+			const tournaments = await getRelevantTournament()
+			const rawTeams = await getTeamRosters()
+			
+			// if (tournaments[0].id == "018") {
+			// 	processTeamTournament(tournaments[0])
+			// }
+			// else {
+				// 
+			// }
+			
+			const firstTourneyTeams = processFirstTourney(rawTeams, await getPgaStandings(tournaments[0]))	
+			
+			// If there's more than 1 tournament then we need to process the 2nd one also
+			if (tournaments.length > 1) {
+				const secondTourneyTeams = await processSecondTourney(tournaments[1], firstTourneyTeams)
+				teams = await sortTeams(secondTourneyTeams)
+			}
+			else {
+				teams = sortTeams(firstTourneyTeams)
+			}
 		}
-		else {
-			teams = sortTeams(firstTourneyTeams)
+		catch (e) {
+			error = e
 		}
+		
 	})
 
 
@@ -315,6 +321,10 @@
 				</tr>
 			</table>
 	  	{/each}
+	{:else if error}
+		<div class="error">
+			<code>🚨 {error} 🚨</code>
+		</div>
 	{:else}
 		<img class="sheets-icon" src="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png" alt="Loading"><span>&nbsp;Loading teams and standings</span>
 	{/if}
@@ -351,5 +361,10 @@
   	.favorite-cell {
   		vertical-align: top;
   		padding-top: 22px;
+  	}
+  	.error {
+  		color: red;
+  		background-color: white;
+  		padding: 10px;
   	}
 </style>

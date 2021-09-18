@@ -7523,12 +7523,12 @@ var app = (function () {
 
     function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[16] = list[i];
-    	child_ctx[18] = i;
+    	child_ctx[17] = list[i];
+    	child_ctx[19] = i;
     	return child_ctx;
     }
 
-    // (299:0) {:else}
+    // (305:0) {:else}
     function create_else_block(ctx) {
     	let t;
     	let div;
@@ -7537,18 +7537,19 @@ var app = (function () {
     	let current;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*tourneyName*/ ctx[1]) return create_if_block_3;
+    		if (/*tourneyName*/ ctx[1]) return create_if_block_4;
     		return create_else_block_2;
     	}
 
     	let current_block_type = select_block_type_1(ctx);
     	let if_block0 = current_block_type(ctx);
-    	const if_block_creators = [create_if_block_2, create_else_block_1];
+    	const if_block_creators = [create_if_block_2, create_if_block_3, create_else_block_1];
     	const if_blocks = [];
 
     	function select_block_type_2(ctx, dirty) {
     		if (/*teams*/ ctx[0]) return 0;
-    		return 1;
+    		if (/*error*/ ctx[2]) return 1;
+    		return 2;
     	}
 
     	current_block_type_index = select_block_type_2(ctx);
@@ -7561,7 +7562,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 306, 0, 13284);
+    			add_location(div, file$4, 312, 0, 13359);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7628,21 +7629,21 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(299:0) {:else}",
+    		source: "(305:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (293:0) {#if rawResults}
+    // (299:0) {#if rawResults}
     function create_if_block$1(ctx) {
     	let t;
     	let current;
     	let if_block = /*tourneyName*/ ctx[1] && create_if_block_1(ctx);
 
     	const resultstable = new ResultsTable({
-    			props: { players: /*resultsPlayers*/ ctx[2] },
+    			props: { players: /*resultsPlayers*/ ctx[3] },
     			$$inline: true
     		});
 
@@ -7692,14 +7693,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(293:0) {#if rawResults}",
+    		source: "(299:0) {#if rawResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (303:0) {:else}
+    // (309:0) {:else}
     function create_else_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -7713,8 +7714,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 303, 1, 13105);
-    			add_location(span, file$4, 303, 127, 13231);
+    			add_location(img, file$4, 309, 1, 13180);
+    			add_location(span, file$4, 309, 127, 13306);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7731,15 +7732,15 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(303:0) {:else}",
+    		source: "(309:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (301:0) {#if tourneyName}
-    function create_if_block_3(ctx) {
+    // (307:0) {#if tourneyName}
+    function create_if_block_4(ctx) {
     	let h1;
     	let t;
 
@@ -7747,8 +7748,8 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
-    			attr_dev(h1, "class", "tourney-name svelte-2581r4");
-    			add_location(h1, file$4, 301, 1, 13052);
+    			attr_dev(h1, "class", "tourney-name svelte-19j5pxu");
+    			add_location(h1, file$4, 307, 1, 13127);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -7764,16 +7765,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3.name,
+    		id: create_if_block_4.name,
     		type: "if",
-    		source: "(301:0) {#if tourneyName}",
+    		source: "(307:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (318:1) {:else}
+    // (328:1) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -7787,8 +7788,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 318, 2, 13537);
-    			add_location(span, file$4, 318, 128, 13663);
+    			add_location(img, file$4, 328, 2, 13691);
+    			add_location(span, file$4, 328, 128, 13817);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7807,14 +7808,61 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(318:1) {:else}",
+    		source: "(328:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (308:1) {#if teams}
+    // (324:17) 
+    function create_if_block_3(ctx) {
+    	let div;
+    	let code;
+    	let t0;
+    	let t1;
+    	let t2;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			code = element("code");
+    			t0 = text("🚨 ");
+    			t1 = text(/*error*/ ctx[2]);
+    			t2 = text(" 🚨");
+    			add_location(code, file$4, 325, 3, 13644);
+    			attr_dev(div, "class", "error svelte-19j5pxu");
+    			add_location(div, file$4, 324, 2, 13621);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, code);
+    			append_dev(code, t0);
+    			append_dev(code, t1);
+    			append_dev(code, t2);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*error*/ 4) set_data_dev(t1, /*error*/ ctx[2]);
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3.name,
+    		type: "if",
+    		source: "(324:17) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (314:1) {#if teams}
     function create_if_block_2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -7903,14 +7951,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(308:1) {#if teams}",
+    		source: "(314:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (309:2) {#each teams as team, i}
+    // (315:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -7920,8 +7968,8 @@ var app = (function () {
 
     	const team = new Team({
     			props: {
-    				team: /*team*/ ctx[16],
-    				placeNumber: /*i*/ ctx[18] + 1,
+    				team: /*team*/ ctx[17],
+    				placeNumber: /*i*/ ctx[19] + 1,
     				isFavorite: false
     			},
     			$$inline: true
@@ -7934,12 +7982,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 311, 5, 13406);
-    			add_location(tr, file$4, 310, 4, 13396);
-    			attr_dev(table, "class", "team svelte-2581r4");
+    			add_location(td, file$4, 317, 5, 13481);
+    			add_location(tr, file$4, 316, 4, 13471);
+    			attr_dev(table, "class", "team svelte-19j5pxu");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 309, 3, 13347);
+    			add_location(table, file$4, 315, 3, 13422);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -7951,7 +7999,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const team_changes = {};
-    			if (dirty & /*teams*/ 1) team_changes.team = /*team*/ ctx[16];
+    			if (dirty & /*teams*/ 1) team_changes.team = /*team*/ ctx[17];
     			team.$set(team_changes);
     		},
     		i: function intro(local) {
@@ -7973,14 +8021,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(309:2) {#each teams as team, i}",
+    		source: "(315:2) {#each teams as team, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (294:1) {#if tourneyName}
+    // (300:1) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -7989,7 +8037,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
-    			add_location(h1, file$4, 294, 2, 12950);
+    			add_location(h1, file$4, 300, 2, 13025);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8007,7 +8055,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(294:1) {#if tourneyName}",
+    		source: "(300:1) {#if tourneyName}",
     		ctx
     	});
 
@@ -8023,7 +8071,7 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*rawResults*/ ctx[3]) return 0;
+    		if (/*rawResults*/ ctx[4]) return 0;
     		return 1;
     	}
 
@@ -8078,26 +8126,31 @@ var app = (function () {
     	let { nate = window.location.search.indexOf("nate") != -1 } = $$props;
     	let trueUrl = window.location.href.replace("?league=dv", "");
     	let rawResults = window.location.href.includes("results");
+    	let error;
 
     	// onMount do all of our async functions
     	onMount(async () => {
-    		const tournaments = await getRelevantTournament();
-    		const rawTeams = await getTeamRosters();
+    		try {
+    			const tournaments = await getRelevantTournament();
+    			const rawTeams = await getTeamRosters();
 
-    		// if (tournaments[0].id == "018") {
-    		// 	processTeamTournament(tournaments[0])
-    		// }
-    		// else {
-    		// 
-    		// }
-    		const firstTourneyTeams = processFirstTourney(rawTeams, await getPgaStandings(tournaments[0]));
+    			// if (tournaments[0].id == "018") {
+    			// 	processTeamTournament(tournaments[0])
+    			// }
+    			// else {
+    			// 
+    			// }
+    			const firstTourneyTeams = processFirstTourney(rawTeams, await getPgaStandings(tournaments[0]));
 
-    		// If there's more than 1 tournament then we need to process the 2nd one also
-    		if (tournaments.length > 1) {
-    			const secondTourneyTeams = await processSecondTourney(tournaments[1], firstTourneyTeams);
-    			$$invalidate(0, teams = await sortTeams(secondTourneyTeams));
-    		} else {
-    			$$invalidate(0, teams = sortTeams(firstTourneyTeams));
+    			// If there's more than 1 tournament then we need to process the 2nd one also
+    			if (tournaments.length > 1) {
+    				const secondTourneyTeams = await processSecondTourney(tournaments[1], firstTourneyTeams);
+    				$$invalidate(0, teams = await sortTeams(secondTourneyTeams));
+    			} else {
+    				$$invalidate(0, teams = sortTeams(firstTourneyTeams));
+    			}
+    		} catch(e) {
+    			$$invalidate(2, error = e);
     		}
     	});
 
@@ -8624,7 +8677,7 @@ var app = (function () {
     	validate_slots("Weekly", $$slots, []);
 
     	$$self.$set = $$props => {
-    		if ("nate" in $$props) $$invalidate(4, nate = $$props.nate);
+    		if ("nate" in $$props) $$invalidate(5, nate = $$props.nate);
     	};
 
     	$$self.$capture_state = () => ({
@@ -8640,6 +8693,7 @@ var app = (function () {
     		nate,
     		trueUrl,
     		rawResults,
+    		error,
     		getRelevantTournament,
     		processFirstTourney,
     		processSecondTourney,
@@ -8655,23 +8709,24 @@ var app = (function () {
     		if ("tourneyName" in $$props) $$invalidate(1, tourneyName = $$props.tourneyName);
     		if ("leaderboard" in $$props) leaderboard = $$props.leaderboard;
     		if ("favoriteTeam" in $$props) favoriteTeam = $$props.favoriteTeam;
-    		if ("resultsPlayers" in $$props) $$invalidate(2, resultsPlayers = $$props.resultsPlayers);
-    		if ("nate" in $$props) $$invalidate(4, nate = $$props.nate);
+    		if ("resultsPlayers" in $$props) $$invalidate(3, resultsPlayers = $$props.resultsPlayers);
+    		if ("nate" in $$props) $$invalidate(5, nate = $$props.nate);
     		if ("trueUrl" in $$props) trueUrl = $$props.trueUrl;
-    		if ("rawResults" in $$props) $$invalidate(3, rawResults = $$props.rawResults);
+    		if ("rawResults" in $$props) $$invalidate(4, rawResults = $$props.rawResults);
+    		if ("error" in $$props) $$invalidate(2, error = $$props.error);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [teams, tourneyName, resultsPlayers, rawResults, nate];
+    	return [teams, tourneyName, error, resultsPlayers, rawResults, nate];
     }
 
     class Weekly extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { nate: 4 });
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { nate: 5 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
