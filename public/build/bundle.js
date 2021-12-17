@@ -13641,7 +13641,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (92:0) {#if standings && picks}
+    // (89:0) {#if standings && picks}
     function create_if_block$9(ctx) {
     	let each_1_anchor;
     	let current;
@@ -13730,14 +13730,14 @@ var app = (function () {
     		block,
     		id: create_if_block$9.name,
     		type: "if",
-    		source: "(92:0) {#if standings && picks}",
+    		source: "(89:0) {#if standings && picks}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (93:1) {#each standings as entry, i}
+    // (90:1) {#each standings as entry, i}
     function create_each_block$b(ctx) {
     	let table;
     	let tr;
@@ -13763,12 +13763,12 @@ var app = (function () {
     			td = element("td");
     			create_component(entry.$$.fragment);
     			t = space();
-    			add_location(td, file$g, 95, 4, 2843);
-    			add_location(tr, file$g, 94, 3, 2834);
+    			add_location(td, file$g, 92, 4, 2411);
+    			add_location(tr, file$g, 91, 3, 2402);
     			attr_dev(table, "class", "team svelte-yqzzuz");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$g, 93, 2, 2786);
+    			add_location(table, file$g, 90, 2, 2354);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -13805,7 +13805,7 @@ var app = (function () {
     		block,
     		id: create_each_block$b.name,
     		type: "each",
-    		source: "(93:1) {#each standings as entry, i}",
+    		source: "(90:1) {#each standings as entry, i}",
     		ctx
     	});
 
@@ -13830,10 +13830,10 @@ var app = (function () {
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
     			attr_dev(h1, "class", "svelte-yqzzuz");
-    			add_location(h1, file$g, 88, 1, 2636);
-    			attr_dev(a, "href", a_href_value = "/?confidence=" + (/*pels*/ ctx[2] ? "cle" : "pels"));
+    			add_location(h1, file$g, 85, 1, 2204);
+    			attr_dev(a, "href", a_href_value = "/public/?confidence=" + (/*pels*/ ctx[2] ? "cle" : "pels"));
     			attr_dev(a, "class", "svelte-yqzzuz");
-    			add_location(a, file$g, 87, 0, 2587);
+    			add_location(a, file$g, 84, 0, 2148);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13909,10 +13909,6 @@ var app = (function () {
 
     	let picks, standings;
 
-    	// document.querySelector('meta[property="og:title"').setAttribute("content", "Confidence Pool")
-    	// document.querySelector('meta[property="og:site_name"').setAttribute("content", "Confidence Pool")
-    	// document.querySelector('meta[property="og:description"').setAttribute("content", "The standings for the confidence pool.")
-    	// document.querySelector('meta[property="og:image"').setAttribute("content", "https://i.imgur.com/1E2IfrA.jpg")
     	onMount(async () => {
     		$$invalidate(0, picks = await getPicks());
     		$$invalidate(1, standings = await getStandings());
