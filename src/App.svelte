@@ -4,29 +4,35 @@
 	import WeeklyMajor from "./Major/WeeklyMajor.svelte"
 	import WeeklyTourChampionship from "./TourChampionship/WeeklyTourChampionship.svelte"
 	import Overall from "./Overall.svelte"
+	import ConfidencePool from "./ConfidencePool/ConfidencePool.svelte"
 	import { onMount } from "svelte"
   	let pages = ["Weekly","Overall"]
 	
 	let currentPage = "Weekly"
 
 	let dvLeague = window.location.href.includes("?league=dv")
+	let confidencePool = window.location.href.includes("?confidence=")
 
 </script>
 
-<div id="main" class={dvLeague ? "dv" : ""}>
-	{#if dvLeague}
-		<h3>DV'S GOLF LEAGUE</h3>
-	{/if}
-	<Picker bind:activePage={currentPage} pages={pages} />
-	<br><br>
-	
-	{#if currentPage === "Weekly"}
-		<Weekly />
-		<!-- <WeeklyMajor dvLeague={is_dv} /> -->
-	{:else if currentPage === "Overall"}
-		<Overall />
-	{/if}	
-</div>	
+{#if confidencePool}
+	<ConfidencePool />
+{:else}
+	<div id="main" class={dvLeague ? "dv" : ""}>
+		{#if dvLeague}
+			<h3>DV'S GOLF LEAGUE</h3>
+		{/if}
+		<Picker bind:activePage={currentPage} pages={pages} />
+		<br><br>
+		
+		{#if currentPage === "Weekly"}
+			<Weekly />
+			<!-- <WeeklyMajor dvLeague={is_dv} /> -->
+		{:else if currentPage === "Overall"}
+			<Overall />
+		{/if}	
+	</div>	
+{/if}
 
 <style>
 	#main {

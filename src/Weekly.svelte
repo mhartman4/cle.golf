@@ -283,7 +283,7 @@
 			teams.push(obj)
 		})
 
-
+		console.log(teams)
 		return teams		
 	}
 
