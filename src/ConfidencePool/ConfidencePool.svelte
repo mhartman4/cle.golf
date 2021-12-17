@@ -10,10 +10,10 @@
 	let picks,standings
 
 	
-	document.querySelector('meta[property="og:title"').setAttribute("content", "Confidence Pool")
-	document.querySelector('meta[property="og:site_name"').setAttribute("content", "Confidence Pool")
-	document.querySelector('meta[property="og:description"').setAttribute("content", "The standings for the confidence pool.")
-	document.querySelector('meta[property="og:image"').setAttribute("content", "https://i.imgur.com/1E2IfrA.jpg")
+	// document.querySelector('meta[property="og:title"').setAttribute("content", "Confidence Pool")
+	// document.querySelector('meta[property="og:site_name"').setAttribute("content", "Confidence Pool")
+	// document.querySelector('meta[property="og:description"').setAttribute("content", "The standings for the confidence pool.")
+	// document.querySelector('meta[property="og:image"').setAttribute("content", "https://i.imgur.com/1E2IfrA.jpg")
 	
 
 	onMount(async () => {
@@ -85,7 +85,7 @@
 	}
 </script>
 
-<a href="/?confidence={pels ? 'cle' : 'pels' }">
+<a href="/?confidence={pels ? 'cle' : 'pels'}">
 	<h1>{franchise} Confidence Pool</h1>
 </a>
 <!-- <code>{JSON.stringify(standings)}</code> -->

@@ -16,7 +16,9 @@
 </script>
 
 {#if confidencePool}
-	<ConfidencePool />
+	<div id="main">
+		<ConfidencePool />
+	</div>
 {:else}
 	<div id="main" class={dvLeague ? "dv" : ""}>
 		{#if dvLeague}
