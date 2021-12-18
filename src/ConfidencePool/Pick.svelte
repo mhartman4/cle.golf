@@ -12,7 +12,7 @@
 	
 	
 	.player-row {
-		font-size: 10px;
+		font-size: 12px;
 		font-family: "Roboto";
 		padding: 5px;
 	}

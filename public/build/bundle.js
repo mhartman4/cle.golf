@@ -12915,11 +12915,11 @@ var app = (function () {
     			t1 = space();
     			td1 = element("td");
     			t2 = text(/*wager*/ ctx[1]);
-    			attr_dev(td0, "class", td0_class_value = "" + (null_to_empty(/*pickstatus*/ ctx[2]) + " svelte-1lih0aq"));
+    			attr_dev(td0, "class", td0_class_value = "" + (null_to_empty(/*pickstatus*/ ctx[2]) + " svelte-r0ljcs"));
     			add_location(td0, file$e, 6, 1, 174);
-    			attr_dev(td1, "class", td1_class_value = "" + (null_to_empty(/*pickstatus*/ ctx[2]) + " svelte-1lih0aq"));
+    			attr_dev(td1, "class", td1_class_value = "" + (null_to_empty(/*pickstatus*/ ctx[2]) + " svelte-r0ljcs"));
     			add_location(td1, file$e, 7, 1, 212);
-    			attr_dev(tr, "class", "player-row svelte-1lih0aq");
+    			attr_dev(tr, "class", "player-row svelte-r0ljcs");
     			add_location(tr, file$e, 5, 0, 149);
     		},
     		l: function claim(nodes) {
@@ -13097,11 +13097,167 @@ var app = (function () {
 
     function get_each_context$a(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
+    	child_ctx[11] = list[i];
     	return child_ctx;
     }
 
-    // (42:2) {#if picksVisible}
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[11] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[14] = list[i];
+    	return child_ctx;
+    }
+
+    // (45:7) {#if pick["Wager"] === point}
+    function create_if_block_1$3(ctx) {
+    	let span;
+    	let t0_value = /*point*/ ctx[14] + "";
+    	let t0;
+    	let t1;
+    	let span_class_value;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			t0 = text(t0_value);
+    			t1 = space();
+
+    			attr_dev(span, "class", span_class_value = "point-value " + (/*pick*/ ctx[11]["Points Won"] > 0
+    			? "pickwon"
+    			: /*pick*/ ctx[11]["Points Lost"] > 0 ? "picklost" : "") + " " + " svelte-h0ildf");
+
+    			add_location(span, file$f, 45, 8, 1488);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t0);
+    			append_dev(span, t1);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$3.name,
+    		type: "if",
+    		source: "(45:7) {#if pick[\\\"Wager\\\"] === point}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (44:6) {#each picks_no_champs as pick}
+    function create_each_block_2(ctx) {
+    	let if_block_anchor;
+    	let if_block = /*pick*/ ctx[11]["Wager"] === /*point*/ ctx[14] && create_if_block_1$3(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*pick*/ ctx[11]["Wager"] === /*point*/ ctx[14]) if_block.p(ctx, dirty);
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(44:6) {#each picks_no_champs as pick}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (43:5) {#each points as point}
+    function create_each_block_1(ctx) {
+    	let each_1_anchor;
+    	let each_value_2 = /*picks_no_champs*/ ctx[8];
+    	validate_each_argument(each_value_2);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*picks_no_champs, points*/ 384) {
+    				each_value_2 = /*picks_no_champs*/ ctx[8];
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_2(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_2.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(43:5) {#each points as point}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (55:2) {#if picksVisible}
     function create_if_block$8(ctx) {
     	let div;
     	let table;
@@ -13144,17 +13300,17 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(th0, "class", "roster-header svelte-14jcc6u");
-    			add_location(th0, file$f, 47, 7, 1183);
-    			attr_dev(th1, "class", "roster-header svelte-14jcc6u");
-    			add_location(th1, file$f, 48, 19, 1238);
-    			add_location(tr, file$f, 46, 6, 1171);
-    			add_location(thead, file$f, 45, 5, 1157);
-    			add_location(tbody, file$f, 51, 5, 1306);
-    			attr_dev(table, "class", "roster-table svelte-14jcc6u");
-    			add_location(table, file$f, 44, 4, 1123);
-    			attr_dev(div, "class", "roster svelte-14jcc6u");
-    			add_location(div, file$f, 43, 3, 1081);
+    			attr_dev(th0, "class", "roster-header svelte-h0ildf");
+    			add_location(th0, file$f, 60, 7, 1822);
+    			attr_dev(th1, "class", "roster-header svelte-h0ildf");
+    			add_location(th1, file$f, 61, 19, 1877);
+    			add_location(tr, file$f, 59, 6, 1810);
+    			add_location(thead, file$f, 58, 5, 1796);
+    			add_location(tbody, file$f, 64, 5, 1945);
+    			attr_dev(table, "class", "roster-table svelte-h0ildf");
+    			add_location(table, file$f, 57, 4, 1762);
+    			attr_dev(div, "class", "roster svelte-h0ildf");
+    			add_location(div, file$f, 56, 3, 1720);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -13238,24 +13394,24 @@ var app = (function () {
     		block,
     		id: create_if_block$8.name,
     		type: "if",
-    		source: "(42:2) {#if picksVisible}",
+    		source: "(55:2) {#if picksVisible}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (53:5) {#each picks as pick}
+    // (66:5) {#each picks as pick}
     function create_each_block$a(ctx) {
     	let current;
 
     	const pick = new Pick({
     			props: {
-    				entry: /*pick*/ ctx[9]["Entry"],
-    				team: /*pick*/ ctx[9]["Team"],
-    				wager: /*pick*/ ctx[9]["Wager"],
-    				pointswon: /*pick*/ ctx[9]["Points Won"],
-    				pointslost: /*pick*/ ctx[9]["Points Lost"]
+    				entry: /*pick*/ ctx[11]["Entry"],
+    				team: /*pick*/ ctx[11]["Team"],
+    				wager: /*pick*/ ctx[11]["Wager"],
+    				pointswon: /*pick*/ ctx[11]["Points Won"],
+    				pointslost: /*pick*/ ctx[11]["Points Lost"]
     			},
     			$$inline: true
     		});
@@ -13270,11 +13426,11 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const pick_changes = {};
-    			if (dirty & /*picks*/ 8) pick_changes.entry = /*pick*/ ctx[9]["Entry"];
-    			if (dirty & /*picks*/ 8) pick_changes.team = /*pick*/ ctx[9]["Team"];
-    			if (dirty & /*picks*/ 8) pick_changes.wager = /*pick*/ ctx[9]["Wager"];
-    			if (dirty & /*picks*/ 8) pick_changes.pointswon = /*pick*/ ctx[9]["Points Won"];
-    			if (dirty & /*picks*/ 8) pick_changes.pointslost = /*pick*/ ctx[9]["Points Lost"];
+    			if (dirty & /*picks*/ 8) pick_changes.entry = /*pick*/ ctx[11]["Entry"];
+    			if (dirty & /*picks*/ 8) pick_changes.team = /*pick*/ ctx[11]["Team"];
+    			if (dirty & /*picks*/ 8) pick_changes.wager = /*pick*/ ctx[11]["Wager"];
+    			if (dirty & /*picks*/ 8) pick_changes.pointswon = /*pick*/ ctx[11]["Points Won"];
+    			if (dirty & /*picks*/ 8) pick_changes.pointslost = /*pick*/ ctx[11]["Points Lost"];
     			pick.$set(pick_changes);
     		},
     		i: function intro(local) {
@@ -13295,7 +13451,7 @@ var app = (function () {
     		block,
     		id: create_each_block$a.name,
     		type: "each",
-    		source: "(53:5) {#each picks as pick}",
+    		source: "(66:5) {#each picks as pick}",
     		ctx
     	});
 
@@ -13303,9 +13459,9 @@ var app = (function () {
     }
 
     function create_fragment$f(ctx) {
+    	let div4;
     	let div3;
     	let div2;
-    	let div1;
     	let table;
     	let tbody;
     	let tr;
@@ -13313,26 +13469,38 @@ var app = (function () {
     	let t0;
     	let t1;
     	let td1;
-    	let span;
     	let t2;
     	let t3;
-    	let td2;
-    	let t4;
-    	let t5;
     	let div0;
+    	let t5;
+    	let td2;
+    	let span0;
+    	let t6;
     	let t7;
-    	let td3;
     	let t8;
+    	let span1;
     	let t9;
+    	let t10;
+    	let t11;
+    	let div1;
+    	let t12;
     	let current;
     	let dispose;
+    	let each_value_1 = /*points*/ ctx[7];
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
     	let if_block = /*picksVisible*/ ctx[4] && create_if_block$8(ctx);
 
     	const block = {
     		c: function create() {
+    			div4 = element("div");
     			div3 = element("div");
     			div2 = element("div");
-    			div1 = element("div");
     			table = element("table");
     			tbody = element("tbody");
     			tr = element("tr");
@@ -13340,79 +13508,122 @@ var app = (function () {
     			t0 = text(/*placenumber*/ ctx[2]);
     			t1 = space();
     			td1 = element("td");
-    			span = element("span");
-    			t2 = text(/*pointswon*/ ctx[0]);
+    			t2 = text(/*teamName*/ ctx[5]);
     			t3 = space();
-    			td2 = element("td");
-    			t4 = text(/*teamName*/ ctx[5]);
-    			t5 = space();
     			div0 = element("div");
     			div0.textContent = `${/*owner*/ ctx[6]}`;
-    			t7 = space();
-    			td3 = element("td");
-    			t8 = text(/*pointsremaining*/ ctx[1]);
-    			t9 = space();
+    			t5 = space();
+    			td2 = element("td");
+    			span0 = element("span");
+    			t6 = text(/*pointswon*/ ctx[0]);
+    			t7 = text(" pts");
+    			t8 = space();
+    			span1 = element("span");
+    			t9 = text(/*pointsremaining*/ ctx[1]);
+    			t10 = text(" left");
+    			t11 = space();
+    			div1 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t12 = space();
     			if (if_block) if_block.c();
-    			attr_dev(td0, "class", "standings-place-number svelte-14jcc6u");
+    			attr_dev(td0, "class", "standings-place-number svelte-h0ildf");
     			attr_dev(td0, "width", "20");
-    			add_location(td0, file$f, 26, 6, 675);
-    			attr_dev(span, "class", "pointswon svelte-14jcc6u");
-    			add_location(span, file$f, 28, 7, 782);
-    			attr_dev(td1, "width", "50");
-    			attr_dev(td1, "align", "left");
-    			add_location(td1, file$f, 27, 6, 746);
-    			attr_dev(div0, "class", "owner svelte-14jcc6u");
-    			add_location(div0, file$f, 32, 7, 891);
-    			attr_dev(td2, "class", "team-name svelte-14jcc6u");
-    			add_location(td2, file$f, 30, 6, 843);
-    			attr_dev(td3, "class", "pointsremaining svelte-14jcc6u");
-    			add_location(td3, file$f, 34, 6, 942);
-    			add_location(tr, file$f, 25, 5, 664);
-    			add_location(tbody, file$f, 24, 4, 651);
+    			add_location(td0, file$f, 28, 6, 894);
+    			attr_dev(div0, "class", "owner svelte-h0ildf");
+    			add_location(div0, file$f, 31, 7, 1013);
+    			attr_dev(td1, "class", "team-name svelte-h0ildf");
+    			add_location(td1, file$f, 29, 6, 965);
+    			attr_dev(span0, "class", "pointswon svelte-h0ildf");
+    			add_location(span0, file$f, 34, 7, 1090);
+    			attr_dev(span1, "class", "pointsremaining svelte-h0ildf");
+    			add_location(span1, file$f, 35, 7, 1144);
+    			attr_dev(td2, "align", "right");
+    			add_location(td2, file$f, 33, 6, 1064);
+    			add_location(tr, file$f, 27, 5, 883);
+    			add_location(tbody, file$f, 26, 4, 870);
     			attr_dev(table, "border", "0");
     			attr_dev(table, "width", "100%");
-    			add_location(table, file$f, 23, 3, 615);
-    			attr_dev(div1, "class", "header svelte-14jcc6u");
-    			add_location(div1, file$f, 22, 2, 591);
-    			attr_dev(div2, "class", "team svelte-14jcc6u");
-    			add_location(div2, file$f, 21, 1, 547);
-    			attr_dev(div3, "class", "team svelte-14jcc6u");
-    			add_location(div3, file$f, 20, 0, 527);
+    			add_location(table, file$f, 25, 3, 834);
+    			attr_dev(div1, "class", "point-picks svelte-h0ildf");
+    			add_location(div1, file$f, 41, 3, 1350);
+    			attr_dev(div2, "class", "header svelte-h0ildf");
+    			add_location(div2, file$f, 24, 2, 810);
+    			attr_dev(div3, "class", "team svelte-h0ildf");
+    			add_location(div3, file$f, 23, 1, 766);
+    			attr_dev(div4, "class", "team svelte-h0ildf");
+    			add_location(div4, file$f, 22, 0, 746);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor, remount) {
-    			insert_dev(target, div3, anchor);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div3);
     			append_dev(div3, div2);
-    			append_dev(div2, div1);
-    			append_dev(div1, table);
+    			append_dev(div2, table);
     			append_dev(table, tbody);
     			append_dev(tbody, tr);
     			append_dev(tr, td0);
     			append_dev(td0, t0);
     			append_dev(tr, t1);
     			append_dev(tr, td1);
-    			append_dev(td1, span);
-    			append_dev(span, t2);
-    			append_dev(tr, t3);
+    			append_dev(td1, t2);
+    			append_dev(td1, t3);
+    			append_dev(td1, div0);
+    			append_dev(tr, t5);
     			append_dev(tr, td2);
-    			append_dev(td2, t4);
-    			append_dev(td2, t5);
-    			append_dev(td2, div0);
-    			append_dev(tr, t7);
-    			append_dev(tr, td3);
-    			append_dev(td3, t8);
-    			append_dev(div2, t9);
-    			if (if_block) if_block.m(div2, null);
+    			append_dev(td2, span0);
+    			append_dev(span0, t6);
+    			append_dev(span0, t7);
+    			append_dev(td2, t8);
+    			append_dev(td2, span1);
+    			append_dev(span1, t9);
+    			append_dev(span1, t10);
+    			append_dev(div2, t11);
+    			append_dev(div2, div1);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div1, null);
+    			}
+
+    			append_dev(div3, t12);
+    			if (if_block) if_block.m(div3, null);
     			current = true;
     			if (remount) dispose();
-    			dispose = listen_dev(div2, "click", /*togglePicks*/ ctx[7], false, false, false);
+    			dispose = listen_dev(div3, "click", /*togglePicks*/ ctx[9], false, false, false);
     		},
     		p: function update(ctx, [dirty]) {
     			if (!current || dirty & /*placenumber*/ 4) set_data_dev(t0, /*placenumber*/ ctx[2]);
-    			if (!current || dirty & /*pointswon*/ 1) set_data_dev(t2, /*pointswon*/ ctx[0]);
-    			if (!current || dirty & /*pointsremaining*/ 2) set_data_dev(t8, /*pointsremaining*/ ctx[1]);
+    			if (!current || dirty & /*pointswon*/ 1) set_data_dev(t6, /*pointswon*/ ctx[0]);
+    			if (!current || dirty & /*pointsremaining*/ 2) set_data_dev(t9, /*pointsremaining*/ ctx[1]);
+
+    			if (dirty & /*picks_no_champs, points*/ 384) {
+    				each_value_1 = /*points*/ ctx[7];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div1, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_1.length;
+    			}
 
     			if (/*picksVisible*/ ctx[4]) {
     				if (if_block) {
@@ -13425,7 +13636,7 @@ var app = (function () {
     					if_block = create_if_block$8(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
-    					if_block.m(div2, null);
+    					if_block.m(div3, null);
     				}
     			} else if (if_block) {
     				group_outros();
@@ -13447,7 +13658,8 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div3);
+    			if (detaching) detach_dev(div4);
+    			destroy_each(each_blocks, detaching);
     			if (if_block) if_block.d();
     			dispose();
     		}
@@ -13475,6 +13687,54 @@ var app = (function () {
     	let owner = entry.slice(0, -1).split(" (")[1];
     	let picksVisible = false;
 
+    	let points = [
+    		1,
+    		2,
+    		3,
+    		4,
+    		5,
+    		6,
+    		7,
+    		8,
+    		9,
+    		10,
+    		11,
+    		12,
+    		13,
+    		14,
+    		15,
+    		16,
+    		17,
+    		18,
+    		19,
+    		20,
+    		21,
+    		22,
+    		23,
+    		24,
+    		25,
+    		26,
+    		27,
+    		28,
+    		29,
+    		30,
+    		31,
+    		32,
+    		33,
+    		34,
+    		35,
+    		36,
+    		37,
+    		38,
+    		39,
+    		40,
+    		41,
+    		42,
+    		43
+    	];
+
+    	let picks_no_champs = picks.filter((element, index) => index < picks.length - 1);
+
     	function togglePicks() {
     		$$invalidate(4, picksVisible = !picksVisible);
 
@@ -13498,7 +13758,7 @@ var app = (function () {
     	validate_slots("Entry", $$slots, []);
 
     	$$self.$set = $$props => {
-    		if ("entry" in $$props) $$invalidate(8, entry = $$props.entry);
+    		if ("entry" in $$props) $$invalidate(10, entry = $$props.entry);
     		if ("pointswon" in $$props) $$invalidate(0, pointswon = $$props.pointswon);
     		if ("pointsremaining" in $$props) $$invalidate(1, pointsremaining = $$props.pointsremaining);
     		if ("placenumber" in $$props) $$invalidate(2, placenumber = $$props.placenumber);
@@ -13516,11 +13776,13 @@ var app = (function () {
     		teamName,
     		owner,
     		picksVisible,
+    		points,
+    		picks_no_champs,
     		togglePicks
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("entry" in $$props) $$invalidate(8, entry = $$props.entry);
+    		if ("entry" in $$props) $$invalidate(10, entry = $$props.entry);
     		if ("pointswon" in $$props) $$invalidate(0, pointswon = $$props.pointswon);
     		if ("pointsremaining" in $$props) $$invalidate(1, pointsremaining = $$props.pointsremaining);
     		if ("placenumber" in $$props) $$invalidate(2, placenumber = $$props.placenumber);
@@ -13528,6 +13790,8 @@ var app = (function () {
     		if ("teamName" in $$props) $$invalidate(5, teamName = $$props.teamName);
     		if ("owner" in $$props) $$invalidate(6, owner = $$props.owner);
     		if ("picksVisible" in $$props) $$invalidate(4, picksVisible = $$props.picksVisible);
+    		if ("points" in $$props) $$invalidate(7, points = $$props.points);
+    		if ("picks_no_champs" in $$props) $$invalidate(8, picks_no_champs = $$props.picks_no_champs);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -13542,6 +13806,8 @@ var app = (function () {
     		picksVisible,
     		teamName,
     		owner,
+    		points,
+    		picks_no_champs,
     		togglePicks,
     		entry
     	];
@@ -13552,7 +13818,7 @@ var app = (function () {
     		super(options);
 
     		init(this, options, instance$f, create_fragment$f, safe_not_equal, {
-    			entry: 8,
+    			entry: 10,
     			pointswon: 0,
     			pointsremaining: 1,
     			placenumber: 2,
@@ -13569,7 +13835,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*entry*/ ctx[8] === undefined && !("entry" in props)) {
+    		if (/*entry*/ ctx[10] === undefined && !("entry" in props)) {
     			console.warn("<Entry> was created without expected prop 'entry'");
     		}
 
@@ -14063,7 +14329,7 @@ var app = (function () {
 
     	const picker = new Picker({ props: picker_props, $$inline: true });
     	binding_callbacks.push(() => bind(picker, "activePage", picker_activePage_binding));
-    	const if_block_creators = [create_if_block_1$3, create_if_block_2$3];
+    	const if_block_creators = [create_if_block_1$4, create_if_block_2$3];
     	const if_blocks = [];
 
     	function select_block_type_1(ctx, dirty) {
@@ -14296,7 +14562,7 @@ var app = (function () {
     }
 
     // (30:2) {#if currentPage === "Weekly"}
-    function create_if_block_1$3(ctx) {
+    function create_if_block_1$4(ctx) {
     	let current;
     	const weekly = new Weekly({ $$inline: true });
 
@@ -14324,7 +14590,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$3.name,
+    		id: create_if_block_1$4.name,
     		type: "if",
     		source: "(30:2) {#if currentPage === \\\"Weekly\\\"}",
     		ctx
