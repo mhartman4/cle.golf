@@ -25,16 +25,17 @@
 			});
     }
 	const getOverallStandings = async () => {
-		let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI"
-		let gid_overall = "1520535624"
-		let gid_earnings = "1425386487"
+		// let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI"
+		// let gid_overall = "1520535624"
+		// let gid_earnings = "1425386487"
 		
-		if (nate) {
-			spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
-		}
+		// if (nate) {
+		// 	spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
+		// }
 
 		// First we hit the Overall Standings sheet
-		const endpointOverall = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_overall
+		// const endpointOverall = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_overall
+		const endpointOverall = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/overall`
 
 		const response = await fetch(endpointOverall)
 		const text = await response.text()
@@ -42,7 +43,8 @@
 		const overallData = raw.rows.filter(r => r.c[3] != null)
 		
 		// Then we hit the Golfer Earnings sheet
-		const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_earnings
+		// const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_earnings
+		const endpointGolferEarnings = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/golfer-earnings`
 
 		const response2 = await fetch(endpointGolferEarnings)
 		const text2 = await response2.text()

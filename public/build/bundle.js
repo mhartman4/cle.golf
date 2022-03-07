@@ -7530,7 +7530,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (305:0) {:else}
+    // (307:0) {:else}
     function create_else_block(ctx) {
     	let t;
     	let div;
@@ -7564,7 +7564,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 312, 0, 13379);
+    			add_location(div, file$4, 314, 0, 13404);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7631,14 +7631,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(305:0) {:else}",
+    		source: "(307:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (299:0) {#if rawResults}
+    // (301:0) {#if rawResults}
     function create_if_block$1(ctx) {
     	let t;
     	let current;
@@ -7695,14 +7695,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(299:0) {#if rawResults}",
+    		source: "(301:0) {#if rawResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (309:0) {:else}
+    // (311:0) {:else}
     function create_else_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -7716,8 +7716,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 309, 1, 13200);
-    			add_location(span, file$4, 309, 127, 13326);
+    			add_location(img, file$4, 311, 1, 13225);
+    			add_location(span, file$4, 311, 127, 13351);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7734,14 +7734,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(309:0) {:else}",
+    		source: "(311:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (307:0) {#if tourneyName}
+    // (309:0) {#if tourneyName}
     function create_if_block_4(ctx) {
     	let h1;
     	let t;
@@ -7751,7 +7751,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-19j5pxu");
-    			add_location(h1, file$4, 307, 1, 13147);
+    			add_location(h1, file$4, 309, 1, 13172);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -7769,14 +7769,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(307:0) {#if tourneyName}",
+    		source: "(309:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (328:1) {:else}
+    // (330:1) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -7786,12 +7786,12 @@ var app = (function () {
     		c: function create() {
     			img = element("img");
     			span = element("span");
-    			span.textContent = " Loading teams and standings";
+    			span.textContent = " Scraping the PGA";
     			attr_dev(img, "class", "sheets-icon");
-    			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
+    			if (img.src !== (img_src_value = "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/PGA_Tour_logo.svg/233px-PGA_Tour_logo.svg.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 328, 2, 13711);
-    			add_location(span, file$4, 328, 128, 13837);
+    			add_location(img, file$4, 330, 2, 13736);
+    			add_location(span, file$4, 330, 146, 13880);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7810,14 +7810,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(328:1) {:else}",
+    		source: "(330:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (324:17) 
+    // (326:17) 
     function create_if_block_3(ctx) {
     	let div;
     	let code;
@@ -7832,9 +7832,9 @@ var app = (function () {
     			t0 = text("🚨 ");
     			t1 = text(/*error*/ ctx[2]);
     			t2 = text(" 🚨");
-    			add_location(code, file$4, 325, 3, 13664);
+    			add_location(code, file$4, 327, 3, 13689);
     			attr_dev(div, "class", "error svelte-19j5pxu");
-    			add_location(div, file$4, 324, 2, 13641);
+    			add_location(div, file$4, 326, 2, 13666);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -7857,14 +7857,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(324:17) ",
+    		source: "(326:17) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (314:1) {#if teams}
+    // (316:1) {#if teams}
     function create_if_block_2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -7953,14 +7953,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(314:1) {#if teams}",
+    		source: "(316:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (315:2) {#each teams as team, i}
+    // (317:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -7984,12 +7984,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 317, 5, 13501);
-    			add_location(tr, file$4, 316, 4, 13491);
+    			add_location(td, file$4, 319, 5, 13526);
+    			add_location(tr, file$4, 318, 4, 13516);
     			attr_dev(table, "class", "team svelte-19j5pxu");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 315, 3, 13442);
+    			add_location(table, file$4, 317, 3, 13467);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -8023,14 +8023,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(315:2) {#each teams as team, i}",
+    		source: "(317:2) {#each teams as team, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (300:1) {#if tourneyName}
+    // (302:1) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -8039,7 +8039,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
-    			add_location(h1, file$4, 300, 2, 13045);
+    			add_location(h1, file$4, 302, 2, 13070);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8057,7 +8057,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(300:1) {#if tourneyName}",
+    		source: "(302:1) {#if tourneyName}",
     		ctx
     	});
 
@@ -8159,13 +8159,14 @@ var app = (function () {
     	// Hit the google sheet for the schedule
     	const getRelevantTournament = async () => {
     		// const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=61191989`
-    		const endpoint = `https://docs.google.com/spreadsheets/d/1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI/gviz/tq?tqx=out:json&tq&gid=61191989`;
+    		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule`;
 
     		const response = await fetch(endpoint);
     		const text = await response.text();
     		const data = await JSON.parse(text.substring(47).slice(0, -2)).table;
     		const today = new Date();
     		const tourneysBeforeToday = data.rows.filter(event => new Date(Date.parse(event.c[1].f)) < today.setHours(0, 0, 0, 0));
+    		console.log(data.rows);
     		const tournaments = [];
 
     		const payoutPercentages = [
@@ -8606,14 +8607,13 @@ var app = (function () {
 
     	// Get our team rosters from the Google Sheet / KVDB
     	const getTeamRosters = async () => {
-    		let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI";
-    		let gid = "629583302";
 
-    		if (nate) {
-    			spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0";
-    		}
+    		// if (nate) {
+    		// 	spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
+    		// }
+    		// let endpoint = `https://docs.google.com/spreadsheets/d/`+ spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid
+    		let endpoint = "https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/rosters";
 
-    		let endpoint = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid;
     		const response = await fetch(endpoint);
     		const text = await response.text();
     		const data = await JSON.parse(text.substring(47).slice(0, -2)).table;
@@ -12459,7 +12459,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (106:1) {:else}
+    // (108:1) {:else}
     function create_else_block$3(ctx) {
     	let img;
     	let img_src_value;
@@ -12472,8 +12472,8 @@ var app = (function () {
     			span.textContent = " Loading overall standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$d, 106, 2, 3039);
-    			add_location(span, file$d, 106, 114, 3151);
+    			add_location(img, file$d, 108, 2, 3226);
+    			add_location(span, file$d, 108, 114, 3338);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -12492,14 +12492,14 @@ var app = (function () {
     		block,
     		id: create_else_block$3.name,
     		type: "else",
-    		source: "(106:1) {:else}",
+    		source: "(108:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (95:1) {#if overall}
+    // (97:1) {#if overall}
     function create_if_block$7(ctx) {
     	let each_1_anchor;
     	let current;
@@ -12588,14 +12588,14 @@ var app = (function () {
     		block,
     		id: create_if_block$7.name,
     		type: "if",
-    		source: "(95:1) {#if overall}",
+    		source: "(97:1) {#if overall}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (96:2) {#each overall as team, i}
+    // (98:2) {#each overall as team, i}
     function create_each_block$9(ctx) {
     	let table;
     	let tr;
@@ -12619,12 +12619,12 @@ var app = (function () {
     			td = element("td");
     			create_component(overallteam.$$.fragment);
     			t = space();
-    			add_location(td, file$d, 98, 5, 2892);
-    			add_location(tr, file$d, 97, 4, 2882);
+    			add_location(td, file$d, 100, 5, 3079);
+    			add_location(tr, file$d, 99, 4, 3069);
     			attr_dev(table, "class", "team svelte-ed6l2r");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$d, 96, 3, 2833);
+    			add_location(table, file$d, 98, 3, 3020);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -12658,7 +12658,7 @@ var app = (function () {
     		block,
     		id: create_each_block$9.name,
     		type: "each",
-    		source: "(96:2) {#each overall as team, i}",
+    		source: "(98:2) {#each overall as team, i}",
     		ctx
     	});
 
@@ -12686,7 +12686,7 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$d, 93, 0, 2766);
+    			add_location(div, file$d, 95, 0, 2953);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12775,16 +12775,15 @@ var app = (function () {
     	}
 
     	const getOverallStandings = async () => {
-    		let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI";
-    		let gid_overall = "1520535624";
-    		let gid_earnings = "1425386487";
-
-    		if (nate) {
-    			spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0";
-    		}
-
+    		// let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI"
+    		// let gid_overall = "1520535624"
+    		// let gid_earnings = "1425386487"
+    		// if (nate) {
+    		// 	spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
+    		// }
     		// First we hit the Overall Standings sheet
-    		const endpointOverall = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_overall;
+    		// const endpointOverall = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_overall
+    		const endpointOverall = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/overall`;
 
     		const response = await fetch(endpointOverall);
     		const text = await response.text();
@@ -12792,7 +12791,8 @@ var app = (function () {
     		const overallData = raw.rows.filter(r => r.c[3] != null);
 
     		// Then we hit the Golfer Earnings sheet
-    		const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_earnings;
+    		// const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_earnings
+    		const endpointGolferEarnings = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/golfer-earnings`;
 
     		const response2 = await fetch(endpointGolferEarnings);
     		const text2 = await response2.text();
