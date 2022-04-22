@@ -7530,7 +7530,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (330:0) {:else}
+    // (339:0) {:else}
     function create_else_block(ctx) {
     	let t;
     	let div;
@@ -7564,7 +7564,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 337, 0, 13935);
+    			add_location(div, file$4, 346, 0, 14383);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7631,14 +7631,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(330:0) {:else}",
+    		source: "(339:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (324:0) {#if rawResults}
+    // (333:0) {#if rawResults}
     function create_if_block$1(ctx) {
     	let t;
     	let current;
@@ -7695,14 +7695,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(324:0) {#if rawResults}",
+    		source: "(333:0) {#if rawResults}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (334:0) {:else}
+    // (343:0) {:else}
     function create_else_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -7716,8 +7716,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 334, 1, 13756);
-    			add_location(span, file$4, 334, 127, 13882);
+    			add_location(img, file$4, 343, 1, 14204);
+    			add_location(span, file$4, 343, 127, 14330);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7734,14 +7734,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(334:0) {:else}",
+    		source: "(343:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (332:0) {#if tourneyName}
+    // (341:0) {#if tourneyName}
     function create_if_block_4(ctx) {
     	let h1;
     	let t;
@@ -7751,7 +7751,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-19j5pxu");
-    			add_location(h1, file$4, 332, 1, 13703);
+    			add_location(h1, file$4, 341, 1, 14151);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -7769,14 +7769,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(332:0) {#if tourneyName}",
+    		source: "(341:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (355:1) {:else}
+    // (364:1) {:else}
     function create_else_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -7790,8 +7790,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/PGA_Tour_logo.svg/233px-PGA_Tour_logo.svg.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 355, 2, 14315);
-    			add_location(span, file$4, 355, 146, 14459);
+    			add_location(img, file$4, 364, 2, 14763);
+    			add_location(span, file$4, 364, 146, 14907);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7810,14 +7810,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(355:1) {:else}",
+    		source: "(364:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (349:17) 
+    // (358:17) 
     function create_if_block_3(ctx) {
     	let div;
     	let code0;
@@ -7844,11 +7844,11 @@ var app = (function () {
     			code1 = element("code");
     			t5 = text("Scraping Blurb: ");
     			t6 = text(/*blurb*/ ctx[2]);
-    			add_location(code0, file$4, 350, 3, 14220);
-    			add_location(br, file$4, 351, 3, 14250);
-    			add_location(code1, file$4, 352, 3, 14258);
+    			add_location(code0, file$4, 359, 3, 14668);
+    			add_location(br, file$4, 360, 3, 14698);
+    			add_location(code1, file$4, 361, 3, 14706);
     			attr_dev(div, "class", "error svelte-19j5pxu");
-    			add_location(div, file$4, 349, 2, 14197);
+    			add_location(div, file$4, 358, 2, 14645);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -7878,14 +7878,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(349:17) ",
+    		source: "(358:17) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (339:1) {#if teams}
+    // (348:1) {#if teams}
     function create_if_block_2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -7974,14 +7974,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(339:1) {#if teams}",
+    		source: "(348:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (340:2) {#each teams as team, i}
+    // (349:2) {#each teams as team, i}
     function create_each_block$3(ctx) {
     	let table;
     	let tr;
@@ -8005,12 +8005,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 342, 5, 14057);
-    			add_location(tr, file$4, 341, 4, 14047);
+    			add_location(td, file$4, 351, 5, 14505);
+    			add_location(tr, file$4, 350, 4, 14495);
     			attr_dev(table, "class", "team svelte-19j5pxu");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 340, 3, 13998);
+    			add_location(table, file$4, 349, 3, 14446);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -8044,14 +8044,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(340:2) {#each teams as team, i}",
+    		source: "(349:2) {#each teams as team, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (325:1) {#if tourneyName}
+    // (334:1) {#if tourneyName}
     function create_if_block_1(ctx) {
     	let h1;
     	let t;
@@ -8060,7 +8060,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
-    			add_location(h1, file$4, 325, 2, 13601);
+    			add_location(h1, file$4, 334, 2, 14049);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8078,7 +8078,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(325:1) {#if tourneyName}",
+    		source: "(334:1) {#if tourneyName}",
     		ctx
     	});
 
@@ -8635,7 +8635,6 @@ var app = (function () {
     		var processedResponse = [];
 
     		leaderboard.teams.forEach(t => {
-    			// console.log(t)
     			t.teamPlayers.forEach(p => {
     				p.isActive = true;
     				p.status = "active";
@@ -8645,10 +8644,17 @@ var app = (function () {
     				p.thru = t.thru;
     				p.round = t.today;
 
-    				p.playerNames = {
-    					"lastName": p.lastName,
-    					"firstName": p.firstName
-    				};
+    				if (p.firstName + " " + p.lastName == t.teamPlayers[0].firstName + " " + t.teamPlayers[0].lastName) {
+    					p.playerNames = {
+    						"firstName": "🏌️‍♂️" + t.teamPlayers[0].firstName + " " + t.teamPlayers[0].lastName + " / ",
+    						"lastName": t.teamPlayers[1].firstName + " " + t.teamPlayers[1].lastName
+    					};
+    				} else {
+    					p.playerNames = {
+    						"firstName": t.teamPlayers[0].firstName + " " + t.teamPlayers[0].lastName + " / ",
+    						"lastName": "🏌️‍♂️" + t.teamPlayers[1].firstName + " " + t.teamPlayers[1].lastName
+    					};
+    				}
 
     				processedResponse.push(p);
     			});

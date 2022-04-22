@@ -243,7 +243,6 @@
 		leaderboard = await jsonResp.leaderboard
 		var processedResponse = []
 		leaderboard.teams.forEach((t)=> {
-			// console.log(t)
 			t.teamPlayers.forEach((p => {
 				p.isActive = true
 				p.status = "active"
@@ -252,10 +251,20 @@
 				p.total = t.total
 				p.thru = t.thru
 				p.round = t.today
-				p.playerNames = {
-					"lastName": p.lastName,
-					"firstName": p.firstName
+
+				if (p.firstName + " " + p.lastName == t.teamPlayers[0].firstName + " " + t.teamPlayers[0].lastName) {
+					p.playerNames = {
+						"firstName": "🏌️‍♂️" + t.teamPlayers[0].firstName + " " + t.teamPlayers[0].lastName + " / ",
+						"lastName": t.teamPlayers[1].firstName + " " + t.teamPlayers[1].lastName
+					}	
 				}
+				else {
+					p.playerNames = {
+						"firstName": t.teamPlayers[0].firstName + " " + t.teamPlayers[0].lastName + " / ",
+						"lastName": "🏌️‍♂️" + t.teamPlayers[1].firstName + " " + t.teamPlayers[1].lastName
+					}		
+				}
+				
 				processedResponse.push(p)
 			}))
 		})
