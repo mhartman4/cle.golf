@@ -45,7 +45,7 @@
 	const getRelevantTournament = async () => {
 				
 		// const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=61191989`
-		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule`
+		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule` + "&timestamp=" + Date.now()
 		const response = await fetch(endpoint)
 		const text = await response.text()
 		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
@@ -284,7 +284,7 @@
 		// }
 		
 		// let endpoint = `https://docs.google.com/spreadsheets/d/`+ spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid
-		let endpoint = "https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/rosters"
+		let endpoint = "https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/rosters" + "&timestamp=" + Date.now()
 		const response = await fetch(endpoint)
 		const text = await response.text()
 		const data = await JSON.parse(text.substring(47).slice(0, -2)).table

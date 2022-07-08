@@ -7564,7 +7564,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 346, 0, 14383);
+    			add_location(div, file$4, 346, 0, 14441);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7716,8 +7716,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 343, 1, 14204);
-    			add_location(span, file$4, 343, 127, 14330);
+    			add_location(img, file$4, 343, 1, 14262);
+    			add_location(span, file$4, 343, 127, 14388);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7751,7 +7751,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-19j5pxu");
-    			add_location(h1, file$4, 341, 1, 14151);
+    			add_location(h1, file$4, 341, 1, 14209);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -7790,8 +7790,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/PGA_Tour_logo.svg/233px-PGA_Tour_logo.svg.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 364, 2, 14763);
-    			add_location(span, file$4, 364, 146, 14907);
+    			add_location(img, file$4, 364, 2, 14821);
+    			add_location(span, file$4, 364, 146, 14965);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7844,11 +7844,11 @@ var app = (function () {
     			code1 = element("code");
     			t5 = text("Scraping Blurb: ");
     			t6 = text(/*blurb*/ ctx[2]);
-    			add_location(code0, file$4, 359, 3, 14668);
-    			add_location(br, file$4, 360, 3, 14698);
-    			add_location(code1, file$4, 361, 3, 14706);
+    			add_location(code0, file$4, 359, 3, 14726);
+    			add_location(br, file$4, 360, 3, 14756);
+    			add_location(code1, file$4, 361, 3, 14764);
     			attr_dev(div, "class", "error svelte-19j5pxu");
-    			add_location(div, file$4, 358, 2, 14645);
+    			add_location(div, file$4, 358, 2, 14703);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8005,12 +8005,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 351, 5, 14505);
-    			add_location(tr, file$4, 350, 4, 14495);
+    			add_location(td, file$4, 351, 5, 14563);
+    			add_location(tr, file$4, 350, 4, 14553);
     			attr_dev(table, "class", "team svelte-19j5pxu");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 349, 3, 14446);
+    			add_location(table, file$4, 349, 3, 14504);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -8060,7 +8060,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
-    			add_location(h1, file$4, 334, 2, 14049);
+    			add_location(h1, file$4, 334, 2, 14107);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8180,7 +8180,7 @@ var app = (function () {
     	// Hit the google sheet for the schedule
     	const getRelevantTournament = async () => {
     		// const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=61191989`
-    		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule`;
+    		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule` + "&timestamp=" + Date.now();
 
     		const response = await fetch(endpoint);
     		const text = await response.text();
@@ -8671,7 +8671,7 @@ var app = (function () {
     		// 	spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
     		// }
     		// let endpoint = `https://docs.google.com/spreadsheets/d/`+ spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid
-    		let endpoint = "https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/rosters";
+    		let endpoint = "https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/rosters" + "&timestamp=" + Date.now();
 
     		const response = await fetch(endpoint);
     		const text = await response.text();
