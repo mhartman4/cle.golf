@@ -8180,7 +8180,7 @@ var app = (function () {
     	// Hit the google sheet for the schedule
     	const getRelevantTournament = async () => {
     		// const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=61191989`
-    		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule` + "&timestamp=" + Date.now();
+    		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule` + "?timestamp=" + Date.now();
 
     		const response = await fetch(endpoint);
     		const text = await response.text();
@@ -8671,7 +8671,7 @@ var app = (function () {
     		// 	spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
     		// }
     		// let endpoint = `https://docs.google.com/spreadsheets/d/`+ spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid
-    		let endpoint = "https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/rosters" + "&timestamp=" + Date.now();
+    		let endpoint = "https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/rosters" + "?timestamp=" + Date.now();
 
     		const response = await fetch(endpoint);
     		const text = await response.text();
