@@ -5,7 +5,6 @@
 	import ResultsTable from "./ResultsTable.svelte"
 	let teams, tourneyName, leaderboard, favoriteTeam, blurb
 	let resultsPlayers = []
-	export let nate = window.location.search.indexOf("nate") != -1
 	let trueUrl = window.location.href.replace("?league=dv", "")
 	let rawResults = window.location.href.includes("results")
 	let error
@@ -13,8 +12,10 @@
 	onMount(async () => {
 
 		try {
+
 			const tournaments = await getRelevantTournament()
 			const rawTeams = await getTeamRosters()
+			
 			
 			// if (tournaments[0].id == "018") {
 			// 	processTeamTournament(tournaments[0])
@@ -45,19 +46,23 @@
 	const getRelevantTournament = async () => {
 				
 		// const endpoint = `https://docs.google.com/spreadsheets/d/1lNeLG3zTCsDr7KvKJNky1maiUNVoEqapj-LCt8G9Z7Q/gviz/tq?tqx=out:json&tq&gid=61191989`
+
 		const endpoint = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/schedule` + "?timestamp=" + Date.now()
 		const response = await fetch(endpoint)
+
 		const text = await response.text()
 		const data = await JSON.parse(text.substring(47).slice(0, -2)).table
   		const today = new Date()
   		
   		const tourneysBeforeToday = data.rows.filter(event => new Date(Date.parse(event.c[1].f)) < today.setHours(0,0,0,0))
   		const tournaments = []
+
   		const payoutPercentages = [null, 0.18,0.109,0.069,0.049,0.041,0.03625,0.03375,0.03125,0.02925,0.02725,0.02525,0.02325,0.02125,0.01925,0.01825,0.01725,0.01625,0.01525,0.01425,0.01325,0.01225,0.01125,0.01045,0.00965,0.00885,0.00805,0.00775,0.00745,0.00715,0.00685,0.00655,0.00625,0.00595,0.0057,0.00545,0.0052,0.00495,0.00475,0.00455,0.00435,0.00415,0.00395,0.00375,0.00355,0.00335,0.00315,0.00295,0.00279,0.00265,0.00257,0.00251,0.00245,0.00241,0.00237,0.00235,0.00233,0.00231,0.00229,0.00227,0.00225,0.00223,0.00221,0.00219,0.00217,0.00215]
   		// grab the last tournament but check if any others have the same date
   		tourneysBeforeToday.forEach((t) => {
+
 			if (tourneysBeforeToday.slice(-1)[0].c[1].f === t.c[1].f) {
-		
+				console.log(t)		
 				tournaments.push(
 					{
 						"id": t.c[2].v,
@@ -68,6 +73,7 @@
 				)
 			}
 		})
+
 		tourneyName = tournaments.map((t) => t.name).join(" / ")
 
 		return tournaments;
@@ -189,7 +195,7 @@
 	const makePgaCall = async (securityBlurb, tournament) => {
 			if (tournament.id != "018")
 			{
-				const pgaResp = await fetch("https://lbdata.pgatour.com/2022/r/" + tournament.id + "/leaderboard.json" + securityBlurb + "&timestamp=" + Date.now());
+				const pgaResp = await fetch("https://lbdata.pgatour.com/2023/r/" + tournament.id + "/leaderboard.json" + securityBlurb + "&timestamp=" + Date.now());
 				var jsonResp = await pgaResp.json()
 				leaderboard = await jsonResp.rows
 			}
