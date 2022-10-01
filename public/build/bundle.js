@@ -7564,7 +7564,7 @@ var app = (function () {
     			div = element("div");
     			if_block1.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$4, 352, 0, 14405);
+    			add_location(div, file$4, 352, 0, 14408);
     		},
     		m: function mount(target, anchor) {
     			if_block0.m(target, anchor);
@@ -7716,8 +7716,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 349, 1, 14226);
-    			add_location(span, file$4, 349, 127, 14352);
+    			add_location(img, file$4, 349, 1, 14229);
+    			add_location(span, file$4, 349, 127, 14355);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7751,7 +7751,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-19j5pxu");
-    			add_location(h1, file$4, 347, 1, 14173);
+    			add_location(h1, file$4, 347, 1, 14176);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -7790,8 +7790,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/PGA_Tour_logo.svg/233px-PGA_Tour_logo.svg.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$4, 370, 2, 14785);
-    			add_location(span, file$4, 370, 146, 14929);
+    			add_location(img, file$4, 370, 2, 14788);
+    			add_location(span, file$4, 370, 146, 14932);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -7844,11 +7844,11 @@ var app = (function () {
     			code1 = element("code");
     			t5 = text("Scraping Blurb: ");
     			t6 = text(/*blurb*/ ctx[2]);
-    			add_location(code0, file$4, 365, 3, 14690);
-    			add_location(br, file$4, 366, 3, 14720);
-    			add_location(code1, file$4, 367, 3, 14728);
+    			add_location(code0, file$4, 365, 3, 14693);
+    			add_location(br, file$4, 366, 3, 14723);
+    			add_location(code1, file$4, 367, 3, 14731);
     			attr_dev(div, "class", "error svelte-19j5pxu");
-    			add_location(div, file$4, 364, 2, 14667);
+    			add_location(div, file$4, 364, 2, 14670);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8005,12 +8005,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$4, 357, 5, 14527);
-    			add_location(tr, file$4, 356, 4, 14517);
+    			add_location(td, file$4, 357, 5, 14530);
+    			add_location(tr, file$4, 356, 4, 14520);
     			attr_dev(table, "class", "team svelte-19j5pxu");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$4, 355, 3, 14468);
+    			add_location(table, file$4, 355, 3, 14471);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -8060,7 +8060,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
-    			add_location(h1, file$4, 340, 2, 14071);
+    			add_location(h1, file$4, 340, 2, 14074);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8378,13 +8378,12 @@ var app = (function () {
 
     	const makePgaCall = async (securityBlurb, tournament) => {
     		if (tournament.id != "018") {
-    			const pgaResp = await fetch("https://lbdata.pgatour.com/2022/r/" + tournament.id + "/leaderboard.json" + securityBlurb + "&timestamp=" + Date.now());
+    			const pgaResp = await fetch("https://lbdata.pgatour.com/2023/r/" + tournament.id + "/leaderboard.json" + securityBlurb + "&timestamp=" + Date.now());
     			var jsonResp = await pgaResp.json();
     			leaderboard = await jsonResp.rows;
     		} else {
     			leaderboard = await makePgaCallTeamTourney(securityBlurb, tournament);
-    			console.log(leaderboard);
-    		}
+    		} // console.log(leaderboard)
 
     		var numberPlayersEachPlace = {
     			"1": [0, 0],
