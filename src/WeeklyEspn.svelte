@@ -15,7 +15,7 @@
 			rawTeams = await getTeamRosters()
 			teams = await hitESPN(rawTeams, "pga")
 			teams = await hitESPN(rawTeams, "liv")
-			teams = await hitESPN(rawTeams, "eur")
+			// teams = await hitESPN(rawTeams, "eur")
 			// teams = await sortTeams(teams)
 			await teams.sort((a,b) => b.totalMoney - a.totalMoney )
 			teams.forEach(team => {
@@ -106,7 +106,7 @@
 	const getTeamRosters = async () => {
 		
 		
-		let spreadsheet_id = "1c231M42E4NkKsIqpMdMGALBmW9S6GAuhdS5KWVB4F50"
+		let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI"
 		let gid = "629583302"
 		
 				
@@ -158,6 +158,7 @@
 			t.roster.forEach(p => p.sort = 0)
 			t.activeGolferCounts = {["pga"]: 0, ["liv"]: 0, ["eur"]: 0}
 		})
+		// console.log(teams)
 		return teams		
 	}
 

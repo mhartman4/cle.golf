@@ -1,6 +1,7 @@
 <script>
  	import Picker from "./Picker.svelte"
 	import Weekly from "./Weekly.svelte"
+	import WeeklyEspn from "./WeeklyEspn.svelte"
 	import WeeklyMajor from "./Major/WeeklyMajor.svelte"
 	import WeeklyTourChampionship from "./TourChampionship/WeeklyTourChampionship.svelte"
 	import Overall from "./Overall.svelte"
@@ -11,7 +12,7 @@
 	let currentPage = "Weekly"
 
 	let dvLeague = window.location.href.includes("?league=dv")
-	let confidencePool = window.location.href.includes("?confidence=")
+	let confidencePool = window.location.href.includes("?confidence")
 
 </script>
 
@@ -28,7 +29,8 @@
 		<br><br>
 		
 		{#if currentPage === "Weekly"}
-			<Weekly />
+			<!-- <Weekly /> -->
+			<WeeklyEspn />
 			<!-- <WeeklyMajor dvLeague={is_dv} /> -->
 		{:else if currentPage === "Overall"}
 			<Overall />

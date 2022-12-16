@@ -1,6 +1,6 @@
 <script>
 	import Roster from "./Roster.svelte"
-	export let team, placeNumber, isFavorite
+	export let team, placeNumber, isFavorite, activeGolferCounts
 	
 	// let teamName = team.name
 	// let teamNameNoOwner = team.teamName
@@ -36,7 +36,18 @@
 					</td>
 					<td class="team-name {isFavorite ? " favorite" : ""}">
 						{team.teamName}
-						<div class="owner {dvLeague ? " invisible" : ""}">{team.owner}</div>
+						<div class="owner {dvLeague ? " invisible" : ""}">{team.owner}&nbsp;&nbsp;
+						{#if activeGolferCounts["pga"] > 0}
+								<span class="golfer-count pga">{activeGolferCounts["pga"]}</span>
+							{/if}
+							{#if activeGolferCounts["liv"] > 0}
+								<span class="golfer-count liv">{activeGolferCounts["liv"]}</span>
+							{/if}
+							{#if activeGolferCounts["eur"] > 0}
+								<span class="golfer-count eur">{activeGolferCounts["eur"]}</span>
+							{/if}
+						</div>
+
 					</td>
 					<td class="team-earnings {isFavorite ? " favorite" : ""}">
 						{numeral(team.totalMoney).format('$0,0')}<br>
@@ -89,5 +100,26 @@
 	}
 	.invisible {
 		display: none;
+	}
+	.golfer-count {
+		display: inline-block;
+	    padding: 0.25em 0.4em;
+	    font-size: 80%;
+	    font-weight: 300;
+	    line-height: 1;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: baseline;
+	    border-radius: 0.25rem;
+	    color: white;
+	}
+	.pga {
+		background-color: black;
+	}
+	.liv {
+		background-color: #0b5394;
+	}
+	.eur {
+		background-color: #e69138;
 	}
 </style>
