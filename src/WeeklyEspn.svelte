@@ -192,7 +192,9 @@
 		<img class="sheets-icon" src="https://a.espncdn.com/favicon.ico" alt="Loading"><span>&nbsp;Scraping ESPN</span>
 	{/if}
 </div>
-
+<div>
+	<a href="{window.location.origin + window.location.pathname + '?v=' + new Date().valueOf()}">🔄</a>
+</div>
 
 
 

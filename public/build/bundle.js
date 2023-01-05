@@ -9044,9 +9044,14 @@ var app = (function () {
     	let t0;
     	let t1;
     	let t2;
-    	let div;
+    	let div0;
     	let current_block_type_index;
     	let if_block3;
+    	let t3;
+    	let div1;
+    	let a;
+    	let t4;
+    	let a_href_value;
     	let current;
 
     	function select_block_type(ctx, dirty) {
@@ -9078,10 +9083,18 @@ var app = (function () {
     			t1 = space();
     			if (if_block2) if_block2.c();
     			t2 = space();
-    			div = element("div");
+    			div0 = element("div");
     			if_block3.c();
-    			attr_dev(div, "class", "teams");
-    			add_location(div, file$5, 175, 0, 5754);
+    			t3 = space();
+    			div1 = element("div");
+    			a = element("a");
+    			t4 = text("🔄");
+    			attr_dev(div0, "class", "teams");
+    			add_location(div0, file$5, 175, 0, 5754);
+    			attr_dev(a, "href", a_href_value = window.location.origin + window.location.pathname + "?v=" + new Date().valueOf());
+    			attr_dev(a, "class", "svelte-ih46r3");
+    			add_location(a, file$5, 195, 1, 6264);
+    			add_location(div1, file$5, 194, 0, 6257);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9093,8 +9106,12 @@ var app = (function () {
     			insert_dev(target, t1, anchor);
     			if (if_block2) if_block2.m(target, anchor);
     			insert_dev(target, t2, anchor);
-    			insert_dev(target, div, anchor);
-    			if_blocks[current_block_type_index].m(div, null);
+    			insert_dev(target, div0, anchor);
+    			if_blocks[current_block_type_index].m(div0, null);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, a);
+    			append_dev(a, t4);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
@@ -9157,7 +9174,7 @@ var app = (function () {
     				}
 
     				transition_in(if_block3, 1);
-    				if_block3.m(div, null);
+    				if_block3.m(div0, null);
     			}
     		},
     		i: function intro(local) {
@@ -9176,8 +9193,10 @@ var app = (function () {
     			if (detaching) detach_dev(t1);
     			if (if_block2) if_block2.d(detaching);
     			if (detaching) detach_dev(t2);
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div0);
     			if_blocks[current_block_type_index].d();
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(div1);
     		}
     	};
 
@@ -13274,8 +13293,8 @@ var app = (function () {
     			span.textContent = " Loading overall standings";
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$e, 108, 2, 3226);
-    			add_location(span, file$e, 108, 114, 3338);
+    			add_location(img, file$e, 108, 2, 3217);
+    			add_location(span, file$e, 108, 114, 3329);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -13421,12 +13440,12 @@ var app = (function () {
     			td = element("td");
     			create_component(overallteam.$$.fragment);
     			t = space();
-    			add_location(td, file$e, 100, 5, 3079);
-    			add_location(tr, file$e, 99, 4, 3069);
+    			add_location(td, file$e, 100, 5, 3070);
+    			add_location(tr, file$e, 99, 4, 3060);
     			attr_dev(table, "class", "team svelte-ed6l2r");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$e, 98, 3, 3020);
+    			add_location(table, file$e, 98, 3, 3011);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -13488,7 +13507,7 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(div, "class", "teams");
-    			add_location(div, file$e, 95, 0, 2953);
+    			add_location(div, file$e, 95, 0, 2944);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13577,26 +13596,29 @@ var app = (function () {
     	}
 
     	const getOverallStandings = async () => {
-    		// let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI"
-    		// let gid_overall = "1520535624"
-    		// let gid_earnings = "1425386487"
+    		let spreadsheet_id = "1YsZn_ovmbxOE8gUlmAT7z_nUv5mg9qRdwnNAX-lIrnI";
+    		let gid_overall = "1520535624";
+    		let gid_earnings = "1425386487";
+
     		// if (nate) {
     		// 	spreadsheet_id = "1Ur-zgH5O5iwTJ3J5pUXT-hu1irNo9W5NfJwWa5RxiW0"
     		// }
     		// First we hit the Overall Standings sheet
-    		// const endpointOverall = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_overall
-    		const endpointOverall = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/overall`;
+    		const endpointOverall = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_overall;
 
+    		// const endpointOverall = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/overall`
     		const response = await fetch(endpointOverall);
+
     		const text = await response.text();
     		const raw = await JSON.parse(text.substring(47).slice(0, -2)).table;
     		const overallData = raw.rows.filter(r => r.c[3] != null);
 
     		// Then we hit the Golfer Earnings sheet
-    		// const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_earnings
-    		const endpointGolferEarnings = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/golfer-earnings`;
+    		const endpointGolferEarnings = `https://docs.google.com/spreadsheets/d/` + spreadsheet_id + `/gviz/tq?tqx=out:json&tq&gid=` + gid_earnings;
 
+    		// const endpointGolferEarnings = `https://kvdb.io/vRrcDLPTr4WWpVTJxim1H/golfer-earnings`
     		const response2 = await fetch(endpointGolferEarnings);
+
     		const text2 = await response2.text();
     		const data = await JSON.parse(text2.substring(47).slice(0, -2)).table;
     		const cols = data.cols.map(col => col.label);
