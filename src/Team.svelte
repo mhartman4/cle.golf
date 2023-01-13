@@ -2,8 +2,7 @@
 	import Roster from "./Roster.svelte"
 	export let team, placeNumber, isFavorite, activeGolferCounts
 	team.roster = team.roster.sort((a,b) => b.sort - a.sort)
-	console.log(team.teamName)
-	console.log(team.roster[0])
+	
 	// $: pictureUrl = "https://pga-tour-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,g_face:center,h_45,q_auto,t_headshots_leaderboard_l,w_45/headshots_" + team.roster[0].id + ".png"
 
     let rosterVisible = false
