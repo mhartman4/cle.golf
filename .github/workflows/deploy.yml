@@ -1,5 +1,6 @@
-jobs:
-  deploy:
+on:
+  push:
+    branches: "*"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
