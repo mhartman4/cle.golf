@@ -18,9 +18,9 @@ jobs:
       - name: Sync files to S3
         run: aws s3 sync . s3://cle.golf --delete
       - name: Send Slack message
-          uses: slack/webhook@v1
-          env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_NERDY_STUFF_WEBHOOK_URL }}
-          with:
-            text: "✅ 🏌️ cle.golf deployed!"
+        uses: slack/webhook@v1
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_NERDY_STUFF_WEBHOOK_URL }}
+        with:
+          text: "✅ 🏌️ cle.golf deployed!"
           
