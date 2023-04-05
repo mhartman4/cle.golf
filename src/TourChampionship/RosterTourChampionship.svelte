@@ -1,6 +1,6 @@
 <script>
 	import { slide } from 'svelte/transition'
-	export let roster, teamName
+	export let roster
 </script>
 
 <div class="roster" transition:slide>
@@ -8,7 +8,7 @@
 		<thead>
 			<tr>
 				<th class='roster-header'>Golfer</th>
-                <th class='roster-header'><img src="https://www.fedex.com/etc.clientlibs/designs/fedex-common/images/resources/fx-favicon.ico"></th>
+                <th class='roster-header'><img alt="FedEx" src="https://www.fedex.com/etc.clientlibs/designs/fedex-common/images/resources/fx-favicon.ico"></th>
                 <th class='roster-header'>Pos</th>
                 <th class='roster-header'>Total</th>
                 <th class='roster-header'>Today</th>

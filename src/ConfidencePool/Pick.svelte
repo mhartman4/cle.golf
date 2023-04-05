@@ -1,5 +1,5 @@
 <script>
-	export let entry,team,wager,pointswon,pointslost
+	export let team,wager,pointswon,pointslost
 	let pickstatus = pointswon > 0 ? "won" : pointslost >0 ? "lost" : "notplayed"
 </script>
 
