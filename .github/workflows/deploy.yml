@@ -1,4 +1,4 @@
-name: Deploy Website to S3 and Send Slack Notification
+name: ✅ 🏌️ Deployed cle.golf!
 
 on: [push]
 
