@@ -1,6 +1,13 @@
+name: Deploy Website to S3 and Send Slack Notification
+
 on:
   push:
-    branches: "*"
+    branches:
+      - master
+      - main
+
+jobs:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
