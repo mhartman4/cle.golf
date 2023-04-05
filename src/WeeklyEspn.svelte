@@ -35,16 +35,26 @@
 
     	const response = await fetch(endpoint)
 		const json = await response.json()
-		switch(leagueSlug) {
-		  case "pga":
-		    tourneyName = json.events[0].name
-		    break;
-		  case "liv":
-		    livTourneyName = json.events[0].name
-		    break;
-		  case "eur":
-		    eurTourneyName = json.events[0].name
-		    break;
+	
+		if (json.events.length == 0 || json.events[0].name == "Hero Cup") {
+			var dateDiff = -100
+
+		}
+		else {
+			var dateDiff = Math.floor((new Date() - Date.parse(json.events[0].endDate)) / (1000*60*60*24))
+		}
+		if (dateDiff >= -4 && dateDiff <= 4) {	
+			switch(leagueSlug) {
+			  case "pga":
+			    tourneyName = json.events[0].name
+			    break;
+			  case "liv":
+			    livTourneyName = json.events[0].name
+			    break;
+			  case "eur":
+			    eurTourneyName = json.events[0].name
+			    break;
+			}
 		}
 		golfers = json.events[0].competitions[0].competitors	
 		
