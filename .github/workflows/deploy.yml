@@ -1,34 +1,29 @@
 name: Deploy Website to S3 and Send Slack Notification
 
-on:
-  push:
-    branches:
-      - master
-      - main
+on: [push]
 
 jobs:
-  deploy:
+  run:
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install AWS CLI
-        uses: aws-actions/aws-cli@v1
-      - name: Configure AWS credentials
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-        run: |
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-          aws configure set default.region us-east-1
-      - name: Sync files to S3
-        run: aws s3 sync . s3://cle.golf --delete
-      - name: Send Slack message
-        uses: slack/webhook@v1
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_NERDY_STUFF_WEBHOOK_URL }}
+      - uses: actions/checkout@v3
+      - name: Deploy to S3
+        uses: reggionick/s3-deploy@v3
         with:
-          text: "✅ 🏌️ cle.golf deployed!"
+          folder: public
+          bucket: cle.golf
+          bucket-region: us-east-1
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: ".*/*,*/*,**"
+      - name: Send Slack message
+        uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_NERDY_STUFF_WEBHOOK_URL }}
+        if: always()
           
