@@ -4,4 +4,3 @@ Gemfile.lock
 football/.DS_Store
 .DS_Store
 node_modules/*
-.github/workflows/deploy.yml
