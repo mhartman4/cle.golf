@@ -8641,7 +8641,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (181:0) {:else}
+    // (185:0) {:else}
     function create_else_block_1$1(ctx) {
     	let img;
     	let img_src_value;
@@ -8655,8 +8655,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$5, 181, 1, 5692);
-    			add_location(span, file$5, 181, 127, 5818);
+    			add_location(img, file$5, 185, 1, 5821);
+    			add_location(span, file$5, 185, 127, 5947);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -8673,14 +8673,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(181:0) {:else}",
+    		source: "(185:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (179:0) {#if tourneyName}
+    // (183:0) {#if tourneyName}
     function create_if_block_4$1(ctx) {
     	let h1;
     	let t;
@@ -8690,7 +8690,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-ih46r3");
-    			add_location(h1, file$5, 179, 1, 5639);
+    			add_location(h1, file$5, 183, 1, 5768);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8708,14 +8708,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4$1.name,
     		type: "if",
-    		source: "(179:0) {#if tourneyName}",
+    		source: "(183:0) {#if tourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (184:0) {#if livTourneyName}
+    // (188:0) {#if livTourneyName}
     function create_if_block_3$2(ctx) {
     	let h1;
     	let t;
@@ -8725,7 +8725,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*livTourneyName*/ ctx[2]);
     			attr_dev(h1, "class", "tourney-name liv svelte-ih46r3");
-    			add_location(h1, file$5, 183, 20, 5890);
+    			add_location(h1, file$5, 187, 20, 6019);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8743,14 +8743,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$2.name,
     		type: "if",
-    		source: "(184:0) {#if livTourneyName}",
+    		source: "(188:0) {#if livTourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (185:0) {#if eurTourneyName}
+    // (189:0) {#if eurTourneyName}
     function create_if_block_2$2(ctx) {
     	let h1;
     	let t;
@@ -8760,7 +8760,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*eurTourneyName*/ ctx[3]);
     			attr_dev(h1, "class", "tourney-name eur svelte-ih46r3");
-    			add_location(h1, file$5, 184, 20, 5966);
+    			add_location(h1, file$5, 188, 20, 6095);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8778,14 +8778,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$2.name,
     		type: "if",
-    		source: "(185:0) {#if eurTourneyName}",
+    		source: "(189:0) {#if eurTourneyName}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (201:1) {:else}
+    // (205:1) {:else}
     function create_else_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -8799,8 +8799,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://a.espncdn.com/favicon.ico")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$5, 201, 2, 6399);
-    			add_location(span, file$5, 201, 81, 6478);
+    			add_location(img, file$5, 205, 2, 6528);
+    			add_location(span, file$5, 205, 81, 6607);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -8819,14 +8819,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(201:1) {:else}",
+    		source: "(205:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (197:17) 
+    // (201:17) 
     function create_if_block_1$2(ctx) {
     	let div;
     	let code;
@@ -8841,9 +8841,9 @@ var app = (function () {
     			t0 = text("🚨 ");
     			t1 = text(/*error*/ ctx[4]);
     			t2 = text(" 🚨");
-    			add_location(code, file$5, 198, 3, 6352);
+    			add_location(code, file$5, 202, 3, 6481);
     			attr_dev(div, "class", "error svelte-ih46r3");
-    			add_location(div, file$5, 197, 2, 6329);
+    			add_location(div, file$5, 201, 2, 6458);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8866,14 +8866,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$2.name,
     		type: "if",
-    		source: "(197:17) ",
+    		source: "(201:17) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (187:1) {#if teams}
+    // (191:1) {#if teams}
     function create_if_block$2(ctx) {
     	let each_1_anchor;
     	let current;
@@ -8962,14 +8962,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(187:1) {#if teams}",
+    		source: "(191:1) {#if teams}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (188:2) {#each teams as team, i}
+    // (192:2) {#each teams as team, i}
     function create_each_block$4(ctx) {
     	let table;
     	let tr;
@@ -8994,12 +8994,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$5, 190, 5, 6144);
-    			add_location(tr, file$5, 189, 4, 6134);
+    			add_location(td, file$5, 194, 5, 6273);
+    			add_location(tr, file$5, 193, 4, 6263);
     			attr_dev(table, "class", "team svelte-ih46r3");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$5, 188, 3, 6085);
+    			add_location(table, file$5, 192, 3, 6214);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -9034,7 +9034,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(188:2) {#each teams as team, i}",
+    		source: "(192:2) {#each teams as team, i}",
     		ctx
     	});
 
@@ -9091,11 +9091,11 @@ var app = (function () {
     			a = element("a");
     			t4 = text("🔄");
     			attr_dev(div0, "class", "teams");
-    			add_location(div0, file$5, 185, 0, 6022);
+    			add_location(div0, file$5, 189, 0, 6151);
     			attr_dev(a, "href", a_href_value = window.location.origin + window.location.pathname + "?v=" + new Date().valueOf());
     			attr_dev(a, "class", "svelte-ih46r3");
-    			add_location(a, file$5, 205, 1, 6532);
-    			add_location(div1, file$5, 204, 0, 6525);
+    			add_location(a, file$5, 209, 1, 6661);
+    			add_location(div1, file$5, 208, 0, 6654);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9422,6 +9422,13 @@ var app = (function () {
     				if (matches.length > 0) {
     					const golfer = matches[0];
     					player.isPlaying = true;
+
+    					golfer.statistics.forEach(s => {
+    						if (s.name == "scoreToPar") {
+    							player.total = s.displayValue;
+    						}
+    					});
+
     					player.position = golfer.status.position.displayName;
     					player.projMoney = golfer.estimatedEarnings;
 
@@ -9430,8 +9437,10 @@ var app = (function () {
     					}
 
     					player.pgaStatus = golfer.status.shortDetail;
-    					player.total = golfer.score.displayValue;
+
+    					// player.total = golfer.score.displayValue
     					player.today = golfer.linescores.at(-1).displayValue;
+
     					player.thru = golfer.status.thru;
     					player.league = leagueSlug;
     					player.sort = golfer.estimatedEarnings;
