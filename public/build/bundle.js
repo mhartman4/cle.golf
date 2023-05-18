@@ -8655,8 +8655,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$5, 185, 1, 5821);
-    			add_location(span, file$5, 185, 127, 5947);
+    			add_location(img, file$5, 185, 1, 5855);
+    			add_location(span, file$5, 185, 127, 5981);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -8690,7 +8690,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*tourneyName*/ ctx[1]);
     			attr_dev(h1, "class", "tourney-name svelte-ih46r3");
-    			add_location(h1, file$5, 183, 1, 5768);
+    			add_location(h1, file$5, 183, 1, 5802);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8725,7 +8725,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*livTourneyName*/ ctx[2]);
     			attr_dev(h1, "class", "tourney-name liv svelte-ih46r3");
-    			add_location(h1, file$5, 187, 20, 6019);
+    			add_location(h1, file$5, 187, 20, 6053);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8760,7 +8760,7 @@ var app = (function () {
     			h1 = element("h1");
     			t = text(/*eurTourneyName*/ ctx[3]);
     			attr_dev(h1, "class", "tourney-name eur svelte-ih46r3");
-    			add_location(h1, file$5, 188, 20, 6095);
+    			add_location(h1, file$5, 188, 20, 6129);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8799,8 +8799,8 @@ var app = (function () {
     			attr_dev(img, "class", "sheets-icon");
     			if (img.src !== (img_src_value = "https://a.espncdn.com/favicon.ico")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Loading");
-    			add_location(img, file$5, 205, 2, 6528);
-    			add_location(span, file$5, 205, 81, 6607);
+    			add_location(img, file$5, 205, 2, 6562);
+    			add_location(span, file$5, 205, 81, 6641);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -8841,9 +8841,9 @@ var app = (function () {
     			t0 = text("🚨 ");
     			t1 = text(/*error*/ ctx[4]);
     			t2 = text(" 🚨");
-    			add_location(code, file$5, 202, 3, 6481);
+    			add_location(code, file$5, 202, 3, 6515);
     			attr_dev(div, "class", "error svelte-ih46r3");
-    			add_location(div, file$5, 201, 2, 6458);
+    			add_location(div, file$5, 201, 2, 6492);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8994,12 +8994,12 @@ var app = (function () {
     			td = element("td");
     			create_component(team.$$.fragment);
     			t = space();
-    			add_location(td, file$5, 194, 5, 6273);
-    			add_location(tr, file$5, 193, 4, 6263);
+    			add_location(td, file$5, 194, 5, 6307);
+    			add_location(tr, file$5, 193, 4, 6297);
     			attr_dev(table, "class", "team svelte-ih46r3");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$5, 192, 3, 6214);
+    			add_location(table, file$5, 192, 3, 6248);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -9091,11 +9091,11 @@ var app = (function () {
     			a = element("a");
     			t4 = text("🔄");
     			attr_dev(div0, "class", "teams");
-    			add_location(div0, file$5, 189, 0, 6151);
+    			add_location(div0, file$5, 189, 0, 6185);
     			attr_dev(a, "href", a_href_value = window.location.origin + window.location.pathname + "?v=" + new Date().valueOf());
     			attr_dev(a, "class", "svelte-ih46r3");
-    			add_location(a, file$5, 209, 1, 6661);
-    			add_location(div1, file$5, 208, 0, 6654);
+    			add_location(a, file$5, 209, 1, 6695);
+    			add_location(div1, file$5, 208, 0, 6688);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9278,7 +9278,7 @@ var app = (function () {
     			return Number(a.status.position.id) - Number(b.status.position.id);
     		});
 
-    		var purse = json.events[0].purse;
+    		var purse = json.events[0].purse ? json.events[0].purse : 15000000;
 
     		var payoutPercentages = [
     			null,
