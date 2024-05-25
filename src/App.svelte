@@ -6,6 +6,7 @@
 	import WeeklyTourChampionship from "./TourChampionship/WeeklyTourChampionship.svelte"
 	import Overall from "./Overall.svelte"
 	import ConfidencePool from "./ConfidencePool/ConfidencePool.svelte"
+	import ConfidencePoolEntryForm from "./ConfidencePool/ConfidencePoolEntryForm.svelte"
 	import { onMount } from "svelte"
   	let pages = ["Weekly","Overall"]
 	
@@ -13,13 +14,14 @@
 
 	let dvLeague = window.location.href.includes("?league=dv")
 	let confidencePool = window.location.href.includes("?confidence")
+	let confidencePoolEntry = window.location.href.includes("?enterconfidence")
 
 </script>
 
 {#if confidencePool}
-	<div id="main">
-		<ConfidencePool />
-	</div>
+	<div id="main"><ConfidencePool /></div>
+{:else if confidencePoolEntry}
+	<div id="main"><ConfidencePoolEntryForm /></div>
 {:else}
 	<div id="main" class={dvLeague ? "dv" : ""}>
 		{#if dvLeague}
