@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-   <script>
-    window.location.replace("/public/?confidence");
-    
-     
-  </script>
   
   <meta property="og:title" content="Confidence Pool"/>
   <meta property="og:image" content="https://i.imgur.com/1E2IfrA.jpg"/>
@@ -19,8 +13,24 @@
   <meta name='viewport' content='width=device-width,initial-scale=1'>
 
   <title>Confidence Pool</title>
+  <style type="text/css">
+            body, html
+            {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
+
+            #content
+            {
+                position:absolute; left: 0; right: 0; bottom: 0; top: 0px; 
+            }
+        </style>
 
   <link rel="icon" href="favicon.ico">
 </head>
+<body>
+   <div id="content">
+      <iframe width="100%" height="100%" frameborder="0" src="https://the-confidence-pool-9352b8d6bb4f.herokuapp.com/"></iframe>
+   </div>
+</body>
 
 </html>
