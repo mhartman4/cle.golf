@@ -14976,7 +14976,7 @@ var app = (function () {
     }
 
     function instance$h($$self, $$props, $$invalidate) {
-    	let spreadsheet_id = "1N2tavjuLDneq5F9wpYvBMamWxJLKVUXV1Nv1__hKc5M";
+    	let spreadsheet_id = "1e52cCrJJrZg6HPeXuAeeAtHD9ZSo1Zhwjvkh3tJsAKU";
     	let picks, standings;
 
     	onMount(async () => {
