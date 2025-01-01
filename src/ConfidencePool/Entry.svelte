@@ -19,6 +19,14 @@
 			});
     	}
     }
+    picks.forEach(p => {
+    	if (p.Team.includes(" SF") || p.Team.includes(" QF") || p.Team.includes(" NC")) {
+    		p.bracketPick = true
+    	}
+    	else {
+    		p.bracketPick = false
+    	}
+    })
 </script>
 <div class="team">
 	<div class="team" on:click={togglePicks}>
@@ -42,13 +50,22 @@
 			<div class="point-picks">
 					{#each points as point}
 						{#each picks_no_champs as pick}
-							{#if pick["Wager"] === point}
+							{#if pick.Wager === point && !pick.bracketPick}
 								<span class="point-value {pick['Points Won'] > 0 ? 'pickwon' : pick['Points Lost'] > 0 ? 'picklost' : ''} ">
 									{point}
 								</span>
 							{/if}
 						{/each}
 					{/each}
+			</div>
+			<div class="point-picks" id="bracket-picks">
+				{#each picks as pick}
+					{#if pick.bracketPick}
+						<span class="point-value {pick['Points Won'] > 0 ? 'pickwon' : pick['Points Lost'] > 0 ? 'picklost' : ''} ">
+									{pick.Team}
+						</span>
+					{/if}
+				{/each}
 			</div>
 		</div>
 		
@@ -179,6 +196,12 @@
 	}
 	.picklost {
 		background-color: #dc3545;
+	}
+	h3 {
+		color: lightslategrey;
+	    font-size: 12px;
+	    font-family: "Roboto";
+	    margin: 2px;
 	}
 	
 </style>
