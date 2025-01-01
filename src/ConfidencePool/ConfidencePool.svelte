@@ -6,7 +6,8 @@
 
 	let picks,standings
 
-	
+	// let lastRefresh = localStorage.getItem("name") ? localStorage.getItem("name") : ""
+	// $: localStorage.setItem("games", JSON.stringify(games));
 	
 	
 

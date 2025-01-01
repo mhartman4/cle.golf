@@ -14886,7 +14886,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (85:0) {#if standings && picks}
+    // (86:0) {#if standings && picks}
     function create_if_block$a(ctx) {
     	let each_1_anchor;
     	let current;
@@ -14975,14 +14975,14 @@ var app = (function () {
     		block,
     		id: create_if_block$a.name,
     		type: "if",
-    		source: "(85:0) {#if standings && picks}",
+    		source: "(86:0) {#if standings && picks}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (86:1) {#each standings as entry, i}
+    // (87:1) {#each standings as entry, i}
     function create_each_block$c(ctx) {
     	let table;
     	let tr;
@@ -15008,12 +15008,12 @@ var app = (function () {
     			td = element("td");
     			create_component(entry.$$.fragment);
     			t = space();
-    			add_location(td, file$h, 88, 4, 2121);
-    			add_location(tr, file$h, 87, 3, 2112);
+    			add_location(td, file$h, 89, 4, 2267);
+    			add_location(tr, file$h, 88, 3, 2258);
     			attr_dev(table, "class", "team svelte-yqzzuz");
     			attr_dev(table, "width", "100%");
     			attr_dev(table, "border", "0");
-    			add_location(table, file$h, 86, 2, 2064);
+    			add_location(table, file$h, 87, 2, 2210);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -15050,7 +15050,7 @@ var app = (function () {
     		block,
     		id: create_each_block$c.name,
     		type: "each",
-    		source: "(86:1) {#each standings as entry, i}",
+    		source: "(87:1) {#each standings as entry, i}",
     		ctx
     	});
 
@@ -15072,7 +15072,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
     			attr_dev(h1, "class", "svelte-yqzzuz");
-    			add_location(h1, file$h, 81, 1, 1912);
+    			add_location(h1, file$h, 82, 1, 2058);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -15140,6 +15140,8 @@ var app = (function () {
     	let spreadsheet_id = "1e52cCrJJrZg6HPeXuAeeAtHD9ZSo1Zhwjvkh3tJsAKU";
     	let picks, standings;
 
+    	// let lastRefresh = localStorage.getItem("name") ? localStorage.getItem("name") : ""
+    	// $: localStorage.setItem("games", JSON.stringify(games));
     	onMount(async () => {
     		$$invalidate(0, picks = await getPicks());
     		$$invalidate(1, standings = await getStandings());
